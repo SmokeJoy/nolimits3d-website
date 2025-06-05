@@ -1,0 +1,784 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: 250 250 250;
+    --fg-primary: 10 10 10;
+    --bg-secondary: 255 255 255;
+    --fg-secondary: 64 64 64;
+    --accent: 34 197 94;
+    --accent-hover: 22 163 74;
+    --accent-glow: 34 197 94;
+    --shadow-color: 0 0 0;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+  }
+
+  [data-theme="dark"] {
+    --bg-primary: 0 0 0;
+    --fg-primary: 255 255 255;
+    --bg-secondary: 15 15 15;
+    --fg-secondary: 200 200 200;
+    --accent: 34 197 94;
+    --accent-hover: 22 163 74;
+    --accent-glow: 34 197 94;
+    --shadow-color: 0 0 0;
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+
+  html {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+    background: linear-gradient(135deg, rgb(var(--bg-primary)) 0%, rgb(var(--bg-secondary)) 100%);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+  }
+
+  [data-theme="dark"] body {
+    @apply bg-black text-white;
+    background: linear-gradient(135deg, #000000 0%, #111111 50%, #000000 100%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    background: linear-gradient(135deg, rgb(var(--accent)) 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(var(--accent-glow), 0.3));
+  }
+
+  /* Animazioni magnetiche che ipnotizzano */
+  * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Effetto parallax per elementi */
+  .parallax-element {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+  }
+
+  .parallax-element:hover {
+    transform: translateZ(20px) scale(1.02);
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+
+  /* Button che magnetizza l'attenzione */
+  .btn-magnetic {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, rgb(var(--accent)) 0%, #10b981 100%);
+    box-shadow: 
+      0 4px 20px rgba(var(--accent), 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(var(--accent), 0.3);
+  }
+
+  .btn-magnetic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-magnetic:hover::before {
+    left: 100%;
+  }
+
+  .btn-magnetic:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+      0 8px 30px rgba(var(--accent), 0.6),
+      0 0 40px rgba(var(--accent), 0.3);
+  }
+
+  .btn-magnetic:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Card con effetto glass morphism */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 60px rgba(var(--accent), 0.1);
+  }
+
+  /* Input hypnotic */
+  .input-hypnotic {
+    @apply w-full px-4 py-3 rounded-xl border-2 transition-all duration-300;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(var(--accent), 0.2);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-hypnotic:focus {
+    outline: none;
+    border-color: rgb(var(--accent));
+    box-shadow: 
+      0 0 0 3px rgba(var(--accent), 0.1),
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 20px rgba(var(--accent), 0.2);
+    transform: scale(1.02);
+  }
+
+  /* Hero section ipnotizzante */
+  .hero-bg {
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(var(--accent), 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(var(--accent), 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(var(--accent), 0.1) 0%, transparent 50%);
+    animation: hero-pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes hero-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* Floating elements */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .floating:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  .floating:nth-child(3) {
+    animation-delay: -4s;
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    filter: drop-shadow(0 0 10px rgba(var(--accent), 0.8));
+    animation: neon-pulse 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes neon-pulse {
+    from { filter: drop-shadow(0 0 10px rgba(var(--accent), 0.8)); }
+    to { filter: drop-shadow(0 0 20px rgba(var(--accent), 1)); }
+  }
+
+  /* Custom slow pulse animation */
+  .animate-pulse-slow {
+    animation: gentle-breathing 4s ease-in-out infinite;
+  }
+
+  @keyframes gentle-breathing {
+    0%, 100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+  }
+
+  /* Neon glow hover effect per video player */
+  .neon-glow-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neon-glow-hover:hover {
+    filter: drop-shadow(0 0 15px rgba(var(--accent), 0.8));
+    box-shadow: 0 0 25px rgba(var(--accent), 0.4);
+  }
+
+  /* Fade in animation per modal */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Hover effects magnetici per video player */
+  .group:hover .group-hover\:scale-\[1\.02\] {
+    transform: scale(1.02);
+  }
+
+  .group:hover .group-hover\:brightness-110 {
+    filter: brightness(1.1);
+  }
+
+  .group:hover .group-hover\:from-black\/90 {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  }
+
+  .group:hover .group-hover\:text-green-400 {
+    color: rgb(74, 222, 128);
+  }
+
+  .group:hover .group-hover\:text-white {
+    color: white;
+  }
+
+  .group:hover .group-hover\:border-green-500\/60 {
+    border-color: rgba(34, 197, 94, 0.6);
+  }
+
+  .group:hover .group-hover\:bg-green-500\/10 {
+    background-color: rgba(34, 197, 94, 0.1);
+  }
+
+  .group:hover .group-hover\:border-blue-500\/60 {
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+
+  .group:hover .group-hover\:bg-blue-500\/10 {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+
+  .group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+  }
+
+  .group:hover .group-hover\:translate-y-0 {
+    transform: translateY(0);
+  }
+
+  .translate-y-2 {
+    transform: translateY(0.5rem);
+  }
+
+  .group:hover .group-hover\:shadow-green-500\/25 {
+    box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.25);
+  }
+
+  /* TIME-LAPSE SPECIFIC STYLES - IPNOTIZZANTI E SICURI */
+  .timelapse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .timelapse-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(var(--accent), 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+
+  .timelapse-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(var(--accent), 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(var(--accent), 0.6);
+  }
+
+  .timelapse-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .timelapse-video-overlay:hover {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+  }
+
+  .timelapse-play-button {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, rgb(var(--accent)), #10b981);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+      0 8px 20px rgba(var(--accent), 0.4),
+      0 0 30px rgba(var(--accent), 0.3);
+  }
+
+  .timelapse-play-button:hover {
+    transform: scale(1.15);
+    box-shadow: 
+      0 12px 30px rgba(var(--accent), 0.6),
+      0 0 50px rgba(var(--accent), 0.5);
+  }
+
+  .timelapse-category-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--accent), 0.3);
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgb(var(--accent));
+  }
+
+  .timelapse-duration-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  /* Modal Video Player - SICURO E SPETTACOLARE */
+  .timelapse-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .timelapse-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    background: #000;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(var(--accent), 0.3);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 100px rgba(var(--accent), 0.2);
+  }
+
+  .timelapse-video-container {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .timelapse-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .timelapse-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .timelapse-control-button {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .timelapse-control-button:hover {
+    border-color: rgb(var(--accent));
+    background: rgba(var(--accent), 0.2);
+    transform: scale(1.1);
+  }
+
+  .timelapse-control-button.primary {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, rgb(var(--accent)), #10b981);
+    border-color: rgb(var(--accent));
+  }
+
+  .timelapse-control-button.primary:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(var(--accent), 0.5);
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Error handling styles */
+  .timelapse-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* Loading states */
+  .timelapse-loading {
+    position: relative;
+    background: linear-gradient(90deg, transparent, rgba(var(--accent), 0.1), transparent);
+    animation: shimmer-hypnotic 2s infinite;
+  }
+
+  /* Accessibility improvements */
+  .timelapse-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .timelapse-focus-visible:focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+  }
+}
+
+/* Scrollbar personalizzata ipnotizzante */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--bg-secondary), 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgb(var(--accent)) 0%, #10b981 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(var(--accent), 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #10b981 0%, rgb(var(--accent)) 100%);
+  box-shadow: 0 0 20px rgba(var(--accent), 0.5);
+}
+
+/* Loading animation ipnotizzante */
+@keyframes shimmer-hypnotic {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}
+
+.loading-hypnotic {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent), 0.1), transparent);
+}
+
+.loading-hypnotic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent), 0.3), transparent);
+  animation: shimmer-hypnotic 2s infinite;
+}
+
+/* Particle background effect */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(var(--accent), 0.6);
+  border-radius: 50%;
+  animation: particle-float 20s infinite linear;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive magic */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-size: cover;
+  }
+  
+  .glass-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* ===== CUSTOM CHAT WIDGET STYLING ===== */
+/* Chat Widget Button */
+.chat-widget-button {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  box-shadow: 
+    0 4px 20px rgba(22, 163, 74, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chat-widget-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 6px 25px rgba(22, 163, 74, 0.6),
+    0 0 40px rgba(22, 163, 74, 0.3);
+}
+
+/* Chat Window */
+.chat-window {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(20px);
+}
+
+[data-theme="dark"] .chat-window {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* Chat Header */
+.chat-header {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  border-radius: 16px 16px 0 0;
+}
+
+/* Chat Messages */
+.chat-message {
+  animation: fadeInUp 0.3s ease-out;
+  transform-origin: bottom;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message-user {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+}
+
+.chat-message-assistant {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+[data-theme="dark"] .chat-message-assistant {
+  background: #374151;
+  color: #f9fafb;
+}
+
+/* Chat Input */
+.chat-input {
+  transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+[data-theme="dark"] .chat-input {
+  background: #374151;
+  border-color: #4b5563;
+  color: white;
+}
+
+/* Chat Send Button */
+.chat-send-button {
+  background: #16a34a;
+  transition: all 0.2s ease;
+}
+
+.chat-send-button:hover {
+  background: #15803d;
+  transform: scale(1.05);
+}
+
+.chat-send-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Loading dots animation */
+.loading-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  background: #9ca3af;
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chat-window {
+    width: 90vw !important;
+    max-width: 350px !important;
+    height: 70vh !important;
+    max-height: 500px !important;
+    bottom: 90px !important;
+    right: 15px !important;
+  }
+  
+  .chat-widget-button {
+    width: 56px !important;
+    height: 56px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+}
+
+/* Accessibility improvements */
+.chat-widget-button:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 2px;
+}
+
+.chat-input:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 2px;
+}
+
+/* Custom slow bounce animation for scroll indicator */
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-15px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
