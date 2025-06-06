@@ -96,7 +96,7 @@ const Header: React.FC = () => {
 
           {/* Titolo MAGNETICO */}
           <div className={`mb-8 transform transition-all duration-1200 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight">
               <span className="inline-block hover:scale-110 transition-transform duration-300 cursor-default">
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   NoLimits
@@ -109,20 +109,20 @@ const Header: React.FC = () => {
             
             {/* Sottotitolo con effetto typewriter */}
             <div className="relative">
-              <p className="text-xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-4">
-                🚀 <span className="font-semibold text-green-400">Trasforma le tue IDEE</span> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🚀
+              <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-4">
+                🚀 <span className="font-semibold text-green-400">Trasforma le tue IDEE</span><br className="sm:hidden" /> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🚀
               </p>
-              <p className="text-lg md:text-xl text-gray-300 font-medium mb-4">
-                Il tuo oggetto personalizzato stampato in 3D con precisione millimetrica
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 font-medium mb-6">
+                Il tuo oggetto personalizzato stampato in 3D<br className="sm:hidden" /> con precisione millimetrica
               </p>
               
-              {/* SLOGAN ACCATTIVANTI per privati */}
-              <div className="space-y-2 text-base md:text-lg">
+              {/* SLOGAN ACCATTIVANTI per privati - Mobile ottimizzato */}
+              <div className="space-y-3 text-sm sm:text-base md:text-lg">
                 <p className="text-yellow-400 font-bold">
-                  ✨ "Hai un'IDEA? Noi la rendiamo REALTÀ!" ✨
+                  ✨ "Hai un'IDEA?<br className="sm:hidden" /> Noi la rendiamo REALTÀ!" ✨
                 </p>
                 <p className="text-pink-400 font-bold">
-                  💝 "Il REGALO perfetto? Lo creiamo INSIEME!" 💝
+                  💝 "Il REGALO perfetto?<br className="sm:hidden" /> Lo creiamo INSIEME!" 💝
                 </p>
                 <p className="text-cyan-400 font-bold">
                   🎨 "Oggetti UNICI come TE!" 🎨
@@ -131,52 +131,52 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Badge MAGNETICI con statistiche */}
-          <div className={`flex flex-wrap justify-center gap-4 md:gap-6 mb-12 transform transition-all duration-1400 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="glass-card px-6 py-3 rounded-full floating border border-green-500/30">
+          {/* Badge MAGNETICI con statistiche - Mobile ottimizzato */}
+          <div className={`flex flex-wrap justify-center gap-3 md:gap-6 mb-12 transform transition-all duration-1400 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-green-500/30">
               <div className="flex items-center">
-                <Zap className="w-5 h-5 mr-2 text-yellow-400" />
-                <span className="text-sm md:text-base font-semibold">⚡ Preventivo in 2 ore</span>
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-yellow-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">⚡ Preventivo in 2 ore</span>
               </div>
             </div>
             
-            <div className="glass-card px-6 py-3 rounded-full floating border border-emerald-500/30">
+            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-emerald-500/30">
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
-                <span className="text-sm md:text-base font-semibold">🎁 Oggetti UNICI personalizzati</span>
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-green-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🎁 Oggetti UNICI</span>
               </div>
             </div>
             
-            <div className="glass-card px-6 py-3 rounded-full floating border border-green-400/30">
+            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-green-400/30">
               <div className="flex items-center">
-                <Star className="w-5 h-5 mr-2 text-emerald-400" />
-                <span className="text-sm md:text-base font-semibold">💝 Regali che STUPISCONO</span>
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-emerald-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">💝 Regali STUPENDI</span>
               </div>
             </div>
             
-            <div className="glass-card px-6 py-3 rounded-full floating border border-blue-500/30">
+            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-blue-500/30">
               <div className="flex items-center">
-                <Star className="w-5 h-5 mr-2 text-blue-400" />
-                <span className="text-sm md:text-base font-semibold">🚗 Consegna GRATIS in Ciociaria</span>
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 Consegna GRATIS</span>
               </div>
             </div>
           </div>
 
-          {/* CTA Buttons MAGNETICI */}
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 transform transition-all duration-1600 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+          {/* CTA Buttons MAGNETICI - Mobile ottimizzato */}
+          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 transform transition-all duration-1600 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <button 
               onClick={scrollToQuoteForm}
-              className="btn-magnetic text-white font-bold px-10 py-5 rounded-2xl text-lg md:text-xl flex items-center group shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
+              className="btn-magnetic text-white font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-lg md:text-xl flex items-center group shadow-2xl hover:shadow-green-500/50 transition-all duration-300 w-full sm:w-auto"
               aria-label="Richiedi un preventivo gratuito ora"
             >
-              <Sparkles className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform neon-glow" />
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:rotate-12 transition-transform neon-glow" />
               🎯 REALIZZA LA TUA IDEA
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+              <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" />
             </button>
             
             <a 
               href="#gallery" 
-              className="glass-card border-2 border-white/30 text-white hover:bg-white hover:text-black font-bold px-10 py-5 rounded-2xl text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="glass-card border-2 border-white/30 text-white hover:bg-white hover:text-black font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto text-center"
               aria-label="Scopri gli oggetti personalizzati che creiamo"
             >
               🎨 Oggetti Personalizzati
