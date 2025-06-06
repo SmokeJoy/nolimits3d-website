@@ -95,8 +95,8 @@ const Header: React.FC = () => {
           </div>
 
           {/* Titolo MAGNETICO */}
-          <div className={`mb-8 transform transition-all duration-1200 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-4 leading-tight">
+          <div className={`mb-6 sm:mb-8 transform transition-all duration-1200 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-3 sm:mb-4 leading-tight">
               <span className="inline-block hover:scale-110 transition-transform duration-300 cursor-default">
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   NoLimits
@@ -109,20 +109,25 @@ const Header: React.FC = () => {
             
             {/* Sottotitolo con effetto typewriter */}
             <div className="relative">
-              <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-4">
-                🚀 <span className="font-semibold text-green-400">Trasforma le tue IDEE</span><br className="sm:hidden" /> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🚀
+              {/* Mobile: testo più corto e compatto */}
+              <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-3 sm:mb-4">
+                <span className="block sm:inline">🚀 <span className="font-semibold text-green-400">Trasforma le IDEE</span></span>
+                <span className="block sm:inline"> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🚀</span>
               </p>
-              <p className="text-base sm:text-lg md:text-xl text-gray-300 font-medium mb-6">
-                Il tuo oggetto personalizzato stampato in 3D<br className="sm:hidden" /> con precisione millimetrica
+              <p className="text-sm sm:text-lg md:text-xl text-gray-300 font-medium mb-4 sm:mb-6">
+                <span className="block sm:inline">Stampa 3D personalizzata</span>
+                <span className="block sm:inline"> con precisione millimetrica</span>
               </p>
               
-              {/* SLOGAN ACCATTIVANTI per privati - Mobile ottimizzato */}
-              <div className="space-y-3 text-sm sm:text-base md:text-lg">
+              {/* SLOGAN ACCATTIVANTI - Mobile compatto */}
+              <div className="space-y-2 sm:space-y-3 text-xs sm:text-base md:text-lg">
                 <p className="text-yellow-400 font-bold">
-                  ✨ "Hai un'IDEA?<br className="sm:hidden" /> Noi la rendiamo REALTÀ!" ✨
+                  <span className="block sm:inline">✨ "Hai un'IDEA?</span>
+                  <span className="block sm:inline"> Noi la rendiamo REALTÀ!" ✨</span>
                 </p>
                 <p className="text-pink-400 font-bold">
-                  💝 "Il REGALO perfetto?<br className="sm:hidden" /> Lo creiamo INSIEME!" 💝
+                  <span className="block sm:inline">💝 "Il REGALO perfetto?</span>
+                  <span className="block sm:inline"> Lo creiamo INSIEME!" 💝</span>
                 </p>
                 <p className="text-cyan-400 font-bold">
                   🎨 "Oggetti UNICI come TE!" 🎨
@@ -131,52 +136,52 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Badge MAGNETICI con statistiche - Mobile ottimizzato */}
-          <div className={`flex flex-wrap justify-center gap-3 md:gap-6 mb-12 transform transition-all duration-1400 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-green-500/30">
+          {/* Badge MAGNETICI - Mobile super compatto */}
+          <div className={`flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 sm:mb-12 transform transition-all duration-1400 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-green-500/30">
               <div className="flex items-center">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-yellow-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">⚡ Preventivo in 2 ore</span>
+                <Zap className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-yellow-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">⚡ 2 ore</span>
               </div>
             </div>
             
-            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-emerald-500/30">
+            <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-emerald-500/30">
               <div className="flex items-center">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-green-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">🎁 Oggetti UNICI</span>
+                <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-green-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🎁 UNICI</span>
               </div>
             </div>
             
-            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-green-400/30">
+            <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-green-400/30">
               <div className="flex items-center">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-emerald-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">💝 Regali STUPENDI</span>
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-emerald-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">💝 STUPENDI</span>
               </div>
             </div>
             
-            <div className="glass-card px-4 py-2 sm:px-6 sm:py-3 rounded-full floating border border-blue-500/30">
+            <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-blue-500/30">
               <div className="flex items-center">
-                <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 Consegna GRATIS</span>
+                <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-blue-400" />
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 GRATIS</span>
               </div>
             </div>
           </div>
 
-          {/* CTA Buttons MAGNETICI - Mobile ottimizzato */}
-          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 transform transition-all duration-1600 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+          {/* CTA Buttons - Mobile ottimizzato */}
+          <div className={`flex flex-col gap-3 sm:gap-4 md:gap-6 justify-center items-center mb-8 sm:mb-12 transform transition-all duration-1600 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <button 
               onClick={scrollToQuoteForm}
-              className="btn-magnetic text-white font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-lg md:text-xl flex items-center group shadow-2xl hover:shadow-green-500/50 transition-all duration-300 w-full sm:w-auto"
+              className="btn-magnetic text-white font-bold px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg lg:text-xl flex items-center justify-center group shadow-2xl hover:shadow-green-500/50 transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-auto"
               aria-label="Richiedi un preventivo gratuito ora"
             >
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 group-hover:rotate-12 transition-transform neon-glow" />
-              🎯 REALIZZA LA TUA IDEA
-              <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 mr-2 group-hover:rotate-12 transition-transform neon-glow" />
+              <span className="truncate">🎯 REALIZZA LA TUA IDEA</span>
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform flex-shrink-0" />
             </button>
             
             <a 
               href="#gallery" 
-              className="glass-card border-2 border-white/30 text-white hover:bg-white hover:text-black font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-2xl text-base sm:text-lg md:text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto text-center"
+              className="glass-card border-2 border-white/30 text-white hover:bg-white hover:text-black font-bold px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-xl sm:rounded-2xl text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full max-w-xs sm:max-w-sm md:w-auto text-center"
               aria-label="Scopri gli oggetti personalizzati che creiamo"
             >
               🎨 Oggetti Personalizzati
@@ -185,26 +190,26 @@ const Header: React.FC = () => {
 
           {/* Trust Indicators IPNOTIZZANTI */}
           <div className={`text-center transform transition-all duration-1800 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="glass-card inline-block px-8 py-6 rounded-2xl border border-green-500/20">
-              <p className="text-gray-300 text-sm md:text-base mb-4 font-medium">
+            <div className="glass-card inline-block px-4 py-3 sm:px-8 sm:py-6 rounded-xl sm:rounded-2xl border border-green-500/20 mx-4">
+              <p className="text-gray-300 text-xs sm:text-sm md:text-base mb-2 sm:mb-4 font-medium">
                 🏆 <span className="text-green-400 font-bold">CREIAMO OGGETTI UNICI</span> su Misura per Te 🏆
               </p>
-              <div className="flex justify-center items-center space-x-6 text-xs md:text-sm text-gray-400">
+              <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs md:text-sm text-gray-400">
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                  <span>🎁 Regali Personalizzati</span>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full mr-1 sm:mr-2"></div>
+                  <span>🎁 Regali</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-                  <span>✨ Idee Realizzate</span>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full mr-1 sm:mr-2"></div>
+                  <span>✨ Idee</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span>💝 Oggetti UNICI</span>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full mr-1 sm:mr-2"></div>
+                  <span>💝 UNICI</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-                  <span>🚗 Consegna Gratis Ciociaria</span>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full mr-1 sm:mr-2"></div>
+                  <span>🚗 Gratis</span>
                 </div>
               </div>
             </div>
