@@ -136,33 +136,33 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Badge MAGNETICI - Mobile super compatto */}
+          {/* Badge MAGNETICI - Mobile ottimizzato */}
           <div className={`flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-6 mb-8 sm:mb-12 transform transition-all duration-1400 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-green-500/30">
               <div className="flex items-center">
                 <Zap className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-yellow-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">⚡ 2 ore</span>
+                <span className="text-xs sm:text-sm md:text-base font-semibold">⚡ Preventivo in 2 ore</span>
               </div>
             </div>
             
             <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-emerald-500/30">
               <div className="flex items-center">
                 <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-green-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">🎁 UNICI</span>
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🎁 Oggetti UNICI personalizzati</span>
               </div>
             </div>
             
             <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-green-400/30">
               <div className="flex items-center">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-emerald-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">💝 STUPENDI</span>
+                <span className="text-xs sm:text-sm md:text-base font-semibold">💝 Regali che STUPISCONO</span>
               </div>
             </div>
             
             <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-blue-500/30">
               <div className="flex items-center">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-blue-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 GRATIS</span>
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 Consegna GRATIS in Ciociaria</span>
               </div>
             </div>
           </div>
@@ -197,19 +197,19 @@ const Header: React.FC = () => {
               <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs md:text-sm text-gray-400">
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full mr-1 sm:mr-2"></div>
-                  <span>🎁 Regali</span>
+                  <span>🎁 Regali Personalizzati</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full mr-1 sm:mr-2"></div>
-                  <span>✨ Idee</span>
+                  <span>✨ Idee Realizzate</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full mr-1 sm:mr-2"></div>
-                  <span>💝 UNICI</span>
+                  <span>💝 Oggetti UNICI</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full mr-1 sm:mr-2"></div>
-                  <span>🚗 Gratis</span>
+                  <span>🚗 Consegna Gratis Ciociaria</span>
                 </div>
               </div>
             </div>
