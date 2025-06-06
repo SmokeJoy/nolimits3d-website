@@ -4,16 +4,16 @@
 
 @layer base {
   :root {
-    --bg-primary: 250 250 250;
-    --fg-primary: 10 10 10;
-    --bg-secondary: 255 255 255;
-    --fg-secondary: 64 64 64;
+    --bg-primary: 15 23 42;
+    --fg-primary: 248 250 252;
+    --bg-secondary: 30 41 59;
+    --fg-secondary: 203 213 225;
     --accent: 34 197 94;
     --accent-hover: 22 163 74;
     --accent-glow: 34 197 94;
     --shadow-color: 0 0 0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(148, 163, 184, 0.2);
   }
 
   [data-theme="dark"] {
@@ -35,7 +35,7 @@
   }
   
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-slate-900 text-slate-100;
     background: linear-gradient(135deg, rgb(var(--bg-primary)) 0%, rgb(var(--bg-secondary)) 100%);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-x: hidden;
