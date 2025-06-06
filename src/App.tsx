@@ -144,7 +144,9 @@ function App() {
           </div>
 
           <div className="section-container relative z-10">
+            {/* Sezione Titolo IPNOTIZZANTE con effetti */}
             <div className="text-center mb-16">
+              {/* Icona centrale con animazioni */}
               <div className="flex items-center justify-center mb-6">
                 <div className="relative">
                   <Sparkles className="w-12 h-12 text-green-400 neon-glow" />
@@ -152,6 +154,7 @@ function App() {
                 </div>
               </div>
               
+              {/* Titolo principale MAGNETICO */}
               <h2 id="preventivo-heading" className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   REALIZZA
@@ -162,26 +165,36 @@ function App() {
                 </span>
               </h2>
               
+              {/* Sottotitolo ACCATTIVANTE */}
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-medium">
                 🎨 <span className="text-green-400 font-bold">Trasforma qualsiasi idea</span> in un <span className="text-emerald-400 font-bold">oggetto UNICO</span> 🎨
               </p>
               
-              <div className="flex flex-wrap justify-center gap-6 mt-8">
-                <div className="glass-card px-6 py-3 rounded-full border border-green-500/30 floating">
-                  <span className="text-green-400 font-bold">✅ Preventivo GRATUITO</span>
+              {/* Badge MAGNETICI per preventivo - Ottimizzati per MOBILE */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 mt-8 px-4">
+                {/* Badge Preventivo Gratuito */}
+                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-green-500/30 floating">
+                  <span className="text-green-400 font-bold text-xs sm:text-sm md:text-base">✅ Preventivo GRATUITO</span>
                 </div>
-                <div className="glass-card px-6 py-3 rounded-full border border-emerald-500/30 floating">
-                  <span className="text-emerald-400 font-bold">🎁 Oggetti PERSONALIZZATI</span>
+                
+                {/* Badge Oggetti Personalizzati */}
+                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-emerald-500/30 floating">
+                  <span className="text-emerald-400 font-bold text-xs sm:text-sm md:text-base">🎁 Oggetti PERSONALIZZATI</span>
                 </div>
-                <div className="glass-card px-6 py-3 rounded-full border border-green-400/30 floating">
-                  <span className="text-green-500 font-bold">💝 Regali che STUPISCONO</span>
+                
+                {/* Badge Regali che Stupiscono */}
+                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-green-400/30 floating">
+                  <span className="text-green-500 font-bold text-xs sm:text-sm md:text-base">💝 Regali che STUPISCONO</span>
                 </div>
-                <div className="glass-card px-6 py-3 rounded-full border border-blue-500/30 floating">
-                  <span className="text-blue-400 font-bold">🚗 Consegna GRATIS Ciociaria</span>
+                
+                {/* Badge Consegna Gratis - Su nuova riga mobile se necessario */}
+                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-blue-500/30 floating w-full sm:w-auto max-w-xs sm:max-w-none mx-auto sm:mx-0">
+                  <span className="text-blue-400 font-bold text-xs sm:text-sm md:text-base">🚗 Consegna GRATIS Ciociaria</span>
                 </div>
               </div>
             </div>
             
+            {/* Form di Preventivo MAGNETICO - Componente principale */}
             <div className="max-w-4xl mx-auto">
             <QuickQuoteForm />
           </div>
