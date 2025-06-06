@@ -162,7 +162,7 @@ const Header: React.FC = () => {
             <div className="glass-card px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full floating border border-blue-500/30">
               <div className="flex items-center">
                 <Star className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 mr-1 sm:mr-2 text-blue-400" />
-                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 Consegna GRATIS in Ciociaria</span>
+                <span className="text-xs sm:text-sm md:text-base font-semibold">🚗 Consegna GRATIS in Ciociaria (&gt;20€)</span>
               </div>
             </div>
           </div>
@@ -209,7 +209,7 @@ const Header: React.FC = () => {
                 </div>
                 <div className="flex items-center">
                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full mr-1 sm:mr-2"></div>
-                  <span>🚗 Consegna Gratis Ciociaria</span>
+                  <span>🚗 Consegna Gratis Ciociaria (&gt;20€)</span>
                 </div>
               </div>
             </div>
