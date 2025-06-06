@@ -115,7 +115,7 @@ const Header: React.FC = () => {
                 <span className="block sm:inline"> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🚀</span>
               </p>
               <p className="text-sm sm:text-lg md:text-xl text-gray-300 font-medium mb-4 sm:mb-6">
-                <span className="block sm:inline">Stampa 3D personalizzata</span>
+                <span className="block sm:inline">Il tuo oggetto personalizzato stampato in 3D</span>
                 <span className="block sm:inline"> con precisione millimetrica</span>
               </p>
               
