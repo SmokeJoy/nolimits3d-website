@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Per dominio personalizzato nolimits3d.store
+  base: '/', // Importante per GitHub Pages con dominio personalizzato
   build: {
     outDir: 'dist',
     sourcemap: false,
