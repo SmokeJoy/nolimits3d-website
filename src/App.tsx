@@ -129,9 +129,11 @@ function App() {
 
       <Header />
       
+      {/* Contenuto principale del sito */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none relative">
-      <Services />
-      
+        {/* Sezione Servizi */}
+        <Services />
+        
         {/* Sezione Preventivo Rapido SPETTACOLARE */}
         <section 
           id="preventivo-rapido" 
@@ -144,9 +146,7 @@ function App() {
           </div>
 
           <div className="section-container relative z-10">
-            {/* Sezione Titolo IPNOTIZZANTE con effetti */}
             <div className="text-center mb-16">
-              {/* Icona centrale con animazioni */}
               <div className="flex items-center justify-center mb-6">
                 <div className="relative">
                   <Sparkles className="w-12 h-12 text-green-400 neon-glow" />
@@ -154,7 +154,6 @@ function App() {
                 </div>
               </div>
               
-              {/* Titolo principale MAGNETICO */}
               <h2 id="preventivo-heading" className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   REALIZZA
@@ -165,84 +164,96 @@ function App() {
                 </span>
               </h2>
               
-              {/* Sottotitolo ACCATTIVANTE */}
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-medium">
                 🎨 <span className="text-green-400 font-bold">Trasforma qualsiasi idea</span> in un <span className="text-emerald-400 font-bold">oggetto UNICO</span> 🎨
               </p>
               
-              {/* Badge MAGNETICI per preventivo - Ottimizzati per MOBILE */}
+              {/* Badge MAGNETICI - Mobile ottimizzato per non uscire dalla finestra */}
               <div className="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 mt-8 px-4">
-                {/* Badge Preventivo Gratuito */}
-                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-green-500/30 floating">
+                {/* Badge Preventivo GRATUITO */}
+                <div className="glass-card px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 rounded-full border border-green-500/30 floating">
                   <span className="text-green-400 font-bold text-xs sm:text-sm md:text-base">✅ Preventivo GRATUITO</span>
                 </div>
                 
-                {/* Badge Oggetti Personalizzati */}
-                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-emerald-500/30 floating">
+                {/* Badge Oggetti PERSONALIZZATI */}
+                <div className="glass-card px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 rounded-full border border-emerald-500/30 floating">
                   <span className="text-emerald-400 font-bold text-xs sm:text-sm md:text-base">🎁 Oggetti PERSONALIZZATI</span>
                 </div>
                 
-                {/* Badge Regali che Stupiscono */}
-                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-green-400/30 floating">
+                {/* Badge Regali che STUPISCONO */}
+                <div className="glass-card px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 rounded-full border border-green-400/30 floating">
                   <span className="text-green-500 font-bold text-xs sm:text-sm md:text-base">💝 Regali che STUPISCONO</span>
                 </div>
                 
-                {/* Badge Consegna Gratis - Su nuova riga mobile se necessario */}
-                <div className="glass-card px-3 py-2 sm:px-6 sm:py-3 rounded-full border border-blue-500/30 floating w-full sm:w-auto max-w-xs sm:max-w-none mx-auto sm:mx-0">
+                {/* Badge Consegna GRATIS - Mobile su nuova riga se necessario */}
+                <div className="glass-card px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-3 rounded-full border border-blue-500/30 floating w-full sm:w-auto max-w-xs sm:max-w-none">
                   <span className="text-blue-400 font-bold text-xs sm:text-sm md:text-base">🚗 Consegna GRATIS Ciociaria</span>
                 </div>
               </div>
             </div>
             
-            {/* Form di Preventivo MAGNETICO - Componente principale */}
             <div className="max-w-4xl mx-auto">
             <QuickQuoteForm />
           </div>
         </div>
       </section>
       
+      {/* Galleria progetti realizzati */}
       <Gallery />
+      
+      {/* Sezione Time-lapse video */}
       <TimelapseSection />
+      
+      {/* Specifiche tecniche e materiali */}
       <TechnicalSpecs />
+      
+      {/* Domande frequenti */}
       <FAQ />
+      
+      {/* Testimonianze clienti */}
       <Testimonials />
+      
+      {/* Contatti e informazioni */}
       <Contact />
+      
+      {/* Pagine legali e privacy */}
       <LegalPages />
-      </main>
-      
-      <Footer />
-      
-      {/* AI Chat Widget */}
-      <ChatWidget />
-      
-      {/* Scroll to Top Button SPETTACOLARE */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 p-4 rounded-2xl border-2 border-green-400 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 hover:-translate-y-2 focus:outline-none focus:ring-4 focus:ring-green-500/50 group"
-          aria-label="Torna all'inizio della pagina"
-          title="Torna su"
-        >
-          <div className="relative">
-            <ArrowUp className="w-6 h-6 text-white group-hover:-translate-y-1 transition-transform duration-300" />
-            <div className="absolute inset-0 bg-green-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </div>
-        </button>
-      )}
+    </main>
+    
+    {/* Footer con informazioni azienda */}
+    <Footer />
+    
+    {/* Widget Chat AI per assistenza */}
+    <ChatWidget />
 
-      {/* Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-50">
-        <div 
-          className="h-full bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-300"
-          style={{
-            width: `${Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100)}%`
-          }}
-        />
-      </div>
+    {/* Scroll to Top Button SPETTACOLARE */}
+    {showScrollTop && (
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 p-4 rounded-2xl border-2 border-green-400 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 hover:-translate-y-2 focus:outline-none focus:ring-4 focus:ring-green-500/50 group"
+        aria-label="Torna all'inizio della pagina"
+        title="Torna su"
+      >
+        <div className="relative">
+          <ArrowUp className="w-6 h-6 text-white group-hover:-translate-y-1 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-green-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      </button>
+    )}
 
-      <WhatsAppButton text="Hai bisogno di aiuto? Scrivici su WhatsApp!" />
+    {/* Progress Bar */}
+    <div className="fixed top-0 left-0 w-full h-1 z-50">
+      <div 
+        className="h-full bg-gradient-to-r from-green-500 to-emerald-500 transition-all duration-300"
+        style={{
+          width: `${Math.min((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100)}%`
+        }}
+      />
     </div>
-  );
+
+    <WhatsAppButton text="Hai bisogno di aiuto? Scrivici su WhatsApp!" />
+  </div>
+);
 }
 
 export default App;
