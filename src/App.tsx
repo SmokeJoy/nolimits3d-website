@@ -23,12 +23,13 @@ declare global {
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    // Controlla preferenza utente salvata o preferenza sistema
+    // Controlla preferenza utente salvata, altrimenti default DARK mode
     const saved = localStorage.getItem('darkMode');
     if (saved !== null) {
       return JSON.parse(saved);
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // DEFAULT: Dark mode sempre attiva, a meno che l'utente non preferisca esplicitamente light
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? false : true;
   });
 
   const [showScrollTop, setShowScrollTop] = useState(false);
