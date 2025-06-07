@@ -123,40 +123,38 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
         userAgent: navigator.userAgent.substring(0, 100)
       };
 
-      // Invio con FormSubmit (servizio sicuro e gratuito)
-      const response = await fetch('https://formsubmit.co/ajax/info@nolimits3d.it', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...sanitizedData,
-          _subject: `🎯 Nuovo preventivo da ${sanitizedData.name}`,
-          _template: 'table',
-          _captcha: 'false',
-          _next: window.location.origin + '/success'
-        })
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setMessage('Preventivo inviato con successo! Ti risponderemo entro 2 ore lavorative.');
-        setFormData({ email: '', name: '', description: '', urgency: 'standard' });
-        
-        // Salva timestamp per rate limiting
-        localStorage.setItem('lastQuoteSubmission', Date.now().toString());
-        
-        // Analytics (se disponibile)
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'quote_submitted', {
-            event_category: 'engagement',
-            event_label: sanitizedData.urgency
-          });
-        }
-      } else {
-        throw new Error('Errore di rete');
+      // SOLUZIONE SICURA: Invio via WhatsApp invece di FormSubmit
+      const whatsappMessage = encodeURIComponent(
+        `🎯 NUOVO PREVENTIVO NoLimits3D\n\n` +
+        `👤 Nome: ${sanitizedData.name}\n` +
+        `📧 Email: ${sanitizedData.email}\n` +
+        `⏰ Urgenza: ${sanitizedData.urgency}\n\n` +
+        `📝 Descrizione progetto:\n${sanitizedData.description}\n\n` +
+        `🕒 Inviato: ${new Date().toLocaleString('it-IT')}`
+      );
+      
+      const whatsappURL = `https://wa.me/393770918590?text=${whatsappMessage}`;
+      
+      // Simula l'invio con successo e reindirizza a WhatsApp
+      setStatus('success');
+      setMessage('Perfetto! Ti stiamo reindirizzando su WhatsApp per completare l\'invio.');
+      setFormData({ email: '', name: '', description: '', urgency: 'standard' });
+      
+      // Salva timestamp per rate limiting
+      localStorage.setItem('lastQuoteSubmission', Date.now().toString());
+      
+      // Analytics (se disponibile)
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'quote_whatsapp_redirect', {
+          event_category: 'engagement',
+          event_label: sanitizedData.urgency
+        });
       }
+      
+      // Reindirizza a WhatsApp dopo 2 secondi
+      setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+      }, 2000);
     } catch (error) {
       console.error('Errore invio preventivo:', error);
       setStatus('error');
