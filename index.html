@@ -153,9 +153,24 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      
+      // Configurazione base per tracking immediato
       gtag('config', 'G-JH2QLWGRJB', {
         anonymize_ip: true,
-        cookie_flags: 'SameSite=None;Secure'
+        cookie_flags: 'SameSite=None;Secure',
+        send_page_view: true
+      });
+      
+      // Debug tracking
+      console.log('Google Analytics initialized with ID: G-JH2QLWGRJB');
+      
+      // Track page load
+      window.addEventListener('load', function() {
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href
+        });
+        console.log('Page view tracked for:', window.location.href);
       });
     </script>
     
