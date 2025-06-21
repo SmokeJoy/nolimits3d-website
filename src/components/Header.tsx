@@ -47,12 +47,6 @@ const Header: React.FC = () => {
       <div className="absolute inset-0 hero-bg">
         <div 
           className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-black/90"
-          style={{
-            backgroundImage: 'url(/images/copertina.jpg)',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            backgroundAttachment: 'fixed'
-          }}
         />
         
         {/* Overlay dinamico che segue il mouse */}
