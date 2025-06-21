@@ -174,44 +174,15 @@
       });
     </script>
     
-    <!-- Cookie Banner - Tarteaucitron -->
-    <script src="https://cdn.jsdelivr.net/npm/@tarteaucitron/vanilla@1.10.0/tarteaucitron.min.js"></script>
+    <!-- Cookie Policy Notice (Semplificato) -->
     <script>
-      tarteaucitron.init({
-        "privacyUrl": "/#legal", // Link alla privacy policy
-        "hashtag": "#tarteaucitron", 
-        "cookieName": "tarteaucitron",
-        "orientation": "bottom",
-        "groupServices": false,
-        "showAlertSmall": false,
-        "cookieslist": false,
-        "closePopup": false,
-        "showIcon": true,
-        "iconPosition": "BottomRight",
-        "adblocker": false,
-        "DenyAllCta": true,
-        "AcceptAllCta": true,
-        "highPrivacy": true,
-        "handleBrowserDNTRequest": false,
-        "removeCredit": false,
-        "moreInfoLink": true,
-        "useExternalCss": false,
-        "useExternalJs": false,
-        "readmoreLink": "/#legal",
-        "mandatory": true
+      // Mostra un semplice notice sui cookie al primo accesso
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!localStorage.getItem('cookie_notice_shown')) {
+          console.log('Privacy Notice: Questo sito utilizza Google Analytics per statistiche anonime');
+          localStorage.setItem('cookie_notice_shown', 'true');
+        }
       });
-
-      // Google Analytics con Tarteaucitron
-      tarteaucitron.user.gtagUa = 'G-JH2QLWGRJB';
-      tarteaucitron.user.gtagMore = function () { 
-        gtag('config', tarteaucitron.user.gtagUa, {
-          anonymize_ip: true,
-          cookie_flags: 'SameSite=None;Secure'
-        });
-      };
-
-      // Aggiungi Google Analytics al gestore consensi
-      (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
     </script>
     
     <!-- Security Headers -->
