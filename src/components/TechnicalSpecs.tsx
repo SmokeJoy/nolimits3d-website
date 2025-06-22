@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Layers, Ruler, Thermometer, Clock, Palette } from 'lucide-react';
+import { Settings, Printer, FlaskRound, Stars, Thermometer, Truck } from 'lucide-react';
 
 const TechnicalSpecs: React.FC = () => {
   const specifications = [
@@ -8,59 +8,58 @@ const TechnicalSpecs: React.FC = () => {
       icon: <Settings className="w-6 h-6 text-blue-500" />,
       specs: [
         { label: "Tecnologia", value: "FDM (Fused Deposition Modeling)" },
-        { label: "Layer Height", value: "0.1mm - 0.3mm" },
-        { label: "Precisione Dimensionale", value: "±0.1mm" },
-        { label: "Velocità Massima", value: "Fino a 600 mm/s (Creality K1)" }
+        { label: "Layer Height", value: "0.05 mm – 0.30 mm" },
+        { label: "Precisione Dimensionale", value: "±0.10 mm" },
+        { label: "Velocità Massima", value: "fino a 600 mm/s (Creality K1)" }
       ]
     },
     {
       category: "Parco Macchine",
-      icon: <Settings className="w-6 h-6 text-purple-500" />,
+      icon: <Printer className="w-6 h-6 text-purple-500" />,
       specs: [
-        { label: "Anycubic Kobra 3 Combo", value: "25×25×30 cm, fino a 8 materiali" },
-        { label: "Creality K1", value: "22×22×22 cm, alta velocità 600mm/s" },
-        { label: "ACE Pro Multicolore", value: "25×25×30 cm, sistema HueForge" },
-        { label: "Creality Ender 3 V3", value: "22×22×25 cm, direct drive" }
+        { label: "Creality K1", value: "22 × 22 × 25 cm, 600 mm/s, Core XY" },
+        { label: "Anycubic Kobra 3 Combo", value: "25 × 25 × 30 cm, multicolore fino a 8 materiali, 600 mm/s" },
+        { label: "+ 2× ACE Pro", value: "Sistema multicolore avanzato" }
       ]
     },
     {
       category: "Materiali Supportati",
-      icon: <Palette className="w-6 h-6 text-green-500" />,
+      icon: <FlaskRound className="w-6 h-6 text-green-500" />,
       specs: [
-        { label: "PLA Professionale", value: "Biodegradabile, alta precisione" },
-        { label: "PETG Food-Safe", value: "Certificato contatto alimentare" },
-        { label: "ASA Resistente UV", value: "Per esterni, alta resistenza" },
-        { label: "TPU Flessibile", value: "Shore A 95, elastomero tecnico" }
+        { label: "PLA Pro", value: "biodegradabile, alta precisione" },
+        { label: "PETG Trasparente", value: "elevata resistenza chimica" },
+        { label: "ASA UV-Resistant", value: "per esterni, alta resistenza" },
+        { label: "TPU 95A", value: "elastomero tecnico" }
       ]
     },
     {
       category: "Caratteristiche Avanzate",
-      icon: <Ruler className="w-6 h-6 text-orange-500" />,
+      icon: <Stars className="w-6 h-6 text-orange-500" />,
       specs: [
-        { label: "Stampa Multicolore", value: "Fino a 8 colori/materiali (ACE Pro)" },
-        { label: "Auto-livellamento", value: "Tutte le macchine con sensori precisi" },
-        { label: "Monitoraggio Remoto", value: "Telecamere per controllo real-time" },
-        { label: "Recupero Stampa", value: "Continuazione dopo interruzioni" }
+        { label: "Multicolore", value: "fino a 8 colori/materiali (ACE Pro)" },
+        { label: "Auto-livellamento", value: "sensori di precisione su entrambe le macchine" },
+        { label: "Monitoraggio remoto", value: "webcam + controllo real-time (Mainsail/Fluidd)" },
+        { label: "Recupero stampa", value: "continua dopo interruzioni di corrente" }
       ]
     },
     {
       category: "Parametri Termici",
       icon: <Thermometer className="w-6 h-6 text-red-500" />,
       specs: [
-        { label: "PLA", value: "190-220°C, piatto 60°C" },
-        { label: "PETG", value: "220-240°C, piatto 80°C" },
-        { label: "ASA", value: "240-260°C, piatto 100°C" },
-        { label: "TPU", value: "210-230°C, piatto 60°C" }
+        { label: "PLA", value: "190 – 220 °C, piatto 60 °C" },
+        { label: "PETG", value: "220 – 250 °C, piatto 80 °C" },
+        { label: "ASA", value: "240 – 260 °C, piatto 100 °C" },
+        { label: "TPU", value: "210 – 230 °C, piatto 60 °C" }
       ]
     },
     {
       category: "Tempi e Consegne",
-      icon: <Clock className="w-6 h-6 text-indigo-500" />,
+      icon: <Truck className="w-6 h-6 text-indigo-500" />,
       specs: [
-        { label: "Prototipi Semplici", value: "24-48 ore" },
-        { label: "Progetti Multicolore", value: "48-72 ore" },
-        { label: "Progetti Complessi", value: "3-5 giorni lavorativi" },
-        { label: "Consegna Ciociaria", value: "GRATUITA sopra 20€" }
+        { label: "Prototipi semplici", value: "24 – 48 h" },
+        { label: "Progetti multicolore", value: "48 – 72 h" },
+        { label: "Progetti complessi", value: "3 – 5 gg lavorativi" },
+        { label: "Consegna in Ciociaria", value: "GRATUITA > 20 €" }
       ]
     }
   ];
@@ -88,13 +87,36 @@ const TechnicalSpecs: React.FC = () => {
     }
   ];
 
+  const softwareTools = [
+    {
+      name: "AutoCAD",
+      purpose: "Progettazione Parametrica / CAD",
+      description: "File STEP / STL di precisione"
+    },
+    {
+      name: "HueForge",
+      purpose: "Arte Multicolore & Lithophane", 
+      description: "Palette e sfumature FDM"
+    },
+    {
+      name: "Blender",
+      purpose: "Modellazione Organica",
+      description: "Servizio esterno specializzato"
+    },
+    {
+      name: "ZBrush",
+      purpose: "Scultura Digitale",
+      description: "Partnership con modellatori professionali"
+    }
+  ];
+
   return (
     <section id="specifiche" className="py-16 px-4 bg-white dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Specifiche Tecniche
+            ⚙️ Specifiche Tecniche (2025)
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Dettagli tecnici completi sui nostri processi di stampa 3D FDM professionale.
@@ -131,6 +153,33 @@ const TechnicalSpecs: React.FC = () => {
           ))}
         </div>
 
+        {/* Software & Modellazione */}
+        <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-8 mb-12">
+          <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+            🛠️ Software & Modellazione
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {softwareTools.map((tool, index) => (
+              <div key={index} className="text-center">
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                  {tool.name}
+                </h4>
+                <p className="text-sm font-medium text-purple-600 dark:text-purple-400 mb-1">
+                  {tool.purpose}
+                </p>
+                <p className="text-xs text-gray-600 dark:text-gray-300">
+                  {tool.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              <strong>Backup Importante:</strong> Ricorda di fare backup di printer.cfg dopo ogni calibrazione (PID, Input Shaper) — è la "carta d'identità" della macchina.
+            </p>
+          </div>
+        </div>
+
         {/* Quality Features */}
         <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 rounded-2xl p-8 mb-12">
           <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
@@ -151,71 +200,7 @@ const TechnicalSpecs: React.FC = () => {
           </div>
         </div>
 
-        {/* Material Properties Table */}
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Proprietà Comparative dei Materiali
-          </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-200 dark:border-gray-700">
-                  <th className="text-left py-3 px-4 font-semibold text-gray-900 dark:text-white">Materiale</th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-900 dark:text-white">Resistenza</th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-900 dark:text-white">Flessibilità</th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-900 dark:text-white">Temp. Max</th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-900 dark:text-white">Applicazioni</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-gray-100 dark:border-gray-700">
-                  <td className="py-3 px-4 font-medium text-green-600">PLA</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Media</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Rigido</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">60°C</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Prototipi, modelli decorativi</td>
-                </tr>
-                <tr className="border-b border-gray-100 dark:border-gray-700">
-                  <td className="py-3 px-4 font-medium text-purple-600">PETG</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Alta</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Medio</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">80°C</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Food-safe, trasparenti</td>
-                </tr>
-                <tr className="border-b border-gray-100 dark:border-gray-700">
-                  <td className="py-3 px-4 font-medium text-blue-600">ASA</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Molto Alta</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Medio</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">100°C</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Esterni, resistenza UV</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 font-medium text-orange-600">TPU</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Media</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Flessibile</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">80°C</td>
-                  <td className="py-3 px-4 text-center text-gray-600 dark:text-gray-300">Guarnizioni, custodie</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
 
-        {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Hai un progetto specifico in mente?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Discutiamo insieme le specifiche tecniche e troviamo la soluzione ottimale
-          </p>
-          <a
-            href="#preventivo"
-            className="inline-flex items-center px-8 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-300"
-          >
-            🚀 Richiedi Preventivo Tecnico
-          </a>
-        </div>
       </div>
     </section>
   );

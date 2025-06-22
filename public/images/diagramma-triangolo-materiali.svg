@@ -1,0 +1,72 @@
+<svg width="600" height="520" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="triangleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="520" fill="#0f172a"/>
+  
+  <!-- Triangle -->
+  <polygon points="300,80 120,400 480,400" 
+           fill="url(#triangleGrad)" 
+           stroke="#22c55e" 
+           stroke-width="3"/>
+  
+  <!-- Corner Labels -->
+  <text x="300" y="65" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    PRESTAZIONI
+  </text>
+  <text x="300" y="45" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12">
+    Resistenza • Durabilità
+  </text>
+  
+  <text x="120" y="425" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    FACILITÀ
+  </text>
+  <text x="120" y="445" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12">
+    Stampa • Setup
+  </text>
+  
+  <text x="480" y="425" text-anchor="middle" fill="#22c55e" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    COSTO
+  </text>
+  <text x="480" y="445" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12">
+    Prezzo • Disponibilità
+  </text>
+  
+  <!-- Material Points -->
+  <!-- PLA - Easy and cheap but low performance -->
+  <circle cx="200" cy="350" r="8" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+  <text x="200" y="340" text-anchor="middle" fill="#fbbf24" font-family="Arial, sans-serif" font-size="14" font-weight="bold">PLA</text>
+  
+  <!-- PETG - Balanced -->
+  <circle cx="300" cy="280" r="8" fill="#10b981" stroke="#059669" stroke-width="2"/>
+  <text x="300" y="270" text-anchor="middle" fill="#10b981" font-family="Arial, sans-serif" font-size="14" font-weight="bold">PETG</text>
+  
+  <!-- ABS/ASA - Good performance, moderate difficulty and cost -->
+  <circle cx="350" cy="250" r="8" fill="#f97316" stroke="#ea580c" stroke-width="2"/>
+  <text x="350" y="240" text-anchor="middle" fill="#f97316" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ABS</text>
+  
+  <!-- Nylon - High performance, difficult, expensive -->
+  <circle cx="320" cy="180" r="8" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+  <text x="320" y="170" text-anchor="middle" fill="#dc2626" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Nylon</text>
+  
+  <!-- PC - Highest performance, very difficult, very expensive -->
+  <circle cx="300" cy="140" r="8" fill="#7c2d12" stroke="#92400e" stroke-width="2"/>
+  <text x="300" y="130" text-anchor="middle" fill="#7c2d12" font-family="Arial, sans-serif" font-size="14" font-weight="bold">PC</text>
+  
+  <!-- Composites - High performance, moderate difficulty, expensive -->
+  <circle cx="340" cy="200" r="8" fill="#6366f1" stroke="#4f46e5" stroke-width="2"/>
+  <text x="340" y="190" text-anchor="middle" fill="#6366f1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">CF</text>
+  
+  <!-- Title -->
+  <text x="300" y="480" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+    Il Triangolo Magico dei Materiali per Stampa 3D
+  </text>
+  <text x="300" y="500" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">
+    © 2025 NoLimits3D - CC-BY 4.0
+  </text>
+</svg> 

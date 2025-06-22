@@ -35,10 +35,20 @@ const Contact: React.FC = () => {
     <section id="contatti" className="py-16 px-4">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Pronto a stampare?</h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
           Inviaci il tuo file STL o semplicemente un'idea.
           Ti risponderemo con un preventivo personalizzato in poche ore.
         </p>
+        
+        {/* Sezione Chatbot Info */}
+        <div className="glass-card inline-block px-6 py-4 rounded-2xl border border-green-500/20 mb-8">
+          <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base mb-2">
+            💬 <span className="text-green-600 dark:text-green-400 font-bold">Domande immediate?</span> Il nostro <span className="text-emerald-600 dark:text-emerald-400 font-bold">Chatbot AI</span> è sempre disponibile! 💬
+          </p>
+          <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm">
+            🤖 Risposte istantanee su materiali, tempi di stampa, prezzi e consigli tecnici
+          </p>
+        </div>
         
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">

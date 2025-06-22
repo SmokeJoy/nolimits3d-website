@@ -115,9 +115,9 @@
 
   /* Card con effetto glass morphism */
   .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(34, 197, 94, 0.1);
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -465,10 +465,10 @@
 
   /* Line clamp utility */
   .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   /* Error handling styles */
@@ -781,4 +781,317 @@
     transform: translateY(-15px);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+
+/* Custom markdown styles for dark theme */
+.prose-dark {
+  color: #d1d5db;
+}
+
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3,
+.prose-dark h4,
+.prose-dark h5,
+.prose-dark h6 {
+  color: #22c55e;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose-dark h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid rgba(34, 197, 94, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.prose-dark h2 {
+  font-size: 2rem;
+  color: #10b981;
+}
+
+.prose-dark h3 {
+  font-size: 1.5rem;
+  color: #34d399;
+}
+
+.prose-dark strong {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.prose-dark p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose-dark ul,
+.prose-dark ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.prose-dark li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.prose-dark a {
+  color: #22c55e;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prose-dark a:hover {
+  color: #ffffff;
+  background: rgba(34, 197, 94, 0.2);
+  border-color: #22c55e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.prose-dark a:active {
+  transform: translateY(0);
+}
+
+/* External link icon */
+.prose-dark a[target="_blank"]::after {
+  content: "🔗";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.prose-dark a[target="_blank"]:hover::after {
+  opacity: 1;
+}
+
+/* Internal links styling */
+.prose-dark a:not([target="_blank"]) {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.prose-dark a:not([target="_blank"]):hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+/* Internal link icon */
+.prose-dark a:not([target="_blank"])::before {
+  content: "🏠";
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+.prose-dark a:not([target="_blank"]):hover::before {
+  opacity: 1;
+}
+
+/* Phone link styling */
+.prose-dark a[href^="tel:"] {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+  font-weight: 700;
+}
+
+.prose-dark a[href^="tel:"]:hover {
+  background: rgba(34, 197, 94, 0.25);
+  border-color: #22c55e;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.prose-dark a[href^="tel:"]::before {
+  content: "📞";
+  font-size: 0.9em;
+}
+
+.prose-dark table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.prose-dark th,
+.prose-dark td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.prose-dark th {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.prose-dark blockquote {
+  border-left: 4px solid #22c55e;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  background: rgba(34, 197, 94, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+.prose-dark code {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Line clamp utilities */
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Special styling for TIP and ATTENTION boxes */
+.prose-dark .tip-box,
+.prose-dark .attention-box,
+.prose-dark .hack-box {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Details/Summary styling for technical references */
+details[class*="mt-8"] {
+  display: none;
+}
+
+/* CTA Button enhancement */
+.prose-dark a[class*="inline-block"][class*="bg-gradient"] {
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prose-dark a[class*="inline-block"][class*="bg-gradient"]:hover {
+  text-decoration: none !important;
+}
+
+/* Footnotes styling - Wikipedia style */
+.footnotes {
+  border-top: 1px solid rgba(156, 163, 175, 0.3);
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+.footnotes li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  padding-left: 0.5rem;
+}
+
+.footnotes li::marker {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+/* Footnote links in text */
+sup a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1px 3px;
+  border-radius: 3px;
+  background: rgba(34, 197, 94, 0.1);
+  transition: all 0.2s ease;
+}
+
+sup a:hover {
+  background: rgba(34, 197, 94, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Back to text links */
+.footnotes a[aria-label="Torna al testo"] {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footnotes a[aria-label="Torna al testo"]:hover {
+  opacity: 1;
+}
+
+/* Contextual hyperlinks styling - Clean and simple */
+.prose-dark a:not([class*="inline-block"]):not([class*="bg-gradient"]) {
+  color: #22c55e;
+  text-decoration: underline;
+  text-decoration-color: rgba(34, 197, 94, 0.4);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+  font-weight: normal;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prose-dark a:not([class*="inline-block"]):not([class*="bg-gradient"]):hover {
+  color: #16a34a;
+  text-decoration-color: #22c55e;
+}
+
+/* External links indicator - subtle */
+.prose-dark a[href^="http"]:not([class*="inline-block"]):not([class*="bg-gradient"])::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.5;
+  margin-left: 1px;
+}
+
+/* Internal links indicator - subtle */
+.prose-dark a[href^="/"]:not([class*="inline-block"]):not([class*="bg-gradient"])::after {
+  content: "";
+}
+
+/* Remove all footnote styling */
+.footnotes,
+sup a {
+  display: none;
+}
+
+/* Clean CTA button styling */
+.prose-dark a[href="/contact"] {
+  display: inline-block;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white !important;
+  text-decoration: none !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin: 16px 0;
+}
+
+.prose-dark a[href="/contact"]:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-1px);
+}
+
+.prose-dark a[href="/contact"]::after {
+  content: "";
 }

@@ -6,7 +6,8 @@ interface GalleryItem {
   title: string;
   description: string;
   category: 'prototipi' | 'personaggi' | 'gadget' | 'decorazioni' | 'giocattoli' | 'componenti' | 'tutti';
-  imageUrl: string;
+  imageUrl?: string;
+  videoUrl?: string;
   tags: string[];
 }
 
@@ -298,6 +299,24 @@ const Gallery: React.FC = () => {
       category: 'personaggi',
       imageUrl: '/images/Son Goku nuvola sipdi.JPG',
       tags: ['Dragon Ball', 'Nuvola', 'Volo']
+    },
+
+    // NUOVE IMMAGINI AGGIUNTE
+    {
+      id: 35,
+      title: "IMG Speciale 2025",
+      description: "Progetto speciale del 2025",
+      category: 'prototipi',
+      imageUrl: '/images/IMG-20250603-WA0027.jpg',
+      tags: ['2025', 'Speciale', 'Nuovo']
+    },
+    {
+      id: 36,
+      title: "Sirenette",
+      description: "Eleganti sirenette decorative con dettagli fluidi e movimenti naturali",
+      category: 'personaggi',
+      videoUrl: '/images/Sirenette.webm',
+      tags: ['Sirenette', 'Fantasy', 'Decorativo', 'Movimento']
     }
   ];
 
@@ -381,12 +400,27 @@ const Gallery: React.FC = () => {
               onClick={() => openLightbox(item)}
             >
               <div className="relative overflow-hidden">
+                {item.videoUrl ? (
+                  <video
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    onMouseEnter={(e) => e.currentTarget.play()}
+                    onMouseLeave={(e) => e.currentTarget.pause()}
+                  >
+                    <source src={item.videoUrl} type="video/webm" />
+                    <source src={item.videoUrl} type="video/mp4" />
+                  </video>
+                ) : (
                 <img
                   src={item.imageUrl}
                   alt={item.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                   loading="lazy"
                 />
+                )}
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                   <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -443,11 +477,25 @@ const Gallery: React.FC = () => {
                 <ChevronRight className="w-8 h-8" />
               </button>
 
+              {selectedImage.videoUrl ? (
+                <video
+                  className="max-w-full max-h-full object-contain"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  controls={false}
+                >
+                  <source src={selectedImage.videoUrl} type="video/webm" />
+                  <source src={selectedImage.videoUrl} type="video/mp4" />
+                </video>
+              ) : (
               <img
                 src={selectedImage.imageUrl}
                 alt={selectedImage.title}
                 className="max-w-full max-h-full object-contain"
               />
+              )}
               
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <h3 className="text-xl font-semibold mb-2">{selectedImage.title}</h3>

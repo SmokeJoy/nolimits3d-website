@@ -4,7 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Sito web professionale per NoLimits3D - Servizio di stampa 3D",
-  "keywords": ["stampa-3d", "prototipi", "react", "typescript", "vite"],
+  "keywords": [
+    "stampa-3d",
+    "prototipi",
+    "react",
+    "typescript",
+    "vite"
+  ],
   "author": "NoLimits3D",
   "license": "MIT",
   "scripts": {
@@ -15,16 +21,21 @@
     "lint:check": "eslint .",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "optimize-images": "imagemin public/images/*.{jpg,png,gif} --out-dir=public/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
+    "optimize-images": "node scripts/optimize-images.cjs",
+    "optimize-images-old": "imagemin public/images/*.{jpg,png,gif} --out-dir=public/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
     "audit": "npm audit --audit-level=moderate",
     "test": "echo 'No tests specified' && exit 0"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-intersection-observer": "^9.5.3",
+    "react-markdown": "^10.1.0",
     "react-medium-image-zoom": "^5.1.10",
-    "react-intersection-observer": "^9.5.3"
+    "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

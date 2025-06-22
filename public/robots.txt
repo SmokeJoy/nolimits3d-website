@@ -2,11 +2,19 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://nolimits3d.store/sitemap.xml
+Sitemap: https://nolimits3d.it/sitemap.xml
 
-# Disallow admin/sensitive areas
-Disallow: /admin/
-Disallow: /.well-known/
+# Optimize crawl rate
+Crawl-delay: 1
 
-# Cache friendly
-Crawl-delay: 1 
+# Allow all blog content
+Allow: /blog/
+Allow: /galleria/
+Allow: /chi-siamo/
+Allow: /contatti/
+
+# Disallow admin areas (if any in future)
+# Disallow: /admin/
+
+# Host
+Host: https://nolimits3d.it 
