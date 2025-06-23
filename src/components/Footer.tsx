@@ -27,19 +27,19 @@ const Footer: React.FC = () => {
                 href="https://www.facebook.com/profile.php?id=61570487165349" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-green-400 transition-colors"
+                className="text-blue-400 hover:text-blue-300 transition-all duration-300 p-2 hover:scale-110"
                 aria-label="Facebook NoLimits3D"
               >
-                <Facebook size={20} />
+                <Facebook size={24} />
               </a>
               <a 
                 href="https://www.instagram.com/nolimits_3d_print" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-green-400 transition-colors"
+                className="text-pink-400 hover:text-pink-300 transition-all duration-300 p-2 hover:scale-110"
                 aria-label="Instagram NoLimits3D"
               >
-                <Instagram size={20} />
+                <Instagram size={24} />
               </a>
             </div>
           </div>
@@ -49,14 +49,14 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold">Contatti</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center text-gray-300">
-                <Mail size={16} className="mr-2 text-green-400" />
-                <a href="mailto:nolimits.3d.print@gmail.com" className="hover:text-green-400 transition-colors">
+                <Mail size={16} className="mr-2 text-orange-400" />
+                <a href="mailto:nolimits.3d.print@gmail.com" className="text-orange-400 hover:text-orange-300 transition-colors duration-300 font-semibold hover:underline">
                   nolimits.3d.print@gmail.com
                 </a>
               </div>
               <div className="flex items-center text-gray-300">
-                <Phone size={16} className="mr-2 text-green-400" />
-                <a href="tel:+393770918590" className="hover:text-green-400 transition-colors">
+                <Phone size={16} className="mr-2 text-red-400" />
+                <a href="tel:+393770918590" className="text-red-400 hover:text-red-300 transition-colors duration-300 font-bold hover:underline">
                   +39 377 091 8590
                 </a>
               </div>
@@ -92,29 +92,12 @@ const Footer: React.FC = () => {
             <p className="text-xs mt-1">Ultimo aggiornamento: Giugno 2025</p>
           </div>
           <div className="flex space-x-6">
-            <a href="#legal" onClick={() => {
-              document.getElementById('legal')?.scrollIntoView({ behavior: 'smooth' });
-              // Set privacy section active - would need state management in real implementation
-            }} className="hover:text-green-400 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#legal" onClick={() => {
-              document.getElementById('legal')?.scrollIntoView({ behavior: 'smooth' });
-            }} className="hover:text-green-400 transition-colors">
-              Termini di Servizio
-            </a>
-            <a href="#legal" onClick={() => {
-              document.getElementById('legal')?.scrollIntoView({ behavior: 'smooth' });
-            }} className="hover:text-green-400 transition-colors">
-              Cookie Policy
-            </a>
-            <a href="#tarteaucitron" onClick={(e) => {
-              e.preventDefault();
-              if (typeof window !== 'undefined' && (window as any).tarteaucitron) {
-                (window as any).tarteaucitron.userInterface.openPanel();
-              }
-            }} className="hover:text-green-400 transition-colors">
-              🍪 Preferenze Cookie
+            <a 
+              href="/legal" 
+              className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+              aria-label="Vai alle informazioni legali"
+            >
+              📄 Informazioni Legali
             </a>
           </div>
         </div>

@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ChatWidget from './ChatWidget';
 import WhatsAppButton from './WhatsAppButton';
-import LegalPages from './LegalPages';
 import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from 'lucide-react';
 
 interface LayoutProps {
@@ -128,13 +127,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
+                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-300 border-2 font-bold text-sm ${
                     location.pathname === link.to
-                      ? 'text-green-400 bg-green-500/10'
-                      : 'text-gray-300 hover:text-green-400 hover:bg-green-500/5'
+                      ? 'text-white bg-blue-600 border-blue-500 shadow-lg shadow-blue-500/30'
+                      : 'text-white bg-gray-700 border-gray-600 hover:bg-blue-600 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 hover:transform'
                   }`}
                 >
-                  <span>{link.icon}</span>
+                  <span className="text-lg">{link.icon}</span>
                   <span>{link.label}</span>
                 </Link>
               ))}
@@ -157,13 +156,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                    className={`flex items-center space-x-3 px-6 py-4 rounded-lg transition-all duration-300 border-2 font-bold ${
                       location.pathname === link.to
-                        ? 'text-green-400 bg-green-500/10'
-                        : 'text-gray-300 hover:text-green-400 hover:bg-green-500/5'
+                        ? 'text-white bg-blue-600 border-blue-500 shadow-lg shadow-blue-500/30'
+                        : 'text-white bg-gray-700 border-gray-600 hover:bg-blue-600 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 hover:transform'
                     }`}
                   >
-                    <span>{link.icon}</span>
+                    <span className="text-lg">{link.icon}</span>
                     <span>{link.label}</span>
                   </Link>
                 ))}
@@ -203,9 +202,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* WhatsApp Button */}
       <WhatsAppButton />
-
-      {/* Legal Pages */}
-      <LegalPages />
 
       {/* Scroll to Top Button */}
       {showScrollTop && (

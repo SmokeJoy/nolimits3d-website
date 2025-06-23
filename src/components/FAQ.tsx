@@ -236,13 +236,13 @@ const FAQ: React.FC = () => {
               href="https://wa.me/393770918590"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors duration-300"
+              className="inline-flex items-center px-8 py-4 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all duration-300 border-2 border-green-500 hover:border-green-400 shadow-lg hover:shadow-xl hover:shadow-green-500/30 hover:scale-105 hover:transform"
             >
               💬 Chatta su WhatsApp
             </a>
             <a
               href="mailto:nolimits.3d.print@gmail.com"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-300"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all duration-300 border-2 border-blue-500 hover:border-blue-400 shadow-lg hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105 hover:transform"
             >
               📧 Invia Email
             </a>

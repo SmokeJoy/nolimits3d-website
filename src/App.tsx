@@ -6,6 +6,7 @@ import GalleryPage from './pages/Gallery';
 import About from './pages/About';
 import ContactPage from './pages/Contact';
 import Blog from './pages/Blog';
+import Legal from './pages/Legal';
 
 // Dichiarazione per gtag
 declare global {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/chi-siamo" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contatti" element={<ContactPage />} />
+        <Route path="/legal" element={<Legal />} />
         {/* Redirect old routes for compatibility */}
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/about" element={<About />} />

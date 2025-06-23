@@ -102,7 +102,7 @@ const Header: React.FC = () => {
                 </span>
               </h1>
               {/* Effetto bagliore dietro il testo */}
-              <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-emerald-500/20 to-green-600/20 blur-3xl -z-10 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-emerald-500/20 to-green-600/20 blur-3xl -z-10"></div>
             </div>
             
             {/* Sottotitolo con effetto typewriter */}
