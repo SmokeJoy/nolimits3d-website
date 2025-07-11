@@ -34,9 +34,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = "NoLimits3D | Stampa 3D FDM Professionale - Prototipi e Componenti Tecnici",
-  description = "NoLimits3D offre servizi di stampa 3D FDM professionale con materiali di alta qualità. Prototipi, componenti tecnici e oggetti personalizzati con preventivo in 2 ore.",
-  keywords = "stampa 3d, prototipazione, FDM, PLA, ABS, PETG, TPU, componenti tecnici, Frosinone, Ciociaria",
+  title = "Stampa 3D Frosinone | Prototipazione Professionale | NoLimits3D",
+  description = "Stampa 3D professionale a Frosinone: prototipazione rapida, componenti tecnici, preventivo gratuito in 2 ore. Materiali certificati PLA, ABS, PETG, TPU.",
+  keywords = "stampa 3d frosinone, prototipazione frosinone, componenti tecnici frosinone, stampa 3d ciociaria, FDM professionale, preventivo stampa 3d, PLA, ABS, PETG, TPU",
   image = "https://nolimits3d.store/images/logo.jpg",
   url = "https://nolimits3d.store",
   type = "website",
