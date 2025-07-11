@@ -2,17 +2,127 @@ import React from 'react';
 import Header from '../components/Header';
 import Services from '../components/Services';
 import QuickQuoteForm from '../components/QuickQuoteForm';
+import SEOHead from '../components/SEOHead';
 import { Sparkles } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
     <>
+      <SEOHead
+        title="Stampa 3D Frosinone | Prototipazione e Componenti Tecnici | NoLimits3D"
+        description="Stampa 3D professionale a Frosinone. Prototipazione rapida, componenti tecnici specializzati e oggetti personalizzati. Preventivo gratuito in 2 ore, consegna gratis in Ciociaria."
+        keywords="stampa 3d frosinone, prototipazione, componenti tecnici, stampa 3d ciociaria, prototipi, parti meccaniche, prototipazione rapida, componenti personalizzati"
+        url="https://nolimits3d.store"
+        type="local_business"
+        localSEO={{
+          businessName: "NoLimits3D",
+          address: "Via Dante Alighieri",
+          city: "Frosinone",
+          region: "Lazio",
+          postalCode: "03100",
+          phone: "+393770918590",
+          priceRange: "€€",
+          services: ["Stampa 3D Frosinone", "Prototipazione Professionale", "Componenti Tecnici", "Oggetti Personalizzati"]
+        }}
+      />
+      
       <Header />
       
       {/* Contenuto principale */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none relative">
         {/* Sezione Servizi */}
         <Services />
+        
+        {/* Sezione Prototipazione e Componenti Tecnici */}
+        <section className="py-20 relative overflow-hidden bg-gray-50 dark:bg-gray-800">
+          <div className="section-container">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+                  Prototipazione
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-600 bg-clip-text text-transparent">
+                  Frosinone
+                </span>
+              </h2>
+              
+              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto font-medium">
+                🏭 <span className="text-green-600 dark:text-green-400 font-bold">Prototipazione professionale</span> e <span className="text-emerald-600 dark:text-emerald-400 font-bold">componenti tecnici</span> per industria e startup 🏭
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {/* Prototipazione Industriale */}
+              <div className="glass-card p-8 rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300">
+                <div className="text-4xl mb-4">🏭</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Prototipazione Industriale
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Prototipi funzionali per validazione concept, test di mercato e presentazioni professionali. 
+                  Dalla progettazione CAD alla stampa finale.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li>• Prototipi meccanici funzionali</li>
+                  <li>• Housing per elettronica</li>
+                  <li>• Modelli per test ergonomici</li>
+                  <li>• Validazione design pre-produzione</li>
+                </ul>
+              </div>
+
+              {/* Componenti Tecnici */}
+              <div className="glass-card p-8 rounded-2xl border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300">
+                <div className="text-4xl mb-4">⚙️</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Componenti Tecnici
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Componenti specializzati su misura per ogni settore industriale. 
+                  Precisione millimetrica e materiali certificati.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li>• Ricambi meccanici personalizzati</li>
+                  <li>• Parti di precisione industriali</li>
+                  <li>• Componenti automotive</li>
+                  <li>• Soluzioni ingegneristiche custom</li>
+                </ul>
+              </div>
+
+              {/* Prototipazione Rapida */}
+              <div className="glass-card p-8 rounded-2xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300">
+                <div className="text-4xl mb-4">⚡</div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  Prototipazione Rapida
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                  Tempi di consegna accelerati per progetti urgenti. 
+                  Dal file 3D al prototipo fisico in 24-48 ore.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li>• Consegna in 24-48 ore</li>
+                  <li>• Servizio Express disponibile</li>
+                  <li>• Materiali sempre disponibili</li>
+                  <li>• Supporto tecnico H24</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Settori di Applicazione */}
+            <div className="text-center">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                Settori di Applicazione
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {['Automotive', 'Elettronica', 'Medicale', 'Aerospace', 'Robotica', 'Design', 'Startup', 'Ricerca'].map((settore) => (
+                  <div key={settore} className="glass-card px-6 py-3 rounded-full border border-green-500/30">
+                    <span className="text-green-600 dark:text-green-400 font-semibold">{settore}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Sezione Preventivo Rapido */}
         <section 

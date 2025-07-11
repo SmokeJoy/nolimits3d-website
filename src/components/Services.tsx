@@ -5,33 +5,33 @@ import FeatureCard from './FeatureCard';
 const Services: React.FC = () => {
   const features = [
     {
-      title: "Qualsiasi Idea Diventa Reale",
-      description: "Hai un'idea, un disegno, una foto? Trasformiamo qualsiasi concetto in un oggetto 3D tangibile e personalizzato.",
+      title: "Prototipazione Professionale Frosinone",
+      description: "Trasforma i tuoi concept in prototipi funzionali con la massima precisione. Dalla modellazione 3D alla stampa finale, realizziamo prototipi per industria, startup e privati.",
       icon: <CheckCircle className="w-10 h-10 text-gray-900" />
     },
     {
-      title: "Preventivo in 2 Ore",
-      description: "Inviaci la tua idea e ricevi un preventivo dettagliato in sole 2 ore. Nessun costo nascosto, solo trasparenza totale.",
+      title: "Componenti Tecnici su Misura",
+      description: "Realizziamo componenti tecnici specializzati per ogni settore: ricambi meccanici, parti di precisione, housing elettronici e soluzioni ingegneristiche personalizzate.",
       icon: <Zap className="w-10 h-10 text-gray-900" />
     },
     {
-      title: "Regali che Stupiscono",
-      description: "Crea il regalo perfetto e unico! Oggetti personalizzati che lasceranno tutti a bocca aperta per originalità.",
+      title: "Regali Personalizzati Unici",
+      description: "Crea il regalo perfetto e unico! Oggetti personalizzati che lasceranno tutti a bocca aperta per originalità. La stampa 3D Frosinone che sorprende.",
       icon: <Palette className="w-10 h-10 text-gray-900" />
     },
     {
-      title: "Ti Aiutiamo a Progettare",
-      description: "Non sai come realizzare la tua idea? I nostri esperti ti guidano passo passo dalla concept alla realizzazione finale.",
+      title: "Consulenza Tecnica Specializzata",
+      description: "Non sai come realizzare la tua idea? I nostri esperti in stampa 3D ti guidano dalla progettazione alla realizzazione finale, ottimizzando ogni parametro.",
       icon: <HeadsetIcon className="w-10 h-10 text-gray-900" />
     },
     {
-      title: "Materiali di Qualità",
-      description: "Solo materiali premium PLA, ABS, PETG, TPU per oggetti resistenti e duraturi nel tempo. Colori vivaci disponibili.",
+      title: "Materiali Certificati Premium",
+      description: "Solo materiali premium PLA, ABS, PETG, TPU per componenti resistenti e duraturi. Certificazioni per uso alimentare, medicale e industriale disponibili.",
       icon: <Shield className="w-10 h-10 text-gray-900" />
     },
     {
-      title: "Consegna Gratuita in Ciociaria",
-      description: "Per ordini superiori a 20€, consegniamo GRATIS a mano in tutta la Ciociaria. Risparmia sui costi di spedizione!",
+      title: "Servizio Locale Ciociaria",
+      description: "Stampa 3D Frosinone con consegna GRATUITA in tutta la Ciociaria per ordini sopra 20€. Supporto locale, qualità internazionale.",
       icon: <Award className="w-10 h-10 text-gray-900" />
     }
   ];
@@ -41,20 +41,20 @@ const Services: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Trasformiamo le Tue Idee in Realtà
+            Stampa 3D Frosinone - Prototipazione e Componenti Tecnici
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Hai un'idea per un oggetto unico? Un regalo speciale? Un gadget personalizzato? 
-            <span className="text-green-600 dark:text-green-400 font-bold"> Noi lo realizziamo per te!</span>
+            Hai bisogno di <span className="text-green-600 dark:text-green-400 font-bold">prototipazione professionale</span> o <span className="text-emerald-600 dark:text-emerald-400 font-bold">componenti tecnici specializzati</span>? 
+            <span className="text-green-600 dark:text-green-400 font-bold"> La stampa 3D Frosinone che realizza ogni progetto!</span>
           </p>
           
           {/* SLOGAN MAGNETICI */}
           <div className="mt-8 space-y-3">
             <p className="text-xl font-bold text-pink-600 dark:text-pink-400 animate-pulse">
-              💝 "Il regalo che nessuno si aspetta? È quello che creiamo insieme!" 💝
+              💝 "Prototipazione Frosinone - Dal concept al prodotto finito!" 💝
             </p>
             <p className="text-lg font-semibold text-purple-600 dark:text-purple-400">
-              🌟 "La tua immaginazione è l'unico limite!" 🌟
+              🌟 "Componenti tecnici su misura - La precisione che serve!" 🌟
             </p>
           </div>
         </div>

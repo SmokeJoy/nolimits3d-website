@@ -109,26 +109,26 @@ const Header: React.FC = () => {
             <div className="relative">
               {/* Mobile: testo più corto e compatto */}
               <p className="text-base sm:text-xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-3 sm:mb-4">
-                <span className="block sm:inline">🚀✨ <span className="font-semibold text-green-400">Trasforma le IDEE</span></span>
-                <span className="block sm:inline"> in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🌟🚀</span>
+                <span className="block sm:inline">🚀✨ <span className="font-semibold text-green-400">Stampa 3D Frosinone</span></span>
+                <span className="block sm:inline"> - Trasforma le IDEE in oggetti <span className="font-semibold text-emerald-400">REALI</span> 🌟🚀</span>
               </p>
               <p className="text-sm sm:text-lg md:text-xl text-gray-300 font-medium mb-4 sm:mb-6">
-                <span className="block sm:inline">🎯 Il tuo oggetto personalizzato stampato in 3D</span>
-                <span className="block sm:inline"> con precisione millimetrica ⚡</span>
+                <span className="block sm:inline">🎯 <span className="text-green-400 font-bold">Prototipazione professionale</span> e <span className="text-emerald-400 font-bold">componenti tecnici</span></span>
+                <span className="block sm:inline"> su misura a Frosinone ⚡</span>
               </p>
               
               {/* SLOGAN ACCATTIVANTI - Mobile compatto */}
               <div className="space-y-2 sm:space-y-3 text-xs sm:text-base md:text-lg">
                 <p className="text-yellow-400 font-bold animate-pulse">
-                  <span className="block sm:inline">✨🔥 "Hai un'IDEA?</span>
-                  <span className="block sm:inline"> Noi la rendiamo REALTÀ!" 🔥✨</span>
+                  <span className="block sm:inline">✨🔥 "Stampa 3D Frosinone - La tua IDEA</span>
+                  <span className="block sm:inline"> diventa REALTÀ!" 🔥✨</span>
                 </p>
                 <p className="text-pink-400 font-bold animate-pulse" style={{ animationDelay: '0.5s' }}>
-                  <span className="block sm:inline">💝🎁 "Il REGALO perfetto?</span>
-                  <span className="block sm:inline"> Lo creiamo INSIEME!" 🎁💝</span>
+                  <span className="block sm:inline">💝🎁 "Prototipazione rapida e componenti</span>
+                  <span className="block sm:inline"> per ogni esigenza!" 🎁💝</span>
                 </p>
                 <p className="text-cyan-400 font-bold animate-pulse" style={{ animationDelay: '1s' }}>
-                  🎨⭐ "Oggetti UNICI come TE!" ⭐🎨
+                  🎨⭐ "Frosinone - Il futuro della stampa 3D!" ⭐🎨
                 </p>
               </div>
             </div>
