@@ -189,19 +189,19 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
         <div className="flex items-center justify-center mb-4">
           <div className="relative">
             <Sparkles className="w-8 h-8 text-green-400 neon-glow mr-3" />
-            <div className="absolute inset-0 w-8 h-8 bg-green-400/20 rounded-full animate-ping"></div>
+            <div className="absolute inset-0 w-8 h-8 bg-green-400/20 rounded-full animate-ping-slow"></div>
           </div>
           <h3 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
             🎨 REALIZZA LA TUA IDEA
       </h3>
           <div className="relative ml-3">
             <Zap className="w-8 h-8 text-yellow-400 neon-glow" />
-            <div className="absolute inset-0 w-8 h-8 bg-yellow-400/20 rounded-full animate-ping"></div>
+            <div className="absolute inset-0 w-8 h-8 bg-yellow-400/20 rounded-full animate-ping-slow"></div>
           </div>
         </div>
         
         <div className="mb-6">
-          <p className="text-lg font-bold text-pink-400 animate-pulse mb-2">
+          <p className="text-lg font-bold text-pink-400 animate-pulse-text mb-2">
             💝 "Hai un'IDEA? Trasformala in REALTÀ!" 💝
           </p>
           <p className="text-base text-cyan-400 font-semibold">
@@ -228,11 +228,11 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
       {/* Success Message SPETTACOLARE */}
       {status === 'success' && (
         <div className="mb-8 p-6 glass-card bg-green-500/10 border-2 border-green-500/50 rounded-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 animate-pulse-slow"></div>
           <div className="relative flex items-start">
             <div className="relative mr-4">
               <CheckCircle className="w-8 h-8 text-green-400 neon-glow" />
-              <div className="absolute inset-0 w-8 h-8 bg-green-400/30 rounded-full animate-ping"></div>
+              <div className="absolute inset-0 w-8 h-8 bg-green-400/30 rounded-full animate-ping-slow"></div>
             </div>
             <div>
               <p className="text-green-300 font-bold text-lg mb-2">🎉 PREVENTIVO INVIATO CON SUCCESSO! 🎉</p>
@@ -248,11 +248,11 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
       {/* Error Message DRAMMATICO */}
       {status === 'error' && (
         <div className="mb-8 p-6 glass-card bg-red-500/10 border-2 border-red-500/50 rounded-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 animate-pulse-slow"></div>
           <div className="relative flex items-start">
             <div className="relative mr-4">
               <AlertCircle className="w-8 h-8 text-red-400 neon-glow" />
-              <div className="absolute inset-0 w-8 h-8 bg-red-400/30 rounded-full animate-ping"></div>
+              <div className="absolute inset-0 w-8 h-8 bg-red-400/30 rounded-full animate-ping-slow"></div>
             </div>
             <div>
               <p className="text-red-300 font-bold text-lg mb-2">⚠️ ERRORE TEMPORANEO</p>
@@ -416,7 +416,7 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
             <>
                 <div className="relative mr-4">
                   <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
-                  <div className="absolute inset-0 animate-ping rounded-full h-6 w-6 border border-white/30"></div>
+                  <div className="absolute inset-0 animate-ping-slow rounded-full h-6 w-6 border border-white/30"></div>
                 </div>
                 ⏳ INVIO IN CORSO...
             </>
@@ -434,9 +434,9 @@ const QuickQuoteForm: React.FC<QuickQuoteFormProps> = ({ className = '' }) => {
       {/* Trust Footer SPETTACOLARE */}
       <div className="mt-8 p-6 glass-card rounded-2xl border border-green-500/20 text-center">
         <div className="flex items-center justify-center mb-3">
-          <div className="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+          <div className="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse-slow"></div>
           <p className="text-lg font-bold text-green-400">🔒 DATI PROTETTI AL 100%</p>
-          <div className="w-3 h-3 bg-green-400 rounded-full ml-2 animate-pulse"></div>
+          <div className="w-3 h-3 bg-green-400 rounded-full ml-2 animate-pulse-slow"></div>
         </div>
         <p className="text-gray-300 text-sm leading-relaxed mb-4">
           <strong>⚡ Risposta garantita entro 2 ore lavorative</strong><br/>

@@ -83,7 +83,7 @@ const Header: React.FC = () => {
                 />
                 
                 {/* Effetto bagliore pulsante */}
-                <div className="absolute inset-0 w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-r from-green-400/20 to-emerald-500/20 blur-xl"></div>
+                <div className="absolute inset-0 w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-r from-green-400/20 to-emerald-500/20 blur-xl animate-pulse-slow"></div>
               </div>
             </div>
           </div>
@@ -119,15 +119,15 @@ const Header: React.FC = () => {
               
               {/* SLOGAN ACCATTIVANTI - Mobile compatto */}
               <div className="space-y-2 sm:space-y-3 text-xs sm:text-base md:text-lg">
-                <p className="text-yellow-400 font-bold animate-pulse">
+                <p className="text-yellow-400 font-bold animate-pulse-text">
                   <span className="block sm:inline">✨🔥 "Stampa 3D Frosinone - La tua IDEA</span>
                   <span className="block sm:inline"> diventa REALTÀ!" 🔥✨</span>
                 </p>
-                <p className="text-pink-400 font-bold animate-pulse" style={{ animationDelay: '0.5s' }}>
+                <p className="text-pink-400 font-bold animate-pulse-text" style={{ animationDelay: '1s' }}>
                   <span className="block sm:inline">💝🎁 "Prototipazione rapida e componenti</span>
                   <span className="block sm:inline"> per ogni esigenza!" 🎁💝</span>
                 </p>
-                <p className="text-cyan-400 font-bold animate-pulse" style={{ animationDelay: '1s' }}>
+                <p className="text-cyan-400 font-bold animate-pulse-text" style={{ animationDelay: '2s' }}>
                   🎨⭐ "Frosinone - Il futuro della stampa 3D!" ⭐🎨
                 </p>
               </div>

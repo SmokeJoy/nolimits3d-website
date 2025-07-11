@@ -132,7 +132,7 @@ const Home: React.FC = () => {
         >
           {/* Background Gradient Animato */}
           <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-emerald-500/5 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-emerald-500/5 animate-pulse-slow"></div>
           </div>
 
           <div className="section-container relative z-10">
@@ -140,7 +140,7 @@ const Home: React.FC = () => {
               <div className="flex items-center justify-center mb-6">
                 <div className="relative">
                   <Sparkles className="w-12 h-12 text-green-400 neon-glow" />
-                  <div className="absolute inset-0 w-12 h-12 bg-green-400/30 rounded-full animate-ping"></div>
+                  <div className="absolute inset-0 w-12 h-12 bg-green-400/30 rounded-full animate-ping-slow"></div>
                 </div>
               </div>
               
