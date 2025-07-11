@@ -11,6 +11,37 @@
   <meta name="author" content="NoLimits3D" />
   <meta name="robots" content="index, follow" />
   
+  <!-- Local SEO Meta Tags -->
+  <meta name="geo.region" content="IT-FR" />
+  <meta name="geo.placename" content="Frosinone" />
+  <meta name="geo.position" content="41.6298;13.3401" />
+  <meta name="ICBM" content="41.6298, 13.3401" />
+  <meta name="DC.title" content="NoLimits3D - Stampa 3D Professionale Frosinone" />
+  <meta name="DC.subject" content="Stampa 3D FDM, Prototipazione, Componenti Tecnici" />
+  <meta name="DC.description" content="Servizio di stampa 3D FDM professionale a Frosinone. Prototipi, componenti tecnici e oggetti personalizzati con materiali PLA, ABS, PETG, TPU." />
+  <meta name="DC.creator" content="NoLimits3D" />
+  <meta name="DC.publisher" content="NoLimits3D" />
+  <meta name="DC.contributor" content="NoLimits3D Team" />
+  <meta name="DC.date" content="2025-01-23" />
+  <meta name="DC.type" content="Service" />
+  <meta name="DC.format" content="text/html" />
+  <meta name="DC.identifier" content="https://nolimits3d.store" />
+  <meta name="DC.language" content="it" />
+  <meta name="DC.coverage" content="Frosinone, Ciociaria, Lazio" />
+  <meta name="DC.rights" content="Copyright NoLimits3D 2025" />
+  
+  <!-- Business Information -->
+  <meta name="business:contact_data:street_address" content="Via Dante Alighieri" />
+  <meta name="business:contact_data:locality" content="Frosinone" />
+  <meta name="business:contact_data:region" content="Lazio" />
+  <meta name="business:contact_data:postal_code" content="03100" />
+  <meta name="business:contact_data:country_name" content="Italia" />
+  <meta name="business:contact_data:phone_number" content="+393770918590" />
+  <meta name="business:contact_data:website" content="https://nolimits3d.store" />
+  
+  <!-- Service Area -->
+  <meta name="service-area" content="Frosinone, Ciociaria, Lazio, Roma, Latina, Cassino, Sora, Anagni, Ferentino, Alatri" />
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nolimits3d.store/" />
@@ -19,6 +50,12 @@
   <meta property="og:image" content="https://nolimits3d.store/images/logo.jpg" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content="NoLimits3D" />
+  <meta property="business:contact_data:street_address" content="Via Dante Alighieri" />
+  <meta property="business:contact_data:locality" content="Frosinone" />
+  <meta property="business:contact_data:region" content="Lazio" />
+  <meta property="business:contact_data:postal_code" content="03100" />
+  <meta property="business:contact_data:country_name" content="Italia" />
+  <meta property="business:contact_data:phone_number" content="+393770918590" />
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
@@ -130,6 +167,48 @@
   }
   </script>
 
+  <!-- Additional Structured Data - FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto costa la stampa 3D?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I prezzi variano in base al materiale, dimensioni e complessità. Ricevi un preventivo gratuito in 2 ore inviando il tuo file 3D."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quali materiali utilizzate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Utilizziamo materiali professionali: PLA biodegradabile, ABS resistente, PETG food-safe e TPU flessibile. Tutti certificati per uso industriale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Consegnate in Ciociaria?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, consegniamo gratuitamente a mano in tutta la Ciociaria per ordini superiori a 20€. Disponibile anche spedizione in tutta Italia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto tempo richiede la stampa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I tempi variano da 2-8 ore per oggetti piccoli fino a 2-3 giorni per progetti complessi. Ti forniamo una stima precisa con il preventivo."
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JH2QLWGRJB"></script>
   <script>
@@ -142,6 +221,13 @@
       custom_map: {
         'custom_parameter_1': 'stampa_3d_frosinone'
       }
+    });
+    
+    // Enhanced Local SEO Tracking
+    gtag('config', 'G-JH2QLWGRJB', {
+      'custom_parameter_1': 'stampa_3d_frosinone',
+      'custom_parameter_2': 'prototipazione_ciociaria',
+      'custom_parameter_3': 'componenti_tecnici_lazio'
     });
   </script>
 
@@ -233,6 +319,17 @@
       });
     }
 
+    // Enhanced Event Tracking for Local SEO
+    window.trackLocalEvent = function(action, location) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', action, {
+          'event_category': 'local_seo',
+          'event_label': location,
+          'custom_parameter_1': 'stampa_3d_' + location.toLowerCase()
+        });
+      }
+    };
+
     // WhatsApp Click Tracking
     window.trackWhatsAppClick = function() {
       if (typeof gtag !== 'undefined') {
@@ -241,6 +338,8 @@
           'event_label': 'whatsapp_button',
           'value': 1
         });
+        // Track local intent
+        window.trackLocalEvent('whatsapp_contact', 'frosinone');
       }
     };
 
@@ -252,6 +351,8 @@
           'event_label': formType,
           'value': 1
         });
+        // Track local conversion
+        window.trackLocalEvent('form_conversion', 'ciociaria');
       }
     };
   </script>

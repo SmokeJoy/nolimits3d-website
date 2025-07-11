@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ChatWidget from './ChatWidget';
 import WhatsAppButton from './WhatsAppButton';
+import Breadcrumbs from './Breadcrumbs';
 import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from 'lucide-react';
 
 interface LayoutProps {
@@ -172,6 +173,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </nav>
 
+      {/* Breadcrumbs */}
+      <div className="fixed top-16 left-0 right-0 z-30 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/40 border-b border-green-500/10">
+        <div className="section-container">
+          <div className="py-3">
+            <Breadcrumbs className="text-gray-300" />
+          </div>
+        </div>
+      </div>
+
       {/* Dark Mode Toggle */}
       <div className="fixed top-20 right-6 z-50">
         <button
@@ -191,8 +201,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </button>
       </div>
 
-      {/* Main Content */}
-      {children}
+      {/* Main Content with proper top margin for fixed navigation + breadcrumbs */}
+      <div className="pt-24">
+        {children}
+      </div>
 
       {/* Footer */}
       <Footer />
@@ -207,8 +219,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-50 glass-card p-4 rounded-2xl border-2 border-green-500/30 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-500/50 group"
-          aria-label="Torna all'inizio"
+          className="fixed bottom-6 right-6 z-50 glass-card p-4 rounded-2xl border-2 border-green-500/30 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-500/50 group"
+          aria-label="Torna in cima"
+          title="Torna in cima"
         >
           <ArrowUp className="w-6 h-6 text-green-400 neon-glow group-hover:-translate-y-1 transition-transform duration-300" />
         </button>
