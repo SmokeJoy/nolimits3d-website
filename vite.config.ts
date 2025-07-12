@@ -13,12 +13,7 @@ export default defineConfig({
     sourcemap: false,
     assetsDir: 'assets',
     rollupOptions: {
-      external: ['react-reconciler', 'react-reconciler/constants'],
       output: {
-        globals: {
-          'react-reconciler': 'ReactReconciler',
-          'react-reconciler/constants': 'ReactReconcilerConstants'
-        },
         manualChunks: {
           vendor: ['react', 'react-dom'],
           ui: ['lucide-react', 'react-medium-image-zoom'],
@@ -38,6 +33,7 @@ export default defineConfig({
       'three',
       '@react-three/fiber',
       '@react-three/drei',
+      'react-reconciler',
       'html2pdf.js',
       'uuid'
     ],
