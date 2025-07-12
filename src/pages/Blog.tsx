@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
 import { BookOpen, Calendar, User, Tag, Search, Filter } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { MaterialsComparisonTable } from '../components/MaterialsComparisonTable';
 import { TroubleshootingTables } from '../components/TroubleshootingTables';
 import { DfAMTables } from '../components/DfAMTables';
@@ -286,6 +287,15 @@ const Blog: React.FC = () => {
         <main className="pt-20">
           <article className="py-20">
             <div className="section-container max-w-4xl mx-auto">
+              {/* Breadcrumbs per singolo articolo */}
+              <Breadcrumbs 
+                items={[
+                  { label: 'Blog', href: '/blog' },
+                  { label: post.title, current: true }
+                ]}
+                className="mb-8"
+              />
+              
               <button
                 onClick={() => setSelectedPost(null)}
                 className="mb-8 flex items-center text-green-400 hover:text-green-300 transition-colors"
@@ -392,6 +402,14 @@ const Blog: React.FC = () => {
       <main className="pt-20">
         <section className="py-20">
           <div className="section-container">
+            {/* Breadcrumbs per pagina blog principale */}
+            <Breadcrumbs 
+              items={[
+                { label: 'Blog', current: true }
+              ]}
+              className="mb-12"
+            />
+            
             <div className="text-center mb-16">
               <h1 className="text-4xl md:text-6xl font-black mb-6">
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">

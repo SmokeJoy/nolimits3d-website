@@ -1,9 +1,23 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { imagetools } from 'vite-imagetools';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    imagetools({
+      defaultDirectives: (url) => {
+        if (url.searchParams.has('webp')) {
+          return new URLSearchParams('format=webp&quality=80');
+        }
+        if (url.searchParams.has('w')) {
+          return new URLSearchParams();
+        }
+        return new URLSearchParams('format=webp&quality=80');
+      }
+    })
+  ],
   base: '/', // Importante per GitHub Pages con dominio personalizzato
   resolve: {
     dedupe: ['react', 'react-dom', 'react-reconciler']

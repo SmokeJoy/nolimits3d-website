@@ -1,122 +1,82 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronRightIcon, HomeIcon } from '@heroicons/react/24/outline';
 
-interface BreadcrumbItem {
-  name: string;
-  url: string;
-  isCurrentPage?: boolean;
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+  current?: boolean;
 }
 
 interface BreadcrumbsProps {
-  items?: BreadcrumbItem[];
+  items: BreadcrumbItem[];
   className?: string;
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
-  const location = useLocation();
-  
-  // Auto-generate breadcrumbs from current path if not provided
-  const generateBreadcrumbs = (): BreadcrumbItem[] => {
-    const pathSegments = location.pathname.split('/').filter(Boolean);
-    const breadcrumbs: BreadcrumbItem[] = [
-      { name: 'Home', url: '/' }
-    ];
-
-    let currentPath = '';
-    pathSegments.forEach((segment, index) => {
-      currentPath += `/${segment}`;
-      const isLast = index === pathSegments.length - 1;
-      
-      // Convert segment to readable name
-      let name = segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-      
-      // Special cases for common paths
-      switch (segment) {
-        case 'chi-siamo':
-          name = 'Chi Siamo';
-          break;
-        case 'galleria':
-          name = 'Galleria';
-          break;
-        case 'contatti':
-          name = 'Contatti';
-          break;
-        case 'blog':
-          name = 'Blog & Guide';
-          break;
-        case 'legal':
-          name = 'Informazioni Legali';
-          break;
-        case 'materiali-stampa-3d':
-          name = 'Materiali per Stampa 3D';
-          break;
-        case 'problemi-stampa-3d':
-          name = 'Problemi Stampa 3D';
-          break;
-        case 'dfam-design-stampa-3d':
-          name = 'DfAM Design per Stampa 3D';
-          break;
-        case 'post-processing-stampa-3d':
-          name = 'Post-Processing Stampa 3D';
-          break;
-        case 'manutenzione-klipper-stampante-3d':
-          name = 'Manutenzione Klipper Stampante 3D';
-          break;
-        default:
-          break;
-      }
-
-      breadcrumbs.push({
-        name,
-        url: currentPath,
-        isCurrentPage: isLast
-      });
-    });
-
-    return breadcrumbs;
+  // Generate JSON-LD schema for breadcrumbs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.label,
+      ...(item.href && { "item": `https://nolimits3d.store${item.href}` })
+    }))
   };
 
-  const breadcrumbItems = items || generateBreadcrumbs();
-
-  // Don't show breadcrumbs on home page
-  if (location.pathname === '/') {
-    return null;
-  }
-
   return (
-    <nav 
-      className={`flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400 ${className}`}
-      aria-label="Breadcrumb"
-    >
-      <ol className="flex items-center space-x-1">
-        {breadcrumbItems.map((item, index) => (
-          <li key={`breadcrumb-${index}-${item.url}`} className="flex items-center">
-            {index > 0 && (
-              <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
-            )}
-            
-            {item.isCurrentPage ? (
-              <span 
-                className="font-medium text-gray-900 dark:text-gray-100"
-                aria-current="page"
-              >
-                {index === 0 && <Home className="w-4 h-4 inline mr-1" />}
-                {item.name}
-              </span>
-            ) : (
-              <Link
-                to={item.url}
-                className="hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 flex items-center"
-              >
-                {index === 0 && <Home className="w-4 h-4 inline mr-1" />}
-                {item.name}
-              </Link>
-            )}
+    <>
+      {/* Schema markup for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      
+      {/* Visual breadcrumbs */}
+      <nav 
+        aria-label="Breadcrumb" 
+        className={`flex items-center space-x-2 text-sm ${className}`}
+      >
+        <ol className="flex items-center space-x-2">
+          {/* Home icon always first */}
+          <li>
+            <Link
+              to="/"
+              className="flex items-center text-gray-500 hover:text-green-500 transition-colors duration-200"
+              aria-label="Torna alla homepage"
+            >
+              <HomeIcon className="h-4 w-4" />
+              <span className="sr-only">Home</span>
+            </Link>
           </li>
-        ))}
-      </ol>
-    </nav>
+          
+          {/* Breadcrumb items */}
+          {items.map((item, index) => (
+            <li key={index} className="flex items-center">
+              <ChevronRightIcon className="h-4 w-4 text-gray-400 mx-2" />
+              
+              {item.current || !item.href ? (
+                <span 
+                  className="text-gray-900 dark:text-white font-medium"
+                  aria-current="page"
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <Link
+                  to={item.href}
+                  className="text-gray-500 hover:text-green-500 transition-colors duration-200 font-medium"
+                >
+                  {item.label}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </>
   );
 };
 

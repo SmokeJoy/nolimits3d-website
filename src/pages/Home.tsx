@@ -17,12 +17,28 @@ const Home: React.FC = () => {
         localSEO={{
           businessName: "NoLimits3D",
           address: "Via Dante Alighieri",
-          city: "Frosinone",
+          city: "Frosinone", 
           region: "Lazio",
           postalCode: "03100",
           phone: "+393770918590",
+          email: "nolimits.3d.print@gmail.com",
           priceRange: "€€",
-          services: ["Stampa 3D Frosinone", "Prototipazione Professionale", "Componenti Tecnici", "Oggetti Personalizzati"]
+          services: [
+            "Stampa 3D FDM Professionale",
+            "Prototipazione Rapida",
+            "Componenti Tecnici Specializzati", 
+            "Post-Processing Avanzato",
+            "Consulenza DfAM",
+            "Manutenzione Stampanti 3D Klipper"
+          ],
+          openingHours: [
+            "Mo-Fr 09:00-18:00",
+            "Sa 09:00-13:00"
+          ],
+          coordinates: {
+            latitude: 41.6330,
+            longitude: 13.3424
+          }
         }}
       />
       
