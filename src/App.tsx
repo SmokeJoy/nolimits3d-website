@@ -12,6 +12,11 @@ import Stampa3DLatina from './pages/Stampa3DLatina';
 import Materiali from './pages/Materiali';
 import Preventivatore from './pages/Preventivatore';
 
+// Componente per singolo articolo del blog
+const BlogArticle: React.FC = () => {
+  return <Blog />;
+};
+
 // Dichiarazione per gtag
 declare global {
   interface Window {
@@ -27,6 +32,14 @@ function App() {
         <Route path="/galleria" element={<GalleryPage />} />
         <Route path="/chi-siamo" element={<About />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
+        {/* Route specifiche per articoli del blog */}
+        <Route path="/blog/materiali-stampa-3d" element={<BlogArticle />} />
+        <Route path="/blog/problemi-stampa-3d" element={<BlogArticle />} />
+        <Route path="/blog/dfam-design-stampa-3d" element={<BlogArticle />} />
+        <Route path="/blog/post-processing-stampa-3d" element={<BlogArticle />} />
+        <Route path="/blog/manutenzione-klipper-stampante-3d" element={<BlogArticle />} />
+        <Route path="/blog/quanto-costa-stampare-3d" element={<BlogArticle />} />
         <Route path="/contatti" element={<ContactPage />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/stampa-3d-cassino" element={<Stampa3DCassino />} />

@@ -30,6 +30,46 @@ const Home: React.FC = () => {
       
       {/* Contenuto principale */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none relative">
+        {/* Hero Section con H1 principale */}
+        <section className="py-12 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+          <div className="section-container relative z-10">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+                  Stampa 3D Frosinone
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-600 bg-clip-text text-transparent">
+                  Professionale
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-medium mb-8">
+                🏭 <span className="text-green-400 font-bold">Prototipazione rapida</span> e <span className="text-emerald-400 font-bold">componenti tecnici specializzati</span> per PMI, startup e professionisti in Ciociaria 🏭
+              </p>
+              
+              <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="glass-card px-6 py-3 rounded-full border border-green-500/30">
+                  <span className="text-green-400 font-bold">✅ Preventivo Gratuito in 2 ore</span>
+                </div>
+                <div className="glass-card px-6 py-3 rounded-full border border-emerald-500/30">
+                  <span className="text-emerald-400 font-bold">🚗 Consegna Gratis in Ciociaria</span>
+                </div>
+                <div className="glass-card px-6 py-3 rounded-full border border-blue-500/30">
+                  <span className="text-blue-400 font-bold">⚡ Produzione 24-48h</span>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-gray-400 text-sm mb-4">
+                  <span className="text-green-400 font-semibold">NoLimits3D</span> • Via Dante Alighieri, Frosinone • 
+                  <span className="text-emerald-400 font-semibold"> Tel: +39 377 091 8590</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Sezione Servizi */}
         <Services />
         
