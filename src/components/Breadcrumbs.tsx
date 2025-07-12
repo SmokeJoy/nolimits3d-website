@@ -91,7 +91,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
     >
       <ol className="flex items-center space-x-1">
         {breadcrumbItems.map((item, index) => (
-          <li key={item.url} className="flex items-center">
+          <li key={`breadcrumb-${index}-${item.url}`} className="flex items-center">
             {index > 0 && (
               <ChevronRight className="w-4 h-4 mx-1 text-gray-400" />
             )}

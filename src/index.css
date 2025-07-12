@@ -1324,3 +1324,69 @@
 .prose-dark a[href*="instagr.am"]:hover::after {
   animation: spin360 0.8s ease-in-out;
 }
+
+/* Dark Range Slider Styles */
+.slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-thumb::-webkit-slider-track {
+  background: rgb(71 85 105);
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgb(59 130 246);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(30 41 59);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider-thumb::-webkit-slider-thumb:hover {
+  background: rgb(37 99 235);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.slider-thumb::-moz-range-track {
+  background: rgb(71 85 105);
+  height: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.slider-thumb::-moz-range-thumb {
+  background: rgb(59 130 246);
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(30 41 59);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider-thumb::-moz-range-thumb:hover {
+  background: rgb(37 99 235);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.slider-thumb:focus {
+  outline: none;
+}
+
+.slider-thumb:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}

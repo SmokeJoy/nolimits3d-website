@@ -1,6 +1,6 @@
 import { BlogPost } from './types';
 
-export const manutenzioneklipperStampante3D: BlogPost = {
+export const manutenzioneKlipper: BlogPost = {
   id: 5,
   title: "Klipper Maintenance Masterclass 2025: Checklist, Calibrazioni e Sicurezza per Stampanti 3D",
   excerpt: "La guida completa alla manutenzione per stampanti 3D con Klipper. Dalla calibrazione (PID, Input Shaper) alla gestione degli aggiornamenti per stampe perfette.",

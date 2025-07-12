@@ -8,11 +8,11 @@ interface SEOHeadProps {
   image?: string;
   url?: string;
   type?: 'website' | 'article' | 'service' | 'local_business';
-  publishedTime?: string;
-  modifiedTime?: string;
-  author?: string;
+    publishedTime?: string;
+    modifiedTime?: string;
+    author?: string;
   category?: string;
-  tags?: string[];
+    tags?: string[];
   localSEO?: {
     businessName?: string;
     address?: string;
@@ -171,7 +171,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="ICBM" content="41.6298, 13.3401" />
       <meta name="DC.coverage" content="Frosinone, Ciociaria, Lazio" />
       <meta name="service-area" content="Frosinone, Ciociaria, Lazio, Roma, Latina, Cassino, Sora, Anagni, Ferentino, Alatri" />
-
+      
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -188,14 +188,14 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="business:contact_data:postal_code" content={localSEO.postalCode} />
       <meta property="business:contact_data:country_name" content="Italia" />
       <meta property="business:contact_data:phone_number" content={localSEO.phone} />
-
+      
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:url" content={url} />
-
+      
       {/* Article specific meta tags */}
       {type === 'article' && (
         <>
@@ -208,7 +208,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           ))}
         </>
       )}
-
+      
       {/* Local Business Schema */}
       <script type="application/ld+json">
         {JSON.stringify(localBusinessData)}

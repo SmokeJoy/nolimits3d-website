@@ -73,6 +73,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const navLinks = [
     { to: '/', label: 'Home', icon: '🏠' },
+    { to: '/materiali', label: 'Materiali', icon: '🧪' },
+    { to: '/preventivatore', label: 'Preventivatore', icon: '💰' },
     { to: '/galleria', label: 'Galleria', icon: '🎨' },
     { to: '/chi-siamo', label: 'Chi Siamo', icon: '👥' },
     { to: '/blog', label: 'Blog & Guide', icon: '📚' },
@@ -80,9 +82,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
+    <div className="min-h-screen relative overflow-x-hidden bg-slate-900">
       {/* Particles Background */}
-      <div className="particles-bg">
+      <div className="particles-bg fixed inset-0 pointer-events-none z-0">
         {Array.from({ length: 50 }, (_, i) => (
           <div
             key={i}
@@ -123,19 +125,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-2">
               {navLinks.map(link => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`flex items-center space-x-2 px-6 py-3 rounded-lg transition-all duration-300 border-2 font-bold text-sm ${
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-300 border font-medium text-xs ${
                     location.pathname === link.to
                       ? 'text-white bg-blue-600 border-blue-500 shadow-lg shadow-blue-500/30'
-                      : 'text-white bg-gray-700 border-gray-600 hover:bg-blue-600 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 hover:transform'
+                      : 'text-gray-200 bg-gray-800/50 border-gray-700 hover:bg-blue-600 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/30'
                   }`}
                 >
-                  <span className="text-lg">{link.icon}</span>
-                  <span>{link.label}</span>
+                  <span className="text-sm">{link.icon}</span>
+                  <span className="hidden xl:inline">{link.label}</span>
                 </Link>
               ))}
             </div>
@@ -143,7 +145,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-gray-300 hover:text-green-400 hover:bg-green-500/10 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-gray-300 hover:text-green-400 hover:bg-green-500/10 transition-colors"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -151,16 +153,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-green-500/20">
+            <div className="lg:hidden py-4 border-t border-green-500/20">
               <div className="flex flex-col space-y-2">
                 {navLinks.map(link => (
                   <Link
                     key={link.to}
                     to={link.to}
-                    className={`flex items-center space-x-3 px-6 py-4 rounded-lg transition-all duration-300 border-2 font-bold ${
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 border font-medium ${
                       location.pathname === link.to
                         ? 'text-white bg-blue-600 border-blue-500 shadow-lg shadow-blue-500/30'
-                        : 'text-white bg-gray-700 border-gray-600 hover:bg-blue-600 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 hover:transform'
+                        : 'text-gray-200 bg-gray-800/50 border-gray-700 hover:bg-blue-600 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/30'
                     }`}
                   >
                     <span className="text-lg">{link.icon}</span>
@@ -183,26 +185,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </div>
 
       {/* Dark Mode Toggle */}
-      <div className="fixed top-20 right-6 z-50">
+      <div className="fixed bottom-24 right-6 z-50">
         <button
           onClick={toggleDarkMode}
-          className="glass-card p-4 rounded-2xl border-2 border-green-500/30 shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-500/50 group"
+          className="glass-card p-3 rounded-xl border border-green-500/30 shadow-xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500/50 group"
           aria-label={darkMode ? 'Attiva modalità chiara' : 'Attiva modalità scura'}
           title={darkMode ? 'Modalità chiara' : 'Modalità scura'}
         >
           <div className="relative">
             {darkMode ? (
-              <Sun className="w-6 h-6 text-yellow-400 neon-glow group-hover:rotate-180 transition-transform duration-500" />
+              <Sun className="w-5 h-5 text-yellow-400 neon-glow group-hover:rotate-180 transition-transform duration-500" />
             ) : (
-              <Moon className="w-6 h-6 text-gray-200 group-hover:rotate-12 transition-transform duration-300" />
+              <Moon className="w-5 h-5 text-gray-200 group-hover:rotate-12 transition-transform duration-300" />
             )}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </button>
       </div>
 
       {/* Main Content with proper top margin for fixed navigation + breadcrumbs */}
-      <div className="pt-24">
+      <div className="pt-28 relative z-10">
         {children}
       </div>
 

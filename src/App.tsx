@@ -7,6 +7,10 @@ import About from './pages/About';
 import ContactPage from './pages/Contact';
 import Blog from './pages/Blog';
 import Legal from './pages/Legal';
+import Stampa3DCassino from './pages/Stampa3DCassino';
+import Stampa3DLatina from './pages/Stampa3DLatina';
+import Materiali from './pages/Materiali';
+import Preventivatore from './pages/Preventivatore';
 
 // Dichiarazione per gtag
 declare global {
@@ -25,6 +29,10 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contatti" element={<ContactPage />} />
         <Route path="/legal" element={<Legal />} />
+        <Route path="/stampa-3d-cassino" element={<Stampa3DCassino />} />
+        <Route path="/stampa-3d-latina" element={<Stampa3DLatina />} />
+        <Route path="/materiali" element={<Materiali />} />
+        <Route path="/preventivatore" element={<Preventivatore />} />
         {/* Redirect old routes for compatibility */}
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/about" element={<About />} />

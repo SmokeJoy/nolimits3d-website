@@ -7,32 +7,32 @@ const Services: React.FC = () => {
     {
       title: "Prototipazione Professionale Frosinone",
       description: "Trasforma i tuoi concept in prototipi funzionali con la massima precisione. Dalla modellazione 3D alla stampa finale, realizziamo prototipi per industria, startup e privati.",
-      icon: <CheckCircle className="w-10 h-10 text-gray-900" />
+      icon: <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
     },
     {
       title: "Componenti Tecnici su Misura",
       description: "Realizziamo componenti tecnici specializzati per ogni settore: ricambi meccanici, parti di precisione, housing elettronici e soluzioni ingegneristiche personalizzate.",
-      icon: <Zap className="w-10 h-10 text-gray-900" />
+      icon: <Zap className="w-10 h-10 text-blue-600 dark:text-blue-400" />
     },
     {
       title: "Regali Personalizzati Unici",
       description: "Crea il regalo perfetto e unico! Oggetti personalizzati che lasceranno tutti a bocca aperta per originalità. La stampa 3D Frosinone che sorprende.",
-      icon: <Palette className="w-10 h-10 text-gray-900" />
+      icon: <Palette className="w-10 h-10 text-purple-600 dark:text-purple-400" />
     },
     {
       title: "Consulenza Tecnica Specializzata",
       description: "Non sai come realizzare la tua idea? I nostri esperti in stampa 3D ti guidano dalla progettazione alla realizzazione finale, ottimizzando ogni parametro.",
-      icon: <HeadsetIcon className="w-10 h-10 text-gray-900" />
+      icon: <HeadsetIcon className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
     },
     {
       title: "Materiali Certificati Premium",
       description: "Solo materiali premium PLA, ABS, PETG, TPU per componenti resistenti e duraturi. Certificazioni per uso alimentare, medicale e industriale disponibili.",
-      icon: <Shield className="w-10 h-10 text-gray-900" />
+      icon: <Shield className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
     },
     {
       title: "Servizio Locale Ciociaria",
       description: "Stampa 3D Frosinone con consegna GRATUITA in tutta la Ciociaria per ordini sopra 20€. Supporto locale, qualità internazionale.",
-      icon: <Award className="w-10 h-10 text-gray-900" />
+      icon: <Award className="w-10 h-10 text-amber-600 dark:text-amber-400" />
     }
   ];
 
