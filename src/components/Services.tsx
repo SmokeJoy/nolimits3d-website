@@ -6,60 +6,49 @@ const Services: React.FC = () => {
   const features = [
     {
       title: "Prototipazione Professionale Frosinone",
-      description: "Trasforma i tuoi concept in prototipi funzionali con la massima precisione. Dalla modellazione 3D alla stampa finale, realizziamo prototipi per industria, startup e privati.",
+      description: "Trasformiamo le tue idee in prototipi funzionali ad alta precisione. Ideale per test di prodotto, validazione di design e presentazioni aziendali. Il nostro servizio di stampa 3D a Frosinone garantisce risultati impeccabili per industria, startup e privati.",
       icon: <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
     },
     {
-      title: "Componenti Tecnici su Misura",
-      description: "Realizziamo componenti tecnici specializzati per ogni settore: ricambi meccanici, parti di precisione, housing elettronici e soluzioni ingegneristiche personalizzate.",
+      title: "Componenti Tecnici e Ricambi su Misura",
+      description: "Produciamo componenti tecnici e parti di ricambio per qualsiasi settore industriale. Dalle meccaniche di precisione agli housing per elettronica, utilizziamo materiali performanti per garantire durata e affidabilità. La soluzione perfetta per le tue esigenze ingegneristiche.",
       icon: <Zap className="w-10 h-10 text-blue-600 dark:text-blue-400" />
     },
     {
-      title: "Regali Personalizzati Unici",
-      description: "Crea il regalo perfetto e unico! Oggetti personalizzati che lasceranno tutti a bocca aperta per originalità. La stampa 3D Frosinone che sorprende.",
+      title: "Oggetti di Design e Regali Personalizzati",
+      description: "Dai vita a creazioni uniche e regali memorabili. Realizziamo oggetti di design, gadget personalizzati e idee regalo originali che stupiranno per la loro qualità e creatività. La stampa 3D a Frosinone per rendere speciale ogni occasione.",
       icon: <Palette className="w-10 h-10 text-purple-600 dark:text-purple-400" />
     },
     {
-      title: "Consulenza Tecnica Specializzata",
-      description: "Non sai come realizzare la tua idea? I nostri esperti in stampa 3D ti guidano dalla progettazione alla realizzazione finale, ottimizzando ogni parametro.",
+      title: "Consulenza DfAM (Design for Additive Manufacturing)",
+      description: "Ottimizza i tuoi progetti per la stampa 3D con la nostra consulenza specializzata. Ti aiutiamo a ridurre costi, migliorare le performance dei componenti e sfruttare appieno i vantaggi della produzione additiva. Il partner ideale per l'innovazione.",
       icon: <HeadsetIcon className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
     },
     {
-      title: "Materiali Certificati Premium",
-      description: "Solo materiali premium PLA, ABS, PETG, TPU per componenti resistenti e duraturi. Certificazioni per uso alimentare, medicale e industriale disponibili.",
+      title: "Materiali Tecnici e Certificati",
+      description: "Disponiamo di un'ampia gamma di materiali tecnici: PLA, ABS, PETG, TPU, e compositi caricati con carbonio. Offriamo soluzioni con certificazioni specifiche per il settore alimentare, medicale o industriale, garantendo sempre la massima qualità.",
       icon: <Shield className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />
     },
     {
-      title: "Servizio Locale Ciociaria",
-      description: "Stampa 3D Frosinone con consegna GRATUITA in tutta la Ciociaria per ordini sopra 20€. Supporto locale, qualità internazionale.",
+      title: "Servizio Locale per la Ciociaria",
+      description: "Il tuo servizio di stampa 3D di fiducia a Frosinone, con consegna gratuita in tutta la Ciociaria per ordini superiori a 20€. Garantiamo un supporto diretto, rapido e locale, con la qualità di un servizio internazionale.",
       icon: <Award className="w-10 h-10 text-amber-600 dark:text-amber-400" />
     }
   ];
 
   return (
-    <section id="servizi" className="py-16 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Stampa 3D Frosinone - Prototipazione e Componenti Tecnici
+    <section id="servizi" className="py-20 px-4 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+            I Nostri Servizi di Stampa 3D a Frosinone
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Hai bisogno di <span className="text-green-600 dark:text-green-400 font-bold">prototipazione professionale</span> o <span className="text-emerald-600 dark:text-emerald-400 font-bold">componenti tecnici specializzati</span>? 
-            <span className="text-green-600 dark:text-green-400 font-bold"> La stampa 3D Frosinone che realizza ogni progetto!</span>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Offriamo soluzioni complete di <strong className="text-green-600 dark:text-green-400">prototipazione rapida</strong> e produzione di <strong className="text-emerald-600 dark:text-emerald-400">componenti tecnici</strong> per soddisfare ogni esigenza, dal professionista all'azienda.
           </p>
-          
-          {/* SLOGAN MAGNETICI */}
-          <div className="mt-8 space-y-3">
-            <p className="text-xl font-bold text-pink-600 dark:text-pink-400 animate-pulse">
-              💝 "Prototipazione Frosinone - Dal concept al prodotto finito!" 💝
-            </p>
-            <p className="text-lg font-semibold text-purple-600 dark:text-purple-400">
-              🌟 "Componenti tecnici su misura - La precisione che serve!" 🌟
-            </p>
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => (
             <FeatureCard 
               key={index}
@@ -70,49 +59,11 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        {/* Sezione materiali supportati */}
-        <div className="mt-16 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
-            Materiali Certificati Disponibili
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="bg-green-100 dark:bg-green-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600 dark:text-green-400">PLA</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">PLA Professionale</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Biodegradabile, alta precisione dimensionale, ideale per prototipi funzionali e modelli di presentazione
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 dark:bg-blue-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">ABS</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">ABS Industriale</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Resistenza meccanica superiore, stabilità termica fino a 100°C, per componenti tecnici e funzionali
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">PETG</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">PETG Food-Safe</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Trasparenza ottica, resistenza chimica certificata, approvato per contatto alimentare
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-orange-100 dark:bg-orange-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">TPU</span>
-              </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">TPU Flessibile</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Elastomero termoplastico ultra-flessibile, resistenza agli impatti, ideale per componenti funzionali e gadget
-              </p>
-            </div>
-          </div>
+        <div className="mt-20 text-center">
+            <a href="/preventivatore" className="inline-block bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-green-700 transition-transform transform hover:scale-105">
+              Richiedi un Preventivo Gratuito
+            </a>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">Risposta rapida in meno di 2 ore!</p>
         </div>
       </div>
     </section>
