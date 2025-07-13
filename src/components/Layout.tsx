@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ChatWidget from './ChatWidget';
 import WhatsAppButton from './WhatsAppButton';
-import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from '../icons';
+import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -44,8 +44,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    // Scrolla in cima alla pagina al cambio di rotta
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMobileMenuOpen(false);
   }, [location.pathname]);
 

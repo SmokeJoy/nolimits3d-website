@@ -1,12 +1,12 @@
 import React, { useState, useRef, useCallback, useEffect, useMemo, useLayoutEffect, Suspense } from 'react';
-import { Canvas, useLoader, useThree, invalidate } from '@react-three/fiber';
+import { Canvas, useThree, invalidate } from '@react-three/fiber';
 import { OrbitControls, Bounds } from '@react-three/drei';
-import type { OrbitControls as OrbitControlsImpl } from 'three/examples/jsm/controls/OrbitControls.js';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { CloudArrowUpIcon, EyeIcon, CubeIcon, ScaleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import ErrorBoundary from './ErrorBoundary';
-import { autoOrientSTL, type OrientationResult } from '../utils/stlAutoOrientation';
+import type { OrientationResult } from '../utils/stlAutoOrientation';
 import { dropMeshOnBed } from '../utils/dropMeshOnBed';
 
 // Utility function per formattare il peso in modo consistente
@@ -96,16 +96,18 @@ const calculateMeshVolume = (geometry: THREE.BufferGeometry): number => {
   }
 };
 
-import type { OrbitControls as DreiOrbitControls } from '@react-three/drei'; // type-only
-
-// ...
-
-function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refreshTrigger, controlsRef }: { 
+function STLViewer({ 
+  stlArrayBuffer, 
+  onVolumeChange, 
+  onOrientationChange, 
+  refreshTrigger, 
+  controlsRef 
+}: { 
   stlArrayBuffer: ArrayBuffer; 
   onVolumeChange: (vol: number) => void;
   onOrientationChange?: (result: OrientationResult | null) => void;
   refreshTrigger?: number;
-  controlsRef: React.RefObject<DreiOrbitControls | null>;
+  controlsRef: React.RefObject<OrbitControlsImpl | null>;
 }) {
   const meshRef = useRef<THREE.Mesh>(null);
   const prevVolumeRef = useRef(0); // Traccia volume precedente per evitare loop
@@ -124,23 +126,29 @@ function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refres
     }
   }, [stlArrayBuffer]);
 
-  // Gestione del listener passivo per OrbitControls
+  // ✅ Gestione corretta del wheel event senza metodi interni minificati
   useEffect(() => {
-    const controls = controlsRef.current;
-    const el = controls?.domElement;
-    if (!controls || !el) return; // wait until OrbitControls is ready
+    const oc = controlsRef.current;
+    if (!oc || !oc.domElement) return;
 
-    // one stable callback for add & remove
-    const handleWheel = (e: WheelEvent) => {
-      if (e.ctrlKey) e.preventDefault(); // optional behaviour
-      (controls as any).handleMouseWheel?.(e); // still call original
+    const { domElement } = oc;
+    
+    // Interceptor per wheel event con preventDefault condizionato
+    const wheelInterceptor = (e: WheelEvent) => {
+      if (e.ctrlKey) {
+        e.preventDefault(); // Previene zoom browser con Ctrl+wheel
+      }
+      // Non chiamiamo metodi interni che vengono minificati
+      // Lasciamo che OrbitControls gestisca il wheel naturalmente
     };
 
-    // passive listener to silence Chrome
-    el.addEventListener('wheel', handleWheel, { passive: true });
-
-    return () => el.removeEventListener('wheel', handleWheel); // cleanup
-  }, [controlsRef]); // ← depend on the ref object only
+    // Listener passivo per evitare warning
+    domElement.addEventListener('wheel', wheelInterceptor, { passive: false });
+    
+    return () => {
+      domElement.removeEventListener('wheel', wheelInterceptor);
+    };
+  }, [controlsRef]);
 
   // 🔄 Forza il primo render dopo il caricamento della geometria
   useEffect(() => {
@@ -157,7 +165,7 @@ function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refres
 
   // 🔄 Auto-orientamento asincrono
   useEffect(() => {
-    if (!geometry || orientationProcessed.current || orientationRan.current) return; // Aggiungi la guardia
+    if (!geometry || orientationProcessed.current || orientationRan.current) return;
     
     orientationRan.current = true; // Imposta il flag per bloccare avvii futuri
 
@@ -215,22 +223,16 @@ function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refres
     };
     
     performAutoOrientation();
-  }, [geometry, onOrientationChange, stlArrayBuffer]); // Aggiunto stlArrayBuffer come dipendenza
+  }, [geometry, onOrientationChange, stlArrayBuffer]);
 
   // Gestione WebGL context lost
   useEffect(() => {
-    const canvas = controlsRef.current?.domElement; // Accedi al canvas tramite controlsRef
+    const canvas = controlsRef.current?.domElement;
     if (!canvas) return;
 
-    const handleContextLost = (e: WebGLContextEvent) => {
+    const handleContextLost = (e: Event) => {
       e.preventDefault();
       console.warn('⚠️ WebGL context lost – provo a ripristinare');
-      try { 
-        // three.js gestisce il ripristino del contesto, ma possiamo forzarlo se necessario
-        // controlsRef.current?.context.restore(); // Questa riga non è corretta per three.js
-      } catch (err) {
-        console.error('Errore durante il ripristino del contesto WebGL:', err);
-      }
     };
 
     canvas.addEventListener('webglcontextlost', handleContextLost, false);
@@ -372,7 +374,7 @@ function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refres
 
 const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMaterial }) => {
   const [file, setFile] = useState<File | null>(null);
-  const [stlArrayBuffer, setStlArrayBuffer] = useState<ArrayBuffer | null>(null); // Nuovo stato per ArrayBuffer
+  const [stlArrayBuffer, setStlArrayBuffer] = useState<ArrayBuffer | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [volume, setVolume] = useState<number>(0);
   const [error, setError] = useState<string>('');
@@ -380,7 +382,7 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
   const [orientationResult, setOrientationResult] = useState<OrientationResult | null>(null);
   const [orientationRefresh, setOrientationRefresh] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const controlsRef = useRef<OrbitControlsImpl | null>(null); // Dichiarazione del ref qui
+  const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   const handleVolumeChange = useCallback((calculatedVolume: number) => {
     setVolume(calculatedVolume);
@@ -582,15 +584,15 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
                           onVolumeChange={handleVolumeChange}
                           onOrientationChange={handleOrientationChange}
                           refreshTrigger={orientationRefresh}
-                          controlsRef={controlsRef}          // NEW
+                          controlsRef={controlsRef}
                         />
                       </Bounds>
                       
                       <OrbitControls 
-                        ref={controlsRef} // Aggiungi un ref per accedere all'istanza
+                        ref={controlsRef}
                         makeDefault
                         enablePan={true}
-                        enableZoom={false} // Disattiva lo zoom con la rotella del mouse
+                        enableZoom={true}
                         enableRotate={true}
                         minDistance={5}
                         maxDistance={50}

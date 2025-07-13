@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Services from '../components/Services';
 import QuickQuoteForm from '../components/QuickQuoteForm';
 import SEOHead from '../components/SEOHead';
-import { Sparkles } from '../icons';
+import { Sparkles } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
@@ -66,13 +66,11 @@ const Home: React.FC = () => {
               
               <div className="max-w-4xl mx-auto text-center mb-8">
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Sei alla ricerca di un servizio di <strong className="text-green-400">stampa 3D a Frosinone</strong> affidabile, rapido e professionale? NoLimits3D è il tuo partner tecnologico di riferimento in tutta la Ciociaria. Siamo specializzati nella <strong className="text-emerald-400">prototipazione rapida</strong> per aziende, startup e professionisti, offrendo soluzioni concrete per trasformare le tue idee in realtà. Dalla validazione di un concept alla produzione di <strong className="text-blue-400">componenti tecnici specializzati</strong>, il nostro laboratorio FDM avanzato è attrezzato per gestire ogni tua esigenza.
-                </p>
-                <p className="text-lg text-gray-400 leading-relaxed mt-4">
-                  Il nostro servizio di <strong className="text-green-400">stampa 3D professionale a Frosinone</strong> si rivolge a una vasta gamma di settori, tra cui manifatturiero, automotive, design e medicale. Realizziamo prototipi funzionali, parti di ricambio su misura, housing per elettronica e modelli per test ergonomici con un'altissima attenzione al dettaglio. Utilizziamo solo materiali di prima scelta — come <strong className="text-emerald-400">PLA, ABS, PETG, TPU e compositi caricati in fibra di carbonio</strong> — per garantire non solo precisione millimetrica, ma anche la resistenza meccanica e la finitura estetica necessarie per i tuoi progetti più ambiziosi.
-                </p>
-                <p className="text-lg text-gray-400 leading-relaxed mt-4">
-                  Comprendiamo l'importanza della velocità nel mercato odierno. Per questo offriamo un servizio di <strong className="text-green-400">prototipazione rapida a Frosinone</strong> con tempi di consegna garantiti in 24-48 ore per i progetti più urgenti. Il nostro flusso di lavoro ottimizzato, dalla ricezione del file CAD alla post-produzione, ci permette di essere il fornitore più reattivo per la tua azienda. Che tu abbia bisogno di un singolo prototipo o di una piccola serie di produzione, NoLimits3D è qui per supportarti. Offriamo preventivi gratuiti in meno di 2 ore e consegna gratuita in tutta la <strong className="text-emerald-400">provincia di Frosinone</strong>, perché la tua innovazione non può aspettare.
+                  <strong className="text-green-400">NoLimits3D</strong> è il punto di riferimento per la <strong className="text-emerald-400">stampa 3D professionale a Frosinone</strong>. 
+                  Specializzati in <strong className="text-blue-400">prototipazione industriale, componenti tecnici e oggetti personalizzati</strong> per aziende, 
+                  uffici tecnici e professionisti in tutta la <strong className="text-green-400">Ciociaria</strong>. 
+                  Utilizziamo tecnologie FDM avanzate con materiali di alta qualità: <strong className="text-emerald-400">PLA, ABS, PETG, TPU, Carbon Fiber</strong> 
+                  e compositi tecnici per garantire resistenza, precisione e finitura professionale.
                 </p>
               </div>
               
@@ -133,7 +131,7 @@ const Home: React.FC = () => {
             
             <div className="text-center mt-12">
               <p className="text-gray-300 mb-4">
-                <strong className="text-green-400">Consegna gratuita</strong> in tutta la <strong className="text-emerald-400">Ciociaria</strong> per ordini superiori a 20€
+                <strong className="text-green-400">Consegna gratuita</strong> in tutta la <strong className="text-emerald-400">Ciociaria</strong> per ordini superiori a 50€
               </p>
               <div className="flex flex-wrap justify-center gap-2 text-sm">
                 <span className="glass-card px-3 py-1 rounded-full text-green-400">Provincia di Frosinone</span>
