@@ -131,7 +131,7 @@ const Home: React.FC = () => {
             
             <div className="text-center mt-12">
               <p className="text-gray-300 mb-4">
-                <strong className="text-green-400">Consegna gratuita</strong> in tutta la <strong className="text-emerald-400">Ciociaria</strong> per ordini superiori a 50€
+                <strong className="text-green-400">Consegna gratuita</strong> in tutta la <strong className="text-emerald-400">Ciociaria</strong> per ordini superiori a 20€
               </p>
               <div className="flex flex-wrap justify-center gap-2 text-sm">
                 <span className="glass-card px-3 py-1 rounded-full text-green-400">Provincia di Frosinone</span>
