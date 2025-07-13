@@ -34,13 +34,13 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@react-three/drei": "^10.5.0",
-    "@react-three/fiber": "^9.2.0",
+    "@react-three/drei": "^9.88.6",
+    "@react-three/fiber": "^8.16.2",
     "@types/react-router-dom": "^5.3.3",
     "html2pdf.js": "^0.10.3",
     "lucide-react": "^0.344.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
     "react-intersection-observer": "^9.5.3",
     "react-markdown": "^10.1.0",
@@ -48,7 +48,7 @@
     "react-reconciler": "^0.29.2",
     "react-router-dom": "^7.6.2",
     "serp": "^2.2.2",
-    "three": "^0.178.0",
+    "three": "^0.164.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
@@ -96,7 +96,10 @@
     "@rollup/rollup-win32-x64-msvc": "^4.44.2"
   },
   "resolutions": {
-    "rollup": "npm:@rollup/wasm-node"
+    "rollup": "npm:@rollup/wasm-node",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.164.0"
   },
   "engines": {
     "node": ">=18.0.0",

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { imagetools } from 'vite-imagetools';
 import compression from 'vite-plugin-compression';
 import critical from 'rollup-plugin-critical';
+import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,7 +24,12 @@ export default defineConfig({
   ],
   base: '/', // Importante per GitHub Pages con dominio personalizzato
   resolve: {
-    dedupe: ['react', 'react-dom', 'react-reconciler']
+    dedupe: ['react', 'react-dom', 'react-reconciler', 'three'],
+    alias: {
+      react: path.resolve(__dirname, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+      three: path.resolve(__dirname, 'node_modules/three')
+    }
   },
   build: {
     outDir: 'dist',
@@ -70,6 +76,7 @@ export default defineConfig({
   },
   // Configurazione server per sviluppo
   server: {
+    historyApiFallback: true,
     host: true,
     port: 5173
   }
