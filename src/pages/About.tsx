@@ -3,7 +3,7 @@ import Testimonials from '../components/Testimonials';
 import TechnicalSpecs from '../components/TechnicalSpecs';
 import FAQ from '../components/FAQ';
 import SEOHead from '../components/SEOHead';
-import { Users, Award, Zap } from 'lucide-react';
+import { Users, Award, Zap } from '../icons';
 
 const About: React.FC = () => {
   return (

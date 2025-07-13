@@ -95,8 +95,8 @@ const calculateMeshVolume = (geometry: THREE.BufferGeometry): number => {
   }
 };
 
-function STLViewer({ url, onVolumeChange, onOrientationChange, refreshTrigger }: { 
-  url: string; 
+function STLViewer({ stlArrayBuffer, onVolumeChange, onOrientationChange, refreshTrigger }: { 
+  stlArrayBuffer: ArrayBuffer; 
   onVolumeChange: (vol: number) => void;
   onOrientationChange?: (result: OrientationResult | null) => void;
   refreshTrigger?: number;
@@ -105,7 +105,17 @@ function STLViewer({ url, onVolumeChange, onOrientationChange, refreshTrigger }:
   const prevVolumeRef = useRef(0); // Traccia volume precedente per evitare loop
   const orientationProcessed = useRef(false); // Flag per evitare auto-orientamento multiplo
   const controls = useThree(s => s.controls);
-  const geometry = useLoader(STLLoader, url);
+
+  // Carica la geometria dall'ArrayBuffer
+  const geometry = useMemo(() => {
+    try {
+      const loader = new STLLoader();
+      return loader.parse(stlArrayBuffer);
+    } catch (error) {
+      console.error("Error parsing STL ArrayBuffer:", error);
+      return new THREE.BufferGeometry(); // Return an empty geometry on error
+    }
+  }, [stlArrayBuffer]);
 
   // 🔄 Forza il primo render dopo il caricamento della geometria
   useEffect(() => {
@@ -126,56 +136,58 @@ function STLViewer({ url, onVolumeChange, onOrientationChange, refreshTrigger }:
     const performAutoOrientation = async () => {
       try {
         console.log('🔄 Avvio auto-orientamento STL...');
-        const orientationResult = await autoOrientSTL(geometry, {
-          support: 0.4,  // 40% peso per area supporti
-          time: 0.2,     // 20% peso per altezza (tempo stampa)  
-          stability: 0.4 // 40% peso per stabilità base - AUMENTATO per migliorare stabilità
-        });
+        const worker = new Worker(new URL('../workers/orientWorker.ts', import.meta.url), { type: 'module' });
         
-        console.log('✅ Auto-orientamento completato:', orientationResult.metrics);
-        
-        // Passa il risultato al componente padre
-        if (onOrientationChange) {
-          onOrientationChange(orientationResult);
-        }
-        
-        /* 🔧 PATCH: assicurati che la mesh poggi sul piano dopo la rotazione */
-        if (meshRef.current && orientationResult.rotation) {
-          const mesh = meshRef.current;
+        // Passa l'ArrayBuffer al worker
+        worker.postMessage({ stlArrayBuffer, weights: { support: 0.4, time: 0.2, stability: 0.4 } }, [stlArrayBuffer]);
 
-          /* 1. reset posizione, applica rotazione ottimale */
-          mesh.position.set(0, 0, 0);
-          mesh.rotation.copy(orientationResult.rotation);
-          mesh.updateMatrixWorld(true);
-
-          /* 2. ri-appoggia sul piano */
-          dropMeshOnBed(mesh);
-
-          /* 3. centra il target e invalida */
-          const box = new THREE.Box3().setFromObject(mesh);
-          const size = box.getSize(new THREE.Vector3());
-          if (controls && 'target' in controls && 'update' in controls) {
-            const c = controls as { target: THREE.Vector3; update: () => void };
-            c.target.set(0, size.y / 2, 0);
-            c.update();
+        worker.onmessage = (e) => {
+          const orientationResult = e.data;
+          console.log('✅ Auto-orientamento completato:', orientationResult.metrics);
+          
+          if (onOrientationChange) {
+            onOrientationChange(orientationResult);
           }
-          invalidate();
-        }
+          
+          if (meshRef.current && orientationResult.rotation) {
+            const mesh = meshRef.current;
+            mesh.position.set(0, 0, 0);
+            mesh.rotation.copy(orientationResult.rotation);
+            mesh.updateMatrixWorld(true);
+            dropMeshOnBed(mesh);
+            const box = new THREE.Box3().setFromObject(mesh);
+            const size = box.getSize(new THREE.Vector3());
+            if (controls && 'target' in controls && 'update' in controls) {
+              const c = controls as { target: THREE.Vector3; update: () => void };
+              c.target.set(0, size.y / 2, 0);
+              c.update();
+            }
+            invalidate();
+          }
+          orientationProcessed.current = true;
+          worker.terminate();
+        };
+
+        worker.onerror = (error) => {
+          console.error('❌ Errore Web Worker auto-orientamento:', error);
+          if (onOrientationChange) {
+            onOrientationChange(null);
+          }
+          orientationProcessed.current = true;
+          worker.terminate();
+        };
         
       } catch (error) {
         console.error('❌ Errore auto-orientamento:', error);
-        // 🔧 Segnala l'errore al componente padre per resettare lo stato
         if (onOrientationChange) {
           onOrientationChange(null);
         }
-      } finally {
-        // ✅ Sempre resetta lo stato di caricamento
         orientationProcessed.current = true;
       }
     };
     
     performAutoOrientation();
-  }, [geometry, onOrientationChange]);
+  }, [geometry, onOrientationChange, stlArrayBuffer]); // Aggiunto stlArrayBuffer come dipendenza
 
   // 1️⃣ ricavo una copia centrata sul pivot X-Z (geometry "nuda")
   const centeredGeometry = useMemo(() => {
@@ -310,7 +322,7 @@ function STLViewer({ url, onVolumeChange, onOrientationChange, refreshTrigger }:
 
 const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMaterial }) => {
   const [file, setFile] = useState<File | null>(null);
-  const [fileUrl, setFileUrl] = useState<string>('');
+  const [stlArrayBuffer, setStlArrayBuffer] = useState<ArrayBuffer | null>(null); // Nuovo stato per ArrayBuffer
   const [isLoading, setIsLoading] = useState(false);
   const [volume, setVolume] = useState<number>(0);
   const [error, setError] = useState<string>('');
@@ -346,14 +358,12 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
     invalidate();
   }, []);
 
-  // Cleanup URL object quando il componente viene smontato
+  // Cleanup ArrayBuffer quando il componente viene smontato o file cambia
   useEffect(() => {
     return () => {
-      if (fileUrl) {
-        URL.revokeObjectURL(fileUrl);
-      }
+      // Non è necessario revocare URL.createObjectURL per ArrayBuffer
     };
-  }, [fileUrl]);
+  }, []); // Dipendenza vuota, cleanup solo allo smontaggio
 
   const handleFileUpload = useCallback(async (selectedFile: File) => {
     if (!selectedFile.name.toLowerCase().endsWith('.stl')) {
@@ -370,10 +380,11 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
     setError('');
     
     try {
-      const url = URL.createObjectURL(selectedFile);
-      setFileUrl(url);
+      const arrayBuffer = await selectedFile.arrayBuffer();
+      setStlArrayBuffer(arrayBuffer);
       setFile(selectedFile);
-    } catch {
+    } catch (e) {
+      console.error("Error reading file as ArrayBuffer:", e);
       setError('Errore durante il caricamento del file');
     } finally {
       setIsLoading(false);
@@ -396,11 +407,8 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
   }, [handleFileUpload]);
 
   const resetUpload = () => {
-    if (fileUrl) {
-      URL.revokeObjectURL(fileUrl);
-    }
     setFile(null);
-    setFileUrl('');
+    setStlArrayBuffer(null);
     setVolume(0);
     setError('');
     if (fileInputRef.current) {
@@ -498,7 +506,7 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
                     <p className="text-sm text-gray-300">Caricamento modello 3D...</p>
                   </div>
                 </div>
-              ) : fileUrl ? (
+              ) : stlArrayBuffer ? (
                 <ErrorBoundary>
                   <Suspense fallback={
                     <div className="h-full flex items-center justify-center">
@@ -519,7 +527,7 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
                       
                       <Bounds fit observe margin={1}>
                         <STLViewer 
-                          url={fileUrl} 
+                          stlArrayBuffer={stlArrayBuffer} 
                           onVolumeChange={handleVolumeChange}
                           onOrientationChange={handleOrientationChange}
                           refreshTrigger={orientationRefresh}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize, ChevronLeft, ChevronRight, Eye, Clock, Sparkles } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, ChevronLeft, ChevronRight, Eye, Clock, Sparkles } from '../icons';
 
 interface TimelapseVideo {
   id: string;

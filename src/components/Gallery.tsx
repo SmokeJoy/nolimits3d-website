@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Filter } from '../icons';
 
 interface GalleryItem {
   id: number;

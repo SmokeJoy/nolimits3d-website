@@ -1,10 +1,8 @@
 import React, { useState, useRef } from 'react';
-// @ts-ignore
-import html2pdf from 'html2pdf.js';
 import { v4 as uuid } from 'uuid';
-import { 
-  DocumentArrowDownIcon, 
-  LinkIcon, 
+import {
+  DocumentArrowDownIcon,
+  LinkIcon,
   ShareIcon,
   CheckCircleIcon,
   ClipboardDocumentIcon
@@ -69,6 +67,9 @@ const PDFGenerator: React.FC<PDFGeneratorProps> = ({ quoteData, results, onPDFGe
     setIsGenerating(true);
     
     try {
+      // Importa html2pdf dinamicamente
+      const { default: html2pdf } = await import('html2pdf.js');
+
       // Generate shareable link first
       const link = generateShareableLink();
       setShareableLink(link);
@@ -78,15 +79,15 @@ const PDFGenerator: React.FC<PDFGeneratorProps> = ({ quoteData, results, onPDFGe
         margin: [10, 10, 10, 10],
         filename: `Preventivo_NoLimits3D_${new Date().toISOString().split('T')[0]}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
+        html2canvas: {
           scale: 2,
           useCORS: true,
           allowTaint: true
         },
-        jsPDF: { 
-          unit: 'mm', 
-          format: 'a4', 
-          orientation: 'portrait' 
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait'
         }
       };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Settings, Printer, FlaskRound, Stars, Thermometer, Truck } from 'lucide-react';
+import { Settings, Printer, FlaskRound, Stars, Thermometer, Truck } from '../icons';
 
 const TechnicalSpecs: React.FC = () => {
   const specifications = [

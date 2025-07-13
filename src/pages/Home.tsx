@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Services from '../components/Services';
 import QuickQuoteForm from '../components/QuickQuoteForm';
 import SEOHead from '../components/SEOHead';
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from '../icons';
 
 const Home: React.FC = () => {
   return (

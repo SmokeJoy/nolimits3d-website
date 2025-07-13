@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Zap, Palette, HeadsetIcon, Shield, Award } from 'lucide-react';
+import { CheckCircle, Zap, Palette, HeadsetIcon, Shield, Award } from '../icons';
 import FeatureCard from './FeatureCard';
 
 const Services: React.FC = () => {

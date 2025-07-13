@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, CheckCircle, Zap, Star, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Zap, Star, Sparkles } from '../icons';
 
 const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

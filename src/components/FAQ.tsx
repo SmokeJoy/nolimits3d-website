@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle, Clock, Palette, Settings, Shield, Truck } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Clock, Palette, Settings, Shield, Truck } from '../icons';
 
 interface FAQItem {
   id: number;

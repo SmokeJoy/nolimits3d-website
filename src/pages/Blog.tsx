@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Link } from 'react-router-dom';
-import { BookOpen, Calendar, User, Tag, Search, Filter } from 'lucide-react';
+import { BookOpen, Calendar, User, Tag, Search, Filter } from '../icons';
 import SEOHead from '../components/SEOHead';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { MaterialsComparisonTable } from '../components/MaterialsComparisonTable';

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Send, CheckCircle, AlertCircle, Clock, Sparkles, Zap, Star } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle, Clock, Sparkles, Zap, Star } from '../icons';
 
 // Dichiarazione per gtag (Google Analytics)
 declare global {

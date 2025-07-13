@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Instagram, Facebook, Mail, MapPin, Phone, Cuboid as Cube3d } from 'lucide-react';
+import { Instagram, Facebook, Mail, MapPin, Phone, Cuboid as Cube3d } from '../icons';
 
 const Footer: React.FC = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());

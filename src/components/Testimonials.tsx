@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star } from '../icons';
 
 // 🚨 TODO PRIMA DEL LANCIO: Sostituire con testimonials reali
 // Per raccogliere: invia WhatsApp ai primi 3 clienti:

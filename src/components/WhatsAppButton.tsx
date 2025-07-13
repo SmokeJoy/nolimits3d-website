@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle, Phone } from '../icons';
 
 interface WhatsAppButtonProps {
   text: string;

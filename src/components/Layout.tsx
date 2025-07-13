@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ChatWidget from './ChatWidget';
 import WhatsAppButton from './WhatsAppButton';
-import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from 'lucide-react';
+import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from '../icons';
 
 interface LayoutProps {
   children: React.ReactNode;

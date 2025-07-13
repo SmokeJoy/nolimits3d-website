@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, FileText, Cookie, ChevronRight, Calendar, Mail, Phone } from 'lucide-react';
+import { Shield, FileText, Cookie, ChevronRight, Calendar, Mail, Phone } from '../icons';
 
 interface LegalSection {
   id: string;
