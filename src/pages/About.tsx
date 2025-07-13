@@ -2,11 +2,21 @@ import React from 'react';
 import Testimonials from '../components/Testimonials';
 import TechnicalSpecs from '../components/TechnicalSpecs';
 import FAQ from '../components/FAQ';
+import SEOHead from '../components/SEOHead';
 import { Users, Award, Zap } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
-    <main className="pt-20">
+    <>
+      <SEOHead
+        title="Chi Siamo | NoLimits3D - Esperti in Stampa 3D FDM Professionale"
+        description="Scopri NoLimits3D, il team di esperti in stampa 3D FDM a Frosinone. Passione per l'innovazione, tecnologie avanzate e servizio clienti eccellente per le tue idee."
+        keywords="chi siamo, nolimits3d, stampa 3d frosinone, team esperti, innovazione, tecnologia fdm, servizio clienti"
+        canonicalUrl="https://nolimits3d.store/chi-siamo"
+        type="website"
+      />
+      
+      <main className="pt-20">
       {/* Hero Section per About */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
@@ -83,6 +93,7 @@ const About: React.FC = () => {
       {/* FAQ */}
       <FAQ />
     </main>
+    </>
   );
 };
 

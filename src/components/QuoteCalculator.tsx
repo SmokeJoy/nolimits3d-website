@@ -216,6 +216,14 @@ const QuoteCalculator: React.FC = () => {
       navigator.vibrate([100, 50, 100]); // Short vibration pattern
     }
   };
+
+  // Mobile-specific touch improvements
+  const handleMobileTouch = (callback: () => void) => {
+    return (e: React.TouchEvent) => {
+      e.preventDefault();
+      callback();
+    };
+  };
   const [currentStep, setCurrentStep] = useState(1);
   const [hasDraftLoaded, setHasDraftLoaded] = useState(false);
 

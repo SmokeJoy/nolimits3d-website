@@ -1,9 +1,19 @@
 import React from 'react';
 import Contact from '../components/Contact';
+import SEOHead from '../components/SEOHead';
 
 const ContactPage: React.FC = () => {
   return (
-    <main className="pt-20">
+    <>
+      <SEOHead
+        title="Contatti | NoLimits3D Frosinone - Richiedi Preventivo Gratuito"
+        description="Contatta NoLimits3D per preventivi gratuiti di stampa 3D a Frosinone. Telefono, email, WhatsApp e chat online. Risposta entro 2 ore lavorative."
+        keywords="contatti, preventivo gratuito, stampa 3d frosinone, telefono, email, whatsapp, chat, assistenza clienti"
+        canonicalUrl="https://nolimits3d.store/contatti"
+        type="website"
+      />
+      
+      <main className="pt-20">
       {/* Hero Section per Contact */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
@@ -36,6 +46,7 @@ const ContactPage: React.FC = () => {
       {/* Contact Component */}
       <Contact />
     </main>
+    </>
   );
 };
 

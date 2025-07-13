@@ -144,7 +144,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-300 hover:text-green-400 hover:bg-green-500/10 transition-colors"
+              className="lg:hidden p-2 rounded-lg text-gray-300 hover:text-green-400 hover:bg-green-500/10 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500/50"
+              aria-label={mobileMenuOpen ? "Chiudi menu mobile" : "Apri menu mobile"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

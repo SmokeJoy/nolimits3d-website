@@ -1,10 +1,20 @@
 import React from 'react';
 import Gallery from '../components/Gallery';
 import TimelapseSection from '../components/TimelapseSection';
+import SEOHead from '../components/SEOHead';
 
 const GalleryPage: React.FC = () => {
   return (
-    <main className="pt-20">
+    <>
+      <SEOHead
+        title="Galleria Progetti | NoLimits3D - Stampe 3D e Time-lapse"
+        description="Scopri i nostri progetti di stampa 3D: prototipi, oggetti personalizzati e time-lapse. Galleria completa dei lavori realizzati da NoLimits3D a Frosinone."
+        keywords="galleria, progetti stampa 3d, prototipi, oggetti personalizzati, time-lapse, portfolio, esempi stampa 3d"
+        canonicalUrl="https://nolimits3d.store/galleria"
+        type="website"
+      />
+      
+      <main className="pt-20">
       {/* Hero Section per Gallery */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
@@ -34,6 +44,7 @@ const GalleryPage: React.FC = () => {
       {/* Timelapse Section */}
       <TimelapseSection />
     </main>
+    </>
   );
 };
 

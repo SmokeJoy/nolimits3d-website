@@ -56,13 +56,23 @@ const Home: React.FC = () => {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-600 bg-clip-text text-transparent">
-                  Professionale
+                  Servizio di Prototipazione Rapida
                 </span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-medium mb-8">
                 🏭 <span className="text-green-400 font-bold">Prototipazione rapida</span> e <span className="text-emerald-400 font-bold">componenti tecnici specializzati</span> per PMI, startup e professionisti in Ciociaria 🏭
               </p>
+              
+              <div className="max-w-4xl mx-auto text-center mb-8">
+                <p className="text-lg text-gray-400 leading-relaxed">
+                  <strong className="text-green-400">NoLimits3D</strong> è il punto di riferimento per la <strong className="text-emerald-400">stampa 3D professionale a Frosinone</strong>. 
+                  Specializzati in <strong className="text-blue-400">prototipazione industriale, componenti tecnici e oggetti personalizzati</strong> per aziende, 
+                  uffici tecnici e professionisti in tutta la <strong className="text-green-400">Ciociaria</strong>. 
+                  Utilizziamo tecnologie FDM avanzate con materiali di alta qualità: <strong className="text-emerald-400">PLA, ABS, PETG, TPU, Carbon Fiber</strong> 
+                  e compositi tecnici per garantire resistenza, precisione e finitura professionale.
+                </p>
+              </div>
               
               <div className="flex flex-wrap justify-center gap-4 mb-8">
                 <div className="glass-card px-6 py-3 rounded-full border border-green-500/30">
@@ -86,6 +96,52 @@ const Home: React.FC = () => {
           </div>
         </section>
         
+        {/* Sezione Aree Servite - Local SEO */}
+        <section className="py-16 bg-gradient-to-br from-slate-800 to-slate-900 relative">
+          <div className="section-container relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                🗺️ Aree Servite in <span className="text-green-400">Ciociaria</span>
+              </h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                <strong className="text-green-400">NoLimits3D</strong> offre servizi di stampa 3D professionale in tutta la provincia di Frosinone e aree limitrofe
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                { city: "Frosinone", description: "Sede principale", icon: "🏛️" },
+                { city: "Cassino", description: "Consegna gratuita", icon: "🎓" },
+                { city: "Sora", description: "Servizio rapido", icon: "⛰️" },
+                { city: "Anagni", description: "Zona coperta", icon: "🏰" },
+                { city: "Ferentino", description: "Consegna veloce", icon: "🏺" },
+                { city: "Alatri", description: "Servizio attivo", icon: "🌟" },
+                { city: "Ceccano", description: "Zona servita", icon: "🏞️" },
+                { city: "Fiuggi", description: "Consegna inclusa", icon: "💧" }
+              ].map((area, index) => (
+                <div key={index} className="glass-card p-4 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">{area.icon}</div>
+                    <h3 className="font-bold text-white mb-1">{area.city}</h3>
+                    <p className="text-xs text-gray-400">{area.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12">
+              <p className="text-gray-300 mb-4">
+                <strong className="text-green-400">Consegna gratuita</strong> in tutta la <strong className="text-emerald-400">Ciociaria</strong> per ordini superiori a 50€
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 text-sm">
+                <span className="glass-card px-3 py-1 rounded-full text-green-400">Provincia di Frosinone</span>
+                <span className="glass-card px-3 py-1 rounded-full text-emerald-400">Bassa Ciociaria</span>
+                <span className="glass-card px-3 py-1 rounded-full text-blue-400">Zone limitrofe</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Sezione Servizi */}
         <Services />
         
