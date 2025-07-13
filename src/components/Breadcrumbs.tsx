@@ -9,16 +9,26 @@ export interface BreadcrumbItem {
 }
 
 interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
+  items?: BreadcrumbItem[];
   className?: string;
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
+  // Controllo di sicurezza: assicuriamoci che items sia un array valido
+  const safeItems = Array.isArray(items) 
+    ? items.filter(item => item && typeof item === 'object' && item.label && typeof item.label === 'string')
+    : [];
+  
+  // Se non ci sono items, non mostrare i breadcrumbs
+  if (safeItems.length === 0) {
+    return null;
+  }
+  
   // Generate JSON-LD schema for breadcrumbs
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
+    "itemListElement": safeItems.map((item, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "name": item.label,
@@ -53,7 +63,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
           </li>
           
           {/* Breadcrumb items */}
-          {items.map((item, index) => (
+          {safeItems.map((item, index) => (
             <li key={index} className="flex items-center">
               <ChevronRightIcon className="h-4 w-4 text-gray-400 mx-2" />
               

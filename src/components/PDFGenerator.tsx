@@ -20,6 +20,7 @@ interface QuoteData {
   postProcessing: string[];
   urgent: boolean;
   stlMode: boolean;
+  volumeFromSTL: boolean;
 }
 
 interface Results {

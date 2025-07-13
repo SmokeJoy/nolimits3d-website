@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize, ChevronLeft, ChevronRight, Eye, Clock, Sparkles } from 'lucide-react';
 
 interface TimelapseVideo {
@@ -371,11 +371,34 @@ const TimelapseSection: React.FC = () => {
   ];
 
   // Filtro sicuro dei video
-  const filteredVideos = timelapseVideos.filter(video => {
-    const isValidFilename = validateVideoFormat(video.filename);
-    const matchesCategory = selectedCategory === 'all' || video.category === selectedCategory;
-    return isValidFilename && matchesCategory;
-  });
+  const filteredVideos = useMemo(() => {
+    try {
+      // Controllo che timelapseVideos sia un array valido
+      if (!Array.isArray(timelapseVideos) || timelapseVideos.length === 0) {
+        console.warn('timelapseVideos non è un array valido');
+        return [];
+      }
+
+      return timelapseVideos.filter(video => {
+        try {
+          // Controllo che video sia un oggetto valido
+          if (!video || typeof video !== 'object' || !video.filename) {
+            return false;
+          }
+
+          const isValidFilename = validateVideoFormat(video.filename);
+          const matchesCategory = selectedCategory === 'all' || video.category === selectedCategory;
+          return isValidFilename && matchesCategory;
+        } catch (filterError) {
+          console.warn('Errore filtro video:', filterError);
+          return false;
+        }
+      });
+    } catch (error) {
+      console.error('Errore creazione filteredVideos:', error);
+      return [];
+    }
+  }, [timelapseVideos, selectedCategory, validateVideoFormat]);
 
   const categories = [
     { id: 'all' as const, label: 'Tutti i Time-lapse', icon: '🎬' },

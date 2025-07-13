@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ChatWidget from './ChatWidget';
 import WhatsAppButton from './WhatsAppButton';
-import Breadcrumbs from './Breadcrumbs';
 import { Moon, Sun, SkipForward, ArrowUp, Menu, X } from 'lucide-react';
 
 interface LayoutProps {
@@ -175,14 +174,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </nav>
 
-      {/* Breadcrumbs */}
-      <div className="fixed top-16 left-0 right-0 z-30 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/40 border-b border-green-500/10">
-        <div className="section-container">
-          <div className="py-3">
-            <Breadcrumbs className="text-gray-300" />
-          </div>
-        </div>
-      </div>
+      {/* Breadcrumbs - removed from layout as they should be handled per page */}
 
       {/* Dark Mode Toggle */}
       <div className="fixed bottom-24 right-6 z-50">
@@ -202,8 +194,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </button>
       </div>
 
-      {/* Main Content with proper top margin for fixed navigation + breadcrumbs */}
-      <div className="pt-28 relative z-10">
+      {/* Main Content with proper top margin for fixed navigation */}
+      <div className="pt-16 relative z-10">
         {children}
       </div>
 

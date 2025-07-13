@@ -1,13 +1,27 @@
 import React, { useState, useRef, useCallback, useEffect, useMemo, useLayoutEffect, Suspense } from 'react';
 import { Canvas, useLoader, useThree, invalidate } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, Bounds } from '@react-three/drei';
 import * as THREE from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { CloudArrowUpIcon, EyeIcon, CubeIcon, ScaleIcon } from '@heroicons/react/24/outline';
+import { CloudArrowUpIcon, EyeIcon, CubeIcon, ScaleIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 import ErrorBoundary from './ErrorBoundary';
+import { autoOrientSTL, type OrientationResult } from '../utils/stlAutoOrientation';
+import { dropMeshOnBed } from '../utils/dropMeshOnBed';
+
+// Utility function per formattare il peso in modo consistente
+const formatWeight = (volume: number, density: number): string => {
+  const weight = volume * density;
+  if (weight < 0.1) {
+    return '<0.1 g';
+  } else if (weight < 1) {
+    return `${weight.toFixed(1)} g`;
+  } else {
+    return `${Math.round(weight)} g`;
+  }
+};
 
 interface STLUploadProps {
-  onVolumeCalculated: (volume: number, weight: number) => void;
+  onVolumeCalculated: (volume: number, weight: number, supportArea?: number) => void;
   selectedMaterial: {
     name: string;
     density: number; // g/cm³
@@ -17,89 +31,262 @@ interface STLUploadProps {
 // Funzione per calcolare il volume di una mesh STL
 const calculateMeshVolume = (geometry: THREE.BufferGeometry): number => {
   try {
+    // Controlli di sicurezza più robusti
+    if (!geometry || !geometry.attributes || !geometry.attributes.position) {
+      console.warn('Geometria non valida o posizione mancante');
+      return 0;
+    }
+
     const position = geometry.attributes.position;
-    if (!position || position.count === 0) return 0;
+    if (!position || !position.count || position.count === 0) {
+      console.warn('Attributi posizione non validi');
+      return 0;
+    }
+
+    // Verifica che il numero di vertici sia divisibile per 3 (triangoli)
+    if (position.count % 3 !== 0) {
+      console.warn('Numero di vertici non divisibile per 3');
+      return 0;
+    }
 
     let volume = 0;
     
     // Calcolo volume usando metodo del tetraedro firmato
     for (let i = 0; i < position.count; i += 3) {
-      const a = new THREE.Vector3().fromBufferAttribute(position, i);
-      const b = new THREE.Vector3().fromBufferAttribute(position, i + 1);
-      const c = new THREE.Vector3().fromBufferAttribute(position, i + 2);
-      
-      // Volume firmato del tetraedro formato dal triangolo e l'origine
-      const signedVolume = a.dot(
-        new THREE.Vector3().crossVectors(b, c)
-      ) / 6;
-      
-      volume += signedVolume;
+      try {
+        const a = new THREE.Vector3().fromBufferAttribute(position, i);
+        const b = new THREE.Vector3().fromBufferAttribute(position, i + 1);
+        const c = new THREE.Vector3().fromBufferAttribute(position, i + 2);
+        
+        // Controllo che i vertici siano validi
+        if (!a || !b || !c || isNaN(a.x) || isNaN(b.x) || isNaN(c.x)) {
+          continue;
+        }
+        
+        // Volume firmato del tetraedro formato dal triangolo e l'origine
+        const signedVolume = a.dot(
+          new THREE.Vector3().crossVectors(b, c)
+        ) / 6;
+        
+        // Controllo che il volume calcolato sia valido
+        if (!isNaN(signedVolume) && isFinite(signedVolume)) {
+          volume += signedVolume;
+        }
+      } catch (triangleError) {
+        console.warn('Errore elaborazione triangolo:', triangleError);
+        continue;
+      }
     }
     
     // Prendi il valore assoluto e converti da mm³ a cm³
     const volumeCm3 = Math.abs(volume) / 1000;
     
     // Sanity check: volume ragionevole per oggetti 3D (0.1 - 10000 cm³)
+    if (isNaN(volumeCm3) || !isFinite(volumeCm3)) {
+      console.warn('Volume calcolato non valido:', volumeCm3);
+      return 10; // Valore di fallback
+    }
+    
     return Math.max(0.1, Math.min(volumeCm3, 10000));
     
   } catch (error) {
     console.error('Error calculating volume:', error);
-    return 0;
+    return 10; // Valore di fallback più alto
   }
 };
 
-function STLViewer({ url, onVolumeChange }: { url: string; onVolumeChange: (vol: number) => void }) {
+function STLViewer({ url, onVolumeChange, onOrientationChange, refreshTrigger }: { 
+  url: string; 
+  onVolumeChange: (vol: number) => void;
+  onOrientationChange?: (result: OrientationResult | null) => void;
+  refreshTrigger?: number;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
   const prevVolumeRef = useRef(0); // Traccia volume precedente per evitare loop
-  const scaledRef = useRef(false); // 🔹 nuovo flag per evitare loop di scala
+  const orientationProcessed = useRef(false); // Flag per evitare auto-orientamento multiplo
   const controls = useThree(s => s.controls);
   const geometry = useLoader(STLLoader, url);
 
+  // 🔄 Forza il primo render dopo il caricamento della geometria
+  useEffect(() => {
+    invalidate();        // forza il primo render
+  }, [geometry]);
+
+  // 🔄 Reset dell'orientamento quando cambia il refreshTrigger
+  useEffect(() => {
+    if (refreshTrigger !== undefined) {
+      orientationProcessed.current = false;
+    }
+  }, [refreshTrigger]);
+
+  // 🔄 Auto-orientamento asincrono
+  useEffect(() => {
+    if (!geometry || orientationProcessed.current) return;
+    
+    const performAutoOrientation = async () => {
+      try {
+        console.log('🔄 Avvio auto-orientamento STL...');
+        const orientationResult = await autoOrientSTL(geometry, {
+          support: 0.4,  // 40% peso per area supporti
+          time: 0.2,     // 20% peso per altezza (tempo stampa)  
+          stability: 0.4 // 40% peso per stabilità base - AUMENTATO per migliorare stabilità
+        });
+        
+        console.log('✅ Auto-orientamento completato:', orientationResult.metrics);
+        
+        // Passa il risultato al componente padre
+        if (onOrientationChange) {
+          onOrientationChange(orientationResult);
+        }
+        
+        /* 🔧 PATCH: assicurati che la mesh poggi sul piano dopo la rotazione */
+        if (meshRef.current && orientationResult.rotation) {
+          const mesh = meshRef.current;
+
+          /* 1. reset posizione, applica rotazione ottimale */
+          mesh.position.set(0, 0, 0);
+          mesh.rotation.copy(orientationResult.rotation);
+          mesh.updateMatrixWorld(true);
+
+          /* 2. ri-appoggia sul piano */
+          dropMeshOnBed(mesh);
+
+          /* 3. centra il target e invalida */
+          const box = new THREE.Box3().setFromObject(mesh);
+          const size = box.getSize(new THREE.Vector3());
+          if (controls && 'target' in controls && 'update' in controls) {
+            const c = controls as { target: THREE.Vector3; update: () => void };
+            c.target.set(0, size.y / 2, 0);
+            c.update();
+          }
+          invalidate();
+        }
+        
+      } catch (error) {
+        console.error('❌ Errore auto-orientamento:', error);
+        // 🔧 Segnala l'errore al componente padre per resettare lo stato
+        if (onOrientationChange) {
+          onOrientationChange(null);
+        }
+      } finally {
+        // ✅ Sempre resetta lo stato di caricamento
+        orientationProcessed.current = true;
+      }
+    };
+    
+    performAutoOrientation();
+  }, [geometry, onOrientationChange]);
+
   // 1️⃣ ricavo una copia centrata sul pivot X-Z (geometry "nuda")
   const centeredGeometry = useMemo(() => {
-    const g = geometry.clone();
-    g.computeBoundingBox();
-    const b = g.boundingBox!;
-    g.translate(-(b.max.x + b.min.x) / 2, 0, -(b.max.z + b.min.z) / 2);
-    
-    // Reset flag quando cambia geometry (nuovo STL)
-    scaledRef.current = false;
-    
-    return g;
+    try {
+      // Controlli di sicurezza per la geometria
+      if (!geometry || !geometry.attributes || !geometry.attributes.position) {
+        console.warn('Geometria non valida per il centramento');
+        return geometry; // Ritorna la geometria originale se non valida
+      }
+
+      const g = geometry.clone();
+      g.computeBoundingBox();
+      
+      // Controllo che la bounding box sia valida
+      if (!g.boundingBox || !g.boundingBox.max || !g.boundingBox.min) {
+        console.warn('Bounding box non valida');
+        return g; // Ritorna la geometria clonata senza traslazione
+      }
+
+      const b = g.boundingBox;
+      g.translate(-(b.max.x + b.min.x) / 2, 0, -(b.max.z + b.min.z) / 2);
+      
+      // Reset flag quando cambia geometry (nuovo STL)
+      orientationProcessed.current = false; // Reset anche flag orientamento
+      
+      return g;
+    } catch (error) {
+      console.error('Errore durante il centramento della geometria:', error);
+      // Reset flag in caso di errore
+      orientationProcessed.current = false;
+      return geometry; // Ritorna la geometria originale in caso di errore
+    }
   }, [geometry]);
 
   useLayoutEffect(() => {
-    if (!meshRef.current || scaledRef.current) return;
+    if (!meshRef.current) return;
 
     try {
+      // Controlli di sicurezza per la geometria centrata
+      if (!centeredGeometry || !centeredGeometry.attributes || !centeredGeometry.attributes.position) {
+        console.warn('Geometria centrata non valida');
+        onVolumeChange(10); // Valore di fallback
+        return;
+      }
+
       /* A. misura SOLO sulla geometria NON scalata */
       centeredGeometry.computeBoundingBox();
-      const size = centeredGeometry.boundingBox!.getSize(new THREE.Vector3());
+      
+      // Controllo che la bounding box sia valida
+      if (!centeredGeometry.boundingBox || !centeredGeometry.boundingBox.max || !centeredGeometry.boundingBox.min) {
+        console.warn('Bounding box non valida durante il processing');
+        onVolumeChange(10); // Valore di fallback
+        return;
+      }
+
+      const size = centeredGeometry.boundingBox.getSize(new THREE.Vector3());
+      
+      // Controllo che le dimensioni siano valide
+      if (isNaN(size.x) || isNaN(size.y) || isNaN(size.z) || size.x <= 0 || size.y <= 0 || size.z <= 0) {
+        console.warn('Dimensioni geometria non valide:', size);
+        onVolumeChange(10); // Valore di fallback
+        return;
+      }
+
       const maxDim = Math.max(size.x, size.y, size.z);
 
       /* B. calcola scale una sola volta */
-      const scale = Math.max(0.2, Math.min(8 / maxDim, 1));
-      meshRef.current.scale.setScalar(scale);
-
-      /* C. posa sul piano */
-      const box = new THREE.Box3().setFromObject(meshRef.current);
-      meshRef.current.position.y -= box.min.y;
-
-      /* D. CENTER TARGET CONTROLLI */
-      if (controls && 'target' in controls && 'update' in controls) {
-        const controlsTyped = controls as { target: THREE.Vector3; update: () => void };
-        controlsTyped.target.set(0, box.getSize(new THREE.Vector3()).y / 2, 0);
-        controlsTyped.update();
+      const scale = Math.min(8 / maxDim, 5); // Permette scale > 1 per oggetti piccoli
+      
+      // Controllo che la scala sia valida
+      if (isNaN(scale) || !isFinite(scale) || scale <= 0) {
+        console.warn('Scala non valida:', scale);
+        onVolumeChange(10); // Valore di fallback
+        return;
       }
 
-      /* E. volume corretto */
+      /* C. scala */
+      meshRef.current.scale.setScalar(scale);
+
+      /* D. appoggia sul bed */
+      dropMeshOnBed(meshRef.current);
+
+      /* E. centra il target dei controlli */
+      const box = new THREE.Box3().setFromObject(meshRef.current);
+      const boxSize = box.getSize(new THREE.Vector3());
+      if (controls && 'target' in controls && 'update' in controls) {
+        try {
+          const controlsTyped = controls as { target: THREE.Vector3; update: () => void };
+          if (boxSize && !isNaN(boxSize.y)) {
+            controlsTyped.target.set(0, boxSize.y / 2, 0);
+            controlsTyped.update();
+          }
+        } catch (controlsError) {
+          console.warn('Errore aggiornamento controlli:', controlsError);
+        }
+      }
+
+      /* F. volume corretto */
       const vol = calculateMeshVolume(centeredGeometry) * Math.pow(scale, 3);
+      
+      // Controllo che il volume sia valido
+      if (isNaN(vol) || !isFinite(vol) || vol <= 0) {
+        console.warn('Volume calcolato non valido:', vol);
+        onVolumeChange(10); // Valore di fallback
+        return;
+      }
+
       if (Math.abs(vol - prevVolumeRef.current) > 0.01) { // Soglia 0.01 cm³
         prevVolumeRef.current = vol;
         onVolumeChange(vol);
       }
-
-      scaledRef.current = true; // 🔹 blocca future esecuzioni
       
     } catch (error) {
       console.error('Error processing geometry:', error);
@@ -127,13 +314,37 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
   const [isLoading, setIsLoading] = useState(false);
   const [volume, setVolume] = useState<number>(0);
   const [error, setError] = useState<string>('');
+  const [isAutoOrienting, setIsAutoOrienting] = useState(false);
+  const [orientationResult, setOrientationResult] = useState<OrientationResult | null>(null);
+  const [orientationRefresh, setOrientationRefresh] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleVolumeChange = useCallback((calculatedVolume: number) => {
     setVolume(calculatedVolume);
     const weight = calculatedVolume * selectedMaterial.density;
-    onVolumeCalculated(calculatedVolume, weight);
-  }, [selectedMaterial.density, onVolumeCalculated]);
+    const supportArea = orientationResult?.metrics.supportArea || 0;
+    onVolumeCalculated(calculatedVolume, weight, supportArea);
+  }, [selectedMaterial.density, onVolumeCalculated, orientationResult]);
+
+  const handleOrientationChange = useCallback((result: OrientationResult | null) => {
+    setOrientationResult(result);
+    setIsAutoOrienting(false);
+    
+    // Ricalcola il volume con il nuovo orientamento se necessario
+    if (volume > 0 && result) {
+      const weight = volume * selectedMaterial.density;
+      onVolumeCalculated(volume, weight, result.metrics.supportArea);
+    }
+  }, [volume, selectedMaterial.density, onVolumeCalculated]);
+
+  const startAutoOrientation = useCallback(() => {
+    setIsAutoOrienting(true);
+    setOrientationResult(null);
+    // 🔑 Forza il re-run dell'algoritmo incrementando il counter
+    setOrientationRefresh(prev => prev + 1);
+    // 🔄 Forza il ridisegno del canvas
+    invalidate();
+  }, []);
 
   // Cleanup URL object quando il componente viene smontato
   useEffect(() => {
@@ -260,9 +471,22 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
           {/* 3D Preview */}
           <div className="bg-slate-800 rounded-lg border border-slate-600 overflow-hidden">
             <div className="p-4 border-b border-slate-600">
-              <div className="flex items-center space-x-2">
-                <EyeIcon className="h-5 w-5 text-blue-400" />
-                <h4 className="font-medium text-white">Anteprima 3D</h4>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <EyeIcon className="h-5 w-5 text-blue-400" />
+                  <h4 className="font-medium text-white">Anteprima 3D</h4>
+                </div>
+                {isAutoOrienting && (
+                  <div className="flex items-center space-x-2 text-xs text-blue-400">
+                    <ArrowPathIcon className="h-4 w-4 animate-spin" />
+                    <span>Auto-orientamento...</span>
+                  </div>
+                )}
+                {orientationResult && !isAutoOrienting && (
+                  <div className="flex items-center space-x-2 text-xs text-green-400">
+                    <span>✅ Orientamento ottimizzato</span>
+                  </div>
+                )}
               </div>
             </div>
             
@@ -293,7 +517,14 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
                       <directionalLight position={[10, 10, 5]} intensity={0.8} />
                       <pointLight position={[-10, -10, -10]} intensity={0.3} />
                       
-                      <STLViewer url={fileUrl} onVolumeChange={handleVolumeChange} />
+                      <Bounds fit observe margin={1}>
+                        <STLViewer 
+                          url={fileUrl} 
+                          onVolumeChange={handleVolumeChange}
+                          onOrientationChange={handleOrientationChange}
+                          refreshTrigger={orientationRefresh}
+                        />
+                      </Bounds>
                       
                       <OrbitControls 
                         makeDefault
@@ -323,38 +554,79 @@ const STLUpload: React.FC<STLUploadProps> = ({ onVolumeCalculated, selectedMater
 
           {/* Calculated Data */}
           {volume > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 bg-blue-900/30 rounded-lg border border-blue-600">
-                <div className="flex items-center space-x-2 mb-2">
-                  <CubeIcon className="h-5 w-5 text-blue-400" />
-                  <span className="text-sm font-medium text-blue-300">Volume</span>
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-4 bg-blue-900/30 rounded-lg border border-blue-600">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <CubeIcon className="h-5 w-5 text-blue-400" />
+                    <span className="text-sm font-medium text-blue-300">Volume</span>
+                  </div>
+                  <div className="text-2xl font-bold text-white">
+                    {volume.toFixed(2)} cm³
+                  </div>
                 </div>
-                <div className="text-2xl font-bold text-white">
-                  {volume.toFixed(2)} cm³
+                
+                <div className="p-4 bg-green-900/30 rounded-lg border border-green-600">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <ScaleIcon className="h-5 w-5 text-green-400" />
+                    <span className="text-sm font-medium text-green-300">Peso</span>
+                  </div>
+                  <div className="text-2xl font-bold text-white">
+                    {formatWeight(volume, selectedMaterial.density)}
+                  </div>
+                </div>
+                
+                <div className="p-4 bg-purple-900/30 rounded-lg border border-purple-600">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <span className="text-sm font-medium text-purple-300">Materiale</span>
+                  </div>
+                  <div className="text-lg font-bold text-white">
+                    {selectedMaterial.name}
+                  </div>
+                  <div className="text-xs text-purple-300">
+                    {selectedMaterial.density} g/cm³
+                  </div>
                 </div>
               </div>
-              
-              <div className="p-4 bg-green-900/30 rounded-lg border border-green-600">
-                <div className="flex items-center space-x-2 mb-2">
-                  <ScaleIcon className="h-5 w-5 text-green-400" />
-                  <span className="text-sm font-medium text-green-300">Peso</span>
+
+              {/* Auto-Orientation Metrics */}
+              {orientationResult && (
+                <div className="p-4 bg-slate-700/50 rounded-lg border border-slate-600">
+                  <div className="flex items-center justify-between mb-3">
+                    <h5 className="font-medium text-white flex items-center">
+                      🎯 Ottimizzazione Orientamento
+                    </h5>
+                    <button
+                      onClick={startAutoOrientation}
+                      disabled={isAutoOrienting}
+                      className="text-xs text-blue-400 hover:text-blue-300 flex items-center space-x-1 disabled:opacity-50"
+                    >
+                      <ArrowPathIcon className={`h-3 w-3 ${isAutoOrienting ? 'animate-spin' : ''}`} />
+                      <span>Ricalcola</span>
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-3 gap-3 text-xs">
+                    <div className="text-center">
+                      <div className="text-orange-400 font-medium">
+                        {orientationResult.metrics.supportArea.toFixed(1)} cm²
+                      </div>
+                      <div className="text-gray-400">Supporti</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-blue-400 font-medium">
+                        {orientationResult.metrics.printHeight.toFixed(1)} mm
+                      </div>
+                      <div className="text-gray-400">Altezza</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-green-400 font-medium">
+                        {(orientationResult.metrics.baseStability * 100).toFixed(0)}%
+                      </div>
+                      <div className="text-gray-400">Stabilità</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-2xl font-bold text-white">
-                  {(volume * selectedMaterial.density).toFixed(1)} g
-                </div>
-              </div>
-              
-              <div className="p-4 bg-purple-900/30 rounded-lg border border-purple-600">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="text-sm font-medium text-purple-300">Materiale</span>
-                </div>
-                <div className="text-lg font-bold text-white">
-                  {selectedMaterial.name}
-                </div>
-                <div className="text-xs text-purple-300">
-                  {selectedMaterial.density} g/cm³
-                </div>
-              </div>
+              )}
             </div>
           )}
 

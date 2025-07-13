@@ -37,6 +37,8 @@ interface QuoteData {
   advancedMode: boolean;
   stlMode: boolean; // modalità upload STL
   volume: number; // calcolato automaticamente
+  volumeFromSTL: boolean; // flag per indicare se il volume deriva da file STL
+  supportArea?: number; // area supporti dall'auto-orientamento (cm²)
 }
 
 interface MaterialCost {
@@ -46,56 +48,70 @@ interface MaterialCost {
   description: string;
   useCase: string;
   icon: string;
+  markupFactor: number; // Moltiplicatore di ricarico (es. 3.5x)
+  minimumPrice: number; // Prezzo minimo per questo materiale (€)
 }
 
 const materials: MaterialCost[] = [
   { 
     name: 'PLA', 
-    costPerGram: 0.015, 
+    costPerGram: 0.015,  // Prezzo reale 0.013 + overhead 20% = 0.015
     density: 1.24,
     description: 'Economico e facile da stampare',
     useCase: 'Perfetto per prototipi visivi e oggetti decorativi',
-    icon: '🟢'
+    icon: '🟢',
+    markupFactor: 4.0,   // 400% markup per coprire costi fissi
+    minimumPrice: 2.50   // Minimo €2.50 per PLA
   },
   { 
     name: 'ABS', 
-    costPerGram: 0.020, 
+    costPerGram: 0.017,  // Stimato ~15-16 €/kg + overhead
     density: 1.05,
     description: 'Resistente al calore e agli urti',
     useCase: 'Ideale per parti funzionali e contenitori',
-    icon: '🔴'
+    icon: '🔴',
+    markupFactor: 3.8,   // 380% markup
+    minimumPrice: 3.00   // Minimo €3.00 per ABS
   },
   { 
     name: 'PETG', 
-    costPerGram: 0.023, 
+    costPerGram: 0.028,  // Prezzo reale 0.024 + overhead 20% = 0.028
     density: 1.27,
     description: 'Bilanciato tra resistenza e facilità',
     useCase: 'Ottimo per parti tecniche e alimentari',
-    icon: '🔵'
+    icon: '🔵',
+    markupFactor: 3.5,   // 350% markup
+    minimumPrice: 3.50   // Minimo €3.50 per PETG
   },
   { 
     name: 'TPU', 
-    costPerGram: 0.032, 
+    costPerGram: 0.025,  // Prezzo reale 0.021 + overhead 20% = 0.025
     density: 1.20,
     description: 'Flessibile come gomma',
     useCase: 'Per guarnizioni, cover e oggetti elastici',
-    icon: '🟡'
+    icon: '🟡',
+    markupFactor: 4.2,   // 420% markup (più difficile da stampare)
+    minimumPrice: 4.00   // Minimo €4.00 per TPU
   },
   { 
     name: 'Nylon', 
-    costPerGram: 0.045, 
+    costPerGram: 0.042,  // Stimato ~35-40 €/kg + overhead
     density: 1.14,
     description: 'Massima resistenza meccanica',
     useCase: 'Componenti industriali e ingranaggi',
-    icon: '⚪'
+    icon: '⚪',
+    markupFactor: 3.2,   // 320% markup (materiale tecnico)
+    minimumPrice: 6.00   // Minimo €6.00 per Nylon
   },
   { 
     name: 'Carbon Fiber', 
-    costPerGram: 0.075, 
+    costPerGram: 0.070,  // Prezzo reale 0.062 + overhead 15% = 0.070
     density: 1.30,
     description: 'Ultra-leggero e resistente',
     useCase: 'Aerospace, automotive, droni',
-    icon: '⚫'
+    icon: '⚫',
+    markupFactor: 2.8,   // 280% markup (materiale premium)
+    minimumPrice: 8.00   // Minimo €8.00 per Carbon Fiber
   }
 ];
 
@@ -128,6 +144,18 @@ const postProcessingCosts = {
   'inserts': { name: 'Inserti filettati', cost: 3 }
 };
 
+// Utility function per formattare il peso in modo consistente
+const formatWeight = (volume: number, density: number): string => {
+  const weight = volume * density;
+  if (weight < 0.1) {
+    return '<0.1 g';
+  } else if (weight < 1) {
+    return `${weight.toFixed(1)} g`;
+  } else {
+    return `${Math.round(weight)} g`;
+  }
+};
+
 const QuoteCalculator: React.FC = () => {
   // Load initial data from localStorage or defaults
   const loadInitialData = (): QuoteData => {
@@ -137,7 +165,12 @@ const QuoteCalculator: React.FC = () => {
         const parsed = JSON.parse(savedData);
         // Validate saved data has required fields
         if (parsed.material && parsed.size) {
-          return { ...parsed, volume: parsed.volume || 150 };
+          return { 
+            ...parsed, 
+            volume: parsed.volume || 150, 
+            volumeFromSTL: parsed.volumeFromSTL || false,
+            supportArea: parsed.supportArea || 0
+          };
         }
       }
     } catch (error) {
@@ -156,7 +189,9 @@ const QuoteCalculator: React.FC = () => {
       urgent: false,
       advancedMode: false,
       stlMode: true,
-      volume: 150
+      volume: 150,
+      volumeFromSTL: false,
+      supportArea: 0
     };
   };
 
@@ -221,12 +256,16 @@ const QuoteCalculator: React.FC = () => {
   };
 
   useEffect(() => {
-    // Aggiorna automaticamente il volume SOLO se NON siamo in modalità STL
-    if (quoteData.stlMode) return; // STOP al ciclo infinito!
+    // Aggiorna automaticamente il volume se:
+    // - NON siamo in modalità STL, oppure
+    // - Siamo in modalità STL ma non abbiamo un volume da file STL effettivo
+    const shouldCalculateVolume = !quoteData.stlMode || !quoteData.volumeFromSTL;
     
-    const newVolume = calculateVolume(quoteData.size, quoteData.maxLength, quoteData.complexity);
-    setQuoteData(prev => ({ ...prev, volume: newVolume }));
-  }, [quoteData.size, quoteData.maxLength, quoteData.complexity, quoteData.stlMode]);
+    if (shouldCalculateVolume) {
+      const newVolume = calculateVolume(quoteData.size, quoteData.maxLength, quoteData.complexity);
+      setQuoteData(prev => ({ ...prev, volume: newVolume, volumeFromSTL: false }));
+    }
+  }, [quoteData.size, quoteData.maxLength, quoteData.complexity, quoteData.stlMode, quoteData.volumeFromSTL]);
 
   // Reset maxLength quando cambia taglia se supera il limite
   useEffect(() => {
@@ -263,16 +302,30 @@ const QuoteCalculator: React.FC = () => {
     const selectedMaterial = materials.find(m => m.name === quoteData.material)!;
     const qualitySetting = qualitySettings[quoteData.quality as keyof typeof qualitySettings];
     
+    // Assicurati che il volume non sia mai 0
+    const safeVolume = Math.max(quoteData.volume, 1);
+    
     // Calcolo peso
-    const weight = quoteData.volume * selectedMaterial.density; // grammi
+    const weight = safeVolume * selectedMaterial.density; // grammi
     
-    // Calcolo costi materiale
-    const materialCost = weight * selectedMaterial.costPerGram * quoteData.quantity;
+    // Calcolo costi materiale CON MARKUP INTELLIGENTE
+    const rawMaterialCost = weight * selectedMaterial.costPerGram; // Costo puro materiale
+    const materialCostWithMarkup = rawMaterialCost * selectedMaterial.markupFactor; // Applicazione markup
     
-    // Calcolo tempo di stampa (setup + stampa reale)
+    // Calcolo per singolo pezzo
+    const materialCostPerPiece = Math.max(materialCostWithMarkup, selectedMaterial.minimumPrice);
+    
+    // Costo aggiuntivo per materiale supporti (stima conservativa)
+    const supportMaterialCost = quoteData.supportArea ? 
+      (quoteData.supportArea * 0.5 * selectedMaterial.costPerGram * selectedMaterial.markupFactor) : 0; // 0.5g per cm²
+    
+    const materialCost = (materialCostPerPiece + supportMaterialCost) * quoteData.quantity;
+    
+    // Calcolo tempo di stampa (setup + stampa reale + supporti)
     const setupTime = 0.25; // Setup fisso: pre-heat, calibrazione, purge
     const printCoeff = 0.025; // Coefficiente stampa ottimizzato
-    const baseTime = setupTime + (quoteData.volume * printCoeff * qualitySetting.timeMultiplier); // ore per pezzo
+    const supportTimeMultiplier = quoteData.supportArea ? 1 + (quoteData.supportArea / 100) : 1; // +1% tempo per cm² supporti
+    const baseTime = setupTime + (safeVolume * printCoeff * qualitySetting.timeMultiplier * supportTimeMultiplier); // ore per pezzo
     const totalPrintTime = baseTime * quoteData.quantity;
     
     // Costo macchina (€6/ora - competitivo con mercato)
@@ -305,8 +358,8 @@ const QuoteCalculator: React.FC = () => {
       totalCost *= 0.9; // 10% sconto
     }
     
-    // Minimo d'ordine per sostenibilità
-    const minimumOrder = 15;
+    // Minimo d'ordine ridotto (ora che i materiali hanno minimi individuali)
+    const minimumOrder = 8; // Ridotto da €15 a €8
     if (totalCost < minimumOrder) {
       totalCost = minimumOrder;
     }
@@ -379,12 +432,14 @@ const QuoteCalculator: React.FC = () => {
     }));
   };
 
-  const handleVolumeCalculated = (volume: number, weight: number) => {
+  const handleVolumeCalculated = (volume: number, weight: number, supportArea?: number) => {
     // Assicura che siamo in STL mode e scrivi volume UNA SOLA VOLTA
     setQuoteData(prev => ({ 
       ...prev, 
       stlMode: true, // Conferma modalità STL
-      volume: Math.round(volume * 100) / 100 
+      volume: Math.round(volume * 100) / 100,
+      volumeFromSTL: true, // Indica che il volume deriva da file STL
+      supportArea: supportArea || 0 // Area supporti dall'auto-orientamento
     }));
   };
 
@@ -401,7 +456,8 @@ const QuoteCalculator: React.FC = () => {
       setQuoteData(prev => ({ 
         ...prev, 
         stlMode: newValue,
-        advancedMode: false 
+        advancedMode: false,
+        volumeFromSTL: false // Reset flag quando si cambia modalità
       }));
     } else {
       setQuoteData(prev => ({ ...prev, advancedMode: newValue }));
@@ -426,7 +482,9 @@ const QuoteCalculator: React.FC = () => {
         urgent: false,
         advancedMode: false,
         stlMode: true,
-        volume: 150
+        volume: 150,
+        volumeFromSTL: false,
+        supportArea: 0
       });
       setCurrentStep(1);
     } catch (error) {
@@ -562,7 +620,7 @@ const QuoteCalculator: React.FC = () => {
                         <div className="flex items-center justify-between mb-1">
                           <span className="font-bold text-base">{material.name}</span>
                           <span className="text-xs opacity-75">
-                            €{material.costPerGram.toFixed(3)}/g
+                            €{(material.costPerGram * material.markupFactor).toFixed(3)}/g
                           </span>
                         </div>
                         <div className="text-sm opacity-90 mb-1">{material.description}</div>
@@ -793,7 +851,7 @@ const QuoteCalculator: React.FC = () => {
                     <div className="flex justify-between items-center mt-1">
                       <span className="text-sm text-gray-300">Peso Stimato:</span>
                       <span className="font-bold text-white">
-                        {Math.round(quoteData.volume * materials.find(m => m.name === quoteData.material)!.density)} g
+                        {formatWeight(quoteData.volume, materials.find(m => m.name === quoteData.material)!.density)}
                       </span>
                     </div>
                   </div>
@@ -1021,7 +1079,7 @@ const QuoteCalculator: React.FC = () => {
               <div className="flex justify-between">
                 <span className="text-gray-300">Peso stimato:</span>
                 <span className="text-white font-medium">
-                  {Math.round(quoteData.volume * materials.find(m => m.name === quoteData.material)!.density)} g
+                  {formatWeight(quoteData.volume, materials.find(m => m.name === quoteData.material)!.density)}
                 </span>
               </div>
               <div className="flex justify-between">
@@ -1074,11 +1132,18 @@ const QuoteCalculator: React.FC = () => {
               <div className="bg-slate-700/50 rounded-lg p-4 mb-4">
                 <h5 className="text-sm font-medium text-blue-400 mb-2">🔍 Come Calcoliamo i Prezzi</h5>
                 <div className="text-xs text-gray-300 space-y-1">
-                  <div>• <strong>Materiale:</strong> Peso reale × costo/grammo (aggiornato mensilmente)</div>
-                  <div>• <strong>Tempo stampa:</strong> Setup fisso (0.25h) + volume × coefficiente qualità</div>
+                  <div>• <strong>Materiale:</strong> (Peso × costo/grammo) × markup factor ({selectedMaterial.markupFactor}x per {selectedMaterial.name})</div>
+                  <div>• <strong>Minimo materiale:</strong> €{selectedMaterial.minimumPrice} per {selectedMaterial.name} (copre setup e handling)</div>
+                  {quoteData.supportArea && quoteData.supportArea > 0 && (
+                    <div>• <strong>Supporti:</strong> {quoteData.supportArea.toFixed(1)} cm² × 0.5g/cm² + {(quoteData.supportArea / 100 * 100).toFixed(0)}% tempo extra</div>
+                  )}
+                  <div>• <strong>Tempo stampa:</strong> Setup fisso (0.25h) + volume × coefficiente qualità{quoteData.supportArea ? ' + supporti' : ''}</div>
                   <div>• <strong>Macchina:</strong> €6/ora (include ammortamento, energia, manutenzione)</div>
-                  <div>• <strong>Minimo ordine:</strong> €15 per coprire costi fissi di gestione</div>
+                  <div>• <strong>Minimo ordine:</strong> €8 per coprire costi fissi di gestione</div>
                   <div>• <strong>Layer height:</strong> 0.1mm = +120% tempo, 0.3mm = -30% tempo</div>
+                  {quoteData.supportArea && quoteData.supportArea > 0 && (
+                    <div>• <strong>🎯 Auto-orientamento:</strong> Orientamento ottimizzato per ridurre supporti e tempo</div>
+                  )}
                 </div>
               </div>
               
@@ -1086,7 +1151,7 @@ const QuoteCalculator: React.FC = () => {
               <div className="space-y-3">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-300 flex items-center">
-                    🧪 Materiale ({Math.round(quoteData.volume * materials.find(m => m.name === quoteData.material)!.density)}g):
+                    🧪 Materiale ({formatWeight(quoteData.volume, materials.find(m => m.name === quoteData.material)!.density).replace(' g', 'g')}):
                   </span>
                   <span className="font-medium text-white">€{results.materialCost.toFixed(2)}</span>
                 </div>
@@ -1232,23 +1297,24 @@ const QuoteCalculator: React.FC = () => {
 
           {/* Professional Disclaimer */}
           <div className="mt-4 space-y-3">
-            <div className="p-3 bg-blue-900/30 rounded-lg border border-blue-800">
+            <div className="p-3 bg-orange-900/30 rounded-lg border border-orange-800">
               <div className="flex items-start">
-                <CheckCircleIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 flex-shrink-0" />
-                <div className="text-xs text-blue-200">
-                  <strong>Garanzia NoLimits3D:</strong> Il prezzo mostrato è definitivo per i parametri selezionati. 
-                  Nessuna maggiorazione nascosta. <strong>Preventivo valido 7 giorni</strong>.
+                <InformationCircleIcon className="h-5 w-5 text-orange-400 mr-2 mt-0.5 flex-shrink-0" />
+                <div className="text-xs text-orange-200">
+                  <strong>Preventivo Indicativo:</strong> Il prezzo mostrato è una <strong>stima orientativa</strong> basata sui parametri selezionati. 
+                  Per ordini reali con specifiche tecniche precise e tempi di stampa effettivi, 
+                  <strong>contattaci per un preventivo personalizzato</strong>. Stima valida 7 giorni.
                 </div>
               </div>
             </div>
             
             <div className="p-3 bg-slate-700 rounded-lg border border-slate-600">
               <div className="flex items-start">
-                <InformationCircleIcon className="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                <CheckCircleIcon className="h-5 w-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
                 <div className="text-xs text-gray-300">
-                  <strong>Precisione professionale:</strong> Per preventivi su file STL specifici, 
-                  carica il modello in modalità tecnica. Include <strong>analisi DfAM gratuita</strong> 
-                  e ottimizzazione per stampa 3D.
+                  <strong>Preventivo Professionale:</strong> Per quote definitive con file STL specifici, 
+                  <strong>contattaci direttamente</strong>. Includiamo analisi DfAM gratuita, 
+                  ottimizzazione orientamento e calcolo preciso di tempi e materiali necessari.
                 </div>
               </div>
             </div>
@@ -1350,13 +1416,15 @@ const QuoteCalculator: React.FC = () => {
         {/* Test di Realtà - Debug per Admin */}
         {process.env.NODE_ENV === 'development' && (
           <div className="mt-8 bg-yellow-900/30 rounded-lg p-4 border border-yellow-800">
-            <h4 className="font-medium text-yellow-400 mb-2">🔬 Test di Realtà (Dev Mode)</h4>
+            <h4 className="font-medium text-yellow-400 mb-2">🔬 Test di Realtà (Basato su Prezzi Reali 2025)</h4>
             <div className="text-xs text-yellow-200 space-y-1">
-              <div>• <strong>100g PLA (0.2mm):</strong> ~2h stampa → ~€13 totale (con setup)</div>
-              <div>• <strong>300g PETG (0.2mm):</strong> ~8h stampa → ~€55 totale</div>
-              <div>• <strong>50g TPU (0.2mm):</strong> ~3h stampa → ~€18 totale</div>
+              <div>• <strong>100g PLA (0.2mm):</strong> Materiale: €6.00 + 2h stampa (€12) = €18.00</div>
+              <div>• <strong>300g PETG (0.2mm):</strong> Materiale: €29.40 + 8h stampa (€48) = €77.40</div>
+              <div>• <strong>50g TPU (0.2mm):</strong> Materiale: €5.25 + 3h stampa (€18) = €23.25</div>
+              <div>• <strong>Carbon Fiber 50g:</strong> Materiale: €9.80 + 3h stampa (€18) = €27.80</div>
+              <div>• <strong>Costi reali:</strong> PLA €0.013/g + overhead → €0.015/g × 4.0x markup</div>
               <div>• <strong>Setup time:</strong> 0.25h fisso per pre-heat, calibrazione, purge</div>
-              <div>• <strong>Minimo €15:</strong> Copre gestione ordine + imballo + overhead</div>
+              <div>• <strong>Minimo €8:</strong> Copre gestione ordine + imballo + overhead</div>
               <div>• <strong>Layer quality:</strong> Ultra (0.1mm) = +120% tempo, Draft (0.3mm) = -30%</div>
             </div>
           </div>
