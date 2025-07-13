@@ -202,22 +202,38 @@ export async function autoOrientSTL(
       const orientations = generateOrientations();
       let bestResult: OrientationResult | null = null;
       let bestScore = Infinity;
-      
-      // Test each orientation
-      for (const rotation of orientations) {
+      let i = 0;
+
+      const testNextOrientation = () => {
+        if (i >= orientations.length) {
+          if (!bestResult) {
+            geometry.computeBoundingBox();
+            bestResult = {
+              rotation: new THREE.Euler(0, 0, 0, 'XYZ'),
+              metrics: {
+                supportArea: 0,
+                printHeight: geometry.boundingBox ? 
+                  (geometry.boundingBox.max.y - geometry.boundingBox.min.y) : 100,
+                baseStability: 0.5,
+                totalScore: 1
+              },
+              orientedGeometry: geometry.clone()
+            };
+          }
+          resolve(bestResult);
+          return;
+        }
+
+        const rotation = orientations[i];
         try {
           const orientedGeometry = applyOrientation(geometry, rotation);
           
-          // Calculate metrics
           const supportArea = calculateSupportArea(orientedGeometry);
           const printHeight = orientedGeometry.boundingBox ? 
             (orientedGeometry.boundingBox.max.y - orientedGeometry.boundingBox.min.y) : 0;
           const baseStability = calculateBaseStability(orientedGeometry);
-          
-          // Calculate total score
           const totalScore = calculateScore(supportArea, printHeight, baseStability, weights);
           
-          // Track best orientation
           if (totalScore < bestScore) {
             bestScore = totalScore;
             bestResult = {
@@ -233,30 +249,15 @@ export async function autoOrientSTL(
           }
         } catch (error) {
           console.warn('Error testing orientation:', rotation, error);
-          continue;
         }
-      }
-      
-      // Fallback to original orientation if all failed
-      if (!bestResult) {
-        geometry.computeBoundingBox();
-        bestResult = {
-          rotation: new THREE.Euler(0, 0, 0, 'XYZ'),
-          metrics: {
-            supportArea: 0,
-            printHeight: geometry.boundingBox ? 
-              (geometry.boundingBox.max.y - geometry.boundingBox.min.y) : 100,
-            baseStability: 0.5,
-            totalScore: 1
-          },
-          orientedGeometry: geometry.clone()
-        };
-      }
-      
-      resolve(bestResult);
+
+        i++;
+        setTimeout(testNextOrientation, 0);
+      };
+
+      testNextOrientation();
     } catch (error) {
       console.error('Auto-orientation failed:', error);
-      // Fallback to original
       geometry.computeBoundingBox();
       resolve({
         rotation: new THREE.Euler(0, 0, 0, 'XYZ'),
