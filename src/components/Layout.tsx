@@ -44,6 +44,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    // Scrolla in cima alla pagina al cambio di rotta
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMobileMenuOpen(false);
   }, [location.pathname]);
 

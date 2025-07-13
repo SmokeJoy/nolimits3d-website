@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { imagetools } from 'vite-imagetools';
 import compression from 'vite-plugin-compression';
+import critical from 'rollup-plugin-critical';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -40,7 +41,14 @@ export default defineConfig({
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
-      }
+      },
+      plugins: [
+        critical({
+          inline: true,           // inietta nel <head>
+          extract: false,
+          criticalPages: [] // Imposta esplicitamente a un array vuoto
+        })
+      ]
     }
   },
   optimizeDeps: {
