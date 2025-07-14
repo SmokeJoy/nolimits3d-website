@@ -138,8 +138,14 @@ function STLViewer({
       if (e.ctrlKey) {
         e.preventDefault(); // Previene zoom browser con Ctrl+wheel
       }
-      // Non chiamiamo metodi interni che vengono minificati
-      // Lasciamo che OrbitControls gestisca il wheel naturalmente
+      // Usa API pubblica per evitare errori di minificazione "ye is not a function"
+      const oc = controlsRef.current;
+      if (oc?.onMouseWheel) {
+        oc.onMouseWheel(e);          // API pubblica ≥ r150
+      } else if (oc && 'handleMouseWheel' in oc) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (oc as any).handleMouseWheel(e);  // fallback legacy
+      }
     };
 
     // Listener passivo per evitare warning

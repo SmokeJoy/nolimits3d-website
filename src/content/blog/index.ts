@@ -4,6 +4,7 @@ import { dfamDesignStampa3d } from './dfam-design-stampa-3d';
 import { postProcessingStampa3D } from './post-processing-stampa-3d';
 import { manutenzioneKlipper } from './manutenzione-klipper-stampante-3d';
 import { quantoCosta } from './quanto-costa-stampare-3d';
+import { frosindonePrototypingGuide } from './prototipazione-stampa-3d-frosinone';
 
 // Array di tutti gli articoli del blog
 export const blogPosts: BlogPost[] = [
@@ -12,7 +13,8 @@ export const blogPosts: BlogPost[] = [
   dfamDesignStampa3d,
   postProcessingStampa3D,
   manutenzioneKlipper,
-  quantoCosta
+  quantoCosta,
+  frosindonePrototypingGuide
 ];
 
 // Funzioni di utility per gestire gli articoli
@@ -29,7 +31,7 @@ export const getBlogPostsByTag = (tag: string): BlogPost[] => {
 };
 
 // Esporta anche i singoli articoli per uso diretto
-export { materialiStampa3D, problemiStampa3D, dfamDesignStampa3d, postProcessingStampa3D, manutenzioneKlipper, quantoCosta };
+export { materialiStampa3D, problemiStampa3D, dfamDesignStampa3d, postProcessingStampa3D, manutenzioneKlipper, quantoCosta, frosindonePrototypingGuide };
 
 // Esporta il tipo
 export type { BlogPost } from './types'; 

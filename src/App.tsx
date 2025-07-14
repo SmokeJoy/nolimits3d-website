@@ -11,6 +11,7 @@ import Stampa3DCassino from './pages/Stampa3DCassino';
 import Stampa3DLatina from './pages/Stampa3DLatina';
 import Materiali from './pages/Materiali';
 import Preventivatore from './pages/Preventivatore';
+import NotFound from './pages/NotFound';
 
 // Componente per singolo articolo del blog
 const BlogArticle: React.FC = () => {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/blog/post-processing-stampa-3d" element={<BlogArticle />} />
         <Route path="/blog/manutenzione-klipper-stampante-3d" element={<BlogArticle />} />
         <Route path="/blog/quanto-costa-stampare-3d" element={<BlogArticle />} />
+        <Route path="/blog/prototipazione-stampa-3d-frosinone" element={<BlogArticle />} />
         <Route path="/contatti" element={<ContactPage />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/stampa-3d-cassino" element={<Stampa3DCassino />} />
@@ -50,6 +52,8 @@ function App() {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactPage />} />
+        {/* 404 Catch All */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
   );

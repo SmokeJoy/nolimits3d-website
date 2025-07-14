@@ -370,7 +370,7 @@ const Blog: React.FC = () => {
                   </p>
                   <div className="flex gap-4">
                     <Link
-                      to="/contact"
+                      to="/contatti"
                       className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-2 rounded-lg transition-all duration-300"
                     >
                       Contattaci per domande

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Services from '../components/Services';
 import QuickQuoteForm from '../components/QuickQuoteForm';
@@ -69,8 +70,15 @@ const Home: React.FC = () => {
                   <strong className="text-green-400">NoLimits3D</strong> è il punto di riferimento per la <strong className="text-emerald-400">stampa 3D professionale a Frosinone</strong>. 
                   Specializzati in <strong className="text-blue-400">prototipazione industriale, componenti tecnici e oggetti personalizzati</strong> per aziende, 
                   uffici tecnici e professionisti in tutta la <strong className="text-green-400">Ciociaria</strong>. 
-                  Utilizziamo tecnologie FDM avanzate con materiali di alta qualità: <strong className="text-emerald-400">PLA, ABS, PETG, TPU, Carbon Fiber</strong> 
+                  Utilizziamo tecnologie FDM avanzate con <Link to="/materiali" className="text-emerald-400 font-bold hover:text-emerald-300 transition-colors underline">materiali di alta qualità</Link>: 
+                  <strong className="text-emerald-400">PLA, ABS, PETG, TPU, Carbon Fiber</strong> 
                   e compositi tecnici per garantire resistenza, precisione e finitura professionale.
+                </p>
+                
+                <p className="text-md text-gray-500 mt-4">
+                  Scopri la nostra <Link to="/galleria" className="text-green-400 hover:text-green-300 transition-colors underline">galleria progetti</Link>, 
+                  leggi le <Link to="/blog" className="text-blue-400 hover:text-blue-300 transition-colors underline">guide tecniche</Link> 
+                  o richiedi un <Link to="/preventivatore" className="text-emerald-400 hover:text-emerald-300 transition-colors underline">preventivo online immediato</Link>.
                 </p>
               </div>
               
