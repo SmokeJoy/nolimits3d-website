@@ -45,6 +45,7 @@ PRE_M001_ROOT = {
 M001_EXECUTION_EXTRA = {
     ".github", "apps", "packages", "supabase", "docs",
     ".gitignore", ".gitattributes", ".editorconfig", ".nvmrc",
+    ".env.example",
     "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json",
     "eslint.config.js", "eslint.config.mjs", "eslint.config.cjs",
     ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
