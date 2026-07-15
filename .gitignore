@@ -1,0 +1,28 @@
+# Dependencies and generated output
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Supabase local runtime state
+supabase/.branches/
+supabase/.temp/
+
+# Tool and editor state
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Governed operational artifacts excluded from source history
+PROJECT_ATLAS_CURRENT_HANDOFF.zip
+Project_Atlas_Team_Workspace/05_Evidence/
+Project_Atlas_Team_Workspace/06_Handoffs/Archive/
+Project_Atlas_Team_Workspace/06_Handoffs/build_meta/
+Project_Atlas_Team_Workspace/99_DELETE_QUARANTINE/

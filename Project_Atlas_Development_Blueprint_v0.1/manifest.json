@@ -1,0 +1,48 @@
+{
+  "project": "Project Atlas - Development Blueprint",
+  "version": "0.1.0",
+  "status": "Architect Defined / Binding Conditional",
+  "generated_at": "2026-07-15",
+  "owner": "Chief Architect & CTO (role of record: ChatGPT; acting 2026-07-15: Claude under Andrea's session mandate)",
+  "source_binding": {
+    "documentation_bible_local": "NoLimits3D_Documentation_v0.96",
+    "documentation_bible_status": "Release Candidate",
+    "development_playbook": "Project_Atlas_Development_Framework_v1.0 / Playbook v1.0.1",
+    "production_effective": false,
+    "binding_condition": "Resolve local Bible v0.96 RC vs expected Bible v1.0 Frozen Baseline before production release."
+  },
+  "latest_architect_review": "02_Architect_Reviews/M001_AD005_RESPONSE_ARCHITECT_REVIEW.md",
+  "latest_directive": "03_Architect_Directives/AD-006_M001_POST_DELIVERY_INTEGRITY_RESTORATION.md",
+  "files": [
+    {
+      "path": "README.md",
+      "type": "package_index",
+      "milestone": null,
+      "sha256": "3929081347B90D2BE36FC28C7BC8679645602335C1017BB5D93975E8C9A534B7"
+    },
+    {
+      "path": "02_Architect_Reviews/M001_AD004_RESPONSE_ARCHITECT_REVIEW.md",
+      "type": "architect_review",
+      "milestone": "M-001",
+      "sha256": "982D6DC567631BD052D19E25676593D3EF1FC49C1E4BF26C169677D6F19959BE"
+    },
+    {
+      "path": "03_Architect_Directives/AD-005_M001_MACHINE_ENFORCED_EVIDENCE_CLOSURE.md",
+      "type": "architect_directive",
+      "milestone": "M-001",
+      "sha256": "BB73A534E0D2626DE9B4BDAD0785380869D4A851FEDD31C757C5A2D48B7BEB21"
+    },
+    {
+      "path": "02_Architect_Reviews/M001_AD005_RESPONSE_ARCHITECT_REVIEW.md",
+      "type": "architect_review",
+      "milestone": "M-001",
+      "sha256": "171752F621A5D6D409F00CBB6540E3C42093AB37B29BDE0953DC1DA8649A1AC8"
+    },
+    {
+      "path": "03_Architect_Directives/AD-006_M001_POST_DELIVERY_INTEGRITY_RESTORATION.md",
+      "type": "architect_directive",
+      "milestone": "M-001",
+      "sha256": "086ADAC1B2FFC79EA6575ABAF36BBFB27CBFF3049687D2FD695E9261D5EDB22F"
+    }
+  ]
+}

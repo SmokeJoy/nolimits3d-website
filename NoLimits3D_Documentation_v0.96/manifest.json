@@ -1,0 +1,856 @@
+{
+  "package": "NoLimits3D Documentation — Project Atlas",
+  "release": "0.96",
+  "title": "Documentation Bible Final Consolidation & Frozen Baseline Release Candidate",
+  "generated_at": "2026-07-15",
+  "documentation_status": "RELEASE CANDIDATE",
+  "consistency_score": 99.4,
+  "baseline_ready": false,
+  "release_candidate_ready": true,
+  "product_design_scope": "CONCLUDED",
+  "development_blueprint_recommended": true,
+  "file_count_excluding_manifest": 168,
+  "hash_algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "000_GOVERNANCE/001_DOCUMENTATION_STANDARD.md",
+      "size_bytes": 3926,
+      "sha256": "81ffb39440adb4d1b22b067c44d6b7b77ac23a789499e80304bdfc58e9798b9b"
+    },
+    {
+      "path": "000_GOVERNANCE/002_VERSIONING_POLICY.md",
+      "size_bytes": 1834,
+      "sha256": "04ce1fe7b9d7af0b7ee1476b8ab719010e784e5c38bd2a3344b54954c24ee17e"
+    },
+    {
+      "path": "000_GOVERNANCE/003_CHANGE_REQUEST_PROCESS.md",
+      "size_bytes": 2292,
+      "sha256": "9fc50a8a6ebbccb645305b2d912c10e08a46996df71fa1d583c1a0ce6f2b5505"
+    },
+    {
+      "path": "000_GOVERNANCE/004_ADR_POLICY.md",
+      "size_bytes": 1086,
+      "sha256": "d125bc4c615dc52b9bbeb9482eab8b3db54f6df1314dfd5d60fe2f4451cbdd6c"
+    },
+    {
+      "path": "000_GOVERNANCE/005_TRACEABILITY_STANDARD.md",
+      "size_bytes": 1200,
+      "sha256": "4cd0a03ca550db0c899a42357db6373b4fe19d8fd7986c982e1ea985642aa018"
+    },
+    {
+      "path": "000_GOVERNANCE/006_DOCUMENT_LIFECYCLE.md",
+      "size_bytes": 1726,
+      "sha256": "dc37d43d4b0b78d22d4f8ba6d0a6637e00f3132644eef50f687a416ee2637f1a"
+    },
+    {
+      "path": "000_GOVERNANCE/007_QUALITY_GATES.md",
+      "size_bytes": 5349,
+      "sha256": "da372fc97164c6c489d185f35c2ef9f5a034ea3004cca4206dd14e47e5f7ae25"
+    },
+    {
+      "path": "000_GOVERNANCE/008_AI_COLLABORATION_POLICY.md",
+      "size_bytes": 5663,
+      "sha256": "aa4ab9b02801c52c8e3d31cdcb21c1ea0228d610b5ba04955d0ddc1f7be2d918"
+    },
+    {
+      "path": "000_GOVERNANCE/009_AUDIT_PROCESS.md",
+      "size_bytes": 2576,
+      "sha256": "71ed736900a8d9d29125ae0a6b73a27c8484db0c338711902a0d83e4fcceefb1"
+    },
+    {
+      "path": "000_GOVERNANCE/010_GOVERNANCE_GLOSSARY.md",
+      "size_bytes": 2158,
+      "sha256": "bc2b2bb8b34d226230c698ca06b8aa66efd9a74c47ea9f602ea3654bb10f2502"
+    },
+    {
+      "path": "000_GOVERNANCE/011_OWNER_REGISTRY.md",
+      "size_bytes": 6058,
+      "sha256": "c19124840ecd41070581c4326703b8f809981edfd5a208ae8c22ece133486513"
+    },
+    {
+      "path": "000_GOVERNANCE/012_DOCUMENTATION_CI_SPEC.md",
+      "size_bytes": 1860,
+      "sha256": "9210848bfa9f896e451c32d021636a64975126afdc71b625de91810cfd33ff1f"
+    },
+    {
+      "path": "000_GOVERNANCE/document_registry.csv",
+      "size_bytes": 22411,
+      "sha256": "a9ce14858d3a1aaee5b4a4540eeceaad2d1e2af38c1cbfcdc904ea44923aa16c"
+    },
+    {
+      "path": "000_PROJECT_CHARTER.md",
+      "size_bytes": 22117,
+      "sha256": "893586f6d7cea59a74c45eb0318fdff588fed050268640573c9030b6268433f0"
+    },
+    {
+      "path": "00_Foundation/00_Project_Constitution.md",
+      "size_bytes": 16028,
+      "sha256": "4a097e66176ab721e01771b6a5c1db2f780c0c2cab9baa16e849261ff77804ca"
+    },
+    {
+      "path": "00_Foundation/01_Vision_and_5Y_Strategy.md",
+      "size_bytes": 3680,
+      "sha256": "76ef4be4eff47a88d2a2a7416c843fd2feb75a01e515560afc03bcdd2aa97b08"
+    },
+    {
+      "path": "00_Foundation/02_Glossary.md",
+      "size_bytes": 4568,
+      "sha256": "1f96ee727a61548c54940f0627ab2bcddf414c1135ca841f35b2e98d37531959"
+    },
+    {
+      "path": "00_Foundation/03_Documentation_Governance.md",
+      "size_bytes": 4619,
+      "sha256": "5222bba9a467ee62f58fa40dfbc63d3fffdb3a0a9c3338ec2fda1ce0a335fa9d"
+    },
+    {
+      "path": "01_Product/01_PRD.md",
+      "size_bytes": 10508,
+      "sha256": "8affaff245704af9269eb2665238e02188e84ecca963023d93f3d8a87295f26e"
+    },
+    {
+      "path": "01_Product/02_Personas_Journeys.md",
+      "size_bytes": 3540,
+      "sha256": "7adb8429f7f3a4ed653d98772798f8f192309e057dd3140725b08d3a7c6d8b26"
+    },
+    {
+      "path": "01_Product/03_Business_Rules.md",
+      "size_bytes": 7330,
+      "sha256": "0ca646accd48ab6f7acc02349add0365da9736baf67d284d8a3c39986fc50a9f"
+    },
+    {
+      "path": "01_Product/04_State_Machines.md",
+      "size_bytes": 5652,
+      "sha256": "ce0dd7b71b582eb8dc3c2c15f128810768962f9072efed5df422366031f9f38f"
+    },
+    {
+      "path": "01_Product/05_Marketplace_and_GoToMarket_Strategy.md",
+      "size_bytes": 11286,
+      "sha256": "20259a598cef616c5bc67e8ed67ee95f15c9ede720e08946f97c3973830e8a89"
+    },
+    {
+      "path": "02_Architecture/01_SDS.md",
+      "size_bytes": 4978,
+      "sha256": "85b56630a5e6170f8dba01863a3c06afbd35b3e69e2ad9b1d026ef3e6bd419f5"
+    },
+    {
+      "path": "02_Architecture/02_Domain_Model.md",
+      "size_bytes": 4501,
+      "sha256": "d340f66c509881b71740a9f118def01571bb26165db321e7cd682b0cb2a94f67"
+    },
+    {
+      "path": "02_Architecture/03_Integration_Architecture.md",
+      "size_bytes": 2593,
+      "sha256": "7841e18a191431e3dcb5c0736b600a24f1950f84e63b0bcbc8a4bade519d481b"
+    },
+    {
+      "path": "02_Architecture/04_File_Storage_Strategy.md",
+      "size_bytes": 2390,
+      "sha256": "ea6e1490a7e3a02029601404a59785a14e6e794d4390f317b946354caf619c06"
+    },
+    {
+      "path": "02_Architecture/05_Notification_System.md",
+      "size_bytes": 666,
+      "sha256": "48caaf87a92be33a8d68fff4802ea794a83b892eb56ed26d611cca00baf0613b"
+    },
+    {
+      "path": "02_Architecture/06_Error_Catalog.md",
+      "size_bytes": 1110,
+      "sha256": "50db2144e0ce140a5d82d6aead574991c1787dabf8628f4296f0041bf25d6bb0"
+    },
+    {
+      "path": "02_Architecture/07_Frontend_Architecture.md",
+      "size_bytes": 4078,
+      "sha256": "2b058bc0e19afb7dca5f53bd1c5130aea1dff903d3381a75d2180af29a8815f6"
+    },
+    {
+      "path": "02_Architecture/08_Backend_Service_Design.md",
+      "size_bytes": 3355,
+      "sha256": "f8b9880d03cdf067f7cbe7df5848bfd9129d569cb6dbe04c01a084f1ebfa7425"
+    },
+    {
+      "path": "03_Design/01_Brand_Book.md",
+      "size_bytes": 5803,
+      "sha256": "2131f12cf655e15d5af12f094ebf5efaced6bb034fe35f8f571662ede1830c82"
+    },
+    {
+      "path": "03_Design/02_Design_System.md",
+      "size_bytes": 7435,
+      "sha256": "c992cf2d52ceadd03bb18bcc01e25bfc97acc08ae7145dc2f5778a3416b19f39"
+    },
+    {
+      "path": "03_Design/03_Design_Tokens.md",
+      "size_bytes": 1250,
+      "sha256": "c98d72bd9e14dba6d72a162ed2fce11f19f21433cd787c566a2c508f112b6475"
+    },
+    {
+      "path": "03_Design/04_Component_Library.md",
+      "size_bytes": 9798,
+      "sha256": "2f7fa6f25293893672e686ea2e56ba2f50867b230204554714354c086b6520c9"
+    },
+    {
+      "path": "03_Design/05_Image_Guidelines.md",
+      "size_bytes": 7590,
+      "sha256": "9a082b68cfc777d44be959fb24cc980a71f8578c9950d668a38bd4bf14c96858"
+    },
+    {
+      "path": "03_Design/06_Motion_and_3D_Visual_Language.md",
+      "size_bytes": 4376,
+      "sha256": "784d33e18cf0713d4f13aa4d812e4def9dac179cb3fea9d0a6fea73eb4f482b5"
+    },
+    {
+      "path": "04_Experience/01_Information_Architecture.md",
+      "size_bytes": 2902,
+      "sha256": "ee0991020965d484810d1dd4c6e724d753c6e60fc4ae2680c97349f61cd4138f"
+    },
+    {
+      "path": "04_Experience/02_Global_User_Flows.md",
+      "size_bytes": 2582,
+      "sha256": "68b386a175c4107945b00077d00c33401c8c0631f96bbe0122462a99dd1755c8"
+    },
+    {
+      "path": "04_Experience/03_Homepage_Wireframes.md",
+      "size_bytes": 5159,
+      "sha256": "d42196089cb1b4d1ee9a39ce2dae1badbb6c722bfd6f237e858138f54222c38b"
+    },
+    {
+      "path": "04_Experience/04_Catalog_Wireframes.md",
+      "size_bytes": 1117,
+      "sha256": "8654b20e4bfc4632a20a2ea5f2541d0728bc875e611134e4d3f1caff9c11f66e"
+    },
+    {
+      "path": "04_Experience/05_Product_Wireframes.md",
+      "size_bytes": 1157,
+      "sha256": "d027d889360765975a08202d496590111c4749478bf68d4feaee69c0f2d3d58d"
+    },
+    {
+      "path": "04_Experience/06_Service_Wireframes.md",
+      "size_bytes": 1469,
+      "sha256": "dc9e3b5a75355b3d3b7bf24fa66d4a835b5d51b3ec6365772d2f69123708f7d7"
+    },
+    {
+      "path": "04_Experience/07_Portfolio_Blog_Event_Wireframes.md",
+      "size_bytes": 1516,
+      "sha256": "3123068615ece81d18b53f88b7dbfbe90eae7cd4b3814c841c8ce76155c22c60"
+    },
+    {
+      "path": "04_Experience/08_Quote_and_Contact_Wireframes.md",
+      "size_bytes": 1440,
+      "sha256": "108a488e808def0737d9fa0166f7c7ff47ed638fcb99770eaa0209016ef89d56"
+    },
+    {
+      "path": "04_Experience/09_Customer_Area_Wireframes.md",
+      "size_bytes": 1423,
+      "sha256": "481c1271fd3ec9fd57fb6aa35ed763d905b37018b0272c54fe5955a3e3f4a639"
+    },
+    {
+      "path": "04_Experience/10_Admin_Wireframes.md",
+      "size_bytes": 1523,
+      "sha256": "a3e18ce4294cfa72ea390661c32400844ea5305e18cc15c031dd1f2dd310267b"
+    },
+    {
+      "path": "04_Experience/11_Accessibility_Specification.md",
+      "size_bytes": 1175,
+      "sha256": "b28ea141f8015bb61b19cff5f192c02e987227b7a77fc75b9b859c4576df30a4"
+    },
+    {
+      "path": "05_Features/01_Catalog_and_Products.md",
+      "size_bytes": 3129,
+      "sha256": "8a5e43bb75c6d3834eabdbc83e8fdc1fa0e37dc5062d7624e54bfcab6773de66"
+    },
+    {
+      "path": "05_Features/02_Lantern_Configurator.md",
+      "size_bytes": 8712,
+      "sha256": "011bcb901b03f24bd10cb017ef4d78699421eb2aad1127e0674f896d20b74c1b"
+    },
+    {
+      "path": "05_Features/03_STL_Quote_Workflow.md",
+      "size_bytes": 6632,
+      "sha256": "da1c820a9061a595c22b6ed165801b85b648caf6080c3e0fe80ebf2f932b6776"
+    },
+    {
+      "path": "05_Features/04_STL_AI_Chat.md",
+      "size_bytes": 2153,
+      "sha256": "d4d0afb7bb61beb13969a0b1367ca80442483614ea4fe158f6a3cd3c2d9d2a05"
+    },
+    {
+      "path": "05_Features/05_STL_Slicer.md",
+      "size_bytes": 1896,
+      "sha256": "5fe7e00332c6a8cc2eedf015293f6ee85285c24019b2c16c7ca1720fe9ed8a2d"
+    },
+    {
+      "path": "05_Features/06_STL_Pricing_Engine.md",
+      "size_bytes": 1954,
+      "sha256": "9731bd10a0810199be4b5f973994f9abb7f9c29ad4c4c2e099d3e06ac170cbde"
+    },
+    {
+      "path": "05_Features/07_STL_Revision_Workflow.md",
+      "size_bytes": 1568,
+      "sha256": "edc7731d8ce899fdf12c326f5326cc1c38ea01769f04c9af1835727eea3cedef"
+    },
+    {
+      "path": "05_Features/08_PrintFlow.md",
+      "size_bytes": 4528,
+      "sha256": "8b30b959df7931462f232d9d8b47d256178ec5a7dd47337757a927e6dea5d77f"
+    },
+    {
+      "path": "05_Features/09_Events.md",
+      "size_bytes": 2520,
+      "sha256": "9ef8b5ddcdf89268dd74449cb3db26423629408553a9ddae0910b2033bfc43c2"
+    },
+    {
+      "path": "05_Features/10_Printer_Assistance.md",
+      "size_bytes": 1614,
+      "sha256": "7a756e9c1c4ae0da108464ed4a1c66fa8925cd53095b687121612a223ba27aee"
+    },
+    {
+      "path": "05_Features/11_Portfolio_Case_Studies.md",
+      "size_bytes": 2047,
+      "sha256": "8a0ef52a1bfbe3c607e1aa565b676264b31d220a006a2a645c30019b6824502d"
+    },
+    {
+      "path": "05_Features/12_Newsletter.md",
+      "size_bytes": 1909,
+      "sha256": "81b2339755aa44c1c5bbfa6fecc7fa2515dd5230f6e990122325dbeeb64a2b1e"
+    },
+    {
+      "path": "05_Features/13_Customer_Area.md",
+      "size_bytes": 1822,
+      "sha256": "6da027b5f9c90246addf405a3cc054b2fff9f00527539efdef412fd017d2e892"
+    },
+    {
+      "path": "05_Features/14_Search.md",
+      "size_bytes": 1395,
+      "sha256": "202f7ccd03e132ec43d81f1651780450ed256ace34f1162b147210ff8d4207c4"
+    },
+    {
+      "path": "05_Features/15_Checkout_and_Payments_Future.md",
+      "size_bytes": 2804,
+      "sha256": "b9020981d250d46c4e5a8646a6371981dea54cacbec3c13b67d9d4eaca47a66c"
+    },
+    {
+      "path": "06_Admin/01_Admin_Information_Architecture.md",
+      "size_bytes": 2239,
+      "sha256": "00b53087fd98ebad95d94f8d8ee4442c0a738b26900477fcb2123ad026727a77"
+    },
+    {
+      "path": "06_Admin/02_Admin_Workflows.md",
+      "size_bytes": 1234,
+      "sha256": "c8c7eabaab6aeb4f62751ae2e969045e0db77c699be0ab877391a006f7a80e96"
+    },
+    {
+      "path": "06_Admin/03_Permissions_Matrix.md",
+      "size_bytes": 1889,
+      "sha256": "7b62a9dcbf34a97d6900351b33f79fdf48c4206e140f5209165fe60589617c24"
+    },
+    {
+      "path": "06_Admin/04_Media_Library.md",
+      "size_bytes": 2997,
+      "sha256": "ab17128bff538738bf32fa1a31710e402b396499e9af4acb2fe090ed783e4f6b"
+    },
+    {
+      "path": "07_AI/01_AI_Overview.md",
+      "size_bytes": 2363,
+      "sha256": "c48aefcfb844da3a49c905707f91a9ed5c086b18fab1ef3b4b7e0f7ab0f3826c"
+    },
+    {
+      "path": "07_AI/02_Jarvis_Admin.md",
+      "size_bytes": 3982,
+      "sha256": "c40a98f74daa8790f05a5be89343869a3aba29e7964d1787c68a31dd7db9afd4"
+    },
+    {
+      "path": "07_AI/03_Customer_Assistant.md",
+      "size_bytes": 3894,
+      "sha256": "c924cc9bbc417af781e92a8e886345c9da2ef347b89ff03c96c5eb72827c57e0"
+    },
+    {
+      "path": "07_AI/04_SEO_Assistant.md",
+      "size_bytes": 1624,
+      "sha256": "8ae3294ff333b847920abaccf007bd3a7d0a74939dd7eaee817adec49adc3211"
+    },
+    {
+      "path": "07_AI/05_Catalog_Assistant.md",
+      "size_bytes": 1554,
+      "sha256": "44954fff1e3975d55e5b4d6d27cf9a94c0a2eb8e1d8d3b86c76e2d3304ab1173"
+    },
+    {
+      "path": "07_AI/06_Newsletter_Assistant.md",
+      "size_bytes": 1497,
+      "sha256": "036cf7d96e79e642aa4305ab3245b212a85811e18009c0fbfe0a06f3de07ded2"
+    },
+    {
+      "path": "07_AI/07_PrintFlow_Assistant.md",
+      "size_bytes": 1537,
+      "sha256": "f4b4c524c469474b743639a7607d75ed050352dc260804090b031cd2315b9529"
+    },
+    {
+      "path": "07_AI/08_Future_AI.md",
+      "size_bytes": 1594,
+      "sha256": "680b7d447fb479fdde2c41b299653908b97b5247f4cf1c2ff2321f7ffe757b9d"
+    },
+    {
+      "path": "08_Data_API/01_Database_Design.md",
+      "size_bytes": 3300,
+      "sha256": "658416bed7bede16d1085183b16441c54db294e3808e404030f14ad37d4ae83a"
+    },
+    {
+      "path": "08_Data_API/02_Database_Naming_Convention.md",
+      "size_bytes": 622,
+      "sha256": "d2ae499c469e5b3ed30739bc54c34aa253ca57e51c4616024895eedd50526886"
+    },
+    {
+      "path": "08_Data_API/03_Migration_Backup_Strategy.md",
+      "size_bytes": 769,
+      "sha256": "aee814ef22d27df138e01faa1b62ccdfd9208d739b4642ae686b753d4c89c69f"
+    },
+    {
+      "path": "08_Data_API/04_API_Contract.md",
+      "size_bytes": 1225,
+      "sha256": "5d55885eb41be3a6034cd0deb06a17d2c440780230940b10c02c0ea90238029c"
+    },
+    {
+      "path": "08_Data_API/05_API_Catalog.md",
+      "size_bytes": 1230,
+      "sha256": "2de1421574f268516899a64bca281b7020f502170ef5219796038fca16429b0d"
+    },
+    {
+      "path": "08_Data_API/06_Data_Classification_Retention.md",
+      "size_bytes": 1025,
+      "sha256": "984bd5743959d188a841b518cba6e6f2b9fb8e2f052aa29cc34ed5179f6dbf69"
+    },
+    {
+      "path": "09_SEO_Content/01_SEO_Strategy.md",
+      "size_bytes": 2556,
+      "sha256": "5be7a5738b2a7aef0cdd69314ef461d7fc2a5c90d10ac44c93bc95891f9dac5e"
+    },
+    {
+      "path": "09_SEO_Content/02_Content_Strategy.md",
+      "size_bytes": 2033,
+      "sha256": "605af4c6b263d31bc3e506c17d0ce87146331d5df1460c4afaadf9fda58d0d22"
+    },
+    {
+      "path": "09_SEO_Content/03_Blog_Strategy.md",
+      "size_bytes": 1560,
+      "sha256": "8893646f8ea7db3effc0623a264b10d4f10ecc88873befa0009e2c7bdfebea10"
+    },
+    {
+      "path": "09_SEO_Content/04_Local_SEO.md",
+      "size_bytes": 1536,
+      "sha256": "b85de87d1e3391d4652b44d88ba0ceaf36ea123c522aea207e26c9e27a00fe74"
+    },
+    {
+      "path": "09_SEO_Content/05_Technical_SEO.md",
+      "size_bytes": 1845,
+      "sha256": "2369253049f0c15fe19877357190eb58888538b0712e6bbc1c5b2b67ffa5ae83"
+    },
+    {
+      "path": "09_SEO_Content/06_Schema_org.md",
+      "size_bytes": 1503,
+      "sha256": "ad755ab7f99ff49eaa2b57e83d59189108618dd3e741eca31a927c4498d07c71"
+    },
+    {
+      "path": "09_SEO_Content/07_Internal_Linking.md",
+      "size_bytes": 1428,
+      "sha256": "32c7aee4eb46310b572ce247f035e6a88440963e73f6e4e8b2d378db0d4c8b3f"
+    },
+    {
+      "path": "09_SEO_Content/08_GEO_Strategy.md",
+      "size_bytes": 1381,
+      "sha256": "477f671c50fbd61be194b0827d4e79b998a0b9c7c865853710ee8482549993ab"
+    },
+    {
+      "path": "09_SEO_Content/09_Analytics_Measurement_Plan.md",
+      "size_bytes": 2683,
+      "sha256": "5ac25c2e962137500d05cc2a6da66cf7246992f1b5052b2aed0b0dde1321c472"
+    },
+    {
+      "path": "10_Security_Performance/01_Threat_Model.md",
+      "size_bytes": 769,
+      "sha256": "f5d304a99a2ba81749a10d1f5af706966431fabc254159879d007256326f7763"
+    },
+    {
+      "path": "10_Security_Performance/02_Application_API_Security.md",
+      "size_bytes": 933,
+      "sha256": "0c02352a22467e2c6fadfe1861a1a00f578b7a190e18ee24d55f51d7432cc381"
+    },
+    {
+      "path": "10_Security_Performance/03_Upload_Security.md",
+      "size_bytes": 1117,
+      "sha256": "6d3ed2a4d3db87a0c6958932a1c5f45d99eeddf8a6008b7b217974ac3e7e54af"
+    },
+    {
+      "path": "10_Security_Performance/04_AI_Security.md",
+      "size_bytes": 981,
+      "sha256": "9eb32f8a5b5ebade59d6bd5bed1501a0f0ebdd52e4650ce4242ea9f50e5cc854"
+    },
+    {
+      "path": "10_Security_Performance/05_Performance_Plan.md",
+      "size_bytes": 3684,
+      "sha256": "d5b1608ca4aaf7c1502cc42f7480f50bd788d21c6d91c28a2e6f80f6b6e3b73b"
+    },
+    {
+      "path": "10_Security_Performance/06_ThreeJS_3D_Optimization.md",
+      "size_bytes": 2417,
+      "sha256": "ee82311f691787b336055bc43cc9fa35db05669ce7027bc6b654d36710be5427"
+    },
+    {
+      "path": "10_Security_Performance/07_Privacy_GDPR.md",
+      "size_bytes": 1752,
+      "sha256": "9f290fa27c0914e91dabce30bcd9757ef20f42623fcb3f1531fe9b089ef4fa94"
+    },
+    {
+      "path": "11_Engineering_Operations/01_Developer_Handbook.md",
+      "size_bytes": 5948,
+      "sha256": "ea9a6522848cb8972d09a7e6cb08058982eb05952f15ece29dcb99f69a546abf"
+    },
+    {
+      "path": "11_Engineering_Operations/02_Testing_Strategy.md",
+      "size_bytes": 558,
+      "sha256": "01273055b1342a6e628460ac3a33939a1706ba1d4f229009b98c89bcb119c744"
+    },
+    {
+      "path": "11_Engineering_Operations/03_CICD_Deployment.md",
+      "size_bytes": 2181,
+      "sha256": "28507495523ba72e3e2bdf9c1456214adeb2b28eccc5c09dda2ac5ac32952616"
+    },
+    {
+      "path": "11_Engineering_Operations/04_Observability.md",
+      "size_bytes": 1393,
+      "sha256": "9f34700e116d33a6c04ea4956a781bd410935ad641e398be1793ba5adc8254b4"
+    },
+    {
+      "path": "11_Engineering_Operations/05_Release_Strategy.md",
+      "size_bytes": 854,
+      "sha256": "bc548fceb175d1d0f5db21908ca2973c5f385c15099a3394604bae61bd8fa4dd"
+    },
+    {
+      "path": "11_Engineering_Operations/06_Disaster_Recovery_Runbook.md",
+      "size_bytes": 1411,
+      "sha256": "1d0be385d3b295c7fd8b12a16dd9213d5a49442b6ace04b0f5a87cb7c8c1469d"
+    },
+    {
+      "path": "11_Engineering_Operations/07_Environment_Configuration.md",
+      "size_bytes": 1690,
+      "sha256": "ee39d820ef16204611174d319aa8a9906a3749395608fa256b550996f982a8fb"
+    },
+    {
+      "path": "12_Planning/01_ADR_Register.md",
+      "size_bytes": 4037,
+      "sha256": "51cd92ceeff8e90c6aa41218541d76d476b8110bc1fc01be7bc069dd90e6f722"
+    },
+    {
+      "path": "12_Planning/02_Decision_Log.md",
+      "size_bytes": 3130,
+      "sha256": "2cccdf7ac699f7b9c86c1ac606f03cb725597c34e2e63ba323e7bf51012524b3"
+    },
+    {
+      "path": "12_Planning/03_Master_Development_Roadmap.md",
+      "size_bytes": 98110,
+      "sha256": "058e2bbf13f48a59284115fe69eb3af3ee187c07ebecbf072fee252d05dba329"
+    },
+    {
+      "path": "12_Planning/04_Risk_Register.md",
+      "size_bytes": 3885,
+      "sha256": "fb6549eedb61a0b3e2e4c473db8d5615c12a668ef4582c758afdbfddbd195591"
+    },
+    {
+      "path": "12_Planning/05_Traceability_Matrix.md",
+      "size_bytes": 95911,
+      "sha256": "fd72c4c0e28d172c4d40b7337546326e833611dc66a793ff4ff3926f348a33cd"
+    },
+    {
+      "path": "12_Planning/06_Documentation_Debt_Register.md",
+      "size_bytes": 3299,
+      "sha256": "9221e4d334291b8c431367f13714a982ebd86a1dde73c0e8554eeab6930eac15"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0001_Documentation_as_Product.md",
+      "size_bytes": 1100,
+      "sha256": "5da91f07c58887aeb27cd6b9b567277bb33d1748385784ce7f72e72f0e0a8d5a"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0002_Modular_Monolith_First.md",
+      "size_bytes": 1177,
+      "sha256": "8dc627e00ac6fc2d01f0ddd97be034babdce5cb72d2e5824d30f5bc56489e9d8"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0003_PostgreSQL_System_of_Record.md",
+      "size_bytes": 975,
+      "sha256": "c35864d25c62bf4c549394eb45ade187d72ff1fe85c8d4d23a0b413ecf29f947"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0004_Versioned_API_Contracts.md",
+      "size_bytes": 1026,
+      "sha256": "9ff6db730aeaa5ff2d669ddd1bb87a6f168899b56f7beb2e6bbc3b43039231ce"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0005_Object_Storage_for_Binaries.md",
+      "size_bytes": 1006,
+      "sha256": "1024845521393d58838e1e9dc0291566598d14078ec18b28155bd0c4fb3cbc38"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0006_Outbox_and_Queued_Jobs.md",
+      "size_bytes": 1889,
+      "sha256": "b753555d872181af392c29a3646a96a24b187c979985bdf994fa6bfabc9278a6"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0007_AI_Human_in_the_Loop.md",
+      "size_bytes": 1034,
+      "sha256": "1a0472bf17fc04e5dde4110307584a15391720c7d1d9a2decb53381d3b429db7"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0008_Progressive_3D_Enhancement.md",
+      "size_bytes": 1030,
+      "sha256": "cb024ac1d0f9c293b6cb987815eb85ed7f6acc25d3c5387c3015c328f294a113"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0009_PrintFlow_Decoupled_Coming_Soon.md",
+      "size_bytes": 938,
+      "sha256": "d1d21307c9445f66ccbbc2d4c4f1c553c6284c90dced0d04c5ab94c4aaf354be"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0010_Consent_Aware_Analytics.md",
+      "size_bytes": 1993,
+      "sha256": "10d56cfdc9fcf8f45a82c842b295f48ada9035624a02c6dfff0cf4f658ef3c59"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0011_Governed_Media_Pipeline.md",
+      "size_bytes": 1028,
+      "sha256": "d792876172f61d813651d990eec7c853d3190de2d356f2ba832f462e94da39ff"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0012_Versioned_Prompt_Library.md",
+      "size_bytes": 2021,
+      "sha256": "438bce9f7788abb9a1779e506240ed75e400b5314fdb6bb449834fd3d7ef1dfc"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0013_Atlas_Deployment_Topology.md",
+      "size_bytes": 2410,
+      "sha256": "6fcd82eba88a3dc8834957c730f0a6371cb55785c38882cd903e4082ac49e97f"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0014_Direct_Commercial_Model.md",
+      "size_bytes": 1771,
+      "sha256": "4145b1bb156c77a9aeb857114c97ebaa5d1e4dc5dbc20f2cfe0e060125016520"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0015_Brand_Identity_and_Project_Atlas.md",
+      "size_bytes": 1201,
+      "sha256": "aa658e50c721717dc0bb3bc75ec6f0e8eaf373c1ef0fada50d10320eef389c13"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0016_Core_Brand_Values.md",
+      "size_bytes": 1094,
+      "sha256": "33d7db91c52844c3920d580bc886beb919d24230f086340d135976cb9c613b60"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0017_Premium_Immersive_Web_Application.md",
+      "size_bytes": 2626,
+      "sha256": "1bdd65391705aef2620d9627e39a94e50abe622590ac8fbaa28d5e1b215eb9ba"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0018_React_Vite_Stack_with_NextJS_Review_Gate.md",
+      "size_bytes": 1383,
+      "sha256": "151b49b0cc119660d9f45f2ae3b9729d5c6633a35c7c6c8495394ac741f89108"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0019_Supabase_Backend_Architecture.md",
+      "size_bytes": 1074,
+      "sha256": "6d319bef0a9fc0a41dd7b5de9c18635b73fb6584dab1b1aeff410a1bc9d3078d"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0020_Private_Jarvis_Orchestrator.md",
+      "size_bytes": 1184,
+      "sha256": "d7f6eb5dc19afd35a2bbed9b8355126df85d4e4944bbb33c8a9311d06945560c"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0021_Unified_Commerce_Catalog.md",
+      "size_bytes": 1053,
+      "sha256": "e8792ef5aa5f158426700d65131274948a28e70140a2d225de20d8c3e77f40c5"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0022_Controlled_Progressive_Payments.md",
+      "size_bytes": 1164,
+      "sha256": "bd87080c3f6a3d537780afd4251271fa5e016eb7b6d3c0e2c4425195ea008147"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0023_NoLimits_Command_Center.md",
+      "size_bytes": 1066,
+      "sha256": "c9d9e3ca15bbfa691081a792bf0dc48c177a61123bba151493b048044bc2d0b0"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0024_Website_Centric_Ecosystem.md",
+      "size_bytes": 1098,
+      "sha256": "a09ef0fed01c1c11d3b4337f383bcd57c9b6ff5b18ad7b507f0f9a9dfecb4c2d"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0025_Founder_Led_Brand_and_Intent_Driven_Customer_Experience.md",
+      "size_bytes": 2101,
+      "sha256": "b5d0542b78a288799abdd62854b883b01506a9750e84e92c3c3765013a061f5b"
+    },
+    {
+      "path": "12_Planning/ADR/ADR-0026_Project_Atlas_Operating_System_and_AI_Development_Authority.md",
+      "size_bytes": 3137,
+      "sha256": "f8e134e9da9ea5e6b5aeb38d6361187015d1f66c279a80c11fa799166c786799"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0001_Architecture_Consolidation.md",
+      "size_bytes": 2710,
+      "sha256": "18cb0d1452e98074995f6c9820ed1d2e3789733884a7ae41f9b2f4c2604aba81"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0002_Atlas_Decisions.md",
+      "size_bytes": 1798,
+      "sha256": "6dcf6c360939fad65840c7f1a40de1700993ab059ef34da361fe8afefb6a39ed"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0003_Application_Architecture_Operating_Model.md",
+      "size_bytes": 3447,
+      "sha256": "2d483cba1d7b4b9553a14b8d691bfb6d3df03ac9dfe9ff0a929164ed3ea2745c"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0004_Brand_Customer_Experience_Home.md",
+      "size_bytes": 3186,
+      "sha256": "1148f6e6ddc2433c16d385a9c5533214ece6e67e6f85c86ae01bf6626cfd0888"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0005_Operating_System_Governance_Release_Candidate.md",
+      "size_bytes": 3006,
+      "sha256": "e181c0a4a8a93192df353234c5dcdefc832476ba25ef9c02c000463e01fb305f"
+    },
+    {
+      "path": "12_Planning/Change_Requests/CR-0006_Final_Consolidation_Release_Candidate.md",
+      "size_bytes": 2675,
+      "sha256": "1d056597492fe8f4f7f6acc3eb9eeb122a7f0a7b87d781f66b937cfd73735a18"
+    },
+    {
+      "path": "12_Planning/Master_Development_Roadmap.csv",
+      "size_bytes": 198246,
+      "sha256": "9be26db11cea60c0357e1769fbf68d22d4c312dce8316b307ccd8dcd8ac19720"
+    },
+    {
+      "path": "12_Planning/Requirements_Registry.csv",
+      "size_bytes": 49483,
+      "sha256": "b05afdfe0957013c5c75af3f60a1fbb7d2b66378eb201fa0ea2496422f7b6c67"
+    },
+    {
+      "path": "12_Planning/Traceability_Matrix.csv",
+      "size_bytes": 86929,
+      "sha256": "92886a6eebfd3b7c5c7ce2e8e9bc3cff8d55728d33bbd1c6eafd4dbe07116162"
+    },
+    {
+      "path": "13_Appendices/01_Quality_Checklists.md",
+      "size_bytes": 1366,
+      "sha256": "20b2426ee35ccb13d2e34628cd60a6667777adb92bf6505a52e760173cff9743"
+    },
+    {
+      "path": "13_Appendices/02_Open_Questions.md",
+      "size_bytes": 3559,
+      "sha256": "87390a58608ea8d7bdb93f4b6c9d376ff7b86cbdba01a52db4d280b654729ab6"
+    },
+    {
+      "path": "13_Appendices/03_Content_Inventory_Template.md",
+      "size_bytes": 532,
+      "sha256": "6dfebddb6f8ec60cd0e16a8b695d8957c0d6e14f14e9a84387b192628471f8d3"
+    },
+    {
+      "path": "13_Appendices/04_Documentation_Audit_v0.95.md",
+      "size_bytes": 3255,
+      "sha256": "72e350c568645f3306b6f8962d11b1f46102fd1cd15c2f154da33b4b89529b1f"
+    },
+    {
+      "path": "13_Appendices/05_Release_Candidate_Report_v0.96.md",
+      "size_bytes": 5983,
+      "sha256": "96884cfa28801120db0f0872e1db215b724d2cc19a591d0761d32f2be97c3f16"
+    },
+    {
+      "path": "13_Appendices/06_Executive_Summary_v0.96.md",
+      "size_bytes": 1784,
+      "sha256": "2e0c0b0bfc4f29a450b75ae1d45b428266fb016704ac46cbe0db363e775df209"
+    },
+    {
+      "path": "13_Appendices/Source_Starter_Kit/MASTER_PROMPT.md",
+      "size_bytes": 1249,
+      "sha256": "adf584a7022a647df0b006cac6a6373af18e5d8cfafaba5b154418143ce2f892"
+    },
+    {
+      "path": "13_Appendices/Source_Starter_Kit/PROJECT_CONTEXT.md",
+      "size_bytes": 539,
+      "sha256": "f38208358d8cc22279f2a289fef48f803209edfebbd4853b38dcb17f6df15b8a"
+    },
+    {
+      "path": "13_Appendices/Source_Starter_Kit/QUALITY_STANDARD.md",
+      "size_bytes": 224,
+      "sha256": "d92cf54b0ae391f29b793b522aff58d321692fcb9a7fdfc95c89257dcbfb0a2d"
+    },
+    {
+      "path": "13_Appendices/Source_Starter_Kit/README_FIRST.md",
+      "size_bytes": 710,
+      "sha256": "9d282d8d709051fd54a5e4bc892e3faaac08feecb5c5930e491d497a684e9f23"
+    },
+    {
+      "path": "13_Appendices/Source_Starter_Kit/REVIEW_CHECKLIST.md",
+      "size_bytes": 189,
+      "sha256": "d5e5ffe05c43592029c1f32bf5ba35e99241b01f7f891618ac0b57f3b434db34"
+    },
+    {
+      "path": "13_Appendices/documentation_audit.json",
+      "size_bytes": 1979,
+      "sha256": "b2620b44dbf98e43982cd813aed88e6ab87c03e047dbfc260028edd4124ac0b6"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 3723,
+      "sha256": "a5d2f9d131faab6b50ce1c88fea52dd204117e37306f84f69a9a30fbbbbfd047"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 26098,
+      "sha256": "791519fabd873b63cc815b11f31723787b62a2926320e13cde374c263212962a"
+    },
+    {
+      "path": "VERSION",
+      "size_bytes": 59,
+      "sha256": "ed40e85e795d117f62ab4392766456156726ef3d2d6f03939708c8aff1c81465"
+    },
+    {
+      "path": "prompts/01_Jarvis_Operations.md",
+      "size_bytes": 1844,
+      "sha256": "76ee8c9e588b19f666053247d9cc67781360951bd9f504dd11aad930050eb9e0"
+    },
+    {
+      "path": "prompts/02_SEO_Assistant.md",
+      "size_bytes": 1423,
+      "sha256": "352dd7c63b6c0c14d441a0853a936347e01db0647c4e62a46c3f98c93233add3"
+    },
+    {
+      "path": "prompts/03_Blog_Editorial.md",
+      "size_bytes": 1233,
+      "sha256": "91dcbd9facbc0f991def560d708612795cab1be4b70b31bc74171c556d57c0a3"
+    },
+    {
+      "path": "prompts/04_Catalog_Content.md",
+      "size_bytes": 1125,
+      "sha256": "b8db2ab66ea252d18191629073b042d458f15d38344318341083c86e74a111d1"
+    },
+    {
+      "path": "prompts/05_Image_Generation_Editing.md",
+      "size_bytes": 1496,
+      "sha256": "4a6ea309a0591bdee581ec80a6cc4f229e075ae79b52e315bf662b4cb7d9cb9f"
+    },
+    {
+      "path": "prompts/06_Newsletter.md",
+      "size_bytes": 1123,
+      "sha256": "12e48b7406fff347cb74d0a7d4052d8265c110bfae52b0f7a8971432f7920ba5"
+    },
+    {
+      "path": "prompts/07_STL_Qualification.md",
+      "size_bytes": 1451,
+      "sha256": "919b0e09dbc504e1b9364e1477d2081d73c5c22eef1d6cdac5b7982ffa1ead70"
+    },
+    {
+      "path": "prompts/README.md",
+      "size_bytes": 1458,
+      "sha256": "b45a058b33946668328396db270c5efdb1e5ca519f4bb399759837a789e0fb41"
+    }
+  ]
+}
