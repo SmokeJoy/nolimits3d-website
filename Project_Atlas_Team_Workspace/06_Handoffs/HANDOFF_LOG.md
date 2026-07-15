@@ -16,3 +16,4 @@
 | AD-006-20260715-NODE-TRUST-RESTORATION | 2026-07-15 | ChatGPT | Andrea / Gemini | Restore trusted Node toolchain | Superseded by consolidated AD-007 |
 | AD-006-RECOVERY-EVIDENCE | 2026-07-15 | Andrea | ChatGPT | Manual trusted runtime recovery | Accepted — PA-AR-M001-009 |
 | AD-007-20260715-SECURITY-CLOSURE-EVIDENCE-REBASE | 2026-07-15 | ChatGPT | Gemini | Close security incident and rebase evidence | Issued |
+| M001-F-FINAL-EVIDENCE-CLOSURE | 2026-07-15 | ChatGPT | Gemini | Complete final evidence closure and code freeze for M001 | Issued |
