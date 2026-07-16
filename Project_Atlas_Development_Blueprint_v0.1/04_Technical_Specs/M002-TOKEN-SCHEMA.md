@@ -4,35 +4,69 @@
 * **Status**: PROPOSED
 * **Gate**: Requires Architect Approval
 
-## 1. Palette & Colors
-* **Background Primary**: `#101820` (Dark Mode - Default)
-* **Accent Primary**: `#25D366` (Green Accent)
-* **Light Support**: Mapped to semantic variables, primarily white/light grays to ensure high contrast in Light Mode.
+## Overview & Categories
+Questo schema governa la design foundation di `@atlas/ui`. Ogni valore possiede uno status: `CANDIDATE`, `VALIDATED` o `APPROVED`.
+Non sono ammessi valori magic/hardcoded all'interno dei componenti.
 
-## 2. Semantic Mapping (Tailwind Variables)
-The following variables will be registered in `tailwind.config.js` via CSS variables (e.g., `--background`, `--foreground`).
+---
 
-* `background`: `<Dark/Light>`
-* `foreground`: `<Contrasting Text>`
-* `primary`: `#25D366` (with `primary-foreground` mapped for WCAG text contrast)
-* `secondary`, `muted`, `accent`, `destructive` + their respective `-foreground` variables.
-* `border`, `input`, `ring`: Defined for interactive element outlines.
+## 1. Reference Tokens
+Valori assoluti. Non vanno usati direttamente nei componenti, ma mappati nel livello semantico.
 
-## 3. Typography
-* **Font Family**: `Poppins` (Google Fonts).
-* **Scale**:
-  - `h1` through `h6` mapped to specific `rem` values.
-  - `body`, `small`, `muted` for standard text.
-* **Line Heights & Tracking**: Semantic variables preventing tight/unreadable clustering.
+### Palette (Riferimenti Iniziali)
+- `palette.dark`: `#101820` (Status: `CANDIDATE`)
+- `palette.green`: `#25D366` (Status: `CANDIDATE`)
+- `palette.white`: `#FFFFFF` (Status: `CANDIDATE`)
+- `palette.gray.100` ... `palette.gray.900`: Da definire (Status: `CANDIDATE`)
 
-## 4. Spacing & Sizing
-* 4-point grid system (e.g. `p-4` = `1rem`, `p-8` = `2rem`).
-* No magic numbers. Components must strictly use `w-*`, `h-*`, `p-*`, `m-*` from the Tailwind scale.
+### Typography
+- `fontFamily.ui`: `system-ui, sans-serif` (Status: `CANDIDATE` - Fallback stack)
+- `fontFamily.display`: `Poppins, sans-serif` (Status: `CANDIDATE` - Licenza Google Fonts OFL)
+- `scale.h1`: `2.5rem` (Status: `CANDIDATE`)
+- `scale.body`: `1rem` (Status: `CANDIDATE`)
 
-## 5. Radius & Shadow
-* `radius`: Base border-radius token for cards and buttons.
-* `shadow`: Elevation tokens mapped for depth without reliance on pure color differences.
+### Motion & Easing
+- `duration.fast`: `150ms` (Status: `CANDIDATE`)
+- `duration.normal`: `300ms` (Status: `CANDIDATE`)
+- `easing.default`: `cubic-bezier(0.4, 0, 0.2, 1)` (Status: `CANDIDATE`)
 
-## 6. Motion & z-Index
-* **Motion**: Semantic durations (`--duration-fast`, `--duration-normal`) and easings. Enforce `prefers-reduced-motion: reduce`.
-* **z-Index**: Strictly mapped scale (e.g. `z-modal`, `z-toast`, `z-dropdown`) to prevent layering collisions. No arbitrary `z-[9999]`.
+---
+
+## 2. Semantic Tokens
+Alias che dipendono dal contesto (Dark / Light Theme).
+
+### Theme Mapping
+| Token | Dark Mode (Default) | Light Mode | Status |
+|---|---|---|---|
+| `bg.primary` | `palette.dark` | `palette.white` | `CANDIDATE` |
+| `text.primary` | `palette.white` | `palette.dark` | `CANDIDATE` |
+| `action.primary` | `palette.green` | `palette.green` | `CANDIDATE` |
+| `border.default` | `palette.gray.800` | `palette.gray.200` | `CANDIDATE` |
+
+### Contrast Matrix
+| Coppia | Ratio Stimato | WCAG 2.2 AA (Pass?) | Status |
+|---|---|---|---|
+| `text.primary` su `bg.primary` | Elevato | TBD (Richiede Contrast Audit) | `CANDIDATE` |
+| `palette.dark` su `action.primary` | Moderato | TBD (Richiede Contrast Audit) | `CANDIDATE` |
+
+### Scale & Structure
+- **Spacing**: 4-point grid base (`4px`, `8px`, `12px`, `16px`...). (Status: `CANDIDATE`)
+- **Radius**: `0.5rem` per card/button standard. (Status: `CANDIDATE`)
+- **Shadow/Elevation**: `--shadow-sm`, `--shadow-md` basati su opacità, senza dipendenze cromatiche. (Status: `CANDIDATE`)
+- **Z-Index**: `z.base` (0), `z.dropdown` (50), `z.sticky` (100), `z.modal` (200), `z.toast` (300). (Status: `CANDIDATE`)
+- **Breakpoint**: `sm` (640px), `md` (768px), `lg` (1024px), `xl` (1280px). (Status: `CANDIDATE`)
+
+### A11y & Performance
+- **Reduced Motion**: Mapping forzato a `0ms` e transition `none` quando `prefers-reduced-motion: reduce`. (Status: `VALIDATED`)
+- **Glow Budget**: Limite agli effetti blur/glow costosi su mobile. (Status: `CANDIDATE`)
+- **Media/Quality Tiers**: Risoluzioni base vs retina (`1x`, `2x`). (Status: `CANDIDATE`)
+
+---
+
+## 3. Component Tokens
+Livello più specifico: sovrascritture di componenti (es. `button.bg` = `action.primary`).
+
+- `button.bg.primary`: `action.primary` (Status: `CANDIDATE`)
+- `button.text.primary`: `#101820` (Status: `CANDIDATE`)
+- `input.border.focus`: `action.primary` (Status: `CANDIDATE`)
+- `dialog.bg`: `bg.primary` (Status: `CANDIDATE`)

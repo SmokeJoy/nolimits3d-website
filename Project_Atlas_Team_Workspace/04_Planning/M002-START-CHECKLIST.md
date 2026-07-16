@@ -1,16 +1,20 @@
 # Milestone Start Checklist: M-002
 
 ## Criteria for Authorization
-Before the Architect issues the `PROCEED — M-002 DESIGN SYSTEM` gate, the following items must be verified and checked off.
+Prima che l'Architect emetta il gate `PROCEED — M-002 DESIGN SYSTEM`, tutti i seguenti elementi devono essere formalmente validati.
 
-- [ ] **M-002 Sprint Plan Approved** (`PA-M002-SPRINT-001.md` verified).
-- [ ] **Task Packet Claude Approved** (`M002-TASK-PACKET-CLAUDE.md` verified).
-- [ ] **Task Packet Codex Approved** (`M002-TASK-PACKET-CODEX.md` verified).
-- [ ] **Token Schema Approved** (`M002-TOKEN-SCHEMA.md` matches `DOC-DES-007`).
-- [ ] **Primitive Inventory Approved** (`M002-PRIMITIVE-INVENTORY.md` matches scope `T-0025-T-0028` etc.).
-- [ ] **Dependency Adoption Decision Finalized** (`ADR-0019-PREVIEW-TOOLING.md` approved).
-- [ ] **Evidence Matrix Defined** (`M002-EVIDENCE-MATRIX.md`).
-- [ ] **State Reconciliation Complete** (`CURRENT_PROJECT_STATE.md` and `MILESTONE_REGISTER.md` correctly reflect Sprint Planning).
+| Requisito | Status | Evidence Link | Commit SHA | Reviewer | Date | Waiver |
+|---|---|---|---|---|---|---|
+| M-002 Sprint Plan Approved (`PA-M002-SPRINT-001.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Task Packet Claude Approved (`M002-TASK-PACKET-CLAUDE.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Task Packet Codex Approved (`M002-TASK-PACKET-CODEX.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Token Schema Approved (`M002-TOKEN-SCHEMA.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Primitive Inventory Approved (`M002-PRIMITIVE-INVENTORY.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Dependency Adoption Decision Finalized (`M002_PREVIEW_TOOLING_EVALUATION.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Evidence Matrix Defined (`M002-EVIDENCE-MATRIX.md`) | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| State Reconciliation Complete | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Milestone Register Updated | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
+| Sprint Register Updated | PENDING | PR #3 | TBD | Architect | TBD | Nessuno |
 
 ## Architect Authorization
-Once all boxes are checked, the Architect will provide the explicit command to proceed.
+(Spazio riservato alla firma finale dell'Architect. Implementazione su `@atlas/ui` e script preclusi prima di questo blocco).

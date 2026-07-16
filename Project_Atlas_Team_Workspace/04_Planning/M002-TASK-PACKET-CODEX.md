@@ -1,27 +1,38 @@
 # Task Packet: Codex (CI and Guardrails)
 
-## Overview
-As the CI and Guardrails Owner, your responsibility in M-002 is to ensure the CI pipeline effectively tests, builds, and guards the new `@atlas/ui` workspace.
+## Metadata
+* **Task ID**: `TSK-M002-CODEX-01`
+* **Roadmap IDs**: `N/A` (Enabler task)
+* **Branch**: `m002/wave-a-ci`, `m002/wave-d-audit`
+* **Owner**: Codex
+* **Handover Recipient**: Claude (per Wave A->B), Gemini (per Audit finale)
 
-## Constraints & Rules
-- Do NOT alter any existing constraints for the legacy website (`apps/legacy-web`).
-- The pipeline MUST remain completely green throughout the sprint.
+## Rules & Scope
+* **Allowed Files**: `packages/ui/package.json`, `pnpm-lock.yaml`, `packages/ui/*.config.*`, `scripts/guards/**`, `.github/workflows/**`, `packages/ui/tests/**`.
+* **Forbidden Files**: `packages/ui/src/**`, `packages/ui/styles/**`, `apps/legacy-web/**`.
+* **Preconditions**:
+  - Nessuna precondition per Wave A, è l'apripista.
+  - La Dependency Adoption Policy deve aver validato l'aggiunta di Vitest/Testing Library prima dell'aggiunta a `package.json`.
 
-## Tasks
+## Exact Deliverables
+1. Configurazione `lint`, `typecheck`, `test`, `build` dentro `packages/ui/package.json`.
+2. Integrazione di `@atlas/ui` nelle pipeline CI di root (`.github/workflows/ci.yml`).
+3. Setup iniziale configurazione dei test in `@atlas/ui`.
 
-### 1. Configure `@atlas/ui` Package Scripts
-- Ensure the `package.json` inside `@atlas/ui` has robust scripts for:
-  - `lint` (ESLint configuration tailored to the UI library).
-  - `typecheck` (Strict TypeScript).
-  - `test` (Unit and A11y tests, hooking into Vitest or similar).
+## Exact Commands
+- `pnpm install <dependency> --filter @atlas/ui -D` (solo per tool autorizzati)
+- `pnpm run lint --filter @atlas/ui`
+- `pnpm run test --filter @atlas/ui`
 
-### 2. Guardrail Integration
-- Integrate `@atlas/ui` into the monorepo-wide guardrails.
-- Ensure `pnpm run lint` from root catches errors in `@atlas/ui`.
-- Ensure the `build` process statically builds the preview environment (Vite Playground or Ladle) without failing.
+## Acceptance Criteria
+- Script di root `pnpm run lint` e `pnpm run test` devono lanciare con successo i task in `@atlas/ui`.
+- CI remota risulta verde (Success).
+- Nessuna alterazione delle regole di lint o build di `apps/legacy-web`.
 
-### 3. Dependency Audit Guarding
-- Any new dependencies added by Claude for the preview tooling (e.g. Ladle, Vite, Testing tools) must be vetted and whitelisted as required by the monorepo governance.
+## Evidence Paths
+- CI Workflow Run URLs.
+- Root scripts execution logs.
 
-## Handover
-Upon green execution of all checks in `@atlas/ui`, notify Gemini for the evidence collection.
+## Control & Operations
+- **Rollback**: `git checkout origin/main -- packages/ui/package.json pnpm-lock.yaml` e ripristino dei file workflow.
+- **Stop/Escalation Conditions**: Fallimento continuo delle pipeline CI root causato dall'inclusione di `@atlas/ui`. Incompatibilità di configurazioni ESLint/TypeScript con il resto del monorepo. Chiamare l'Architect.

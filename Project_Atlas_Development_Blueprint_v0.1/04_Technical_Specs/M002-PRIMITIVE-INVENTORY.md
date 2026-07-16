@@ -5,38 +5,70 @@
 * **Gate**: Requires Architect Approval
 
 ## Baseline Requirements
-Every component in this inventory must:
-- Derive from `shadcn/ui` logic but integrate Atlas design tokens strictly.
-- Possess typed API (`Props` interface).
-- Provide visual variants (e.g., Default, Destructive, Outline, Ghost).
-- Manage interactive states (Hover, Focus-Visible, Disabled, Loading/Error).
-- Comply with WCAG 2.2 AA (Color contrast, Touch target size of 44x44px minimum for interactive elements).
-- Contain no hardcoded text or business logic.
+Ogni componente deve seguire rigorosamente il contratto imposto dalla Component Library autorevole. 
+Prima dell'implementazione, le dipendenze shadcn/ui e Radix necessarie (come `tailwind-merge`, `clsx`, `@radix-ui/react-*`, e icone es. `lucide-react`) andranno approvate tramite la Dependency Adoption Policy, poiché `@atlas/ui` dispone al momento solo di `build` e `typecheck`.
+
+Ogni componente dovrà possedere documentazione e implementazione per:
+- **Scopo**: A cosa serve.
+- **Anatomia**: Struttura DOM.
+- **Proprietà**: API TypeScript (Props).
+- **Varianti**: e.g., Default, Outline, Ghost.
+- **Stati**: Immediato, focus-visible, hover, active, disabled, asincrono, assenza di rete (no network), retry, comportamento senza hover (su mobile).
+- **Responsive Behavior**: Comportamento ai vari breakpoint.
+- **Accessibilità (A11y)**: WCAG 2.2 AA, touch targets, reduced motion.
+- **Analytics**: Hooking per eventi.
+- **Errori**: Gestione validazione ed eccezioni visive.
+- **Esempi**: Storie in Ladle.
+- **Test**: Vitest + Testing Library + Axe.
+
+---
 
 ## Tranche 1: Core Primitives
-1. **Button**: Primary action element.
-   - Variants: Primary, Secondary, Destructive, Outline, Ghost, Link.
-   - States: default, hover, active, focus-visible, disabled, loading.
-2. **Badge**: Informational tag.
-   - Variants: Default, Secondary, Destructive, Outline.
-3. **Skeleton**: Loading placeholder.
-   - Variants: Card, text line, circular avatar.
-   - Accessibility: Must respect `prefers-reduced-motion: reduce`.
-4. **StatusIndicator**: Micro-component for real-time status (e.g. online, error).
-   - Must not rely on color alone (include icon or text).
+
+### 1. Button (F-0007 / E-0003 Context)
+- **Scopo**: Azione principale o secondaria.
+- **Varianti**: Primary, Secondary, Destructive, Outline, Ghost, Link.
+- **Stati Asincroni**: Loading (spinner integrato), Success, Retry. Supporto per 'no network'.
+
+### 2. Badge
+- **Scopo**: Tag informativo (read-only).
+- **Varianti**: Default, Secondary, Destructive, Outline.
+
+### 3. Skeleton (S-0013)
+- **Scopo**: Placeholder asincrono.
+- **A11y**: Gestione rigorosa `prefers-reduced-motion` (sostituzione pulsazione con opacità statica o disattivazione animazione).
+
+### 4. StatusIndicator (S-0014)
+- **Scopo**: Feedback di sistema in tempo reale.
+- **A11y**: Deve avere testo accessibile, non può basarsi unicamente sul colore.
+
+---
 
 ## Tranche 2: Forms & Complex Layouts
-5. **Input**: Standard text input.
-   - States: default, focus-visible, error, disabled.
-6. **FormField**: Wrapper for form elements (Label, Input, Description, Error Message).
-   - Accessibility: Strict `aria-describedby` and `aria-invalid` bindings.
-7. **Select**: Dropdown selection menu.
-   - Accessibility: Fully keyboard navigable.
-8. **Card**: Layout container for grouped information.
-   - Parts: Header, Title, Description, Content, Footer.
-9. **Dialog/Modal**: Interruption overlay.
-   - Accessibility: Focus trapping, `Escape` key to close.
-10. **Tabs**: Content contextual switcher.
-    - Accessibility: Keyboard navigation (Left/Right arrows).
-11. **Toast**: Ephemeral non-blocking notification.
-    - Accessibility: Swipe to dismiss, screen reader announcements (aria-live).
+
+### 5. Input
+- **Stati Errori**: Bordo rosso semantico, icona di errore e testo descrittivo.
+- **Stati Rete**: Sospeso durante l'invio asincrono.
+
+### 6. FormField
+- **Anatomia**: Label + Input + Description + Error Message.
+- **A11y**: Propagazione nativa di `aria-describedby` e `aria-invalid`.
+
+### 7. Select
+- **Stati**: Open, Closed, Hovering Option.
+- **A11y**: Completamente navigabile da tastiera (Frecce, Enter, Esc).
+
+### 8. Card
+- **Anatomia**: Header, Title, Description, Content, Footer.
+- **Responsive**: Reflow automatico dei contenuti.
+
+### 9. Dialog/Modal (T-0028)
+- **A11y**: Focus trapping obbligatorio, chiusura con `Esc`. Blocco dello scroll del background.
+
+### 10. Tabs (T-0025 / T-0026)
+- **Anatomia**: TabList, TabTrigger, TabContent.
+- **A11y**: Frecce direzionali per scorrere i trigger.
+
+### 11. Toast (ST-0013 / ST-0014)
+- **Scopo**: Feedback non bloccante.
+- **A11y**: `aria-live="polite"` o `assertive`, supporto a `swipe to dismiss`.
