@@ -1,0 +1,11 @@
+metric_id,metric,unit,initial_target
+MET-001,Traceability coverage,percent,100%
+MET-002,Unauthorized architecture deviations,count,0
+MET-003,Critical/high vulnerabilities at release,count,0
+MET-004,Critical path automation coverage,percent,100%
+MET-005,Sprint commitment completion,percent,>=85% after 3 sprints
+MET-006,Requirement misunderstanding rework,percent,<10%
+MET-007,Deployment success without rollback,percent,>=95%
+MET-008,Releases with verified rollback,percent,100%
+MET-009,Unregistered documentation drift,count,0
+MET-010,Milestone business acceptance without substantial rework,percent,>=90%

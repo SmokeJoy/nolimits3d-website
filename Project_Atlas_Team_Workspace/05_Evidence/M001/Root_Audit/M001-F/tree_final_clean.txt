@@ -1,0 +1,1857 @@
+Elenco del percorso delle cartelle per il volume Programmi
+Numero di serie del volume: 0000005C-B2CD:FED8
+G:.
+|   .editorconfig
+|   .env.example
+|   .gitattributes
+|   .gitignore
+|   .nvmrc
+|   .prettierrc
+|   000_PROJECT_STATE.md
+|   001_SESSION_HANDOFF.md
+|   002_PROJECT_DNA.md
+|   eslint.config.js
+|   package.json
+|   pnpm-lock.yaml
+|   pnpm-workspace.yaml
+|   tsconfig.json
+|   
++---.git
+|   |   COMMIT_EDITMSG
+|   |   config
+|   |   description
+|   |   HEAD
+|   |   index
+|   |   
+|   +---hooks
+|   |       applypatch-msg.sample
+|   |       commit-msg.sample
+|   |       fsmonitor-watchman.sample
+|   |       post-update.sample
+|   |       pre-applypatch.sample
+|   |       pre-commit.sample
+|   |       pre-merge-commit.sample
+|   |       pre-push.sample
+|   |       pre-rebase.sample
+|   |       pre-receive.sample
+|   |       prepare-commit-msg.sample
+|   |       push-to-checkout.sample
+|   |       sendemail-validate.sample
+|   |       update.sample
+|   |       
+|   +---info
+|   |       exclude
+|   |       
+|   +---logs
+|   |   |   HEAD
+|   |   |   
+|   |   \---refs
+|   |       \---heads
+|   |               main
+|   |               
+|   +---objects
+|   |   +---00
+|   |   |       1b4f70b5ca53a10e931c7a54cffdd4790b40e3
+|   |   |       8b6bba18fdb457ec9ca093ee8e807e24755285
+|   |   |       
+|   |   +---03
+|   |   |       e34fbff5ad969ade4a1580d6890463de483049
+|   |   |       f300bd507d420e276e261cd3b1042a5b2dc379
+|   |   |       
+|   |   +---04
+|   |   |       d6cb20f78173f07e6eb3b0712f54a270f1a4b7
+|   |   |       
+|   |   +---05
+|   |   |       27f951670d9c07a0a2cdbd188d286cf261ee0e
+|   |   |       349effbf527056283235fc070c9fe1be2a5675
+|   |   |       3c4aba4d6df50d40fe5e1220a01cae41394e18
+|   |   |       9a23d91bccdb6b2b0a8defe64692e67ec4998f
+|   |   |       
+|   |   +---06
+|   |   |       4a1d894ae9b63ff9980926e577f8238c2368f9
+|   |   |       9f06cf60973791e83497950b0deb80f67ba414
+|   |   |       
+|   |   +---07
+|   |   |       da6706559d795b8debb300cab2d70aa4dcb26a
+|   |   |       ee6c9569ec50e2dea51e9ac6dec69f78ce4f9e
+|   |   |       
+|   |   +---08
+|   |   |       318eacf1b5c835459955271708a7b939b3a190
+|   |   |       81aa128d8bd32cf8909c23d5288ff99e1c6e11
+|   |   |       9cbad81d3e80f9a41bb36efd655e222c82f389
+|   |   |       a2e91e98f038575cba4c305d42d95a9477fa77
+|   |   |       
+|   |   +---0a
+|   |   |       6a041af11d140af11d3b9104c4a26c36e30b70
+|   |   |       
+|   |   +---0b
+|   |   |       75170b7dd6caeeebc25ac6f1cb467a69ac2a6f
+|   |   |       
+|   |   +---0c
+|   |   |       3ac93496f07a4fc23070e6a64af72ded81bdae
+|   |   |       
+|   |   +---0d
+|   |   |       2d30de010deee74932604b9b88d0fb228edced
+|   |   |       74b7352a99c7370a7510805feb18466ba01707
+|   |   |       f00af8cdce32412341e740565a876f4fda6dcd
+|   |   |       
+|   |   +---0e
+|   |   |       bc375bf663f56b1acbb648f5eef6c4408b899e
+|   |   |       
+|   |   +---0f
+|   |   |       de8489ff3df5ea290116e7514e212893a3c630
+|   |   |       
+|   |   +---10
+|   |   |       14ba78880c899e842b397cb89a878be4671f7d
+|   |   |       6d478d871720a6aae897b3b9261236ad2cb7ea
+|   |   |       
+|   |   +---11
+|   |   |       f02fe2a0061d6e6e1f271b21da95423b448b32
+|   |   |       fd630bf69ec5b0111fdcff519f5509084a7187
+|   |   |       
+|   |   +---14
+|   |   |       eeb54cd14a2e3240393d9de8ae0b705611f60e
+|   |   |       
+|   |   +---15
+|   |   |       408e754c42fa381958150060c7b244322593e1
+|   |   |       ff8be7a023c96754e73b0fc18b7d1c4d67afbb
+|   |   |       
+|   |   +---18
+|   |   |       5e3ee8f30020d377b57f188343f665a0dd13b6
+|   |   |       e8c8f87c80333870344c256db1e89255baa966
+|   |   |       
+|   |   +---19
+|   |   |       11818a363276a956f2b012f44edf5cc05397fd
+|   |   |       
+|   |   +---1a
+|   |   |       6462721b9f17bbc4e6e482c1698df6eee47bf6
+|   |   |       
+|   |   +---1b
+|   |   |       4c5e1ec043c92dea27d7122ce62e261b741d59
+|   |   |       
+|   |   +---1c
+|   |   |       8a23af13a1655cb3022a507f8fc9385ad833fc
+|   |   |       
+|   |   +---1d
+|   |   |       10473d528211206847c367f6e94da6d93ba6c9
+|   |   |       1edba18180da4c60e882a2a0940a9d43bbd228
+|   |   |       a85bd9c8d8d78eea2485400bae439cd914941d
+|   |   |       
+|   |   +---1e
+|   |   |       2e08697c1b94f5da100a73bfc5054ed50c8101
+|   |   |       6327cd8d44ac927ffbcc6df0362e8be39346e6
+|   |   |       b2a19a455755fc9baac044eb1faecb0380eae0
+|   |   |       
+|   |   +---1f
+|   |   |       329806853a9a060103c122481f04aab4746398
+|   |   |       3cb55203a3e72f020a70e974869e79314a10e6
+|   |   |       71bea9aa2615c5ab8b1b2c34afc632b098998e
+|   |   |       87752177bf2d95870f6bf783297f8e4962b80f
+|   |   |       8cf42c1ee9e3b0b978887a94dbf453748c884d
+|   |   |       f5a60be98428ed007fc26015ca382365371733
+|   |   |       
+|   |   +---20
+|   |   |       27edd30a08a5a250714886bd6fe9b729c634bf
+|   |   |       536d11d903ef1b740a92d0198d61f690df79f8
+|   |   |       
+|   |   +---21
+|   |   |       60ca1292a9b76c38542b5b055256e934a81244
+|   |   |       756b9b6c70b72db91abb45ea9f7d1c43bd7da2
+|   |   |       
+|   |   +---22
+|   |   |       1a19c3495d8516d784d99c2bbf6ae515cc5b9a
+|   |   |       711187c4079529423eb2d5d9384b1de3c6552d
+|   |   |       
+|   |   +---23
+|   |   |       55d2f5f1ebd114360e6031a132af0647f06c43
+|   |   |       
+|   |   +---24
+|   |   |       0371076e758646b4f239463e688b28c5c29f64
+|   |   |       12c1f23739032a7f703c1a4d76ce8322fd3bb7
+|   |   |       3cc9d89a7bd07f63f0c774bf76ab9031eda61e
+|   |   |       f8e54be0dcf44db2e07e47d9f4c04e7a0642c6
+|   |   |       
+|   |   +---25
+|   |   |       ed0d815aca48c30992404e157be00202a107ea
+|   |   |       ee0fa84e2f2ecbd5bcb9aab44f46497ea0a2e5
+|   |   |       
+|   |   +---26
+|   |   |       364be891c0719d541ae540fbdc07b3db66a0e8
+|   |   |       
+|   |   +---28
+|   |   |       4437924308db4d657aa81afd054e2c17b59050
+|   |   |       5c62824f3b77a633fb5f57d0850214136f9023
+|   |   |       ab0fc032ba841c51635a824f5e853609d76e46
+|   |   |       
+|   |   +---29
+|   |   |       2739b93679626e97282a9e4f56c685f96db261
+|   |   |       
+|   |   +---2a
+|   |   |       2b964ea35e2dac99814357c9a8af0460f070b9
+|   |   |       4e04efd41360c671f3f3976342b78966121d35
+|   |   |       
+|   |   +---2b
+|   |   |       2559d7e7da409401e2df56d5fba2ba0afc790b
+|   |   |       3d0b06d4690941cf599cb15b17f54a2a03691b
+|   |   |       4addab863b96fa6836be5e17723cb01cc11a28
+|   |   |       fc35707937e135ad1c829209d401b2c5029a4c
+|   |   |       
+|   |   +---2d
+|   |   |       01ebf34920b7019dc58f7dd59535ff2b27eda8
+|   |   |       c852acffef89c1e32f9cd0cd6ca93cc3622844
+|   |   |       
+|   |   +---2e
+|   |   |       0e4d45d529850d85fec4a01b128b44bd3ab92f
+|   |   |       39e41101b60538a4b124cca0aff782334d4862
+|   |   |       
+|   |   +---2f
+|   |   |       ab0b911f35785b3ca55a1d3dcc7bd5509464e0
+|   |   |       
+|   |   +---30
+|   |   |       4c5f7d0c8afa8e3b3272cede83d6633d31cd0f
+|   |   |       5d3ae7a2e8dfe5deba30965cee23dd6393d2f1
+|   |   |       f0f3f3dedfe91d148b192c67c6710a6dc381ac
+|   |   |       
+|   |   +---31
+|   |   |       37a462282c84373f5a45d2fa011fbb85ebe68e
+|   |   |       
+|   |   +---32
+|   |   |       3f80539a5dd45665c0b61af685f04cc1cc838a
+|   |   |       
+|   |   +---34
+|   |   |       5194aa9069fa093fcfcb228bcc3902104163d8
+|   |   |       d0272798c0dda35dcb2d5c28d2e72cef4d1a7e
+|   |   |       
+|   |   +---35
+|   |   |       0aac2d7c60fd0ef7cb657c11d7f4281b5c0156
+|   |   |       6bef99e58e3e8a50fec8aa5cc7598f3ba2e3b9
+|   |   |       e992e2053a70bb75603af175fac9099447c754
+|   |   |       
+|   |   +---36
+|   |   |       0b086cfd97e032a12c7f34afa04811641d2332
+|   |   |       2cacf2616f033f90878d520498d0a30633bcd9
+|   |   |       dcd4444d5923ed9ac57ba4b945ac31f21532a3
+|   |   |       e1be1bb594651debeee784a76b143b949c09ec
+|   |   |       
+|   |   +---37
+|   |   |       5b2c04e85a42a6b53acf5639878e333616cc8c
+|   |   |       886efb9c69055ff0337dc06d9df4591a2aecce
+|   |   |       cdfd2722bfeac867de2cdca898647474ae2ff3
+|   |   |       f85e3b78ac3f336598b77dc4ec8be46df1bbdd
+|   |   |       
+|   |   +---38
+|   |   |       1edd9ae626505e87b6f07164876dd27b88f2a6
+|   |   |       686a99eee66700cc1f662fbf6eb64448cef806
+|   |   |       ab5c8fcb3579454c18525ecb4ebdf93feaf8dd
+|   |   |       
+|   |   +---39
+|   |   |       5a439ecf329a192f700f1af3e64a60af56cb37
+|   |   |       
+|   |   +---3a
+|   |   |       2da4b9a465ae88fd31824fdf01afe2d5966569
+|   |   |       
+|   |   +---3b
+|   |   |       0aeff643c079d64ea9e78c1ed5ef2f85794f1b
+|   |   |       57d1badf64efbc6d595cefb2053ed3c56cc26e
+|   |   |       
+|   |   +---3c
+|   |   |       44e6e0050b3ada2c43258b33e6825a0fc20db2
+|   |   |       62c7251058c3840647188906f065ce073c47e5
+|   |   |       b47dea2edc6251e027a668b59203599fc67961
+|   |   |       
+|   |   +---3d
+|   |   |       128973f291d9ed471f4944f638c60a7e496272
+|   |   |       513249b1013f3b61739ed7d07d9ad45ff8e76c
+|   |   |       
+|   |   +---3e
+|   |   |       38a409d9f2e870cfadbaf41f7e2d6c1218e887
+|   |   |       b1ba66eb473eeee8b2d69b36c1ce0b8ac697ee
+|   |   |       
+|   |   +---41
+|   |   |       30e95f084bbf4029e34aecf51e57f8d075d4fa
+|   |   |       8792a034ab7a5bac72ae1f5ba444f7b6000dc1
+|   |   |       9aa5cb627dd6b74937c552091284e482bed9cb
+|   |   |       cbd6ae9e66e2181fc245570b6b390a8a095c4d
+|   |   |       
+|   |   +---42
+|   |   |       7f8cace67e8c3f75eee463348ba121ff6c2372
+|   |   |       94bc2ef252936a549e4100c8597df8eb8987bd
+|   |   |       
+|   |   +---43
+|   |   |       96339ca5068735c8aa3bf0821c19733d0ae8ee
+|   |   |       
+|   |   +---44
+|   |   |       adbbfa2cc84acfe4a142098a5488e4a93fa202
+|   |   |       
+|   |   +---45
+|   |   |       e51762889c7e50cdc4b82819b9e9fbddb5362a
+|   |   |       
+|   |   +---47
+|   |   |       1475ec8b716203544256cbdf64fbb57f2b17c2
+|   |   |       a4567fe7f5445bff6c30c6fdde0aaf8094609e
+|   |   |       
+|   |   +---48
+|   |   |       4e7176e24bc84e71fd39bcd940c3e83ca14e83
+|   |   |       4fce9753388b97b2977acd89759a4cbfc89cdb
+|   |   |       886279e6639b54d988fc00a3bea36f8bf2d2db
+|   |   |       
+|   |   +---49
+|   |   |       cb9f66759a78e684699941ec8ef1ecb79bacb9
+|   |   |       
+|   |   +---4a
+|   |   |       46d98120afe8db2a3bd233094f2a423eb3f33f
+|   |   |       9f9b337c57c32c9fa57826517fe14d7738ecbc
+|   |   |       
+|   |   +---4b
+|   |   |       286b8d324f536e1eead0e373babcf38dc554a6
+|   |   |       
+|   |   +---4d
+|   |   |       516eb13b9dddf4e8d3c99302f9726989f93b73
+|   |   |       8693322cdae33dfe4cebae55d276ca1748dc67
+|   |   |       e3866882a521b1a51ccbdfe843702fd4611116
+|   |   |       
+|   |   +---4e
+|   |   |       74d9f263aca07c7679e647323bcbc8a259a75e
+|   |   |       9167e4823ad578a35756880e769975f8638363
+|   |   |       
+|   |   +---4f
+|   |   |       27a6f0eb673af717cce4da24a24ba5a860a343
+|   |   |       74de958144fb710d5af4f04fe45ae82a5a7a16
+|   |   |       
+|   |   +---51
+|   |   |       a77500af9fa8559353b06e66239b7ea7610a01
+|   |   |       
+|   |   +---52
+|   |   |       17a91da29e5a73e3cdc85ac4a274dc79a7ac12
+|   |   |       ab2c3859b9a9aee406510002fd0985101ddcf4
+|   |   |       e2a92cb25c1b96db23323844cc42ca9034486a
+|   |   |       
+|   |   +---53
+|   |   |       30c34ceefe1f2b139cbfb23c1af52628b251b1
+|   |   |       3af5a989bb3e898e23685f70d705fd50ca1d13
+|   |   |       
+|   |   +---57
+|   |   |       bfad9873873e517e6a74160f972cb7ba72b53c
+|   |   |       
+|   |   +---5a
+|   |   |       3e7a1947bb33d5d1b4266e4ce26b437c4c4fbc
+|   |   |       
+|   |   +---5b
+|   |   |       07960edcf97f44d66d540d464bbbf11859b4ba
+|   |   |       0b0849a64515cd17b1034a824f9fd60ae4fbdc
+|   |   |       34440b615b30f5af8dfaa1531639a26dd0ef56
+|   |   |       dec812be091f335637d8999f81f2f42aaddf6c
+|   |   |       fad2b3f8e483b6b173d8aaff19597e84626f15
+|   |   |       
+|   |   +---5c
+|   |   |       1e7384e98af4a2d14e9a02de1b957e787ef54a
+|   |   |       5ca8936c3bbc583d19dc99ad8033633858871c
+|   |   |       
+|   |   +---5d
+|   |   |       787a7a6c538c2011baa869b214e1e114241d8b
+|   |   |       
+|   |   +---5e
+|   |   |       8cd0f37cac2063c4d5b878ec343f7822821ce2
+|   |   |       ea04bc898b4e45f21a75e05e85492c47fbddaf
+|   |   |       
+|   |   +---60
+|   |   |       8c5d2d583e2afebb1490b5f4dff7c853014f1c
+|   |   |       
+|   |   +---61
+|   |   |       a227b9defe9d88b663e96d0bd03ef95e256ae7
+|   |   |       c66d27083c4e9208db1675aa37453226929654
+|   |   |       
+|   |   +---62
+|   |   |       0e4414991599e9739c32519fe017ff1c07ad08
+|   |   |       ab55e08784ccc7448c54afd286e9dc9b30bbd4
+|   |   |       
+|   |   +---63
+|   |   |       8a2cd3a0d18990bedc2f57e334cbfd07ef4151
+|   |   |       
+|   |   +---64
+|   |   |       9a8f7688cd4b92b53b635232de306e5c88f628
+|   |   |       fe7a9d20e1f43d8a40a679227feed586d419c6
+|   |   |       
+|   |   +---65
+|   |   |       ace6392894e8f827aafeb0071a5914de0b5889
+|   |   |       
+|   |   +---66
+|   |   |       dc4314f150df5002a3a0e454783ff4c7dabba8
+|   |   |       e82b010d9d9845ce22d8669ad4d5f6120c8ca9
+|   |   |       
+|   |   +---69
+|   |   |       04814e3e96d064be8053cb00404a9298dbb7c8
+|   |   |       487cc9b34c693cb91fce2db443f0189929456f
+|   |   |       
+|   |   +---6a
+|   |   |       91b6350e2c047c7ebb2a5c38f8b11dacc67baa
+|   |   |       b25acff5cfefe0bcf3b1255348cbf097f9d15e
+|   |   |       ffa548181d020c563282fe33138b48a8b31387
+|   |   |       
+|   |   +---6b
+|   |   |       cc9c32e3ec44763c553ae57f67e815b6c19b39
+|   |   |       e21957c336dbdbaa947e36743742612318bf8d
+|   |   |       
+|   |   +---6c
+|   |   |       86f5fdb444296b284269fffeab217f5065b0c6
+|   |   |       f5091f491f9b33f587a289faefb57e3c960e02
+|   |   |       
+|   |   +---6d
+|   |   |       f3fd9a3e69b84fdb7fc83f0a4a8fe00ade24c7
+|   |   |       
+|   |   +---6e
+|   |   |       14d1b280c2c8211d50fd4d2246a21914cac8ed
+|   |   |       28d705367ada4aaf0477321f7f108c28cca060
+|   |   |       c857770419245a2b7556a5882dc5ffa3f8319f
+|   |   |       
+|   |   +---6f
+|   |   |       80ae0f8575dd59fa83da65d66885ec3bb93610
+|   |   |       e3bd23c7e4dd5ee2d9277f96371275da13964d
+|   |   |       
+|   |   +---71
+|   |   |       3fff0246978f5ccd18a079d7d5a5bbfbf6f7e7
+|   |   |       c866d8572967bc203ea647b30abbaa84c4f725
+|   |   |       
+|   |   +---72
+|   |   |       6a97f9e9e58a541bf723c42e3e3f7dbb7f2d30
+|   |   |       
+|   |   +---74
+|   |   |       8388f24c9ee0583d3dc8ab6fcda8c5294c2bdb
+|   |   |       b30bdffd5ea3a66c4017cb7ef66cac9255ce09
+|   |   |       
+|   |   +---75
+|   |   |       442de9b9bd7109aafe8bcc4c76ef4e966d9367
+|   |   |       
+|   |   +---76
+|   |   |       c3414368b0f8ea0a28f62a93f5121100d3aba1
+|   |   |       
+|   |   +---78
+|   |   |       74577a9aaed6313df972eaedef30a40b80b835
+|   |   |       
+|   |   +---79
+|   |   |       0d9146c5dc7773a5147cd3bd8369a7bf959a86
+|   |   |       3c72cb25fd6508e914901e93ac256a7ec0266f
+|   |   |       56206a6a8216dbf949df6417f8da36c8d44fe5
+|   |   |       
+|   |   +---7a
+|   |   |       096be522b22f0ce272e667f98bedb82c59b40e
+|   |   |       13b3ceb1c9c60d7ac6a862114aa9db09f485ad
+|   |   |       ef6eba50d166be6f5bd57a4ccef0006915be23
+|   |   |       
+|   |   +---7b
+|   |   |       1eaab82e4c24be16f0f82f621aba46e6b5f56e
+|   |   |       
+|   |   +---7d
+|   |   |       1fe3b4f00adf0421d532195bfb332414cf280d
+|   |   |       609323dcb0a7bbac59ad35ca04bf929032920c
+|   |   |       97b2ea434b41c1a4f9f7e13402ee3eaeb9c99d
+|   |   |       ea76edb3dc51b6e5e8223e9f941a35c1e364d6
+|   |   |       
+|   |   +---7f
+|   |   |       7ce8e4c4505457a8614a992c3c6c96ff4fdb23
+|   |   |       984592f8365861f116488758608b0e0b8e82a9
+|   |   |       
+|   |   +---80
+|   |   |       397dfe4bd88a91bd6640293da0b82a19de8d9e
+|   |   |       67d15a7767369dabf487799760c7234c496563
+|   |   |       
+|   |   +---81
+|   |   |       17496ebc512edf3ea2b91863c42ed8683498a8
+|   |   |       1ea1231a9d19c49e118b809f173aa305168f8d
+|   |   |       792c6811da3afc5e9277d477f9f24f72954f35
+|   |   |       9e69184c9da6369ce04b5368d6e5ef8abe2a77
+|   |   |       
+|   |   +---82
+|   |   |       1bfb10dcef379313e5ad10a2ef04951771fc65
+|   |   |       46f2d1981618fa5eafb2044771357fc4e87c24
+|   |   |       
+|   |   +---84
+|   |   |       70c2f7b8602300734ead7575d3d21df9d49027
+|   |   |       
+|   |   +---85
+|   |   |       59ed2653596a7fe4c6c68f41ae0c2d816c6c56
+|   |   |       ce1b9dab773878c50e71682d44bd3f41ebf377
+|   |   |       
+|   |   +---86
+|   |   |       7952c3b9b379729829b989c2699db07b03aaac
+|   |   |       
+|   |   +---87
+|   |   |       14826d3093e765aaf4a2af818f2b0a14366527
+|   |   |       
+|   |   +---88
+|   |   |       370d5caf9a5879d33be38aa992ee1defd1585a
+|   |   |       
+|   |   +---89
+|   |   |       0227bf569e9cdf49bbee78000c3b987a5229fc
+|   |   |       
+|   |   +---8a
+|   |   |       229d881707e5e7e9616b3d2bd92d0f6174cebb
+|   |   |       
+|   |   +---8b
+|   |   |       137891791fe96927ad78e64b0aad7bded08bdc
+|   |   |       4a161b950503b87a39665cec62ca2fb86d2e85
+|   |   |       ca42deb30aadc6fce0d9147d099f8b742d47c5
+|   |   |       
+|   |   +---8c
+|   |   |       c0357b35a26ce3cdd2a31bbe4ecdfddfde6b58
+|   |   |       fcdf27bc225fbb63ab668f7f68c4afe1bc744e
+|   |   |       
+|   |   +---8d
+|   |   |       b680f606394fa8c4bb171c30cc8ef2965d9b5d
+|   |   |       
+|   |   +---8e
+|   |   |       77856a1820a9b05f7d65a1babec94dee1aab79
+|   |   |       ab4693a5e87ddd628a95bcf126f9501baa935a
+|   |   |       
+|   |   +---8f
+|   |   |       6f8651402168e1c63917025890cf49a1b323b3
+|   |   |       
+|   |   +---91
+|   |   |       abf28a4ea548bd4f3b2cdf10276bf1d47d0434
+|   |   |       
+|   |   +---94
+|   |   |       23e9c9857f5565ee988ca438443be90bb85906
+|   |   |       425209ea4fae8203bf2a9b25df828c016a427d
+|   |   |       b417013318e5f5f221d14cf4ab9cf4c71db051
+|   |   |       
+|   |   +---95
+|   |   |       a258c80999e01df36a845d64aec5fc7d6243d7
+|   |   |       
+|   |   +---96
+|   |   |       35ae0ffc30de0a183b437398f854f55a27c336
+|   |   |       7d9410f21e9c540bc9a47b57e700d40777f2b1
+|   |   |       
+|   |   +---97
+|   |   |       342799fbb82827d9ed4507cfd5b4b73e3dfeb4
+|   |   |       
+|   |   +---98
+|   |   |       3b2913394a686565ca9fe0cff25fbc60328e63
+|   |   |       
+|   |   +---9a
+|   |   |       102dde9c82983550a061279fba7f82cb8a1f70
+|   |   |       
+|   |   +---9c
+|   |   |       3cd349af1fbcc8240640518587c50372ad056f
+|   |   |       
+|   |   +---9d
+|   |   |       d844cba1767033e4961ffe2c47cfd892ce47b6
+|   |   |       
+|   |   +---9e
+|   |   |       3c1105e09a70a1f4493f1926a381d1ccfcfe08
+|   |   |       ceacd638a34508de28583414b71e02c920e76a
+|   |   |       d28c818d63a0eb891643b92d1a250722ed6cfb
+|   |   |       ec3366b730007596c367d0bacde27addbe91be
+|   |   |       
+|   |   +---a1
+|   |   |       e3e2afc8638a1bd5c5bc2e511e0c6ddb22832e
+|   |   |       
+|   |   +---a2
+|   |   |       d3071b997d034dfc2cd473228824691dd47413
+|   |   |       e132802f45960397f4d47366418192d71da1fe
+|   |   |       e7e2633ea90b3c91f38b55faba4105c500e33b
+|   |   |       
+|   |   +---a4
+|   |   |       01c12bed9cbe80949f6e0f8b914d0a066b2b31
+|   |   |       1bfd39af30a60e59e4d0970067b2e520aa6a4e
+|   |   |       56217ea378a32812fd3c6d69de2ca73ae4171d
+|   |   |       
+|   |   +---a5
+|   |   |       ee67b141b36b56f2735d73dd2b530ef5d7098f
+|   |   |       
+|   |   +---a7
+|   |   |       099c67290433fae94f0eeb93ff27e28d192d34
+|   |   |       95bddfa499a9e588809eb1a157d23ff2123dd7
+|   |   |       a930c6c0a334b9256cd669fa66a62208b16f6c
+|   |   |       
+|   |   +---a8
+|   |   |       75eb11b17ed55c9d6ceea6b6c1d0c5ee62d93f
+|   |   |       bd1df775961d911f42f40c8d249ec53d681d0e
+|   |   |       
+|   |   +---a9
+|   |   |       903d82b3a44b3bc342572494c75a1b8f2edffc
+|   |   |       
+|   |   +---aa
+|   |   |       55564b13f03e2cf88455ac48f5966d7a02c750
+|   |   |       d74c163c613e10908d7218d6e560cfaafae109
+|   |   |       
+|   |   +---ab
+|   |   |       1749bd923d05fa6ea82df23dadc93b104b4e8d
+|   |   |       b2f2a37321d01d89c0d5390485cac4ce10744c
+|   |   |       
+|   |   +---ac
+|   |   |       1c7d3a2eb59a5e9dcd0e564ca0833caacfb55b
+|   |   |       a1788ef5ad764cfd1c2a4c2e91efe96efda8f1
+|   |   |       
+|   |   +---ad
+|   |   |       9264f0b14b294627f8e77383875c994af54865
+|   |   |       
+|   |   +---ae
+|   |   |       13780a04ebd59cf77b140036bb3d8997090c11
+|   |   |       32102d4e333aa2c680851c7cf79c895554411e
+|   |   |       6d740294e634b831be9592e4347964b35f97b1
+|   |   |       7ab83d3b3b14b2c815af54ee9baf39a11fc07b
+|   |   |       
+|   |   +---af
+|   |   |       5e9cebcedbbf080dea047d4350f48b8395b80d
+|   |   |       6cdad5977922db1b3ab15328638dcbac4d50e3
+|   |   |       8a88de168115c7d9369372bda1e0908f596891
+|   |   |       
+|   |   +---b0
+|   |   |       141295bcd6037677297b6d630ca3f2dce3b71b
+|   |   |       
+|   |   +---b1
+|   |   |       878f85e24b297dde9a2256d175ebe905dffebb
+|   |   |       b3e09a910e3ef1d2cc45f156d68ccb04564de7
+|   |   |       
+|   |   +---b2
+|   |   |       6ad216472a71bac9de65cc23c7fbcd1c6bca7e
+|   |   |       e89a0131f8eb1b4b6412ed37071ad08f211b9e
+|   |   |       
+|   |   +---b4
+|   |   |       18334c8ce2aa27f03f578927d1685ce87b18ab
+|   |   |       2a770e7c01c74c3aada7dcea4ed4f0a9f87f50
+|   |   |       5c3e5e090c5a6c6c8149e00e1e713bf89a1594
+|   |   |       60e2897b896bb17febe2ccdd679681ca6e95e9
+|   |   |       f58dd9a22bd62da4d5610e3e5fff1684953ba2
+|   |   |       
+|   |   +---b5
+|   |   |       19f00100d2fa80a419602bb38f87996c321587
+|   |   |       7ac987f27fcdd3c21a6601d9d2ff74bed74cc7
+|   |   |       e2343f9db8f98fffdf2c77577b4e316da3e337
+|   |   |       f17c91a7597677d608af77995274ed5ecc9d53
+|   |   |       
+|   |   +---b7
+|   |   |       cd658b61c3ba1b8513176a8f0943f028aa61e6
+|   |   |       
+|   |   +---b8
+|   |   |       95a8e4702f858a963657dfd83a34c2a1d93ec5
+|   |   |       
+|   |   +---ba
+|   |   |       7f14e2655f590c8ca45ced388e8562953bd993
+|   |   |       
+|   |   +---bb
+|   |   |       39b67daef97752a3989022f3e1f8906747c8ee
+|   |   |       692faf3e0ee50561029154e7d73a28e890dd32
+|   |   |       
+|   |   +---bd
+|   |   |       fc10eea6b589d3ea1cfca8c3a3fd77a37210d5
+|   |   |       
+|   |   +---be
+|   |   |       434d5483f65cae334f93a0f5032ca4edb923c4
+|   |   |       92ab878aa953bb995f3e2f304ca4a346f95fd2
+|   |   |       
+|   |   +---bf
+|   |   |       c4a41feab73844bf9980537710ee70b11a2d39
+|   |   |       
+|   |   +---c0
+|   |   |       8b7ded52f0f2b1e66bf417adc73b9a43f7f577
+|   |   |       be10e7ff5c959dbc0aea51f3047c9f0878103e
+|   |   |       
+|   |   +---c2
+|   |   |       195edcaf4781792fbbde8be00c622c6f55e319
+|   |   |       5101b14e5bb48b5a63c681577664705fec88d0
+|   |   |       
+|   |   +---c3
+|   |   |       ebcd10c382902bc2689858e859360e7c800c70
+|   |   |       
+|   |   +---c4
+|   |   |       014c9e454d7951bf42596ae5b71c5987cfd538
+|   |   |       d1be733ad7d79ece47de56dca1184ff8f83d1c
+|   |   |       f6b13825fa49033a57c44b388291ac84cee9fc
+|   |   |       
+|   |   +---c5
+|   |   |       1a3ec44b144a9975b7c269a7e3cc4f5890f34d
+|   |   |       85684403a86a2272267f231b48534efd1c0651
+|   |   |       8d6fde3be5cc21df7fdb99f0892b94ad619494
+|   |   |       e5253038409998a7a75d1b81c59035e6934086
+|   |   |       
+|   |   +---c6
+|   |   |       7aa97cabb41df640ff671cba8355e845c7744a
+|   |   |       
+|   |   +---c7
+|   |   |       d32ae25a7aaef90c3165e89f3cc4795cb9f1fc
+|   |   |       
+|   |   +---c8
+|   |   |       18c15b04205e58bb0e1c6c0c609fb6caae8c1d
+|   |   |       
+|   |   +---c9
+|   |   |       4adef3cc18a26c70a034de853671972ffd8acd
+|   |   |       
+|   |   +---ca
+|   |   |       5c350055ccb6dacb495a786f60c8232abed8f2
+|   |   |       
+|   |   +---cb
+|   |   |       0ff5c3b541f646105198ee23ac0fc3d805023e
+|   |   |       44493f6bc471160b8f4acf83efde96cc939295
+|   |   |       abe0a7cb4241d73596311fe54d8f8060c480b7
+|   |   |       bed72902b3149dfd920146fdc5ef4374226024
+|   |   |       cfc80952b8f20fe33cca336d58246a80309053
+|   |   |       
+|   |   +---cd
+|   |   |       b4b4310b90f969be514d40a540f326e46ecc4a
+|   |   |       
+|   |   +---ce
+|   |   |       85a6e76042f45d00a8d11227b9234bef1d0b15
+|   |   |       
+|   |   +---d0
+|   |   |       ca4e3b195dda6be8ba6180f3ed6b1d0ba40442
+|   |   |       
+|   |   +---d1
+|   |   |       7709b3d9014d8959f715fd870163cd4154db7a
+|   |   |       
+|   |   +---d2
+|   |   |       1683c34a360edfca114c26acb11a18814ab078
+|   |   |       
+|   |   +---d4
+|   |   |       47443fad549ec2aa333e64f2f6b36decf7a9ae
+|   |   |       4873f131d5cd5c490ac8321ff45969b42f3dd1
+|   |   |       9af40723c51b82dc0ba6ff5abf59244f1aa6dc
+|   |   |       ad4b013a86dd6cc4ffd7f524a2c3babff29bdf
+|   |   |       
+|   |   +---d5
+|   |   |       4de0be4565e0eff7f28da327e0d279c4e2b4be
+|   |   |       
+|   |   +---d6
+|   |   |       19681e23bda029b06856986c43824eb930d3e5
+|   |   |       1eefb09acd7d494bdc8152785ab38213300e62
+|   |   |       ca23b5e9132687fc81b0e658ad70fec3fc230a
+|   |   |       
+|   |   +---d7
+|   |   |       8a6d4bdf79211ac3678b0cb2759c67db32db97
+|   |   |       
+|   |   +---d8
+|   |   |       0d723cd71ad9c8b2d1e76dec9b045a5c9e0beb
+|   |   |       6128f8896d604a29a0369bbf1865b412115da8
+|   |   |       6ea43dd20934c60096301a4f8708f7fcda1853
+|   |   |       8b28f67dca3b74d75d3dddbc85b2b7e850d625
+|   |   |       
+|   |   +---d9
+|   |   |       756e06861fa4d37eb2eff17acdde4ffdc05ef9
+|   |   |       
+|   |   +---db
+|   |   |       ee932b0b62bdeb09f8e5be114b35aace8e154c
+|   |   |       fbe61a1d29e210d7248dfa696184ff4b4cac0d
+|   |   |       
+|   |   +---dc
+|   |   |       1fbfbb880cbd832317e685568ff178fc93612e
+|   |   |       5148e9286303dc86f3890c39bd007e820943d4
+|   |   |       ee3f6c645b9c5f26dd6efed0c1849744b32934
+|   |   |       
+|   |   +---dd
+|   |   |       2b0a2efe76787e1f75f8d495ae05220aacc16b
+|   |   |       708deca7fc5fb547dac8de29e115666583d277
+|   |   |       
+|   |   +---e0
+|   |   |       10807a0f8f4d3041619469e993d0e458517a40
+|   |   |       60f67ba266b0803baae7f97655a027372c3f42
+|   |   |       df59612367fb9e1f1c75044c77c065b067dfe9
+|   |   |       
+|   |   +---e1
+|   |   |       7205d9a24ac8cf8377eeac27fc03f5f9401655
+|   |   |       e2ffdcbddec7f82f3b16d40a27133e9e19fd25
+|   |   |       
+|   |   +---e3
+|   |   |       f4f84214c0ccdb33d0d4d00807323a0f2a923e
+|   |   |       
+|   |   +---e4
+|   |   |       f7ab32a4ac331a86cade14733381edc810628e
+|   |   |       
+|   |   +---e5
+|   |   |       dcd325750185124bc974a3177f84d598b914a4
+|   |   |       dd734cf3830c3b71e520c42e929c98e146a961
+|   |   |       
+|   |   +---e6
+|   |   |       2952fd120a91b041ef4f679701a4f076798003
+|   |   |       374fb705eab018a5564a0434b3a024f4eb330d
+|   |   |       689888ba09e33c479d8a5710d1745e641be1ac
+|   |   |       6c7462a1f7bb740bd986b7c05feb8c1bc196cb
+|   |   |       
+|   |   +---e7
+|   |   |       03fc0f949afddc6ab5036f14a087944206718b
+|   |   |       7ee0372d93452b3be49ac516947ae3ab9e7f08
+|   |   |       
+|   |   +---e8
+|   |   |       111e7b194102c1f46ed3f0667b4b24057debd5
+|   |   |       201439ae6682236c86b4acd7e7666c567cfa0e
+|   |   |       e305f17f3ade7e70c624a7cf907c64f170e59a
+|   |   |       
+|   |   +---e9
+|   |   |       11f74032184ee3f3391be590577d2d7a3885fd
+|   |   |       33cc24dbb64cef449f81ee90f8644c002d7ecf
+|   |   |       3925928ce5389b85edd112c2e994ba4eadde21
+|   |   |       a3c944fe1d7d9c1b382feacf4c2c5d8f0f5320
+|   |   |       ae8669f7424f11e50591e32735bbf0bfc48697
+|   |   |       b0dad63bacd2aa6865fcb9b7e86ad630964730
+|   |   |       d3fbf4f2b5a679353ecb84c936c40c4cd3fb7c
+|   |   |       
+|   |   +---ea
+|   |   |       a33f9b2b8c5cfc980d1b5296278efe18151a1d
+|   |   |       a7af6735786ea0638469591a96826d35f78f89
+|   |   |       
+|   |   +---ec
+|   |   |       2c96c428bda370d93409b6a19d670d95a66ca4
+|   |   |       6f8499c833fa7794bc268e9fae6d113e6eac34
+|   |   |       
+|   |   +---ed
+|   |   |       ef1511cd40974a2b1f8ac983081a2785e7bc1c
+|   |   |       f687f580364f7f0e751be841896d41c112c4ef
+|   |   |       
+|   |   +---ee
+|   |   |       dded81abc519b88c58da55a6bd5331bb556354
+|   |   |       
+|   |   +---f1
+|   |   |       20f0bd87309fc845139de53b48a885dcdadff9
+|   |   |       7169a78a73373df3f8833654562c81753b70b5
+|   |   |       
+|   |   +---f2
+|   |   |       40a7493fa6c61eb1c3435e49af3e301d450ed6
+|   |   |       
+|   |   +---f3
+|   |   |       16250af81dd05cad151348ac7100d0ea072a71
+|   |   |       6b92a9b51872dac872c29015c574c862279eb0
+|   |   |       
+|   |   +---f4
+|   |   |       844403992bf7d5d8ec00d1e419db14d0d2cb7a
+|   |   |       
+|   |   +---f6
+|   |   |       0be355f466d82e59d6f7b6f0382f335e4991a7
+|   |   |       22d2dd0ffe38826739433141adddfd906198e0
+|   |   |       59dd5a8bf55f0457db5f96d34582c037a62abe
+|   |   |       
+|   |   +---f7
+|   |   |       fc8b10b6418d3609044a118a686936dccbcb56
+|   |   |       
+|   |   +---f8
+|   |   |       5a655d9644e30cd4e277709e5c8005e2a27e0d
+|   |   |       8f512e3f83b44b9b939109619142102f7a36b6
+|   |   |       
+|   |   +---fa
+|   |   |       5c01cafc6b2a6aec358c21ebf015c14b5cac73
+|   |   |       db09dddc2f44ef3b7d9a082d071e7ad7c93d54
+|   |   |       ff6fc16ccd480ab77a11926da0eda324aa2358
+|   |   |       
+|   |   +---fb
+|   |   |       05fc4a40c7c2c493e2e23a6cfbd14093ed1616
+|   |   |       
+|   |   +---fd
+|   |   |       01f2fd6ca50e4549bfcb8669b6ac2044d413d3
+|   |   |       2717a18ac7620c813409758677fb4bddea3742
+|   |   |       
+|   |   +---fe
+|   |   |       d41f1f7930e950775bef1dee347e695bf21c27
+|   |   |       eebb8409332403bf910390a84d9b9fbeb26e6e
+|   |   |       
+|   |   +---ff
+|   |   |       03cbc7a5a54752d8e19a275e3b450c958ea6c5
+|   |   |       b73a29a0fcc15b8c30fe3aaa416f1ea7bc30c9
+|   |   |       
+|   |   +---info
+|   |   \---pack
+|   \---refs
+|       +---heads
+|       |       main
+|       |       
+|       \---tags
++---.github
+|   |   CODEOWNERS
+|   |   pull_request_template.md
+|   |   
+|   +---ISSUE_TEMPLATE
+|   |       task.yml
+|   |       
+|   \---workflows
+|           ci.yml
+|           
++---apps
+|   \---web
+|       |   .gitkeep
+|       |   index.html
+|       |   package.json
+|       |   tsconfig.json
+|       |   vite.config.ts
+|       |   
+|       +---dist
+|       |   |   index.html
+|       |   |   
+|       |   \---assets
+|       |           AccountHome-DYZWSPG3.js
+|       |           CommandBoundary-DcWSVRjl.js
+|       |           index-CWhYiVTZ.js
+|       |           
+|       +---node_modules
+|       |   +---.vite
+|       |   |   \---vitest
+|       |   |       \---da39a3ee5e6b4b0d3255bfef95601890afd80709
+|       |   |               results.json
+|       |   |               
+|       |   +---.vite-temp
+|       |   \---@atlas
+|       |       +---api-contracts
+|       |       |   |   package.json
+|       |       |   |   tsconfig.build.json
+|       |       |   |   tsconfig.build.tsbuildinfo
+|       |       |   |   tsconfig.json
+|       |       |   |   
+|       |       |   +---dist
+|       |       |   |       index.d.ts
+|       |       |   |       index.d.ts.map
+|       |       |   |       index.js
+|       |       |   |       index.js.map
+|       |       |   |       
+|       |       |   \---src
+|       |       |           index.ts
+|       |       |           
+|       |       +---config
+|       |       |   |   package.json
+|       |       |   |   tsconfig.build.json
+|       |       |   |   tsconfig.build.tsbuildinfo
+|       |       |   |   tsconfig.json
+|       |       |   |   
+|       |       |   +---dist
+|       |       |   |       index.d.ts
+|       |       |   |       index.d.ts.map
+|       |       |   |       index.js
+|       |       |   |       index.js.map
+|       |       |   |       
+|       |       |   \---src
+|       |       |           index.ts
+|       |       |           
+|       |       +---domain
+|       |       |   |   package.json
+|       |       |   |   tsconfig.build.json
+|       |       |   |   tsconfig.build.tsbuildinfo
+|       |       |   |   tsconfig.json
+|       |       |   |   
+|       |       |   +---dist
+|       |       |   |       index.d.ts
+|       |       |   |       index.d.ts.map
+|       |       |   |       index.js
+|       |       |   |       index.js.map
+|       |       |   |       
+|       |       |   \---src
+|       |       |           index.ts
+|       |       |           
+|       |       \---ui
+|       |           |   package.json
+|       |           |   tsconfig.build.json
+|       |           |   tsconfig.build.tsbuildinfo
+|       |           |   tsconfig.json
+|       |           |   
+|       |           +---dist
+|       |           |       index.d.ts
+|       |           |       index.d.ts.map
+|       |           |       index.js
+|       |           |       index.js.map
+|       |           |       
+|       |           \---src
+|       |                   index.ts
+|       |                   
+|       \---src
+|           |   main.tsx
+|           |   vite-env.d.ts
+|           |   
+|           +---app
+|           |       AppShell.tsx
+|           |       routes.tsx
+|           |       SegmentErrorBoundary.tsx
+|           |       
+|           +---routes
+|           |   |   NotFound.tsx
+|           |   |   
+|           |   +---account
+|           |   |       AccountHome.tsx
+|           |   |       
+|           |   +---command
+|           |   |       CommandBoundary.tsx
+|           |   |       
+|           |   \---public
+|           |           PublicHome.tsx
+|           |           
+|           \---test
+|                   app-shell.test.tsx
+|                   command-privacy.test.tsx
+|                   route-boundaries.test.tsx
+|                   segment-error-boundaries.test.tsx
+|                   setup.ts
+|                   shared-packages.test.ts
+|                   
++---docs
+|   \---source-bindings
+|           project-sources.json
+|           
++---NoLimits3D_Documentation_v0.96
+|   |   000_PROJECT_CHARTER.md
+|   |   CHANGELOG.md
+|   |   manifest.json
+|   |   README.md
+|   |   VERSION
+|   |   
+|   +---000_GOVERNANCE
+|   |       001_DOCUMENTATION_STANDARD.md
+|   |       002_VERSIONING_POLICY.md
+|   |       003_CHANGE_REQUEST_PROCESS.md
+|   |       004_ADR_POLICY.md
+|   |       005_TRACEABILITY_STANDARD.md
+|   |       006_DOCUMENT_LIFECYCLE.md
+|   |       007_QUALITY_GATES.md
+|   |       008_AI_COLLABORATION_POLICY.md
+|   |       009_AUDIT_PROCESS.md
+|   |       010_GOVERNANCE_GLOSSARY.md
+|   |       011_OWNER_REGISTRY.md
+|   |       012_DOCUMENTATION_CI_SPEC.md
+|   |       document_registry.csv
+|   |       
+|   +---00_Foundation
+|   |       00_Project_Constitution.md
+|   |       01_Vision_and_5Y_Strategy.md
+|   |       02_Glossary.md
+|   |       03_Documentation_Governance.md
+|   |       
+|   +---01_Product
+|   |       01_PRD.md
+|   |       02_Personas_Journeys.md
+|   |       03_Business_Rules.md
+|   |       04_State_Machines.md
+|   |       05_Marketplace_and_GoToMarket_Strategy.md
+|   |       
+|   +---02_Architecture
+|   |       01_SDS.md
+|   |       02_Domain_Model.md
+|   |       03_Integration_Architecture.md
+|   |       04_File_Storage_Strategy.md
+|   |       05_Notification_System.md
+|   |       06_Error_Catalog.md
+|   |       07_Frontend_Architecture.md
+|   |       08_Backend_Service_Design.md
+|   |       
+|   +---03_Design
+|   |       01_Brand_Book.md
+|   |       02_Design_System.md
+|   |       03_Design_Tokens.md
+|   |       04_Component_Library.md
+|   |       05_Image_Guidelines.md
+|   |       06_Motion_and_3D_Visual_Language.md
+|   |       
+|   +---04_Experience
+|   |       01_Information_Architecture.md
+|   |       02_Global_User_Flows.md
+|   |       03_Homepage_Wireframes.md
+|   |       04_Catalog_Wireframes.md
+|   |       05_Product_Wireframes.md
+|   |       06_Service_Wireframes.md
+|   |       07_Portfolio_Blog_Event_Wireframes.md
+|   |       08_Quote_and_Contact_Wireframes.md
+|   |       09_Customer_Area_Wireframes.md
+|   |       10_Admin_Wireframes.md
+|   |       11_Accessibility_Specification.md
+|   |       
+|   +---05_Features
+|   |       01_Catalog_and_Products.md
+|   |       02_Lantern_Configurator.md
+|   |       03_STL_Quote_Workflow.md
+|   |       04_STL_AI_Chat.md
+|   |       05_STL_Slicer.md
+|   |       06_STL_Pricing_Engine.md
+|   |       07_STL_Revision_Workflow.md
+|   |       08_PrintFlow.md
+|   |       09_Events.md
+|   |       10_Printer_Assistance.md
+|   |       11_Portfolio_Case_Studies.md
+|   |       12_Newsletter.md
+|   |       13_Customer_Area.md
+|   |       14_Search.md
+|   |       15_Checkout_and_Payments_Future.md
+|   |       
+|   +---06_Admin
+|   |       01_Admin_Information_Architecture.md
+|   |       02_Admin_Workflows.md
+|   |       03_Permissions_Matrix.md
+|   |       04_Media_Library.md
+|   |       
+|   +---07_AI
+|   |       01_AI_Overview.md
+|   |       02_Jarvis_Admin.md
+|   |       03_Customer_Assistant.md
+|   |       04_SEO_Assistant.md
+|   |       05_Catalog_Assistant.md
+|   |       06_Newsletter_Assistant.md
+|   |       07_PrintFlow_Assistant.md
+|   |       08_Future_AI.md
+|   |       
+|   +---08_Data_API
+|   |       01_Database_Design.md
+|   |       02_Database_Naming_Convention.md
+|   |       03_Migration_Backup_Strategy.md
+|   |       04_API_Contract.md
+|   |       05_API_Catalog.md
+|   |       06_Data_Classification_Retention.md
+|   |       
+|   +---09_SEO_Content
+|   |       01_SEO_Strategy.md
+|   |       02_Content_Strategy.md
+|   |       03_Blog_Strategy.md
+|   |       04_Local_SEO.md
+|   |       05_Technical_SEO.md
+|   |       06_Schema_org.md
+|   |       07_Internal_Linking.md
+|   |       08_GEO_Strategy.md
+|   |       09_Analytics_Measurement_Plan.md
+|   |       
+|   +---10_Security_Performance
+|   |       01_Threat_Model.md
+|   |       02_Application_API_Security.md
+|   |       03_Upload_Security.md
+|   |       04_AI_Security.md
+|   |       05_Performance_Plan.md
+|   |       06_ThreeJS_3D_Optimization.md
+|   |       07_Privacy_GDPR.md
+|   |       
+|   +---11_Engineering_Operations
+|   |       01_Developer_Handbook.md
+|   |       02_Testing_Strategy.md
+|   |       03_CICD_Deployment.md
+|   |       04_Observability.md
+|   |       05_Release_Strategy.md
+|   |       06_Disaster_Recovery_Runbook.md
+|   |       07_Environment_Configuration.md
+|   |       
+|   +---12_Planning
+|   |   |   01_ADR_Register.md
+|   |   |   02_Decision_Log.md
+|   |   |   03_Master_Development_Roadmap.md
+|   |   |   04_Risk_Register.md
+|   |   |   05_Traceability_Matrix.md
+|   |   |   06_Documentation_Debt_Register.md
+|   |   |   Master_Development_Roadmap.csv
+|   |   |   Requirements_Registry.csv
+|   |   |   Traceability_Matrix.csv
+|   |   |   
+|   |   +---ADR
+|   |   |       ADR-0001_Documentation_as_Product.md
+|   |   |       ADR-0002_Modular_Monolith_First.md
+|   |   |       ADR-0003_PostgreSQL_System_of_Record.md
+|   |   |       ADR-0004_Versioned_API_Contracts.md
+|   |   |       ADR-0005_Object_Storage_for_Binaries.md
+|   |   |       ADR-0006_Outbox_and_Queued_Jobs.md
+|   |   |       ADR-0007_AI_Human_in_the_Loop.md
+|   |   |       ADR-0008_Progressive_3D_Enhancement.md
+|   |   |       ADR-0009_PrintFlow_Decoupled_Coming_Soon.md
+|   |   |       ADR-0010_Consent_Aware_Analytics.md
+|   |   |       ADR-0011_Governed_Media_Pipeline.md
+|   |   |       ADR-0012_Versioned_Prompt_Library.md
+|   |   |       ADR-0013_Atlas_Deployment_Topology.md
+|   |   |       ADR-0014_Direct_Commercial_Model.md
+|   |   |       ADR-0015_Brand_Identity_and_Project_Atlas.md
+|   |   |       ADR-0016_Core_Brand_Values.md
+|   |   |       ADR-0017_Premium_Immersive_Web_Application.md
+|   |   |       ADR-0018_React_Vite_Stack_with_NextJS_Review_Gate.md
+|   |   |       ADR-0019_Supabase_Backend_Architecture.md
+|   |   |       ADR-0020_Private_Jarvis_Orchestrator.md
+|   |   |       ADR-0021_Unified_Commerce_Catalog.md
+|   |   |       ADR-0022_Controlled_Progressive_Payments.md
+|   |   |       ADR-0023_NoLimits_Command_Center.md
+|   |   |       ADR-0024_Website_Centric_Ecosystem.md
+|   |   |       ADR-0025_Founder_Led_Brand_and_Intent_Driven_Customer_Experience.md
+|   |   |       ADR-0026_Project_Atlas_Operating_System_and_AI_Development_Authority.md
+|   |   |       
+|   |   \---Change_Requests
+|   |           CR-0001_Architecture_Consolidation.md
+|   |           CR-0002_Atlas_Decisions.md
+|   |           CR-0003_Application_Architecture_Operating_Model.md
+|   |           CR-0004_Brand_Customer_Experience_Home.md
+|   |           CR-0005_Operating_System_Governance_Release_Candidate.md
+|   |           CR-0006_Final_Consolidation_Release_Candidate.md
+|   |           
+|   +---13_Appendices
+|   |   |   01_Quality_Checklists.md
+|   |   |   02_Open_Questions.md
+|   |   |   03_Content_Inventory_Template.md
+|   |   |   04_Documentation_Audit_v0.95.md
+|   |   |   05_Release_Candidate_Report_v0.96.md
+|   |   |   06_Executive_Summary_v0.96.md
+|   |   |   documentation_audit.json
+|   |   |   
+|   |   \---Source_Starter_Kit
+|   |           MASTER_PROMPT.md
+|   |           PROJECT_CONTEXT.md
+|   |           QUALITY_STANDARD.md
+|   |           README_FIRST.md
+|   |           REVIEW_CHECKLIST.md
+|   |           
+|   \---prompts
+|           01_Jarvis_Operations.md
+|           02_SEO_Assistant.md
+|           03_Blog_Editorial.md
+|           04_Catalog_Content.md
+|           05_Image_Generation_Editing.md
+|           06_Newsletter.md
+|           07_STL_Qualification.md
+|           README.md
+|           
++---packages
+|   +---api-contracts
+|   |   |   package.json
+|   |   |   tsconfig.build.json
+|   |   |   tsconfig.build.tsbuildinfo
+|   |   |   tsconfig.json
+|   |   |   
+|   |   +---dist
+|   |   |       index.d.ts
+|   |   |       index.d.ts.map
+|   |   |       index.js
+|   |   |       index.js.map
+|   |   |       
+|   |   \---src
+|   |           index.ts
+|   |           
+|   +---config
+|   |   |   package.json
+|   |   |   tsconfig.build.json
+|   |   |   tsconfig.build.tsbuildinfo
+|   |   |   tsconfig.json
+|   |   |   
+|   |   +---dist
+|   |   |       index.d.ts
+|   |   |       index.d.ts.map
+|   |   |       index.js
+|   |   |       index.js.map
+|   |   |       
+|   |   \---src
+|   |           index.ts
+|   |           
+|   +---domain
+|   |   |   package.json
+|   |   |   tsconfig.build.json
+|   |   |   tsconfig.build.tsbuildinfo
+|   |   |   tsconfig.json
+|   |   |   
+|   |   +---dist
+|   |   |       index.d.ts
+|   |   |       index.d.ts.map
+|   |   |       index.js
+|   |   |       index.js.map
+|   |   |       
+|   |   \---src
+|   |           index.ts
+|   |           
+|   \---ui
+|       |   package.json
+|       |   tsconfig.build.json
+|       |   tsconfig.build.tsbuildinfo
+|       |   tsconfig.json
+|       |   
+|       +---dist
+|       |       index.d.ts
+|       |       index.d.ts.map
+|       |       index.js
+|       |       index.js.map
+|       |       
+|       \---src
+|               index.ts
+|               
++---Project_Atlas_Development_Blueprint_v0.1
+|   |   00_BLUEPRINT_REPOSITORY_FOUNDATION.md
+|   |   manifest.json
+|   |   README.md
+|   |   
+|   +---01_Milestone_Charters
+|   |       M-001_REPOSITORY_FOUNDATION_CHARTER.md
+|   |       
+|   +---02_Architect_Reviews
+|   |       M001_AD002_RESPONSE_ARCHITECT_REVIEW.md
+|   |       M001_AD003_RESPONSE_ARCHITECT_REVIEW.md
+|   |       M001_AD004_RESPONSE_ARCHITECT_REVIEW.md
+|   |       M001_AD005_RESPONSE_ARCHITECT_REVIEW.md
+|   |       M001_AD005_RESPONSE_SECURITY_REVIEW.md
+|   |       M001_AD006_RECOVERY_ARCHITECT_REVIEW.md
+|   |       M001_CODE_IMPLEMENTATION_GO_ARCHITECT_REVIEW.md
+|   |       M001_FINAL_SPRINT_HANDOFF_ARCHITECT_REVIEW.md
+|   |       M001_PATCHED_SPRINT_PLAN_ARCHITECT_REVIEW.md
+|   |       M0_ARCHITECT_REVIEW.md
+|   |       
+|   \---03_Architect_Directives
+|           AD-001_M001_REPOSITORY_HYGIENE_AND_HANDOFF_CONTROL.md
+|           AD-002_M001_HYGIENE_CORRECTION_AND_PLAN_COMPLETION.md
+|           AD-003_M001_EVIDENCE_CLOSURE_AND_PHASE_AWARE_AUDIT.md
+|           AD-004_M001_EVIDENCE_INTEGRITY_AND_RUNTIME_ALIGNMENT.md
+|           AD-005_M001_MACHINE_ENFORCED_EVIDENCE_CLOSURE.md
+|           AD-006_M001_POST_DELIVERY_INTEGRITY_RESTORATION.md
+|           AD-006_NODE_TOOLCHAIN_TRUST_RESTORATION.md
+|           AD-007_M001_SECURITY_CLOSURE_AND_EVIDENCE_REBASE.md
+|           
++---Project_Atlas_Development_Framework_v1.0
+|   |   000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v1.0.1.md
+|   |   BASELINE_BINDING_RECORD.md
+|   |   CHANGELOG.md
+|   |   manifest.json
+|   |   README.md
+|   |   update.py
+|   |   update_meta.py
+|   |   VERSION
+|   |   
+|   +---01_Templates
+|   |       ADR_INTAKE_TEMPLATE.md
+|   |       ARCHITECT_REVIEW_TEMPLATE.md
+|   |       BASELINE_BINDING_RECORD_TEMPLATE.md
+|   |       BLOCKER_ESCALATION_TEMPLATE.md
+|   |       BUSINESS_APPROVAL_TEMPLATE.md
+|   |       MILESTONE_CHARTER_TEMPLATE.md
+|   |       MILESTONE_REVIEW_PACK_TEMPLATE.md
+|   |       RELEASE_REPORT_TEMPLATE.md
+|   |       RETROSPECTIVE_TEMPLATE.md
+|   |       RFC_TEMPLATE.md
+|   |       SPRINT_PLAN_TEMPLATE.md
+|   |       TASK_PACKET_TEMPLATE.md
+|   |       TECHNICAL_REVIEW_TEMPLATE.md
+|   |       
+|   +---02_Checklists
+|   |       ARCHITECT_REVIEW_CHECKLIST.md
+|   |       MILESTONE_START_CHECKLIST.md
+|   |       POST_RELEASE_CHECKLIST.md
+|   |       PULL_REQUEST_CHECKLIST.md
+|   |       RELEASE_CHECKLIST.md
+|   |       SPRINT_START_CHECKLIST.md
+|   |       TECHNICAL_REVIEW_CHECKLIST.md
+|   |       
+|   +---03_Registries
+|   |       METRICS_CATALOG.csv
+|   |       QUALITY_GATE_REGISTRY.csv
+|   |       ROLE_AUTHORITY_MATRIX.csv
+|   |       WORKFLOW_TRANSITIONS.csv
+|   |       
+|   +---04_Assurance
+|   |       AUDIT_REPORT.md
+|   |       EXECUTIVE_SUMMARY.md
+|   |       PLAYBOOK_CONFORMANCE_REVIEW.md
+|   |       RELEASE_REPORT.md
+|   |       
+|   \---05_Operational_Policies
+|           REPOSITORY_HYGIENE_AND_HANDOFF_PACKAGING_POLICY_v1.0.md
+|           
++---Project_Atlas_Team_Workspace
+|   |   README.md
+|   |   
+|   +---00_Governance
+|   |   |   REPOSITORY_ROOT_ALLOWLIST.md
+|   |   |   
+|   |   \---Tooling
+|   |           AI_MACHINE_CHANGE_CONTROL_POLICY.md
+|   |           DEPENDENCY_ADOPTION_POLICY.md
+|   |           GITHUB_GOVERNANCE_PLAN.md
+|   |           INTEGRATION_TRACEABILITY_MODEL.md
+|   |           LINEAR_WORKFLOW_SPEC.md
+|   |           MOTION_LIBRARY_EVALUATION.md
+|   |           TOOLING_RISK_REGISTER.md
+|   |           TOOL_AND_PLUGIN_REGISTER.md
+|   |           TOOL_PERMISSION_MATRIX.md
+|   |           
+|   +---01_Shared_Memory
+|   |       CURRENT_PROJECT_STATE.md
+|   |       DECISION_LEDGER.md
+|   |       
+|   +---04_Planning
+|   |       BLOCKER_REGISTER.md
+|   |       M001_PLAN_INTEGRITY.json
+|   |       M001_SPRINT_PLAN_FINAL.md
+|   |       MILESTONE_REGISTER.md
+|   |       ROOT_CLEANUP_DECISION_REGISTER.md
+|   |       SPRINT_REGISTER.md
+|   |       
+|   +---05_Evidence
+|   |   \---M001
+|   |       +---Architect_Review
+|   |       |   |   PA-AR-M001-003_INPUT_VALIDATION.json
+|   |       |   |   PA-AR-M001-004_INPUT_VALIDATION.json
+|   |       |   |   PA-AR-M001-005_INPUT_VALIDATION.json
+|   |       |   |   PA-AR-M001-006_INPUT_VALIDATION.json
+|   |       |   |   PA-AR-M001-007_INPUT_VALIDATION.json
+|   |       |   |   
+|   |       |   \---PA-AR-M001-007_SNAPSHOT
+|   |       |           include__PENDING_REBUILD_AS_FOUND.txt
+|   |       |           M001_PLAN_INTEGRITY__NONCANONICAL_04_PLANNING.json
+|   |       |           M001_SPRINT_PLAN_FINAL__AS_FOUND_20260715T1656.md
+|   |       |           NODE_INTEGRITY_SNAPSHOT_20260715T1715.json
+|   |       |           NODE_LOCAL_RUNTIME__AS_FOUND_20260715T1658.json
+|   |       |           SNAPSHOT_HASHES.txt
+|   |       |           
+|   |       +---Handoffs
+|   |       |       AD-002_APPLICATION_LOG.json
+|   |       |       AD-002_QUARANTINE_BOOTSTRAP_DEVIATION.md
+|   |       |       AD-002_QUARANTINE_MANIFEST.json
+|   |       |       
+|   |       +---Planning
+|   |       |       M001_PLAN_INTEGRITY.json
+|   |       |       
+|   |       +---Platform
+|   |       |       NODE_24_18_0_OFFICIAL_VERIFICATION.json
+|   |       |       NODE_LOCAL_RUNTIME.json
+|   |       |       ROOT_AUDIT.json
+|   |       |       
+|   |       +---Root_Audit
+|   |       |   +---AD-001
+|   |       |   |       QUARANTINE_MANIFEST.json
+|   |       |   |       tree_after.txt
+|   |       |   |       tree_before.txt
+|   |       |   |       
+|   |       |   +---AD-002
+|   |       |   |       tree_final.txt
+|   |       |   |       
+|   |       |   +---AD-003
+|   |       |   |       APPLICATION_LOG.json
+|   |       |   |       NODE_VERSION_CHECK.txt
+|   |       |   |       root_audit.json
+|   |       |   |       tree_final.txt
+|   |       |   |       
+|   |       |   +---AD-004
+|   |       |   |       AD-002_APPLICATION_LOG.json
+|   |       |   |       AD-004_APPLICATION_LOG.json
+|   |       |   |       M001_PLAN_INTEGRITY.json
+|   |       |   |       NODE_LOCAL_VERSION.txt
+|   |       |   |       NODE_PATH.txt
+|   |       |   |       NULL_DIGEST_DEVIATION_RECORD.md
+|   |       |   |       root_audit.json
+|   |       |   |       tree_final_clean.txt
+|   |       |   |       
+|   |       |   +---AD-005
+|   |       |   |       PACKAGE_VALIDATION.json
+|   |       |   |       root_audit.json
+|   |       |   |       tree_final_clean.txt
+|   |       |   |       
+|   |       |   +---AD-007
+|   |       |   |       PACKAGE_VALIDATION.json
+|   |       |   |       root_audit.json
+|   |       |   |       tree_final_clean.txt
+|   |       |   |       
+|   |       |   \---M001-F
+|   |       |           root_audit.json
+|   |       |           tree_final_clean.txt
+|   |       |           
+|   |       \---Security
+|   |           \---AD-006
+|   |                   PROJECT_ATLAS_AD006_NODE_RECOVERY_FIXED.ps1
+|   |                   PROJECT_ATLAS_AD006_RECOVERY_RESULT.json
+|   |                   PROJECT_ATLAS_AD006_RECOVERY_TRANSCRIPT.txt
+|   |                   PROJECT_ATLAS_NODE_INTEGRITY_DIAGNOSTIC.ps1
+|   |                   PROJECT_ATLAS_NODE_INTEGRITY_SNAPSHOT.json
+|   |                   SECURITY_INCIDENT_CLOSURE.md
+|   |                   
+|   +---06_Handoffs
+|   |   |   AD-002-REPORT.md
+|   |   |   AD-003-REPORT.md
+|   |   |   AD-004-ISSUANCE-REPORT.md
+|   |   |   AD-004-REPORT.md
+|   |   |   AD-005-ISSUANCE-REPORT.md
+|   |   |   AD-005-RESPONSE-REPORT.md
+|   |   |   AD-007-ISSUANCE-REPORT.md
+|   |   |   AD-007-RESPONSE-REPORT.md
+|   |   |   deletion_plan.json
+|   |   |   HANDOFF_LOG.md
+|   |   |   HANDOFF_PACKAGE_CONTRACT.md
+|   |   |   include.txt
+|   |   |   metadata.json
+|   |   |   
+|   |   +---Archive
+|   |   |   +---AD-001-20260715-REPOSITORY-HYGIENE
+|   |   |   |       APPLICATION_LOG.json
+|   |   |   |       DELETION_PLAN.json
+|   |   |   |       HANDOFF_MANIFEST.json
+|   |   |   |       REPORT.md
+|   |   |   |       
+|   |   |   +---AD-002-20260715-M001-CORRECTION
+|   |   |   |       APPLICATION_LOG.json
+|   |   |   |       DELETION_PLAN.json
+|   |   |   |       HANDOFF_MANIFEST.json
+|   |   |   |       REPORT.md
+|   |   |   |       
+|   |   |   +---AD-003-20260715-EVIDENCE-CLOSURE
+|   |   |   |       APPLICATION_LOG.json
+|   |   |   |       DELETION_PLAN.json
+|   |   |   |       HANDOFF_MANIFEST.json
+|   |   |   |       REPORT.md
+|   |   |   |       
+|   |   |   +---AD-004-20260715-EVIDENCE-INTEGRITY
+|   |   |   |       APPLICATION_LOG.json
+|   |   |   |       DELETION_PLAN.json
+|   |   |   |       HANDOFF_MANIFEST.json
+|   |   |   |       REPORT.md
+|   |   |   |       
+|   |   |   +---AD-005-20260715-MACHINE-ENFORCED-CLOSURE
+|   |   |   |       APPLICATION_LOG.json
+|   |   |   |       DELETION_PLAN.json
+|   |   |   |       HANDOFF_MANIFEST.json
+|   |   |   |       REPORT.md
+|   |   |   |       
+|   |   |   \---AD-007-20260715-SECURITY-CLOSURE-EVIDENCE-REBASE
+|   |   |           APPLICATION_LOG.json
+|   |   |           DELETION_PLAN.json
+|   |   |           HANDOFF_MANIFEST.json
+|   |   |           REPORT.md
+|   |   |           
+|   |   \---build_meta
+|   |           deletion_plan.json
+|   |           include.txt
+|   |           metadata.json
+|   |           
+|   \---99_DELETE_QUARANTINE
+|       |   README.md
+|       |   
+|       +---AD-001-20260715-REPOSITORY-HYGIENE
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   +---replaced
+|       |   |   |   000_PROJECT_STATE.md
+|       |   |   |   001_SESSION_HANDOFF.md
+|       |   |   |   
+|       |   |   +---Project_Atlas_Development_Blueprint_v0.1
+|       |   |   |       manifest.json
+|       |   |   |       README.md
+|       |   |   |       
+|       |   |   \---Project_Atlas_Development_Framework_v1.0
+|       |   |           CHANGELOG.md
+|       |   |           manifest.json
+|       |   |           README.md
+|       |   |           
+|       |   \---requested
+|       |       |   generate_tooling_docs.py
+|       |       |   Project_Atlas_AI_Team_Bootstrap_v1.0.zip
+|       |       |   Project_Atlas_M001_Tooling_Addendum_v1.0.zip
+|       |       |   update_tooling_docs.py
+|       |       |   update_tooling_docs_patch.py
+|       |       |   
+|       |       +---Project_Atlas_AI_Team_Bootstrap_v1.0
+|       |       |   |   00_SOURCE_BINDINGS.json
+|       |       |   |   01_MASTER_KICKOFF_PROMPT_GEMINI.md
+|       |       |   |   02_CLAUDE_FRONTEND_ONBOARDING_PROMPT.md
+|       |       |   |   03_CODEX_BACKEND_ONBOARDING_PROMPT.md
+|       |       |   |   04_GEMINI_ALIGNMENT_AND_READINESS_PROMPT.md
+|       |       |   |   05_SHARED_OPERATIONAL_MEMORY_SPEC.md
+|       |       |   |   06_TEAM_WORKSPACE_SPEC.md
+|       |       |   |   07_HANDOFF_PROTOCOL.md
+|       |       |   |   08_GUARDRAILS_QUICK_REFERENCE.md
+|       |       |   |   09_TEAM_READINESS_REPORT_TEMPLATE.md
+|       |       |   |   10_ARCHITECT_ESCALATION_TEMPLATE.md
+|       |       |   |   11_MILESTONE_REVIEW_PACK_TEMPLATE.md
+|       |       |   |   12_BOOTSTRAP_ACCEPTANCE_CHECKLIST.md
+|       |       |   |   13_NEXT_STEP_AFTER_M0.md
+|       |       |   |   14_BASELINE_BINDING_PROPOSAL.md
+|       |       |   |   COPY_THIS_TO_GEMINI.md
+|       |       |   |   create_workspace.py
+|       |       |   |   M0_TEAM_BOOTSTRAP_CHARTER.md
+|       |       |   |   manifest.json
+|       |       |   |   Project_Atlas_Team_Readiness_Pack_M0.zip
+|       |       |   |   README_START_HERE.md
+|       |       |   |   
+|       |       |   \---Project_Atlas_Team_Workspace
+|       |       |       +---00_Governance
+|       |       |       |       AUTHORITY_MAP.md
+|       |       |       |       DOCUMENT_AUTHORITY_INDEX.md
+|       |       |       |       NON_NEGOTIABLE_INVARIANTS.md
+|       |       |       |       SOURCE_BINDING_VERIFICATION.md
+|       |       |       |       TEAM_CHARTER.md
+|       |       |       |       
+|       |       |       +---01_Shared_Memory
+|       |       |       |       ASSUMPTION_REGISTER.md
+|       |       |       |       CURRENT_PROJECT_STATE.md
+|       |       |       |       DECISION_LEDGER.md
+|       |       |       |       OPEN_QUESTIONS.md
+|       |       |       |       SHARED_PROJECT_MEMORY.md
+|       |       |       |       SOURCE_CITATION_INDEX.md
+|       |       |       |       TERMINOLOGY_AND_GLOSSARY.md
+|       |       |       |       
+|       |       |       +---02_Role_Memory
+|       |       |       |       CLAUDE_FRONTEND_OPERATING_MEMORY.md
+|       |       |       |       CODEX_BACKEND_OPERATING_MEMORY.md
+|       |       |       |       GEMINI_TPM_OPERATING_MEMORY.md
+|       |       |       |       
+|       |       |       +---03_Contracts
+|       |       |       |       DEPENDENCY_DECISION_REGISTER.md
+|       |       |       |       ENVIRONMENT_AND_SECRET_REGISTER.md
+|       |       |       |       FRONTEND_BACKEND_CONTRACT_REGISTER.md
+|       |       |       |       INTERFACE_OWNERSHIP_REGISTER.md
+|       |       |       |       
+|       |       |       +---04_Planning
+|       |       |       |       BLOCKER_REGISTER.md
+|       |       |       |       MILESTONE_REGISTER.md
+|       |       |       |       SPRINT_REGISTER.md
+|       |       |       |       TASK_REGISTER.md
+|       |       |       |       TECHNICAL_DEBT_REGISTER.md
+|       |       |       |       
+|       |       |       +---05_Evidence
+|       |       |       |       DECISION_EVIDENCE_INDEX.md
+|       |       |       |       REVIEW_EVIDENCE_INDEX.md
+|       |       |       |       TEST_EVIDENCE_INDEX.md
+|       |       |       |       
+|       |       |       +---06_Handoffs
+|       |       |       |       CLAUDE_READINESS_HANDOFF.md
+|       |       |       |       CODEX_READINESS_HANDOFF.md
+|       |       |       |       HANDOFF_LOG.md
+|       |       |       |       
+|       |       |       \---07_Reports
+|       |       |               ARCHITECT_ESCALATION_REPORT.md
+|       |       |               BOOTSTRAP_AUDIT.md
+|       |       |               TEAM_READINESS_REPORT.md
+|       |       |               
+|       |       \---Project_Atlas_M001_Tooling_Addendum_v1.0
+|       |           \---Project_Atlas_M001_Tooling_Addendum_v1.0
+|       |                   COPY_TO_GEMINI.md
+|       |                   M001_TOOLING_AND_PLUGIN_GOVERNANCE_ADDENDUM_v1.0.md
+|       |                   manifest.json
+|       |                   
+|       +---AD-002-20260715-M001-CORRECTION
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   +---replaced
+|       |   |   |   000_PROJECT_STATE.md
+|       |   |   |   001_SESSION_HANDOFF.md
+|       |   |   |   
+|       |   |   +---Project_Atlas_Development_Blueprint_v0.1
+|       |   |   |       manifest.json
+|       |   |   |       README.md
+|       |   |   |       
+|       |   |   +---Project_Atlas_Team_Workspace
+|       |   |   |   +---00_Governance
+|       |   |   |   |       REPOSITORY_ROOT_ALLOWLIST.md
+|       |   |   |   |       
+|       |   |   |   +---01_Shared_Memory
+|       |   |   |   |       CURRENT_PROJECT_STATE.md
+|       |   |   |   |       
+|       |   |   |   +---04_Planning
+|       |   |   |   |       BLOCKER_REGISTER.md
+|       |   |   |   |       M001_SPRINT_PLAN_FINAL.md
+|       |   |   |   |       ROOT_CLEANUP_DECISION_REGISTER.md
+|       |   |   |   |       SPRINT_REGISTER.md
+|       |   |   |   |       
+|       |   |   |   \---06_Handoffs
+|       |   |   |           HANDOFF_LOG.md
+|       |   |   |           HANDOFF_PACKAGE_CONTRACT.md
+|       |   |   |           
+|       |   |   \---scripts
+|       |   |       \---governance
+|       |   |               atlas_handoff.py
+|       |   |               
+|       |   \---requested
+|       |       |   tree_after.txt
+|       |       |   tree_before.txt
+|       |       |   
+|       |       \---temp_handoff
+|       |           +---payload
+|       |           |   |   000_PROJECT_STATE.md
+|       |           |   |   001_SESSION_HANDOFF.md
+|       |           |   |   
+|       |           |   +---Project_Atlas_Development_Blueprint_v0.1
+|       |           |   |   |   manifest.json
+|       |           |   |   |   README.md
+|       |           |   |   |   
+|       |           |   |   +---02_Architect_Reviews
+|       |           |   |   |       M001_PATCHED_SPRINT_PLAN_ARCHITECT_REVIEW.md
+|       |           |   |   |       
+|       |           |   |   \---03_Architect_Directives
+|       |           |   +---Project_Atlas_Development_Framework_v1.0
+|       |           |   |   |   CHANGELOG.md
+|       |           |   |   |   manifest.json
+|       |           |   |   |   README.md
+|       |           |   |   |   
+|       |           |   |   \---05_Operational_Policies
+|       |           |   +---Project_Atlas_Team_Workspace
+|       |           |   |   |   README.md
+|       |           |   |   |   
+|       |           |   |   +---00_Governance
+|       |           |   |   |       REPOSITORY_ROOT_ALLOWLIST.md
+|       |           |   |   |       
+|       |           |   |   +---01_Shared_Memory
+|       |           |   |   |       CURRENT_PROJECT_STATE.md
+|       |           |   |   |       DECISION_LEDGER.md
+|       |           |   |   |       
+|       |           |   |   +---04_Planning
+|       |           |   |   |       BLOCKER_REGISTER.md
+|       |           |   |   |       MILESTONE_REGISTER.md
+|       |           |   |   |       ROOT_CLEANUP_DECISION_REGISTER.md
+|       |           |   |   |       SPRINT_REGISTER.md
+|       |           |   |   |       
+|       |           |   |   +---06_Handoffs
+|       |           |   |   |       HANDOFF_LOG.md
+|       |           |   |   |       HANDOFF_PACKAGE_CONTRACT.md
+|       |           |   |   |       
+|       |           |   |   \---99_DELETE_QUARANTINE
+|       |           |   |           README.md
+|       |           |   |           
+|       |           |   \---scripts
+|       |           |       \---governance
+|       |           |               atlas_handoff.py
+|       |           |               
+|       |           \---__ATLAS_HANDOFF__
+|       |                   DELETION_PLAN.json
+|       |                   HANDOFF_MANIFEST.json
+|       |                   REPORT.md
+|       |                   
+|       +---AD-003-20260715-EVIDENCE-CLOSURE
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   \---__REPLACED__
+|       |       |   000_PROJECT_STATE.md
+|       |       |   001_SESSION_HANDOFF.md
+|       |       |   
+|       |       +---Project_Atlas_Development_Blueprint_v0.1
+|       |       |       manifest.json
+|       |       |       README.md
+|       |       |       
+|       |       +---Project_Atlas_Team_Workspace
+|       |       |   +---00_Governance
+|       |       |   |       REPOSITORY_ROOT_ALLOWLIST.md
+|       |       |   |       
+|       |       |   +---01_Shared_Memory
+|       |       |   |       CURRENT_PROJECT_STATE.md
+|       |       |   |       
+|       |       |   +---04_Planning
+|       |       |   |       BLOCKER_REGISTER.md
+|       |       |   |       SPRINT_REGISTER.md
+|       |       |   |       
+|       |       |   \---06_Handoffs
+|       |       |           HANDOFF_LOG.md
+|       |       |           HANDOFF_PACKAGE_CONTRACT.md
+|       |       |           
+|       |       \---scripts
+|       |           \---governance
+|       |                   atlas_handoff.py
+|       |                   
+|       +---AD-004-20260715-EVIDENCE-INTEGRITY
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   \---__REPLACED__
+|       |       |   000_PROJECT_STATE.md
+|       |       |   001_SESSION_HANDOFF.md
+|       |       |   
+|       |       +---Project_Atlas_Development_Blueprint_v0.1
+|       |       |       manifest.json
+|       |       |       README.md
+|       |       |       
+|       |       +---Project_Atlas_Team_Workspace
+|       |       |   +---01_Shared_Memory
+|       |       |   |       CURRENT_PROJECT_STATE.md
+|       |       |   |       
+|       |       |   +---04_Planning
+|       |       |   |       BLOCKER_REGISTER.md
+|       |       |   |       SPRINT_REGISTER.md
+|       |       |   |       
+|       |       |   \---06_Handoffs
+|       |       |           HANDOFF_LOG.md
+|       |       |           HANDOFF_PACKAGE_CONTRACT.md
+|       |       |           
+|       |       \---scripts
+|       |           \---governance
+|       |                   atlas_handoff.py
+|       |                   
+|       +---AD-005-20260715-CLAUDE
+|       |       settings.local.json
+|       |       
+|       +---AD-005-20260715-MACHINE-ENFORCED-CLOSURE
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   \---__REPLACED__
+|       |       |   000_PROJECT_STATE.md
+|       |       |   001_SESSION_HANDOFF.md
+|       |       |   
+|       |       +---Project_Atlas_Development_Blueprint_v0.1
+|       |       |       manifest.json
+|       |       |       README.md
+|       |       |       
+|       |       +---Project_Atlas_Team_Workspace
+|       |       |   +---01_Shared_Memory
+|       |       |   |       CURRENT_PROJECT_STATE.md
+|       |       |   |       
+|       |       |   +---04_Planning
+|       |       |   |       BLOCKER_REGISTER.md
+|       |       |   |       SPRINT_REGISTER.md
+|       |       |   |       
+|       |       |   \---06_Handoffs
+|       |       |           HANDOFF_LOG.md
+|       |       |           HANDOFF_PACKAGE_CONTRACT.md
+|       |       |           
+|       |       \---scripts
+|       |           \---governance
+|       |                   atlas_handoff.py
+|       |                   
+|       +---AD-007-20260715-SECURITY-CLOSURE-EVIDENCE-REBASE
+|       |   |   ISTRUZIONI_PER_ANDREA_AD006.md
+|       |   |   MESSAGGIO_DA_INVIARE_A_GEMINI_AD007.md
+|       |   |   PROJECT_ATLAS_AD006_NODE_RECOVERY.ps1
+|       |   |   PROJECT_ATLAS_AD006_NODE_RECOVERY_FIXED.ps1
+|       |   |   PROJECT_ATLAS_CURRENT_HANDOFF(11).zip
+|       |   |   PROJECT_ATLAS_NODE_INTEGRITY_DIAGNOSTIC.ps1
+|       |   |   PROJECT_ATLAS_NODE_INTEGRITY_SNAPSHOT.json
+|       |   |   QUARANTINE_MANIFEST.json
+|       |   |   
+|       |   +---.claude
+|       |   |       settings.local.json
+|       |   |       
+|       |   \---__REPLACED__
+|       |       |   000_PROJECT_STATE.md
+|       |       |   001_SESSION_HANDOFF.md
+|       |       |   
+|       |       +---Project_Atlas_Team_Workspace
+|       |       |   +---00_Governance
+|       |       |   |   \---Tooling
+|       |       |   |           GITHUB_GOVERNANCE_PLAN.md
+|       |       |   |           
+|       |       |   +---01_Shared_Memory
+|       |       |   |       CURRENT_PROJECT_STATE.md
+|       |       |   |       
+|       |       |   +---04_Planning
+|       |       |   |       BLOCKER_REGISTER.md
+|       |       |   |       M001_SPRINT_PLAN_FINAL.md
+|       |       |   |       SPRINT_REGISTER.md
+|       |       |   |       
+|       |       |   +---05_Evidence
+|       |       |   |   \---M001
+|       |       |   |       +---Planning
+|       |       |   |       |       M001_PLAN_INTEGRITY.json
+|       |       |   |       |       
+|       |       |   |       \---Platform
+|       |       |   |               NODE_LOCAL_RUNTIME.json
+|       |       |   |               
+|       |       |   \---06_Handoffs
+|       |       |           HANDOFF_LOG.md
+|       |       |           HANDOFF_PACKAGE_CONTRACT.md
+|       |       |           
+|       |       \---scripts
+|       |           \---governance
+|       |                   atlas_handoff.py
+|       |                   
+|       \---PA-M001-CODE-IMPLEMENTATION-GO-20260715
+|           |   ISTRUZIONI_AD008_PACKAGE_MANAGER_DIAGNOSTIC.md
+|           |   PROJECT_ATLAS_AD008_PACKAGE_MANAGER_DIAGNOSTIC.ps1
+|           |   QUARANTINE_MANIFEST.json
+|           |   
+|           +---.agents
+|           +---.claude
+|           |       settings.local.json
+|           |       
+|           \---.codex
++---scripts
+|   +---governance
+|   |       atlas_handoff.py
+|   |       
+|   \---guards
+|           dependency-audit.mjs
+|           guards.test.mjs
+|           migration-guard.mjs
+|           scope-guard.mjs
+|           secret-scan.mjs
+|           source-binding-guard.mjs
+|           toolchain-guard.mjs
+|           
+\---supabase
+    |   .gitignore
+    |   config.toml
+    |   README.md
+    |   
+    +---functions
+    |   \---_shared
+    |           .gitkeep
+    |           
+    +---migrations
+    |       .gitkeep
+    |       
+    \---seed
+            .gitkeep
+            

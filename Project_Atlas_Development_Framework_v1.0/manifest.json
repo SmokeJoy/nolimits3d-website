@@ -1,0 +1,165 @@
+{
+  "project": "Project Atlas — Development Framework",
+  "version": "1.0.1",
+  "status": "Approval Candidate",
+  "generated_at": "2026-07-15",
+  "source_reference": "Project Atlas Documentation Bible v0.96 Release Candidate; binding pending v1.0 Frozen Baseline",
+  "file_count": 31,
+  "files": [
+    {
+      "path": "000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v1.0.1.md",
+      "size": 58001,
+      "sha256": "8e80d6f7ad43760a5a6964a8838906920019a36d63e56809f96bf5f2e224458b"
+    },
+    {
+      "path": "01_Templates/ADR_INTAKE_TEMPLATE.md",
+      "size": 257,
+      "sha256": "281afebde00197ac750e129c7bd235676944f906b24be1c511d9ac301d9e9ea8"
+    },
+    {
+      "path": "01_Templates/ARCHITECT_REVIEW_TEMPLATE.md",
+      "size": 464,
+      "sha256": "05f78de43fe7c11b9d6e97608c6199ba2518624281ef758e7a7361af34c451af"
+    },
+    {
+      "path": "01_Templates/BASELINE_BINDING_RECORD_TEMPLATE.md",
+      "size": 280,
+      "sha256": "012a0de3341fc6638224191966a32dca8b5058bd9739809c06682f687a40efec"
+    },
+    {
+      "path": "01_Templates/BLOCKER_ESCALATION_TEMPLATE.md",
+      "size": 400,
+      "sha256": "32a50a38b2c5b7a184e14f15d5e30afaa048dccc5100c7169c3b96861c5655cd"
+    },
+    {
+      "path": "01_Templates/BUSINESS_APPROVAL_TEMPLATE.md",
+      "size": 251,
+      "sha256": "901db6fd042776a909a114f37065cf842dc7f6475310c357df3a7549255acb22"
+    },
+    {
+      "path": "01_Templates/MILESTONE_CHARTER_TEMPLATE.md",
+      "size": 510,
+      "sha256": "6c5b204ccef4a0f8a6b4a35315ae315f3afd414c01c6f1b7357e98a8ba08a896"
+    },
+    {
+      "path": "01_Templates/MILESTONE_REVIEW_PACK_TEMPLATE.md",
+      "size": 331,
+      "sha256": "e833a386c34edc395c935a7d840a05ebfa81ca9fb66aebeaa7c748cad2056a3d"
+    },
+    {
+      "path": "01_Templates/RELEASE_REPORT_TEMPLATE.md",
+      "size": 368,
+      "sha256": "fa93a4e4311095073b20dc51016e4d87177533e9a401b670765f2a2c97f40f1b"
+    },
+    {
+      "path": "01_Templates/RETROSPECTIVE_TEMPLATE.md",
+      "size": 313,
+      "sha256": "742a0423144903571dcf4ae54728f4524cd3a06a5ec3dda67190d8af06256c25"
+    },
+    {
+      "path": "01_Templates/RFC_TEMPLATE.md",
+      "size": 431,
+      "sha256": "d1135a00974d15dd054ede845f0324cf566dce95af6bc35639798bda7218540e"
+    },
+    {
+      "path": "01_Templates/SPRINT_PLAN_TEMPLATE.md",
+      "size": 339,
+      "sha256": "1653cf15995051a25ed97fcf38adc5c4f945c69639e90b891835dd50c3ab09d2"
+    },
+    {
+      "path": "01_Templates/TASK_PACKET_TEMPLATE.md",
+      "size": 446,
+      "sha256": "009de12d484514fe0a308dece90677b191b448123def8069f6d7cb0a33ca431f"
+    },
+    {
+      "path": "01_Templates/TECHNICAL_REVIEW_TEMPLATE.md",
+      "size": 455,
+      "sha256": "0ff5892b0f3980dd6eb7939d2bc75786ff52370962f58599ea8ac23cbc3a697a"
+    },
+    {
+      "path": "02_Checklists/ARCHITECT_REVIEW_CHECKLIST.md",
+      "size": 298,
+      "sha256": "4227d04afb3a0a507d054be0a1af099fe3b19928024837fb0ecde1db7a4cd923"
+    },
+    {
+      "path": "02_Checklists/MILESTONE_START_CHECKLIST.md",
+      "size": 326,
+      "sha256": "8837ea18d47f75dfe236e107bfd5ae3f25a006a3516d4834661aa52d4b136765"
+    },
+    {
+      "path": "02_Checklists/POST_RELEASE_CHECKLIST.md",
+      "size": 275,
+      "sha256": "10dbf267313a29ac0c6aa124b72c4351dd599aaffa3087d9222374e532f0507b"
+    },
+    {
+      "path": "02_Checklists/PULL_REQUEST_CHECKLIST.md",
+      "size": 344,
+      "sha256": "023de311fc1fe73a9de13a1e463a282dad8470641279b56cf7aadfbc83aa1e6c"
+    },
+    {
+      "path": "02_Checklists/RELEASE_CHECKLIST.md",
+      "size": 322,
+      "sha256": "28e098b3448e87770dc11418d53ba6bad3ab4abde71d2f6a9412f0f3dd987b23"
+    },
+    {
+      "path": "02_Checklists/SPRINT_START_CHECKLIST.md",
+      "size": 227,
+      "sha256": "b5e4088fac50702bbbe71e9d2289dc808be8c88979742e583d9620c69627d2b2"
+    },
+    {
+      "path": "02_Checklists/TECHNICAL_REVIEW_CHECKLIST.md",
+      "size": 344,
+      "sha256": "8ead05b1bb91e851ed9107b64cdc08aeb78153c637a5a5308fd875e40647421e"
+    },
+    {
+      "path": "03_Registries/METRICS_CATALOG.csv",
+      "size": 619,
+      "sha256": "277cba344921175513036d45efa9d1b3869f231ae481f1a41cf8aa343a1e8e2d"
+    },
+    {
+      "path": "03_Registries/QUALITY_GATE_REGISTRY.csv",
+      "size": 788,
+      "sha256": "55ec9dc181f0fbe050e84076d32e82b969b0b08ce4a2a69e5179b3cb4384ef5d"
+    },
+    {
+      "path": "03_Registries/ROLE_AUTHORITY_MATRIX.csv",
+      "size": 684,
+      "sha256": "62f2c1c805d31fe8ccc87c7a30194a88c40bc458ce06c856e00d20371a439318"
+    },
+    {
+      "path": "03_Registries/WORKFLOW_TRANSITIONS.csv",
+      "size": 646,
+      "sha256": "9be4a8fea56bcc5267a36b8840b0fccb0c555fda81bc0a7989bfe67998fe4e66"
+    },
+    {
+      "path": "04_Assurance/PLAYBOOK_CONFORMANCE_REVIEW.md",
+      "size": 1838,
+      "sha256": "7c17ecb9e1db4e61b4261fb09a55cd0d455e541c6371cb6d784b354494039770"
+    },
+    {
+      "path": "BASELINE_BINDING_RECORD.md",
+      "size": 849,
+      "sha256": "74dfd6daa0b7ff481e0b031ca9919e4d402267353b662080230c9a7b2a9b50db"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 1486,
+      "sha256": "8c5c4a0db455e0d32ce9181a43e9d17f96102d00c31231afd61db1efa6becf6f"
+    },
+    {
+      "path": "README.md",
+      "size": 1022,
+      "sha256": "863034b8342c2602bc4cc9e666e53ebe346c66c09bb4e9b851af2354dd25a504"
+    },
+    {
+      "path": "VERSION",
+      "size": 7,
+      "sha256": "f34306bb50e2d2ec59c788b9013c5ac682ef7f7f69345a3e957e38c0b6ba2fdd"
+    },
+    {
+      "path": "05_Operational_Policies/REPOSITORY_HYGIENE_AND_HANDOFF_PACKAGING_POLICY_v1.0.md",
+      "size": 8545,
+      "sha256": "1da09e730f3c4f2673c25e82cd44ef3c5ad24326f3295e302e08a5ba25b0c108"
+    }
+  ]
+}

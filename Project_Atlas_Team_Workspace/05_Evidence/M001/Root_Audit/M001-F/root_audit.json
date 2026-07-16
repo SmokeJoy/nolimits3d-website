@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.2",
+  "generated_at": "2026-07-16T10:48:59.874267+00:00",
+  "repo": "G:\\Claude\\NoLimits3D-website",
+  "profile": "m001-execution",
+  "allow_current_zip": true,
+  "entries": [
+    {
+      "path": ".editorconfig",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".env.example",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".git",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".gitattributes",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".github",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".nvmrc",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".prettierignore",
+      "type": "file",
+      "allowed": false,
+      "reason": null
+    },
+    {
+      "path": ".prettierrc",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "000_PROJECT_STATE.md",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "001_SESSION_HANDOFF.md",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "002_PROJECT_DNA.md",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "apps",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "docs",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "eslint.config.js",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "NoLimits3D_Documentation_v0.96",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "package.json",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "packages",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "Project_Atlas_Development_Blueprint_v0.1",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "Project_Atlas_Development_Framework_v1.0",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "Project_Atlas_Team_Workspace",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "scripts",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "supabase",
+      "type": "directory",
+      "allowed": true,
+      "reason": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "file",
+      "allowed": true,
+      "reason": null
+    }
+  ],
+  "violations": [
+    ".prettierignore"
+  ],
+  "ok": false
+}

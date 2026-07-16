@@ -1,0 +1,15 @@
+gate_id,name,evidence,authority
+DP-G00,Authority,Approval record,Gemini verifies; Andrea/ChatGPT approve
+DP-G01,Baseline,Requirement and Owner Document,Gemini
+DP-G02,Blueprint,Approved Blueprint section,ChatGPT
+DP-G03,Traceability,Requirement–task–PR–test links,Gemini
+DP-G04,Architecture,ADR/invariant checklist,ChatGPT
+DP-G05,Security & Privacy,Scans and review,Gemini/ChatGPT
+DP-G06,Data & Migration,Migration/restore evidence,Gemini
+DP-G07,UX & Accessibility,Tests and audit,Gemini
+DP-G08,Performance,Budget evidence,Gemini
+DP-G09,Testing,Test report,Gemini
+DP-G10,Observability,Logs/metrics/alerts,Gemini
+DP-G11,Integration,Integration report,Gemini
+DP-G12,Human Accountability,Approval evidence,ChatGPT/Andrea
+DP-G13,Release Truth,Release review,ChatGPT/Andrea

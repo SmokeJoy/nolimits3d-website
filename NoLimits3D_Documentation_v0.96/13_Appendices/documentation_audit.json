@@ -1,0 +1,78 @@
+{
+  "release": "0.96",
+  "title": "Documentation Bible Final Consolidation & Frozen Baseline Release Candidate",
+  "generated_at": "2026-07-15",
+  "documentation_status": "RELEASE CANDIDATE",
+  "consistency_score": 99.4,
+  "release_candidate_ready": true,
+  "frozen_baseline_ready": false,
+  "product_design_scope": "CONCLUDED",
+  "metrics": {
+    "markdown_documents": 162,
+    "governed_documents": 157,
+    "requirements": 419,
+    "rtm_rows": 419,
+    "roadmap_items": 530,
+    "roadmap_types": {
+      "Epic": 16,
+      "Feature": 50,
+      "Story": 116,
+      "Task": 232,
+      "Subtask": 116
+    },
+    "roadmap_statuses": {
+      "In Progress": 2,
+      "Planned": 510,
+      "Done": 18
+    },
+    "adr_accepted": 23,
+    "adr_proposed": 3,
+    "errors": 0,
+    "warnings": 0
+  },
+  "semantic_checks": {
+    "website_center": "PASS",
+    "jarvis_private": "PASS",
+    "jarvis_legacy_guard": "PASS",
+    "printflow_coming": "PASS",
+    "stl_human_review": "PASS",
+    "no_fake_team": "PASS",
+    "ai_no_scope": "PASS",
+    "rc_status": "PASS",
+    "no_auto_baseline": "PASS"
+  },
+  "issues": [],
+  "release_conditions": [
+    {
+      "id": "RC-COND-001",
+      "description": "Chiudere review React/Vite–Next.js",
+      "owner": "CTO/Architecture",
+      "debt": "DD-001"
+    },
+    {
+      "id": "RC-COND-002",
+      "description": "Approvare Brand Asset Gate",
+      "owner": "Brand Owner/Product Owner",
+      "debt": "DD-010"
+    },
+    {
+      "id": "RC-COND-003",
+      "description": "Validare legal/privacy e quality promise",
+      "owner": "Legal/Product Owner",
+      "debt": "DD-004, DD-014"
+    },
+    {
+      "id": "RC-COND-004",
+      "description": "Approvare hardening PC Compute Worker",
+      "owner": "Security/Operations/CTO",
+      "debt": "DD-006"
+    }
+  ],
+  "preservation": {
+    "requirements_preserved": 419,
+    "roadmap_items_preserved": 530,
+    "accepted_adr_hashes_preserved": 23,
+    "new_product_features": 0,
+    "new_adrs": 0
+  }
+}

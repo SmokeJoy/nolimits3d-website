@@ -1,0 +1,54 @@
+name: Governed engineering task
+description: Create an implementation task bound to approved Project Atlas sources.
+title: '[TASK] '
+labels:
+  - engineering
+body:
+  - type: input
+    id: requirement
+    attributes:
+      label: Requirement ID
+    validations:
+      required: true
+  - type: input
+    id: roadmap
+    attributes:
+      label: Roadmap item
+    validations:
+      required: true
+  - type: input
+    id: owner-document
+    attributes:
+      label: Owner Document
+    validations:
+      required: true
+  - type: input
+    id: adr
+    attributes:
+      label: ADR or justified N/A
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and non-scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria and Negative Requirements
+    validations:
+      required: true
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test and evidence plan
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Migration and rollback plan
+    validations:
+      required: true
