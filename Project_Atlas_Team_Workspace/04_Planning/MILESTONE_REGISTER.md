@@ -4,4 +4,4 @@
 |---|---|---|---|
 | M0 | Team Bootstrap & Alignment | DONE with tracked conditions | Architect Review completed |
 | M-001 | Repository Foundation | CLOSED | PA-AR-M001-019 |
-| M-002 | Design System & UI Foundation | APPROVED / PLANNING | PROCEED — M-002 DESIGN SYSTEM |
+| M-002 | Design System & UI Foundation | START GATE APPROVED / NOT STARTED | PA-AR-M002-009; execution begins after PR #3 merge |
