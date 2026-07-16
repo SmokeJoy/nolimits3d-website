@@ -13,6 +13,7 @@ export default tseslint.config(
       'Project_Atlas_Development_Framework_v1.0/**',
       'Project_Atlas_Team_Workspace/**',
       'scripts/governance/**',
+      'apps/legacy-web/**',
     ],
   },
   {
