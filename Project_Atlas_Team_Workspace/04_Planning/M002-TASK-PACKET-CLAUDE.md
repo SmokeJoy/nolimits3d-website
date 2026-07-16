@@ -1,41 +1,92 @@
-# Task Packet: Claude (Frontend Engineering)
+# Task Packet Claude: Frontend Engineering
 
-## Metadata
-* **Task ID**: `TSK-M002-CLAUDE-01`
-* **Roadmap IDs**: `S-0014`, `T-0027`, `T-0028`, `ST-0014`
-* **Branch**: `m002/wave-b-tokens`, `m002/wave-c1-primitives`, `m002/wave-c2-forms`
+## 1. TSK-M002-CLAUDE-B (Token Implementation)
+* **Roadmap IDs**: `S-0014`, `T-0027`
+* **Branch**: `m002/wave-b-tokens`
 * **Owner**: Claude
 * **Handover Recipient**: Codex (per Wave D)
-
-## Rules & Scope
-* **Allowed Files**: `packages/ui/src/**`, `packages/ui/styles/**`.
-* **Forbidden Files**: `tailwind.config.js`, `packages/ui/package.json`, `pnpm-lock.yaml`, Qualsiasi file in `apps/legacy-web`, root configs, `scripts/guards`.
+* **Vite Playground Path**: `apps/web/`
+* **Allowed Files**: `packages/ui/styles/**`, `packages/ui/src/**` (per esportazione/costanti dei token se necessario).
+* **Forbidden Files**: `packages/ui/package.json`, `pnpm-lock.yaml`, `tailwind.config.js` (vietato in Tailwind v4 CSS-first), qualsiasi file in `apps/legacy-web/**`, `scripts/guards/**`.
 * **Preconditions**:
-  - `M002-TOKEN-SCHEMA.md` e `M002-PRIMITIVE-INVENTORY.md` formalmente in stato APPROVED.
-  - La Dependency Adoption Decision M-002 è stata implementata e consolidata in Wave A.
-  - Codex ha completato Wave A (CI green, lockfile chiuso).
+  - `M002_DEPENDENCY_ADOPTION_DECISION.md` e `M002-TOKEN-SCHEMA.md` approvati dall'Architect.
+  - Codex ha completato la Wave A (`TSK-M002-CODEX-A`) con CI verde.
+* **Exact Deliverables**:
+  - `packages/ui/styles/global.css` contenente i token semantici e reference mappati sotto forma di Custom Properties CSS (Tailwind v4 CSS-first).
+  - Setup del font display Poppins (Google Fonts link / local import conforme alle licenze) e dei breakpoint responsivi.
+  - Test di reduced-motion e contrasto numerico WCAG AA compilati nel report locale.
+* **Exact Commands**:
+  - `pnpm --filter @atlas/ui typecheck`
+  - `pnpm --filter @atlas/ui build`
 
-## Exact Deliverables
-1. File CSS globale in `@atlas/ui/styles/` allineato al Token Schema usando sintassi CSS-first (Tailwind v4). Nessun file di configurazione JS.
-2. Componenti Wave C1 e C2 implementati seguendo pedissequamente i contratti di accessibilità, stato asincrono e design del Primitive Inventory.
-3. Esempi/Storie in `packages/ui/src/` visibili tramite Vite Playground.
+---
 
-## Exact Commands
-*(L'installazione di dipendenze è disabilitata per questo task)*
-- `pnpm --filter @atlas/ui test`
-- `pnpm --filter @atlas/ui lint`
-- `pnpm --filter @atlas/ui typecheck`
-- `pnpm --filter @atlas/ui build`
+## 2. TSK-M002-CLAUDE-C1 (Core Primitives)
+* **Roadmap IDs**: `S-0014`, `T-0027`, `T-0028`
+* **Branch**: `m002/wave-c1-primitives`
+* **Owner**: Claude
+* **Handover Recipient**: Codex (per Wave D)
+* **Vite Playground Path**: `apps/web/`
+* **Allowed Files**: 
+  - `packages/ui/src/components/button.tsx`
+  - `packages/ui/src/components/badge.tsx`
+  - `packages/ui/src/components/skeleton.tsx`
+  - `packages/ui/src/components/status-indicator.tsx`
+  - `packages/ui/src/components/card.tsx`
+  - `packages/ui/src/index.ts` (esportazione componenti)
+  - `packages/ui/tests/button.test.tsx`
+  - `packages/ui/tests/badge.test.tsx`
+  - `packages/ui/tests/skeleton.test.tsx`
+  - `packages/ui/tests/status-indicator.test.tsx`
+  - `packages/ui/tests/card.test.tsx`
+* **Forbidden Files**: `packages/ui/package.json`, `pnpm-lock.yaml`, qualsiasi file in `apps/legacy-web/**`, `scripts/guards/**`.
+* **Preconditions**:
+  - `TSK-M002-CLAUDE-B` completato e unito a `main`.
+* **Exact Deliverables**:
+  - Componenti core (`Button`, `Badge`, `Skeleton`, `StatusIndicator`, `Card`) implementati conformemente alle specifiche del Primitive Inventory (Base UI backend per Button).
+  - Esempi di utilizzo interattivi integrati nel Vite Playground (`apps/web`).
+  - Unit test e accessibility verification per ciascuna delle 5 primitive.
+* **Exact Commands**:
+  - `pnpm --filter @atlas/ui test`
+  - `pnpm --filter @atlas/ui typecheck`
+  - `pnpm --filter @atlas/ui build`
 
-## Acceptance Criteria
-- Nessun *magic number* nei CSS (solo reference semantici, es. var(--bg-surface)).
-- Tutte le voci del contratto Primitive rispettate (inclusi errori, reduced-motion, focus, keyboard nav).
-- Nessuna alterazione al legacy o a file di competenza Codex.
+---
 
-## Evidence Paths
-- Component source: `packages/ui/src/components/`
-- Vite Playground rendering validato manualmente.
+## 3. TSK-M002-CLAUDE-C2 (Forms & Complex Components)
+* **Roadmap IDs**: `T-0027`, `T-0028`, `ST-0014`
+* **Branch**: `m002/wave-c2-forms`
+* **Owner**: Claude
+* **Handover Recipient**: Codex (per Wave D)
+* **Vite Playground Path**: `apps/web/`
+* **Allowed Files**:
+  - `packages/ui/src/components/input.tsx`
+  - `packages/ui/src/components/form-field.tsx`
+  - `packages/ui/src/components/select.tsx`
+  - `packages/ui/src/components/dialog.tsx`
+  - `packages/ui/src/components/tabs.tsx`
+  - `packages/ui/src/components/toast.tsx`
+  - `packages/ui/src/index.ts` (esportazione componenti)
+  - `packages/ui/tests/input.test.tsx`
+  - `packages/ui/tests/form-field.test.tsx`
+  - `packages/ui/tests/select.test.tsx`
+  - `packages/ui/tests/dialog.test.tsx`
+  - `packages/ui/tests/tabs.test.tsx`
+  - `packages/ui/tests/toast.test.tsx`
+* **Forbidden Files**: `packages/ui/package.json`, `pnpm-lock.yaml`, qualsiasi file in `apps/legacy-web/**`, `scripts/guards/**`.
+* **Preconditions**:
+  - `TSK-M002-CLAUDE-C1` completato e unito a `main`.
+* **Exact Deliverables**:
+  - Componenti complessi (`Input`, `FormField` neutro, `Select`, `Dialog`, `Tabs`, `Toast`) implementati e integrati con `@base-ui/react` e `sonner` conforme al Primitive Inventory.
+  - Dialog con garanzie assolute di chiusura via `Escape`, click overlay, focus trapping e focus return.
+  - Test per tutte le primitive e integrazione su Vite Playground (`apps/web`).
+* **Exact Commands**:
+  - `pnpm --filter @atlas/ui test`
+  - `pnpm --filter @atlas/ui typecheck`
+  - `pnpm --filter @atlas/ui build`
 
-## Control & Operations
-- **Rollback**: In caso di fallimento della branch implementativa in remoto, avvertire l'Architect per orchestrare un `git revert` formale (la mutazione della history è vietata).
-- **Stop/Escalation Conditions**: Se è necessaria una dipendenza non censita o si incontrano peer-dependencies conflicts, fermarsi e chiamare l'Architect per una "dependency request". Non modificare package.json.
+---
+
+## Control & Operations (Tutti i Task Claude)
+- **Rollback**: In caso di fallimento o instabilità, richiedere all'Architect di eseguire un `git revert <merge-commit>` del relativo branch. Non eseguire soft o hard reset sui branch remoti di produzione.
+- **Stop/Escalation Conditions**: Fermare lo sviluppo e contattare l'Architect se si rende necessario modificare un file bloccato (Forbidden) o se si riscontrano conflitti con le librerie esterne. Non modificare `package.json` o `pnpm-lock.yaml`.

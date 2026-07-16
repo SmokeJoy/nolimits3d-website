@@ -15,8 +15,8 @@ Authoritative hierarchy:
 - **Current Milestone:** M-002 Design System & UI Foundation — APPROVED / PLANNING
 - **Last Completed Milestone:** M-001 - Repository Foundation
 - **M-001 Status:** CLOSED
-- **Latest Architect Review:** `PA-AR-M002-004`
-- **Architect Verdict:** `APPROVED — CHARTER ACCETTATO — SPRINT PLANNING AUTORIZZATO — IMPLEMENTAZIONE NON AUTORIZZATA`
+- **Latest Architect Review:** `PA-AR-M002-007`
+- **Architect Verdict:** `CHANGES REQUIRED — FINAL EXECUTION CONTRACT — NO PROCEED`
 - **Current Wave:** Gemini — Sprint Planning
 - **Next Gate:** PROCEED — M-002 DESIGN SYSTEM
 - **Last Update:** 2026-07-16

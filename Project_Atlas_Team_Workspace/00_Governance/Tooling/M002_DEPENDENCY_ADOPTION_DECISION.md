@@ -1,37 +1,41 @@
 # Dependency Adoption Decision: M-002 Design System
 
 ## Decision Status
-**Status**: APPROVED
+**Status**: PENDING ARCHITECT APPROVAL
 
-## BOM (Bill of Materials) Immutabile
-Prima di avviare l'implementazione in `@atlas/ui`, le seguenti dipendenze e scelte architetturali formano il BOM esatto.
-Nessuna dipendenza ulteriore può essere aggiunta in Wave B o Wave C senza un formale aggiornamento di questo documento.
+## Bill of Materials (BOM) Immutabile
+Prima di avviare qualsiasi implementazione in `@atlas/ui`, le seguenti dipendenze e scelte architetturali formano il BOM esatto. Nessuna dipendenza ulteriore può essere aggiunta in Wave B o Wave C senza un formale aggiornamento di questo documento.
 
-### Architettura CSS e Primitive
-- **Tailwind architecture**: CSS-first Tailwind v4 (Nessun `tailwind.config.js`, usa import diretti e root variables come raccomandato da shadcn/ui per v4).
-- **Primitive backend candidate**: `radix-ui` (package unificato, al posto dei vecchi `@radix-ui/react-*` aperti).
+### 1. Decisioni Architetturali Vincolanti
+- **Tailwind Architecture**: CSS-first Tailwind v4 (utilizza `tailwindcss` + `@tailwindcss/vite`, configurato tramite file CSS globale, senza file `tailwind.config.js` obsoleto).
+- **Primitive Backend**: `@base-ui/react` (Base UI è il default raccomandato da shadcn/ui per React 19).
+- **Toast Engine**: `sonner` (Toast standard raccomandato e integrato nativamente nelle release correnti di shadcn/ui).
+- **Accessibility Engine**: `axe-core` integrato nel test harness (non `@axe-core/react` che è per runtime dev preview). La verifica del contrasto colori WCAG AA avverrà tramite audit manuale/snapshot dedicato a causa dei limiti noti di `axe-core` nell'ambiente JSDOM.
+- **Preview Baseline**: Vite Playground (isolamento a dipendenze zero).
+- **Ladle / Playwright**: EVALUATION — NOT AUTHORIZED per M-002.
 
-### Class Utilities
-- **Class Variance**: `class-variance-authority`
-- **Class Merge**: `clsx`, `tailwind-merge`
+---
 
-### Design Resources
-- **Icon Library**: `lucide-react`
-- **Animation**: `tw-animate-css` (o equivalente shadcn/ui native plugin)
+### 2. Tabella BOM Dettagliata
 
-### Testing & Verification
-- **Test Runner**: `vitest`
-- **DOM Environment**: `jsdom`
-- **Testing Library**: `@testing-library/react`, `@testing-library/jest-dom`
-- **Accessibility Engine**: `@axe-core/react`
-
-### Notification Implementation
-- **Toast Engine**: native shadcn/ui implementation o `sonner` se adottato (da confermare a livello shadcn).
-
-### Preview Tooling
-- **Preview baseline**: Vite Playground
-- **Ladle**: EVALUATION — NOT AUTHORIZED
-- **Playwright**: EVALUATION — NOT AUTHORIZED
-
-## Note
-Vite Playground è l'ambiente locale ufficiale autorizzato per lo sviluppo isolato dei componenti in `@atlas/ui`. Ladle richiede analisi di impatto e incompatibilità da dirimere ed è posticipato.
+| Package | Exact version | Dependency class | Purpose | License | Node/React/Vite compatibility | Verification command | Status |
+|---|---|---|---|---|---|---|---|
+| `@base-ui/react` | `1.6.0` | Production | Primitive backend per componenti accessibili | MIT | Node v24+, React 19+ | `pnpm --filter @atlas/ui list @base-ui/react` | CANDIDATE |
+| `sonner` | `2.0.7` | Production | Engine di notifica non bloccante (Toast) | MIT | Node v24+, React 19+ | `pnpm --filter @atlas/ui list sonner` | CANDIDATE |
+| `tailwindcss` | `4.3.3` | Production | Framework CSS utility-first | MIT | Node v24+, Vite 8+ | `pnpm --filter @atlas/ui list tailwindcss` | CANDIDATE |
+| `@tailwindcss/vite` | `4.3.3` | DevDependency | Integrazione e compilazione Tailwind v4 in Vite | MIT | Node v24+, Vite 8+ | `pnpm --filter @atlas/ui list @tailwindcss/vite` | CANDIDATE |
+| `shadcn` | `4.13.0` | DevDependency | CLI per l'inizializzazione e gestione componenti | MIT | Node v24+ | `pnpm --filter @atlas/ui list shadcn` | CANDIDATE |
+| `class-variance-authority` | `0.7.1` | Production | Gestione varianti CSS in modo tipizzato | Apache-2.0 | Node v24+ | `pnpm --filter @atlas/ui list class-variance-authority` | CANDIDATE |
+| `clsx` | `2.1.1` | Production | Utility per unire classi CSS condizionali | MIT | Node v24+ | `pnpm --filter @atlas/ui list clsx` | CANDIDATE |
+| `tailwind-merge` | `3.6.0` | Production | Unione efficiente di classi Tailwind senza conflitti | MIT | Node v24+ | `pnpm --filter @atlas/ui list tailwind-merge` | CANDIDATE |
+| `lucide-react` | `1.24.0` | Production | Set di icone vettoriali coerenti e leggere | ISC | Node v24+, React 19+ | `pnpm --filter @atlas/ui list lucide-react` | CANDIDATE |
+| `tw-animate-css` | `1.4.0` | Production | Plugin di animazioni preconfezionate per Tailwind | MIT | Node v24+ | `pnpm --filter @atlas/ui list tw-animate-css` | CANDIDATE |
+| `react` | `19.2.7` | PeerDependency | Libreria core di runtime UI | MIT | Node v24+, React 19+ | `pnpm --filter @atlas/ui list react` | CANDIDATE |
+| `react-dom` | `19.2.7` | PeerDependency | Rendering DOM per React | MIT | Node v24+, React 19+ | `pnpm --filter @atlas/ui list react-dom` | CANDIDATE |
+| `vite` | `8.1.4` | DevDependency | Strumento di build e server di sviluppo locale | MIT | Node v24+ | `pnpm --filter @atlas/ui list vite` | CANDIDATE |
+| `@vitejs/plugin-react` | `6.0.3` | DevDependency | Plugin Vite ufficiale per supporto React | MIT | Node v24+, Vite 8+ | `pnpm --filter @atlas/ui list @vitejs/plugin-react` | CANDIDATE |
+| `vitest` | `4.1.10` | DevDependency | Test runner nativo Vite ad alte prestazioni | MIT | Node v24+, Vite 8+ | `pnpm --filter @atlas/ui list vitest` | CANDIDATE |
+| `jsdom` | `29.1.1` | DevDependency | Simulazione ambiente browser in ambiente Node | MIT | Node v24+ | `pnpm --filter @atlas/ui list jsdom` | CANDIDATE |
+| `@testing-library/react` | `16.3.2` | DevDependency | Suite di utility per testare componenti React | MIT | Node v24+, React 19+ | `pnpm --filter @atlas/ui list @testing-library/react` | CANDIDATE |
+| `@testing-library/jest-dom` | `6.9.1` | DevDependency | Matcher Jest/Vitest personalizzati per il DOM | MIT | Node v24+ | `pnpm --filter @atlas/ui list @testing-library/jest-dom` | CANDIDATE |
+| `axe-core` | `4.12.1` | DevDependency | Motore di testing per l'accessibilità | MPL-2.0 | Node v24+ | `pnpm --filter @atlas/ui list axe-core` | CANDIDATE |

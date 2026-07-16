@@ -1,207 +1,212 @@
 # Primitive Inventory: Design System M-002
 
 ## Status
-* **Status**: PROPOSED
+* **Status**: APPROVED (Schema)
 * **Gate**: Requires Architect Approval
-* **Roadmap Governance**: `S-0014`, `T-0027`, `T-0028`, `ST-0014` (L'intero pacchetto fa riferimento a questi ID. Gli altri ID sono per la token foundation e non vanno mappati singolarmente).
+* **Roadmap Governance**: `S-0014`, `T-0027`, `T-0028`, `ST-0014`
 
-## Contratto Componenti
-Ogni primitiva deve rigorosamente rispettare il seguente schema formale. Nessuna primitiva può essere implementata ignorando una di queste voci.
+---
+
+## Contratto Componenti Base UI / Sonner
+
+Ogni primitiva sotto indicata deve rispettare integralmente il seguente contratto implementativo e di test. Nessun componente può omettere una di queste definizioni nella sua realizzazione.
+
+---
 
 ### 1. Button
-- **Scopo**: Azione principale o secondaria (form submit, navigazione, operazione).
-- **Anatomia**: `<button>` o `<a>` semantico (se Link), contenuto testuale, icone opzionali (left/right).
-- **API e Proprietà**: `variant`, `size`, `asChild` (Radix Slot), `isLoading`, standard React Node props.
+- **Scopo**: Interazione primaria o secondaria per form, link o trigger di azioni.
+- **Anatomia**: Base UI `<Button>` (compila in `<button>` o tag polimorfico). Contiene label ed elementi icona opzionali.
+- **API e Proprietà**: `variant` ('primary' | 'secondary' | 'destructive' | 'outline' | 'ghost' | 'link'), `size` ('sm' | 'md' | 'lg'), `isLoading` (boolean), `icon` (ReactNode), standard React HTML button props.
 - **Varianti**: Primary, Secondary, Destructive, Outline, Ghost, Link.
-- **Stati**: Immediato (default), focus-visible, hover, active, disabled.
-- **Stato Asincrono**: `isLoading` (spinner o transizione opacità, disabilitazione click).
-- **Rete Assente**: Disabilitato visualmente se il componente lo richiede, o fallback alert su azione.
-- **Retry**: Modalità visiva di retry post-errore.
-- **Responsive Behavior**: Stack verticale su schermi stretti (se raggruppati), touch-target minimo 44x44px su mobile.
-- **Accessibilità (A11y)**: WCAG 2.2 AA per il contrasto. Gestione corretta dell'`aria-disabled`. Tasto Invio/Spazio funzionante.
-- **Reduced Motion**: Disattivazione dell'animazione hover/active e dello spinner rotante se `prefers-reduced-motion: reduce`.
-- **Comportamento Senza Hover**: Stati attivi visibili anche senza `:hover` su schermi touch.
-- **Analytics Contract**: Evento on-click tracciato (se richiesto dal contesto), esportazione `data-track-id`.
-- **Errori**: Visualizzazione stato d'errore (se form-bound).
-- **Esempi**: Component catalog entry isolata.
-- **Test**: Unit test per click e disabilitazione, A11y test (axe).
+- **Stati**: Default, hover (`data-hover`), active (`data-active`), focus-visible (`data-focus-visible`), disabled.
+- **Stato Asincrono**: Se `isLoading` è `true`, disabilita l'interazione e mostra uno spinner visivo integrato preservando la larghezza del bottone.
+- **Rete Assente**: Disabilitazione automatica se l'azione richiede connettività.
+- **Retry**: Variante `retry` (opzione di variant) o transizione visiva all'icona di refresh post-fallimento.
+- **Responsive Behavior**: Touch-target minimo di `44x44px` su mobile; stack verticale per pulsanti raggruppati su schermi piccoli.
+- **Accessibilità (A11y)**: Focus outline visivo distinto. Tasti Invio e Spazio supportati nativamente da Base UI. Contrasto ratio `>= 4.5:1` su tutti gli stati.
+- **Reduced Motion**: Disattivazione rotazione dello spinner e transizioni hover se `prefers-reduced-motion: reduce`.
+- **Comportamento Senza Hover**: Stato attivo chiaramente espresso via outline/border per dispositivi touch privi di puntatore hover.
+- **Analytics Contract**: Attributo `data-track-id` e tracciamento click tramite callback `onClick`.
+- **Errori**: N/A.
+- **Esempi (Playground)**: `packages/ui/src/components/button.tsx` (esportato in `@atlas/ui`), visualizzabile su Vite Playground.
+- **Test**: `packages/ui/tests/button.test.tsx` (verifica click, stato isLoading, disabled, e test accessibilità tramite axe).
 
 ### 2. Badge
-- **Scopo**: Indicatore visivo di stato, metadato o tag non interattivo.
-- **Anatomia**: `<div>` o `<span>`. Nessun focus.
-- **API e Proprietà**: `variant`.
+- **Scopo**: Rappresentazione visiva di tag, categorie o contatori di stato non interattivi.
+- **Anatomia**: `<div>` o `<span>` semantico con stili di utility Tailwind v4.
+- **API e Proprietà**: `variant` ('default' | 'secondary' | 'destructive' | 'outline'), standard HTML span props.
 - **Varianti**: Default, Secondary, Destructive, Outline.
-- **Stati**: Nessuno (read-only).
+- **Stati**: Statico (non interattivo).
 - **Stato Asincrono**: N/A.
 - **Rete Assente**: N/A.
 - **Retry**: N/A.
-- **Responsive Behavior**: Wrap del testo in overflow.
-- **Accessibilità (A11y)**: Testo leggibile WCAG AA.
-- **Reduced Motion**: N/A (nessuna animazione).
-- **Comportamento Senza Hover**: N/A (non interattivo).
+- **Responsive Behavior**: Ridimensionamento o troncamento sicuro del testo su piccoli schermi.
+- **Accessibilità (A11y)**: Contrasto del testo e del background conforme a WCAG AA `>= 4.5:1`.
+- **Reduced Motion**: N/A.
+- **Comportamento Senza Hover**: N/A.
 - **Analytics Contract**: N/A.
 - **Errori**: N/A.
-- **Esempi**: Presentazione varianti cromatiche nel catalog.
-- **Test**: Rendering snapshot.
+- **Esempi (Playground)**: `packages/ui/src/components/badge.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/badge.test.tsx` (verifica rendering delle varianti cromatiche).
 
 ### 3. Skeleton
-- **Scopo**: Placeholder visuale durante il caricamento asincrono dei dati.
-- **Anatomia**: `<div>` decorativo (`aria-hidden="true"`).
-- **API e Proprietà**: className (per w/h/border-radius).
-- **Varianti**: N/A (pilotato da className).
-- **Stati**: Immediato.
-- **Stato Asincrono**: Rappresenta esso stesso lo stato asincrono.
-- **Rete Assente**: Se la rete cade definitivamente, deve essere sostituito da uno stato di errore (StatusIndicator/Toast).
+- **Scopo**: Placeholder visivo per il caricamento progressivo dei contenuti.
+- **Anatomia**: `<div>` con classe Tailwind di pulsazione (`animate-pulse` o equivalente v4).
+- **API e Proprietà**: `className` (per sovrascrittura dimensioni), standard HTML div props.
+- **Varianti**: Circular, Rectangular, Text.
+- **Stati**: Pulsante (loading).
+- **Stato Asincrono**: Rappresenta visivamente lo stato asincrono dell'applicazione.
+- **Rete Assente**: Sostituito da un indicatore di errore se il fetch dati fallisce definitivamente.
 - **Retry**: N/A.
-- **Responsive Behavior**: Segue le dimensioni del container.
-- **Accessibilità (A11y)**: `aria-hidden="true"`, non annunciato dagli screen reader se non associato a `aria-busy`.
-- **Reduced Motion**: L'animazione a "pulsazione" (`animate-pulse`) deve essere disabilitata (opacità statica) se `prefers-reduced-motion: reduce`.
+- **Responsive Behavior**: Segue in modo fluido la griglia o le dimensioni del componente genitore.
+- **Accessibilità (A11y)**: Marcato con `aria-hidden="true"` e `role="presentation"` per non essere letto dagli screen reader.
+- **Reduced Motion**: L'animazione di pulsazione viene disattivata (sostituita con opacità statica) se `prefers-reduced-motion: reduce`.
 - **Comportamento Senza Hover**: N/A.
 - **Analytics Contract**: N/A.
 - **Errori**: N/A.
-- **Esempi**: Component catalog entry.
-- **Test**: Rendering base.
+- **Esempi (Playground)**: `packages/ui/src/components/skeleton.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/skeleton.test.tsx` (verifica la disattivazione dell'animazione con reduced motion mockato).
 
 ### 4. StatusIndicator
-- **Scopo**: Feedback di sistema in tempo reale (online, offline, error).
-- **Anatomia**: Dot circolare + Testo descrittivo.
-- **API e Proprietà**: `status` ('success', 'error', 'warning', 'info').
-- **Varianti**: Colori semantici.
-- **Stati**: Immediato.
+- **Scopo**: Indicazione visiva e testuale dello stato corrente di un servizio o risorsa.
+- **Anatomia**: Contenitore che avvolge un indicatore cromatico (dot) e una label testuale descrittiva.
+- **API e Proprietà**: `status` ('success' | 'warning' | 'error' | 'info'), `label` (string), standard HTML div props.
+- **Varianti**: Success, Warning, Error, Info.
+- **Stati**: Statico, opzionalmente animato per indicare transizione (ping).
 - **Stato Asincrono**: N/A.
-- **Rete Assente**: Transizione a 'offline'/'error'.
+- **Rete Assente**: Cambia stato automaticamente in `error` con etichetta "Senza rete" o "Disconnesso".
 - **Retry**: N/A.
-- **Responsive Behavior**: N/A (Inline).
-- **Accessibilità (A11y)**: Contrasto AA, non può basarsi unicamente sul colore.
-- **Reduced Motion**: Nessun effetto ping o pulse.
+- **Responsive Behavior**: Contrazione a sola icona/dot con tooltip o text-overflow su piccoli schermi.
+- **Accessibilità (A11y)**: L'indicazione non deve basarsi esclusivamente sul colore del dot; la label testuale deve essere leggibile dallo screen reader (`aria-live="polite"` o label esplicita).
+- **Reduced Motion**: Disattivazione dell'effetto ping/pulse sul dot.
 - **Comportamento Senza Hover**: N/A.
 - **Analytics Contract**: N/A.
-- **Errori**: Visualizza lo stato di errore.
-- **Esempi**: Tutte e 4 le combinazioni di stato.
-- **Test**: Contrasto colori.
+- **Errori**: Rappresenta visivamente lo stato di errore.
+- **Esempi (Playground)**: `packages/ui/src/components/status-indicator.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/status-indicator.test.tsx` (verifica che l'indicatore mostri il testo alternativo corretto).
 
 ### 5. Input
-- **Scopo**: Acquisizione input testuale singolo.
-- **Anatomia**: `<input>` nativo html.
-- **API e Proprietà**: `type`, standard input props.
-- **Varianti**: Default, File.
-- **Stati**: Immediato, focus-visible, disabled, readonly.
-- **Stato Asincrono**: Sospeso (readonly/disabled) durante invio.
-- **Rete Assente**: Possibile blocco o alert.
+- **Scopo**: Campo di inserimento testo standard.
+- **Anatomia**: `<input>` nativo integrato con classi Tailwind v4 per la gestione del focus outline.
+- **API e Proprietà**: `type` (text, password, email, number), `error` (boolean), standard HTML input props.
+- **Varianti**: Default, con icona (left/right).
+- **Stati**: Default, hover, active, focus-visible, disabled, error.
+- **Stato Asincrono**: N/A.
+- **Rete Assente**: Disabilitato se l'input richiede interrogazione di rete immediata.
 - **Retry**: N/A.
-- **Responsive Behavior**: Touch target height minimo 44px su mobile, full-width.
-- **Accessibilità (A11y)**: Gestione `aria-invalid`, focus ring persistente, supporto label.
+- **Responsive Behavior**: Touch target height minimo `44px` su mobile, font-size >= 16px per prevenire zoom forzato su iOS.
+- **Accessibilità (A11y)**: Supporto nativo `aria-invalid` se `error` è true, focus ring ad alto contrasto.
 - **Reduced Motion**: N/A.
-- **Comportamento Senza Hover**: Evidenziazione focus persistente.
-- **Analytics Contract**: N/A (gestito a livello Form).
-- **Errori**: Bordo semantico rosso, testo descrittivo.
-- **Esempi**: Con e senza errori, disabled.
-- **Test**: Gestione input test.
+- **Comportamento Senza Hover**: Focus ring evidente al tocco/focus.
+- **Analytics Contract**: N/A (tracciato sul form).
+- **Errori**: Bordo rosso semantico ed evidenziazione focus di errore.
+- **Esempi (Playground)**: `packages/ui/src/components/input.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/input.test.tsx` (verifica inserimento testo, stato disabled e stato error).
 
-### 6. FormField (Composto)
-- **Scopo**: Wrapper accessibile per i campi form.
-- **Anatomia**: `Item` > `Label` + `Control` + `Description` + `Message`.
-- **API e Proprietà**: Integrazione con librerie form (es. React Hook Form).
-- **Varianti**: N/A.
-- **Stati**: Validation states (valid, invalid).
-- **Stato Asincrono**: Validazione asincrona in corso.
-- **Rete Assente**: Impossibilità di validazione remota.
-- **Retry**: N/A.
-- **Responsive Behavior**: Reflow se affiancato ad altri campi.
-- **Accessibilità (A11y)**: `aria-describedby` legato all'id del messaggio d'errore.
-- **Reduced Motion**: N/A.
-- **Comportamento Senza Hover**: N/A.
-- **Analytics Contract**: Tracking validazione fallita.
-- **Errori**: Propagazione dell'errore visivo ai children.
-- **Esempi**: Esempio form completo isolato.
-- **Test**: Propagazione corretta degli ARIA ids.
-
-### 7. Select
-- **Scopo**: Selezione singola tra un set limitato di opzioni.
-- **Anatomia**: Trigger, Content (Portal), Item, Value.
-- **API e Proprietà**: Radix Select API (`onValueChange`, ecc).
+### 6. FormField
+- **Scopo**: Wrapper accessibile e framework-neutral per allineare Label, Input, descrizioni ed errori.
+- **Anatomia**: Contenitore `<div>` che raggruppa componenti figli (Label, Input, Description, ErrorMessage). Non legato a specifiche librerie di form (framework-neutral).
+- **API e Proprietà**: `id` (string), `error` (string), `label` (string), `description` (string), standard HTML div props.
 - **Varianti**: Default.
-- **Stati**: Aperto, Chiuso, Hover su opzione, Disabled.
-- **Stato Asincrono**: Caricamento delle opzioni (loading indicator interno).
-- **Rete Assente**: Lista opzioni disabilitata se data-fetching assente.
-- **Retry**: Bottone ricarica (opzionale) nel caso le opzioni falliscano.
-- **Responsive Behavior**: Popover nativo o custom ben dimensionato su mobile, z-index protetto.
-- **Accessibilità (A11y)**: Navigazione tastiera (frecce, Enter, Esc, Typeahead), Screen reader announcer.
-- **Reduced Motion**: Nessuna animazione di comparsa del menu, opacità istantanea.
-- **Comportamento Senza Hover**: Item attivi selezionabili via touch/focus.
-- **Analytics Contract**: Change event tracking.
-- **Errori**: Menu rosso se validazione fallisce.
-- **Esempi**: Lista lunga, lista corta, disabled.
-- **Test**: Tastiera su down/up arrow.
-
-### 8. Card
-- **Scopo**: Contenitore layout generico.
-- **Anatomia**: Header, Title, Description, Content, Footer.
-- **API e Proprietà**: N/A.
-- **Varianti**: Standard, Outline, Elevated.
-- **Stati**: N/A.
-- **Stato Asincrono**: Skeleton card placeholder.
+- **Stati**: Normal, Error (se la stringa `error` è valorizzata).
+- **Stato Asincrono**: N/A (gestito dai singoli controlli o indicatore globale).
 - **Rete Assente**: N/A.
 - **Retry**: N/A.
-- **Responsive Behavior**: Reflow o stack a cascata.
-- **Accessibilità (A11y)**: Ruoli semantici corretti (es. `section` o `article` a seconda dell'uso).
+- **Responsive Behavior**: Stack verticale del contenuto su mobile, allineamento griglia su desktop.
+- **Accessibilità (A11y)**: Associazione automatica di `htmlFor` sulla label all'id dell'input. Associazione di `aria-describedby` dell'input a descrizione e messaggio d'errore.
+- **Reduced Motion**: N/A.
+- **Comportamento Senza Hover**: N/A.
+- **Analytics Contract**: Tracciamento dell'errore di validazione (se inviato).
+- **Errori**: Mostra visivamente il messaggio di errore sotto l'input.
+- **Esempi (Playground)**: `packages/ui/src/components/form-field.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/form-field.test.tsx` (verifica associazione ARIA ID tra label, input e messaggi di errore).
+
+### 7. Select
+- **Scopo**: Selezione di un singolo valore all'interno di una lista chiusa.
+- **Anatomia**: Componenti Base UI Select: `<Select.Root>`, `<Select.Trigger>`, `<Select.Value>`, `<Select.Portal>`, `<Select.Positioner>`, `<Select.Content>`, `<Select.Item>`.
+- **API e Proprietà**: `value` (string), `onValueChange` (function), `options` (Array of items), `placeholder` (string), `disabled` (boolean).
+- **Varianti**: Default.
+- **Stati**: Default, open, closed, item-hover (`data-highlighted`), selected (`data-selected`), disabled.
+- **Stato Asincrono**: Spinner all'interno del trigger se le opzioni sono in caricamento.
+- **Rete Assente**: Disabilitazione della tendina se il caricamento dati remoto fallisce.
+- **Retry**: N/A.
+- **Responsive Behavior**: Apertura popover allineata al trigger; su schermi molto piccoli si posiziona come bottom sheet o sfrutta popover nativo.
+- **Accessibilità (A11y)**: Gestione completa della tastiera tramite Base UI (frecce, Enter, Esc, home/end, typeahead). Focus trap nel portale.
+- **Reduced Motion**: Nessuna transizione di scala o slide durante l'apertura/chiusura del menu popover.
+- **Comportamento Senza Hover**: Selezione item visibile tramite focus e touch-highlight.
+- **Analytics Contract**: Tracciamento dell'evento `onChange` con il valore selezionato.
+- **Errori**: Bordo di errore sul trigger.
+- **Esempi (Playground)**: `packages/ui/src/components/select.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/select.test.tsx` (verifica apertura popover, navigazione a tastiera freccia giù, selezione elemento).
+
+### 8. Card
+- **Scopo**: Contenitore isolato per raggruppare informazioni correlate.
+- **Anatomia**: `<div>` con stili di bordo, sfondo (`bg.surface`) e arrotondamento. Include Header, Title, Description, Content, e Footer.
+- **API e Proprietà**: standard HTML div props.
+- **Varianti**: Standard, Outline, Elevated.
+- **Stati**: Default, opzionalmente interattivo (hover/active se trattato come link).
+- **Stato Asincrono**: N/A (sostituito da Skeleton per i contenuti interni).
+- **Rete Assente**: N/A.
+- **Retry**: N/A.
+- **Responsive Behavior**: Adatta la larghezza al layout responsivo; reflow interno dei figli.
+- **Accessibilità (A11y)**: Tag semantici (es. `section`, `article` o `div`). Contrasto bordo/sfondo conforme.
 - **Reduced Motion**: N/A.
 - **Comportamento Senza Hover**: N/A.
 - **Analytics Contract**: N/A.
 - **Errori**: N/A.
-- **Esempi**: Esempi di aggregazione.
-- **Test**: N/A.
+- **Esempi (Playground)**: `packages/ui/src/components/card.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/card.test.tsx` (verifica rendering e tag semantici).
 
-### 9. Dialog/Modal
-- **Scopo**: Interruzione bloccante dell'utente.
-- **Anatomia**: Overlay, Content, Header, Title, Description, Footer, CloseButton.
-- **API e Proprietà**: `open`, `onOpenChange` (Radix Dialog API).
-- **Varianti**: Modale default.
+### 9. Dialog / Modal
+- **Scopo**: Finestra di overlay bloccante per operazioni o informazioni critiche.
+- **Anatomia**: Base UI Dialog: `<Dialog.Root>`, `<Dialog.Portal>`, `<Dialog.Overlay>`, `<Dialog.Content>`, `<Dialog.Title>`, `<Dialog.Description>`, `<Dialog.Close>`.
+- **API e Proprietà**: `open` (boolean), `onOpenChange` (function), `title` (string), `description` (string).
+- **Varianti**: Standard.
 - **Stati**: Open, Closed.
-- **Stato Asincrono**: Dati caricati in modo asincrono dentro il Content.
-- **Rete Assente**: Chiusura disabilitata o alert se azione bloccante obbligatoria.
-- **Retry**: N/A.
-- **Responsive Behavior**: Full-screen o bottom-sheet su mobile.
-- **Accessibilità (A11y)**: Focus trapping, chiusura con Esc, focus return al trigger dopo chiusura.
-- **Reduced Motion**: Animazione scale/fade ridotta a istantanea.
-- **Comportamento Senza Hover**: Tasto X visibile fisicamente.
-- **Analytics Contract**: Apertura/chiusura evento.
-- **Errori**: N/A.
-- **Esempi**: Demo modale scrollabile vs non scrollabile.
-- **Test**: Focus trapping.
-
-### 10. Tabs
-- **Scopo**: Separazione del contesto senza cambiare pagina.
-- **Anatomia**: Root, List, Trigger, Content.
-- **API e Proprietà**: Radix Tabs API.
-- **Varianti**: Default.
-- **Stati**: Selected, Unselected, Disabled.
-- **Stato Asincrono**: Dati caricati all'attivazione del tab.
+- **Stato Asincrono**: Contenuto interno asincrono gestito tramite Skeleton.
 - **Rete Assente**: N/A.
 - **Retry**: N/A.
-- **Responsive Behavior**: Scorrimento orizzontale se i tab eccedono lo schermo. Touch target largo 44px.
-- **Accessibilità (A11y)**: Tasti freccia per selezionare (manual o auto-activation). `role="tablist"`, `aria-selected`.
-- **Reduced Motion**: Nessuno slide animato tra i tab.
-- **Comportamento Senza Hover**: Selected visibile in modo esplicito (underline o background).
-- **Analytics Contract**: Tab click event.
-- **Errori**: Tab con indicatore di errore se un child ha problemi.
-- **Esempi**: 3 Tab con dati simulati.
-- **Test**: Tasti freccia Dx/Sx.
+- **Responsive Behavior**: Centrato su desktop, full-screen o bottom-sheet su mobile.
+- **Accessibilità (A11y)**: Focus trapping obbligatorio fornito da Base UI. Chiusura sempre garantita tramite tasto `Escape`, click all'esterno (overlay) e pulsante di chiusura esplicito. Focus return al trigger che ha aperto il dialog dopo la chiusura.
+- **Reduced Motion**: Transizioni di comparsa (fade-in overlay, scale-in content) forzate a istantanee (`0ms`).
+- **Comportamento Senza Hover**: Bottone di chiusura (X) visibile in modo permanente e touch-target 44x44px.
+- **Analytics Contract**: Tracciamento eventi open/close.
+- **Errori**: N/A.
+- **Esempi (Playground)**: `packages/ui/src/components/dialog.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/dialog.test.tsx` (verifica focus trapping, chiusura con tasto Esc, e ritorno del focus al trigger).
+
+### 10. Tabs
+- **Scopo**: Suddivisione di contenuti in viste distinte all'interno della stessa pagina.
+- **Anatomia**: Base UI Tabs: `<Tabs.Root>`, `<Tabs.List>`, `<Tabs.Trigger>`, `<Tabs.Panel>`.
+- **API e Proprietà**: `defaultValue` (string), `value` (string), `onValueChange` (function).
+- **Varianti**: Default.
+- **Stati**: Active (`data-selected`), inactive, hover, active, focus-visible.
+- **Stato Asincrono**: N/A (i pannelli caricano i dati asincroni se attivati).
+- **Rete Assente**: N/A.
+- **Retry**: N/A.
+- **Responsive Behavior**: Scorrimento orizzontale della lista dei trigger su schermi stretti, con touch target 44px.
+- **Accessibilità (A11y)**: Navigazione a tastiera automatica/manuale tramite tasti freccia destra/sinistra fornita da Base UI. Attributi `role="tab"`, `aria-selected` corretti.
+- **Reduced Motion**: Disattivazione di eventuali transizioni orizzontali di scorrimento tra i pannelli.
+- **Comportamento Senza Hover**: Stato attivo evidenziato visivamente da border-bottom o background solido.
+- **Analytics Contract**: Tracciamento selezione del Tab.
+- **Errori**: N/A.
+- **Esempi (Playground)**: `packages/ui/src/components/tabs.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/tabs.test.tsx` (verifica navigazione tastiera e visualizzazione del pannello corrispondente al trigger attivo).
 
 ### 11. Toast
-- **Scopo**: Feedback non bloccante in overlay.
-- **Anatomia**: Provider, Viewport, Toast (Title, Description, Action, Close).
-- **API e Proprietà**: Radix Toast API (hook `useToast`).
-- **Varianti**: Default, Destructive, Success.
-- **Stati**: Entrata, Uscita, Hover persist, Chiuso.
-- **Stato Asincrono**: Toast che indica un caricamento (promise resolution).
-- **Rete Assente**: Messaggio offline.
-- **Retry**: Bottone `Action` "Riprova" configurabile.
-- **Responsive Behavior**: Bottom/Top center stacking su mobile, in angolo su desktop.
-- **Accessibilità (A11y)**: `aria-live="polite"` o `assertive`. Focus non rubato.
-- **Reduced Motion**: Nessuna transizione slide-in/out elastica.
-- **Comportamento Senza Hover**: Swipe to dismiss o close button visibile sempre (niente opacity-0 on blur).
-- **Analytics Contract**: TBD.
-- **Errori**: Toast rosso di errore.
-- **Esempi**: Esempio interattivo di comparsa.
-- **Test**: Auto-dismiss timing.
+- **Scopo**: Notifiche asincrone e non bloccanti (successo, avviso, errore).
+- **Anatomia**: Integrazione con `sonner` (`Toaster` component ed `toast()` API).
+- **API e Proprietà**: Metodi `toast.success()`, `toast.error()`, `toast.warning()`, `toast.info()`.
+- **Varianti**: Success, Error, Warning, Info.
+- **Stati**: Entrata, visualizzazione, hovering (pausa del timer), uscita.
+- **Stato Asincrono**: Supporto integrato a toast con promise (loading -> success/error).
+- **Rete Assente**: Notifica immediata di disconnessione o mancato invio dati.
+- **Retry**: Possibilità di includere pulsanti d'azione (es. "Riprova") dentro il corpo del toast.
+- **Responsive Behavior**: Pila di notifiche in basso al centro su mobile, nell'angolo in basso/alto a destra su desktop.
+- **Accessibilità (A11y)**: Uso di `aria-live="polite"` o `assertive` tramite Sonner. Supporto alla chiusura tramite swipe o tasto X. Non ruba il focus all'utente.
+- **Reduced Motion**: Animazioni di entrata/uscita eliminate o istantanee.
+- **Comportamento Senza Hover**: Pulsante X di chiusura visibile stabilmente per touch.
+- **Analytics Contract**: Tracciamento comparsa notifica ed eventuali click sulle azioni.
+- **Errori**: Variante d'errore cromaticamente distinta (rosso semantico).
+- **Esempi (Playground)**: `packages/ui/src/components/toast.tsx` (esportato in `@atlas/ui`).
+- **Test**: `packages/ui/tests/toast.test.tsx` (verifica comparsa, persistenza su hover, e auto-dismiss).
