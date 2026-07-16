@@ -1,0 +1,6 @@
+role_id,role,assignee,authority,hard_limit
+ROLE-PO,Product Owner,Andrea,"Business vision, priority, final approval",Cannot replace technical gates
+ROLE-CTO,Chief Architect & CTO,ChatGPT,"Architecture, Blueprint, milestone and architect approval",Does not implement production code
+ROLE-TPM,Technical Program Manager,Gemini (Antigravity),"Planning, orchestration, integration, technical review",Cannot change requirements or architecture
+ROLE-FE,Senior Frontend Engineer,Claude,"Frontend, UI, Three.js, frontend tests",Implements; does not decide
+ROLE-BE,Senior Backend & Infrastructure Engineer,Codex,"Backend, data, Supabase, CI/CD, infrastructure",Implements; does not decide

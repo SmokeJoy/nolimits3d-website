@@ -1,109 +1,39 @@
 {
-  "name": "nolimits3d-website",
+  "name": "nolimits3d-platform",
+  "version": "0.0.0",
   "private": true,
-  "version": "1.0.0",
+  "description": "NoLimits3D Website Platform monorepo",
   "type": "module",
-  "description": "Sito web professionale per NoLimits3D - Servizio di stampa 3D",
-  "keywords": [
-    "stampa-3d",
-    "prototipi",
-    "react",
-    "typescript",
-    "vite"
-  ],
-  "author": "NoLimits3D",
-  "license": "MIT",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js",
-    "lint": "eslint . --fix",
-    "lint:check": "eslint .",
-    "preview": "vite preview",
-    "type-check": "tsc --noEmit",
-    "optimize-images": "node scripts/optimize-images.cjs",
-    "optimize-images-old": "imagemin public/images/*.{jpg,png,gif} --out-dir=public/images --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
-    "audit": "npm audit --audit-level=moderate",
-    "test": "echo 'No tests specified' && exit 0",
-    "lhci:collect": "lhci collect",
-    "lhci:upload": "lhci upload",
-    "lhci:assert": "lhci assert",
-    "lhci:autorun": "lhci autorun",
-    "analyze:vitals": "npm run build && npm run lhci:autorun",
-    "perf:check": "npm run build && lhci autorun --config=lighthouserc.js"
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": "24.18.0",
+    "pnpm": "9.15.0"
   },
-  "dependencies": {
-    "@heroicons/react": "^2.2.0",
-    "@react-three/drei": "^9.88.6",
-    "@react-three/fiber": "^8.16.2",
-    "@types/react-router-dom": "^5.3.3",
-    "html2pdf.js": "^0.10.3",
-    "lucide-react": "^0.344.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet-async": "^2.0.5",
-    "react-intersection-observer": "^9.5.3",
-    "react-markdown": "^10.1.0",
-    "react-medium-image-zoom": "^5.1.10",
-    "react-reconciler": "^0.29.2",
-    "react-router-dom": "^7.6.2",
-    "serp": "^2.2.2",
-    "three": "^0.164.0",
-    "uuid": "^11.1.0"
+  "scripts": {
+    "build": "pnpm --recursive --if-present build",
+    "dependency:audit": "node scripts/guards/dependency-audit.mjs",
+    "format:check": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*",
+    "guard:migrations": "node scripts/guards/migration-guard.mjs",
+    "guard:scope": "node scripts/guards/scope-guard.mjs",
+    "guard:source-bindings": "node scripts/guards/source-binding-guard.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "secret:scan": "node scripts/guards/secret-scan.mjs",
+    "supabase:config:check": "supabase services --output json",
+    "supabase:start": "supabase start",
+    "supabase:status": "supabase status --output json",
+    "supabase:stop": "supabase stop",
+    "test": "node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/web --if-present test",
+    "toolchain:check": "node scripts/guards/toolchain-guard.mjs",
+    "typecheck": "pnpm --recursive --if-present typecheck"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.1",
-    "@lhci/cli": "^0.15.1",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.18",
-    "critical": "^7.2.1",
-    "eslint": "^9.9.1",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.11",
-    "globals": "^15.9.0",
-    "postcss": "^8.4.35",
-    "postcss-purgecss": "^5.0.0",
-    "queue-microtask": "^1.2.3",
-    "rollup": "^4.44.2",
-    "rollup-plugin-critical": "^1.0.15",
-    "source-map-explorer": "^2.5.3",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2",
-    "vite-imagetools": "^7.1.0",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^0.19.2",
-    "workbox-precaching": "^7.0.0",
-    "workbox-routing": "^7.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.44.2",
-    "@rollup/rollup-win32-x64-msvc": "^4.44.2"
-  },
-  "resolutions": {
-    "rollup": "npm:@rollup/wasm-node",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "three": "^0.164.0"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.1.1",
+    "eslint": "10.7.0",
+    "globals": "17.7.0",
+    "prettier": "3.9.5",
+    "supabase": "2.109.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.64.0"
   }
 }

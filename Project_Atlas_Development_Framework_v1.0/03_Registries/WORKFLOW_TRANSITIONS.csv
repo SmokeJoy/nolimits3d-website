@@ -1,0 +1,20 @@
+entity,from_status,to_status
+Milestone,Proposed,Architect Defined
+Milestone,Architect Defined,Business Approved
+Milestone,Business Approved,Planned
+Milestone,Planned,In Progress
+Milestone,In Progress,Integration
+Milestone,Integration,Technical Review
+Milestone,Technical Review,Architect Review
+Milestone,Architect Review,Business Approval
+Milestone,Business Approval,Release Ready
+Milestone,Release Ready,Released
+Milestone,Released,Closed
+Task,Backlog,Refinement
+Task,Refinement,Ready
+Task,Ready,Assigned
+Task,Assigned,In Progress
+Task,In Progress,Review
+Task,Review,Integration
+Task,Integration,Verified
+Task,Verified,Done
