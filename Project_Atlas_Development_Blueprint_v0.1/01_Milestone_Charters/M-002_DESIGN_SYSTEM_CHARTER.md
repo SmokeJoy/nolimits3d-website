@@ -1,10 +1,10 @@
-# Milestone Charter: M-002 — Design System
+# Milestone Charter: M-002 — Design System & UI Foundation
 
 ## Metadata
-* **Status**: DRAFT
-* **Phase**: M-002 Charter Preparation
+* **Status**: APPROVED
+* **Phase**: M-002 Sprint Planning
 * **Package**: `@atlas/ui`
-* **Gate**: Pending `PROCEED — M-002 DESIGN SYSTEM`
+* **Gate**: Charter approved by `PA-AR-M002-004`; implementation requires `PROCEED — M-002 DESIGN SYSTEM`
 
 ## Approvazioni / Ownership
 * **Product Owner**: Andrea
@@ -60,7 +60,7 @@ Nessuna homepage, routing, catalogo di dominio, Jarvis, PrintFlow operativo, red
 ## Decisioni e policy applicabili
 - **Frontend Architecture** — Tailwind CSS + shadcn/ui
 - **Dependency Adoption Policy** — preview tooling (La Dependency Adoption Policy richiede valutazione di necessità, performance, accessibilità, compatibilità col Design System e approvazione prima dell'adozione).
-- **Anteprima Componenti**: 
+- **Anteprima Componenti**:
   - **Default preliminare**: Vite Playground, perché non introduce nuove dipendenze.
   - **Alternative under evaluation**: `Ladle` (da valutare per peso dipendenze, manutenzione, compatibilità Vite, accessibilità, visual regression, build statica, sicurezza supply-chain, costo CI, supporto ai token e ai temi).
   - **Decision required**: Architect approval dopo valutazione tecnica.
@@ -78,7 +78,7 @@ Nessuna homepage, routing, catalogo di dominio, Jarvis, PrintFlow operativo, red
 - Tema dark primario e light di supporto correttamente mappati.
 - Primitive component implementate usando shadcn/ui.
 - Raggiungimento WCAG 2.2 AA, touch target corretti, zoom 200%, focus accessibile e supporto reduced motion.
-- Nessuna warning o dipendenza bloccante. 
+- Nessuna warning o dipendenza bloccante.
 - API tipizzata, stati di errore e varianti supportate per ogni componente.
 
 ## Quality Gates
@@ -119,5 +119,5 @@ Prima dell'implementazione sono obbligatori:
 ## Data e Approvazioni
 * **Data**: 2026-07-16
 * **Product Priority — Andrea**: APPROVED
-* **Architecture — ChatGPT**: PENDING FINAL REVIEW
+* **Architecture — ChatGPT**: APPROVED — `PA-AR-M002-004`
 * **Milestone Start**: NOT AUTHORIZED
