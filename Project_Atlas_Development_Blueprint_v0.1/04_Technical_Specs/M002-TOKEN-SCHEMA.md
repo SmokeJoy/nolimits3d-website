@@ -1,8 +1,8 @@
 # Token Schema: Design System M-002
 
 ## Status
-* **Status**: APPROVED (Schema)
-* **Gate**: Requires Architect Approval for Token Values (Tutti i valori correnti sono `CANDIDATE`)
+* **Status**: PENDING ARCHITECT APPROVAL
+* **Gate**: Requires Architect Approval (Tutti i valori correnti sono `CANDIDATE`)
 
 ## Overview & Categories
 Questo schema governa la design foundation di `@atlas/ui`. Ogni valore individuale possiede lo status `CANDIDATE` finché contrasto, font e comportamento non sono realmente verificati con evidence numerica e visuale.
@@ -17,11 +17,17 @@ Valori assoluti. Non vanno usati direttamente nei componenti, ma mappati nel liv
 - `palette.dark`: `#101820` (Status: `CANDIDATE`)
 - `palette.green`: `#25D366` (Status: `CANDIDATE`)
 - `palette.white`: `#FFFFFF` (Status: `CANDIDATE`)
-- `palette.gray.50` ... `palette.gray.950`: TBD (Status: `CANDIDATE`)
+- `palette.gray.50`: TBD (Status: `CANDIDATE`)
+- `palette.gray.100`: TBD (Status: `CANDIDATE`)
+- `palette.gray.150`: TBD (Status: `CANDIDATE`)
+- `palette.gray.200` ... `palette.gray.800`: TBD (Status: `CANDIDATE`)
+- `palette.gray.850`: TBD (Status: `CANDIDATE`)
+- `palette.gray.900`: TBD (Status: `CANDIDATE`)
+- `palette.gray.950`: TBD (Status: `CANDIDATE`)
 
 ### Typography
-- `fontFamily.ui`: `system-ui, sans-serif` (Status: `CANDIDATE` - Fallback stack)
-- `fontFamily.display`: `Poppins, sans-serif` (Status: `CANDIDATE` - Licenza Google Fonts OFL)
+- `fontFamily.ui`: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif` (Status: `CANDIDATE`)
+- `fontFamily.display`: `DEFERRED / CANDIDATE` (Status: `CANDIDATE` - Non autorizzato in M-002)
 - `scale.h1`: `2.25rem` (Status: `CANDIDATE`)
 - `scale.h2`: `1.875rem` (Status: `CANDIDATE`)
 - `scale.h3`: `1.5rem` (Status: `CANDIDATE`)
@@ -62,15 +68,16 @@ Alias che dipendono dal contesto (Dark / Light Theme).
 | `border.hover` | Bordi per stati hover interattivi | `palette.gray.700` | `palette.gray.300` | `CANDIDATE` |
 | `accent.primary` | Colore accento primario (es. brand) | `palette.green` | `palette.green` | `CANDIDATE` |
 | `accent.primary.hover` | Hover del colore accento | `palette.green` (modificato) | `palette.green` (modificato) | `CANDIDATE` |
+| `accent.primary.foreground` | Foreground calcolato su accent.primary | `palette.dark` | `palette.white` | `CANDIDATE` |
 | `focus.ring` | Anello di focus accessibile | `palette.green` | `palette.green` | `CANDIDATE` |
 
 ### Status Colors
-- `status.success`: `palette.green` (o verde semantico) (Status: `CANDIDATE`)
+- `status.success`: `palette.green` (Status: `CANDIDATE`)
 - `status.warning`: TBD (giallo semantico) (Status: `CANDIDATE`)
 - `status.error`: TBD (rosso semantico) (Status: `CANDIDATE`)
 - `status.info`: TBD (blu semantico) (Status: `CANDIDATE`)
 
-### Contrast Matrix Target (Rapporti Numerici Target WCAG 2.2 AA)
+### Contrast Acceptance Matrix (Soglie di Accettazione WCAG 2.2 AA)
 | Coppia (Foreground / Background) | Stato | Ratio Target | WCAG 2.2 AA (Target) | Status |
 |---|---|---|---|---|
 | `text.primary` / `bg.canvas` | Default | `>= 4.5:1` | Pass | `CANDIDATE` |
@@ -100,10 +107,10 @@ Alias che dipendono dal contesto (Dark / Light Theme).
 ---
 
 ## 3. Component Tokens
-Livello più specifico: sovrascritture di componenti (es. `button.bg` = `accent.primary`). Valori semantici, nessun HEX.
+Livello più specifico: sovrascritture di componenti. Valori semantici, nessun HEX.
 
 - `button.bg.primary`: `accent.primary` (Status: `CANDIDATE`)
-- `button.text.primary`: `bg.canvas` (Status: `CANDIDATE` - Foreground calcolato su accent.primary)
+- `button.text.primary`: `accent.primary.foreground` (Status: `CANDIDATE`)
 - `button.bg.secondary`: `bg.surface` (Status: `CANDIDATE`)
 - `button.border.secondary`: `border.default` (Status: `CANDIDATE`)
 - `button.text.secondary`: `text.primary` (Status: `CANDIDATE`)
