@@ -12,13 +12,13 @@ Authoritative hierarchy:
 
 - **Project Status:** Active
 - **Current Phase:** M-002 Sprint Planning
-- **Current Milestone:** M-002 Design System & UI Foundation — CHARTER APPROVED / NOT STARTED
+- **Current Milestone:** M-002 Design System & UI Foundation — APPROVED / PLANNING
 - **Last Completed Milestone:** M-001 - Repository Foundation
 - **M-001 Status:** CLOSED
 - **Latest Architect Review:** `PA-AR-M002-004`
-- **Architect Verdict:** `APPROVED - M-002 CHARTER ACCEPTED - SPRINT PLANNING AUTHORIZED - IMPLEMENTATION NOT AUTHORIZED`
-- **Current Wave:** Gemini — M-002 Sprint Plan Preparation
-- **Next Gate:** Sprint Plan + Dependency Adoption Decision + Milestone Start Checklist + Architect implementation gate
+- **Architect Verdict:** `APPROVED — CHARTER ACCETTATO — SPRINT PLANNING AUTORIZZATO — IMPLEMENTAZIONE NON AUTORIZZATA`
+- **Current Wave:** Gemini — Sprint Planning
+- **Next Gate:** PROCEED — M-002 DESIGN SYSTEM
 - **Last Update:** 2026-07-16
 
 ## Non-negotiable product boundaries
