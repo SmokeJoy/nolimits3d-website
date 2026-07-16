@@ -26,6 +26,7 @@ Il charter è strettamente vincolato ai seguenti documenti della **Documentation
 * `03_Design_Tokens.md` / `DOC-DES-007` (Tassonomia completa: colore, spacing, dimensioni, radius, shadow, typography, breakpoint, motion, z-index, senza valori magici)
 * `04_Component_Library.md` / `DOC-DES-008` (API tipizzata, varianti, stati, accessibilità, no testo hardcoded)
 * Brand Book (riferimenti iniziali `#101820`, `#25D366`, `Poppins` da validare via contrast audit/licenza)
+* `11_Accessibility_Specification.md` / `DOC-UX-011` (Prescrive WCAG 2.2 AA, contrasto, zoom 200–400%, keyboard testing, axe/pa11y, VoiceOver, NVDA e reduced motion)
 
 ## Blueprint Slice (Scope Vincolante)
 Lo scope di M-002 è rigidamente limitato agli ID ufficiali:
@@ -54,10 +55,14 @@ Nessuna homepage, routing, catalogo di dominio, Jarvis, PrintFlow operativo, red
 * StatusIndicator
 
 ## ADR applicabili
-- **ADR-001**: Adozione Tailwind CSS + shadcn/ui (prescritto da Frontend Architecture). CSS vanilla ammesso solo per custom properties semantiche e base styles.
-- **ADR-002**: Anteprima Componenti. 
+- **ADR-0018** — React/Vite Stack with Next.js Review Gate
+
+## Decisioni e policy applicabili
+- **Frontend Architecture** — Tailwind CSS + shadcn/ui
+- **Dependency Adoption Policy** — preview tooling (La Dependency Adoption Policy richiede valutazione di necessità, performance, accessibilità, compatibilità col Design System e approvazione prima dell'adozione).
+- **Anteprima Componenti**: 
   - **Default preliminare**: Vite Playground, perché non introduce nuove dipendenze.
-  - **Alternative under evaluation**: `Ladle` (da valutare per peso dipendenze, manutenzione, build statica, visual regression e accessibilità).
+  - **Alternative under evaluation**: `Ladle` (da valutare per peso dipendenze, manutenzione, compatibilità Vite, accessibilità, visual regression, build statica, sicurezza supply-chain, costo CI, supporto ai token e ai temi).
   - **Decision required**: Architect approval dopo valutazione tecnica.
 
 ## Dipendenze
@@ -77,11 +82,42 @@ Nessuna homepage, routing, catalogo di dominio, Jarvis, PrintFlow operativo, red
 - API tipizzata, stati di errore e varianti supportate per ogni componente.
 
 ## Quality Gates
-- CI Pipeline verde su `@atlas/ui` (Lint, Typecheck, Test).
-- Approvazione tecnica Architect sul rispetto della Documentation Bible.
+- format check
+- lint
+- typecheck
+- test
+- build
+- test di accessibilità automatizzati
+- test tastiera manuali
+- contrast audit
+- reduced-motion verification
+- token/no-magic-value guard
+- dependency audit
+- evidenza visuale delle varianti
+
+## Policy /design-sync
+Il comando `/design-sync`:
+- opera esclusivamente su `@atlas/ui`;
+- non usa il sito legacy come fonte autorevole;
+- non viene eseguito prima dell'approvazione del token schema;
+- non viene eseguito prima dell'approvazione della primitive inventory;
+- richiede il gate operativo esplicito dell'Architect.
 
 ## Demo attesa
 Pagina o interfaccia isolata (Vite Playground o Ladle se approvato) che mostra tutte le primitive funzionanti, con le rispettive varianti, senza contesto di business.
 
 ## Piano sprint
-(Da definire post-approvazione del Charter. Prevede tranche incrementali dai token alle primitive semplici e forme complesse).
+L'approvazione del Charter autorizza esclusivamente la preparazione del Piano Sprint.
+
+Prima dell'implementazione sono obbligatori:
+1. Sprint Plan;
+2. Task Packet per Claude e Codex;
+3. Dependency Adoption decision;
+4. Milestone Start Checklist completata;
+5. verdetto `PROCEED — M-002 DESIGN SYSTEM`.
+
+## Data e Approvazioni
+* **Data**: 2026-07-16
+* **Product Priority — Andrea**: APPROVED
+* **Architecture — ChatGPT**: PENDING FINAL REVIEW
+* **Milestone Start**: NOT AUTHORIZED
