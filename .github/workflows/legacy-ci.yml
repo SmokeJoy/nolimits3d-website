@@ -12,6 +12,9 @@ on:
       - 'apps/legacy-web/**'
       - '.github/workflows/legacy-ci.yml'
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
