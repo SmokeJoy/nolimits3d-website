@@ -16,11 +16,11 @@ Authoritative hierarchy:
 - **Last Completed Milestone:** M0 - Team Bootstrap & Alignment
 - **M-001 Sprint Plan:** `PA-M001-SPRINT-001 v1.0.0-rc3`
 - **M-001 Status:** IN PROGRESS
-- **Latest Architect Review:** `PA-AR-M001-013`
-- **Architect Verdict:** `CHANGES REQUIRED - M001-F ONLY - CODE FREEZE`
+- **Latest Architect Review:** `PA-AR-M001-018`
+- **Architect Verdict:** `EVIDENCE PACKAGE REJECTED - CLEAN REBUILD REQUIRED - NO MERGE`
 - **Current Wave:** Gemini M001-F (Integration Evidence Closure)
-- **Next Gate:** Final Architect Review for M-001 Closure
-- **Last Update:** 2026-07-15
+- **Next Gate:** Final Architect Review for M001 Closure
+- **Last Update:** 2026-07-16
 
 ## Non-negotiable product boundaries
 

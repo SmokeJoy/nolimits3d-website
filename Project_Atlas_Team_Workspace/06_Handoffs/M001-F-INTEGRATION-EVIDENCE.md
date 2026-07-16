@@ -24,7 +24,7 @@ Questo documento attesta l'esecuzione dei controlli previsti per la fase finale 
 | **Root Hygiene** | Esecuzione del comando `audit-root` con profilo `m001-execution` al netto delle dipendenze di build. | ✅ PASS |
 | **Source Binding** | Verificato il file `docs/source-bindings/project-sources.json`. | ✅ PASS |
 | **Route / Private Guard** | Analizzato il layout di `apps/web`. La route `command` risulta segregata. | ✅ PASS |
-| **CI / Matrice di Test** | Eseguito il comando di validazione globale `pnpm test`. | ✅ PASS (27/27) |
+| **CI / Matrice di Test** | Eseguito il comando di validazione globale `pnpm test`. Tutti i workflow CI remoti sono passati (Runs: `29490172009`, `29490171969`). | ✅ PASS (27/27) |
 | **Build Integrato** | Eseguito test build della toolchain e dell'app frontend (`vite build`). | ✅ PASS |
 
 ## Risks, Debt, Waivers and Blockers
@@ -35,4 +35,4 @@ Questo documento attesta l'esecuzione dei controlli previsti per la fase finale 
 - Verdetto del Chief Architect sulla chiusura ufficiale di M-001.
 
 ## Final Status
-- La matrice di validazione riporta ZERO ERRORI. Tutto il codice, l'infrastruttura e le dipendenze locali sono pronti e conformi a Code Freeze. Resto in HOLD in attesa del Chief Architect.
+- La matrice di validazione riporta ZERO ERRORI. Il codice e le dipendenze locali sono allineati a Code Freeze (Commit: `8370f13dbee8c4ce45a9acf49001b0d0ab27b7ae`, workflow GitHub hardenizzati con SHA immutabili). Resto in HOLD in attesa della chiusura definitiva di M-001.

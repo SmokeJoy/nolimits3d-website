@@ -1,9 +1,9 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-07-15T20:20:18.241900+00:00",
+  "generated_at": "2026-07-16T10:48:59.874267+00:00",
   "repo": "G:\\Claude\\NoLimits3D-website",
   "profile": "m001-execution",
-  "allow_current_zip": false,
+  "allow_current_zip": true,
   "entries": [
     {
       "path": ".editorconfig",
@@ -45,6 +45,12 @@
       "path": ".nvmrc",
       "type": "file",
       "allowed": true,
+      "reason": null
+    },
+    {
+      "path": ".prettierignore",
+      "type": "file",
+      "allowed": false,
       "reason": null
     },
     {
@@ -156,6 +162,8 @@
       "reason": null
     }
   ],
-  "violations": [],
-  "ok": true
+  "violations": [
+    ".prettierignore"
+  ],
+  "ok": false
 }

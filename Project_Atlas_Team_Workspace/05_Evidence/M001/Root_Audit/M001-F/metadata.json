@@ -4,7 +4,7 @@
   "package_name": "PROJECT_ATLAS_CURRENT_HANDOFF",
   "sender": "Gemini",
   "recipient": "Andrea",
-  "created_at": "2026-07-15T21:07:00.000Z",
+  "created_at": "2026-07-16T12:49:00.000Z",
   "milestone": "M-001",
   "sprint": "M001-S01",
   "task": "Integration Evidence and Handoff",
@@ -18,10 +18,14 @@
   ],
   "tests": ["apps/web/src/test"],
   "assumptions": ["Local frontend test execution via pnpm test sufficient"],
-  "deviations": ["Removed obsolete zip instead of quarantine", "node_modules temporarily removed"],
+  "deviations": [
+    "Removed obsolete zip instead of quarantine",
+    "node_modules temporarily removed",
+    ".prettierignore is present for legacy site exclusion (AND-21) causing root cleanliness validation failure in unmodified atlas_handoff.py"
+  ],
   "blockers": ["BLK-M001-003 OPEN", "BLK-BASE-001 OPEN"],
   "root_audit_profile": "m001-execution",
   "root_audit_reference": "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/root_audit.json",
-  "root_cleanliness_declared": true,
+  "root_cleanliness_declared": false,
   "canonical_report_reference": "Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md"
 }

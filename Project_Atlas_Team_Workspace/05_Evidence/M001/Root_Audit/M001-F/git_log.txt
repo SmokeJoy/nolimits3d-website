@@ -1,3 +1,29 @@
-﻿a7a930c feat(web): add M001-B web app shell with route boundaries
-5eea04b chore(platform): add Supabase and CI guardrails
-bdfc10e chore(repo): establish M-001 foundation
+commit 8370f13dbee8c4ce45a9acf49001b0d0ab27b7ae
+Author: Dev AI <dev.ai@example.com>
+Date:   Thu Jul 16 12:15:13 2026 +0200
+
+    fix(ci): restrict legacy workflow permissions
+
+commit c3da4dfed98c182922f8ffe22d8ebf31df8ca32b
+Author: Dev AI <dev.ai@example.com>
+Date:   Thu Jul 16 12:12:38 2026 +0200
+
+    fix(ci): pin SHA in legacy workflows
+
+commit 18fd20572fdbf14fd4a0435ff5b4404da8b22cdc
+Author: Dev AI <dev.ai@example.com>
+Date:   Thu Jul 16 11:27:15 2026 +0200
+
+    fix(ci): exclude legacy web from eslint and prettier
+
+commit 08791b93db6cc42053576138dd7668a584cb489a
+Author: Dev AI <dev.ai@example.com>
+Date:   Thu Jul 16 11:01:50 2026 +0200
+
+    chore(qa): M-001 foundation with non-destructive legacy migration
+
+commit bbc11fa8ce2fcf0e3636715332a01264d28e320b
+Author: Dev AI <dev.ai@example.com>
+Date:   Thu Jul 16 10:59:22 2026 +0200
+
+    fix(workspace): resolve shared packages before build
