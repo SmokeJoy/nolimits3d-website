@@ -27,7 +27,7 @@ describe('Shared workspace packages (M001-B / M001-C)', () => {
   });
 
   it('keeps the scaffolds empty of business exports (M001 scope guard)', () => {
-    for (const moduleNamespace of [ui, domain, apiContracts, config]) {
+    for (const moduleNamespace of [ui, domain, apiContracts, config] as Record<string, unknown>[]) {
       expect(Object.keys(moduleNamespace)).toHaveLength(0);
     }
   });

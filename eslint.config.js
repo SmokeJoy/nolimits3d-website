@@ -21,9 +21,6 @@ export default tseslint.config(
     languageOptions: {
       globals: globals.node,
     },
-    rules: {
-      'linebreak-style': 'off',
-    },
   },
   ...tseslint.configs.recommendedTypeChecked.map((config) => ({
     ...config,
@@ -40,9 +37,6 @@ export default tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
-    },
-    rules: {
-      'linebreak-style': 'off',
     },
   },
 );
