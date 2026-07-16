@@ -2,40 +2,40 @@
 
 ## Metadata
 * **Task ID**: `TSK-M002-CLAUDE-01`
-* **Roadmap IDs**: `E-0003`, `F-0007`, `S-0013`, `S-0014`, `T-0025-T-0028`, `ST-0013-ST-0014`
-* **Branch**: `m002/wave-b-tokens` (Wave B), `m002/wave-c-primitives` (Wave C)
+* **Roadmap IDs**: `S-0014`, `T-0027`, `T-0028`, `ST-0014`
+* **Branch**: `m002/wave-b-tokens`, `m002/wave-c1-primitives`, `m002/wave-c2-forms`
 * **Owner**: Claude
-* **Handover Recipient**: Gemini (per integrazione)
+* **Handover Recipient**: Codex (per Wave D)
 
 ## Rules & Scope
-* **Allowed Files**: `packages/ui/src/**`, `packages/ui/styles/**`, `packages/ui/package.json` (solo Wave C per deps), `pnpm-lock.yaml` (solo Wave C).
-* **Forbidden Files**: Qualsiasi file in `apps/legacy-web`, root configs, `scripts/guards`.
+* **Allowed Files**: `packages/ui/src/**`, `packages/ui/styles/**`.
+* **Forbidden Files**: `tailwind.config.js`, `packages/ui/package.json`, `pnpm-lock.yaml`, Qualsiasi file in `apps/legacy-web`, root configs, `scripts/guards`.
 * **Preconditions**:
   - `M002-TOKEN-SCHEMA.md` e `M002-PRIMITIVE-INVENTORY.md` formalmente in stato APPROVED.
-  - Codex ha completato Wave A (CI green).
-  - Le dipendenze per Componenti sono state esplicitamente autorizzate (es. Radix).
+  - La Dependency Adoption Decision M-002 è stata implementata e consolidata in Wave A.
+  - Codex ha completato Wave A (CI green, lockfile chiuso).
 
 ## Exact Deliverables
-1. `tailwind.config.js` e file CSS globale in `@atlas/ui` allineato al Token Schema.
-2. Componenti implementati (Button, Badge, Skeleton, StatusIndicator, Input, FormField, Select, Card, Dialog/Modal, Tabs, Toast).
-3. Test a11y/unit per ogni componente in `packages/ui/src/`.
+1. File CSS globale in `@atlas/ui/styles/` allineato al Token Schema usando sintassi CSS-first (Tailwind v4). Nessun file di configurazione JS.
+2. Componenti Wave C1 e C2 implementati seguendo pedissequamente i contratti di accessibilità, stato asincrono e design del Primitive Inventory.
+3. Esempi/Storie in `packages/ui/src/` visibili tramite Vite Playground.
 
 ## Exact Commands
-- `pnpm install <dependency> --filter @atlas/ui` (solo previe autorizzazioni)
-- `pnpm run test --filter @atlas/ui`
-- `pnpm run lint --filter @atlas/ui`
-- `pnpm run build --filter @atlas/ui`
+*(L'installazione di dipendenze è disabilitata per questo task)*
+- `pnpm --filter @atlas/ui test`
+- `pnpm --filter @atlas/ui lint`
+- `pnpm --filter @atlas/ui typecheck`
+- `pnpm --filter @atlas/ui build`
 
 ## Acceptance Criteria
-- Nessun *magic number* nei CSS/Tailwind (solo reference semantici).
-- Passaggio WCAG 2.2 AA.
-- Rispetto delle policy A11y (reduced-motion, focus, keyboard nav).
-- Nessuna alterazione al legacy.
+- Nessun *magic number* nei CSS (solo reference semantici, es. var(--bg-surface)).
+- Tutte le voci del contratto Primitive rispettate (inclusi errori, reduced-motion, focus, keyboard nav).
+- Nessuna alterazione al legacy o a file di competenza Codex.
 
 ## Evidence Paths
-- Snapshots/Test Report: `packages/ui/tests/reports/`
 - Component source: `packages/ui/src/components/`
+- Vite Playground rendering validato manualmente.
 
 ## Control & Operations
-- **Rollback**: `git reset --hard origin/main` sul proprio branch e `pnpm install` per clean state.
-- **Stop/Escalation Conditions**: Se si rende necessario modificare un file "forbidden" o si incontrano peer-dependencies conflicts (es. React 18 vs 19) insormontabili, fermarsi e chiamare l'Architect.
+- **Rollback**: In caso di fallimento della branch implementativa in remoto, avvertire l'Architect per orchestrare un `git revert` formale (la mutazione della history è vietata).
+- **Stop/Escalation Conditions**: Se è necessaria una dipendenza non censita o si incontrano peer-dependencies conflicts, fermarsi e chiamare l'Architect per una "dependency request". Non modificare package.json.

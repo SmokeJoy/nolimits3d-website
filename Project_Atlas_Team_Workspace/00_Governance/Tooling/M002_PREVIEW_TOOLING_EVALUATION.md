@@ -1,35 +1,22 @@
-# M002 Preview Tooling Evaluation
+# Tooling Evaluation: Component Preview & Visual Testing
 
-## Evaluated Options
-- **Vite Playground**: BASELINE APPROVED FOR PLANNING
-- **Ladle**: EVALUATION (Installation NOT AUTHORIZED)
-- **Playwright** (for Ladle): Installation NOT AUTHORIZED
+## Metadata
+* **Phase**: M-002 Design System
+* **Evaluated Tools**: Vite Playground (Baseline), Ladle (Candidate), Playwright (Candidate)
+* **Status**: Vite Playground (BASELINE), Ladle (EVALUATION - NOT AUTHORIZED), Playwright (EVALUATION - NOT AUTHORIZED)
 
-## Matrix di Valutazione: @ladle/react
+## Vite Playground (Baseline)
+Vite Playground è la soluzione a dipendenza zero autorizzata per M-002.
+- **Vantaggi**: Nessuna libreria aggiuntiva. Piena compatibilità con Vite `8.1.4` e React `19.2.7`.
+- **Svantaggi**: Non offre snapshot test automatici o isolamento catalogato out-of-the-box.
+- **Decisione M-002**: **APPROVED**. Sarà usato per la Wave C implementativa di `@atlas/ui`.
 
-| Criterio | Valore Rilevato |
-|---|---|
-| Versione Esatta | `5.1.1` |
-| Licenza | `MIT` |
-| Motori (Node) | `>=20.0.0` |
-| Peer Dependencies | `react >=18.0.0`, `react-dom >=18.0.0` |
-| Dipendenze Dirette | 32 (incluse `koa`, `msw`, `vite`, `@babel/core`, `@mdx-js/react`, `axe-core`) |
-| Unpacked Size | `1.28 MB` |
-| Build Tool | `vite ^6.0.5` |
-| Manutenzione/Stato | Attivo, integrato con Vite 6 |
-| Alternative senza deps | Vite Playground (Custom routing, nessun pacchetto aggiuntivo) |
-| Rollback | `pnpm remove @ladle/react`, rimozione folder `.ladle`, rimozione script `ladle` |
-| Impatto Lockfile | Aggiunta di ~32 dipendenze dirette e il loro sottoalbero. |
-| Costo CI | Da stimare, ma richiede un server Ladle attivo per i test Playwright o snapshot statici. |
+## Ladle (Candidate)
+Ladle richiede React e ReactDOM, e file `.ladle` con configurazione dedicata. È stato identificato come potenziale libreria per la preview, ma:
+- Il repository attualmente usa React `19.2.7` e Vite `8.1.4`. La compatibilità effettiva con questo specifico stack deve essere dimostrata, non bastano le peer dependencies generiche.
+- **Decisione M-002**: **EVALUATION — NOT AUTHORIZED**.
 
-## Matrix di Valutazione: @playwright/test (Requisito per Visual Snapshots)
-
-| Criterio | Valore Rilevato |
-|---|---|
-| Versione Esatta | `1.61.1` |
-| Licenza | `Apache-2.0` |
-| Motori (Node) | `>=18` |
-| Dipendenze Dirette | 1 (`playwright`) |
-
-## Conclusione & Decisione
-Attualmente, la configurazione **Vite Playground** è l'unica base autorizzata per il planning. L'adozione di Ladle e Playwright rimane in fase di valutazione. Non essendo autorizzata alcuna installazione, il setup non impatterà il lockfile fino all'approvazione finale del Chief Architect.
+## Playwright (Candidate)
+Playwright è candidato per il visual regression testing (Snapshot).
+- La visual regression con Ladle richiede separatamente: Playwright, file di test, server Ladle attivo, gestione baseline, snapshot committati, e font stabiliti.
+- **Decisione M-002**: **EVALUATION — NOT AUTHORIZED**.
