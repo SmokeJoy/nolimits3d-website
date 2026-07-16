@@ -11,14 +11,14 @@ Authoritative hierarchy:
 ## Executive Status
 
 - **Project Status:** Active
-- **Current Phase:** M-002 Sprint Planning
-- **Current Milestone:** M-002 Design System & UI Foundation — APPROVED / PLANNING
+- **Current Phase:** M-002 Implementation Ready
+- **Current Milestone:** M-002 Design System & UI Foundation — START GATE APPROVED
 - **Last Completed Milestone:** M-001 - Repository Foundation
 - **M-001 Status:** CLOSED
-- **Latest Architect Review:** `PA-AR-M002-007`
-- **Architect Verdict:** `CHANGES REQUIRED — FINAL EXECUTION CONTRACT — NO PROCEED`
-- **Current Wave:** Gemini — Sprint Planning
-- **Next Gate:** PROCEED — M-002 DESIGN SYSTEM
+- **Latest Architect Review:** `PA-AR-M002-009`
+- **Architect Verdict:** `APPROVED WITH BINDING CLARIFICATIONS — START GATE AUTHORIZED AFTER PR #3 MERGE`
+- **Current Wave:** Wave A — Codex Foundation Setup (not started until PR #3 merge)
+- **Next Gate:** Wave A Architect Review and merge gate
 - **Last Update:** 2026-07-16
 
 ## Non-negotiable product boundaries
@@ -28,4 +28,4 @@ Authoritative hierarchy:
 
 ## Open blockers
 
-- `BLK-BASE-001` - production baseline binding; does not block M-002 planning or implementation.
+- `BLK-BASE-001` - production baseline binding; does not block M-002 implementation.
