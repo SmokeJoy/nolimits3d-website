@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "generated_at": "2026-07-16T10:48:59.874267+00:00",
+  "generated_at": "2026-07-16T15:48:55.536878+00:00",
   "repo": "G:\\Claude\\NoLimits3D-website",
   "profile": "m001-execution",
   "allow_current_zip": true,
@@ -50,7 +50,7 @@
     {
       "path": ".prettierignore",
       "type": "file",
-      "allowed": false,
+      "allowed": true,
       "reason": null
     },
     {
@@ -162,8 +162,6 @@
       "reason": null
     }
   ],
-  "violations": [
-    ".prettierignore"
-  ],
-  "ok": false
+  "violations": [],
+  "ok": true
 }

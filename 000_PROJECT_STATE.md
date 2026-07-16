@@ -11,15 +11,14 @@ Authoritative hierarchy:
 ## Executive Status
 
 - **Project Status:** Active
-- **Current Phase:** M-001 Code Implementation
-- **Current Milestone:** M-001 - Repository Foundation
-- **Last Completed Milestone:** M0 - Team Bootstrap & Alignment
-- **M-001 Sprint Plan:** `PA-M001-SPRINT-001 v1.0.0-rc3`
-- **M-001 Status:** IN PROGRESS
-- **Latest Architect Review:** `PA-AR-M001-018`
-- **Architect Verdict:** `EVIDENCE PACKAGE REJECTED - CLEAN REBUILD REQUIRED - NO MERGE`
-- **Current Wave:** Gemini M001-F (Integration Evidence Closure)
-- **Next Gate:** Final Architect Review for M001 Closure
+- **Current Phase:** M-002 Sprint Planning
+- **Current Milestone:** M-002 Design System & UI Foundation — CHARTER APPROVED / NOT STARTED
+- **Last Completed Milestone:** M-001 - Repository Foundation
+- **M-001 Status:** CLOSED
+- **Latest Architect Review:** `PA-AR-M002-004`
+- **Architect Verdict:** `APPROVED - M-002 CHARTER ACCEPTED - SPRINT PLANNING AUTHORIZED - IMPLEMENTATION NOT AUTHORIZED`
+- **Current Wave:** Gemini — M-002 Sprint Plan Preparation
+- **Next Gate:** Sprint Plan + Dependency Adoption Decision + Milestone Start Checklist + Architect implementation gate
 - **Last Update:** 2026-07-16
 
 ## Non-negotiable product boundaries
@@ -29,5 +28,4 @@ Authoritative hierarchy:
 
 ## Open blockers
 
-- `BLK-M001-003` - evidence closure, transferred to final gate M001-F;
-- `BLK-BASE-001` - production baseline binding; does not block M-001 implementation.
+- `BLK-BASE-001` - production baseline binding; does not block M-002 planning or implementation.

@@ -8,24 +8,40 @@
   "milestone": "M-001",
   "sprint": "M001-S01",
   "task": "Integration Evidence and Handoff",
-  "baseline_references": ["Project_Atlas_Development_Blueprint_v0.1:6956dfd2579f33efab48f072fec816104c523265b6ca5b88d3dfbc03eb4b09b9"],
-  "blueprint_references": ["M001_A", "M001_B", "M001_C", "M001_D", "M001_E", "M001_F"],
-  "required_evidence": ["Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md"],
+  "baseline_references": [
+    "Project_Atlas_Development_Blueprint_v0.1:6956dfd2579f33efab48f072fec816104c523265b6ca5b88d3dfbc03eb4b09b9"
+  ],
+  "blueprint_references": [
+    "M001_A",
+    "M001_B",
+    "M001_C",
+    "M001_D",
+    "M001_E",
+    "M001_F"
+  ],
+  "required_evidence": [
+    "Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md"
+  ],
   "evidence": [
     "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/test_matrix_results.json",
     "Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md",
     "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/root_audit.json"
   ],
-  "tests": ["apps/web/src/test"],
-  "assumptions": ["Local frontend test execution via pnpm test sufficient"],
-  "deviations": [
-    "Removed obsolete zip instead of quarantine",
-    "node_modules temporarily removed",
-    ".prettierignore is present for legacy site exclusion (AND-21) causing root cleanliness validation failure in unmodified atlas_handoff.py"
+  "tests": [
+    "apps/web/src/test"
   ],
-  "blockers": ["BLK-M001-003 OPEN", "BLK-BASE-001 OPEN"],
+  "assumptions": [
+    "Local frontend test execution via pnpm test sufficient"
+  ],
+  "deviations": [
+    "The M-001 full-snapshot handoff was accepted once through PA-AR-M001-019.",
+    ".prettierignore is an approved repository configuration required for legacy isolation."
+  ],
+  "blockers": [
+    "BLK-BASE-001 OPEN — production only"
+  ],
   "root_audit_profile": "m001-execution",
   "root_audit_reference": "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/root_audit.json",
-  "root_cleanliness_declared": false,
+  "root_cleanliness_declared": true,
   "canonical_report_reference": "Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md"
 }
