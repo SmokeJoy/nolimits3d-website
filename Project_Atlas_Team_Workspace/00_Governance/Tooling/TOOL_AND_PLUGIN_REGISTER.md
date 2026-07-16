@@ -26,3 +26,4 @@ Every 3 milestones, Gemini must verify:
 | TL-012 | Sentry | Observability | Post-beta integration | Gemini | PROPOSED | Più avanti |
 | TL-013 | PostHog | Analytics | Post-beta integration | Gemini | PROPOSED | Più avanti |
 | TL-014 | Figma | Design | Excluded. Design System is documented | N/A | REMOVED | REJECTED |
+| TL-015 | Ladle | Component Preview | Isolated UI catalog | Gemini/Claude | EVALUATION | PENDING |
