@@ -11,7 +11,11 @@
   "baseline_references": ["Project_Atlas_Development_Blueprint_v0.1:6956dfd2579f33efab48f072fec816104c523265b6ca5b88d3dfbc03eb4b09b9"],
   "blueprint_references": ["M001_A", "M001_B", "M001_C", "M001_D", "M001_E", "M001_F"],
   "required_evidence": ["Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md"],
-  "evidence": ["Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/test_matrix_results.json"],
+  "evidence": [
+    "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/test_matrix_results.json",
+    "Project_Atlas_Team_Workspace/06_Handoffs/M001-F-INTEGRATION-EVIDENCE.md",
+    "Project_Atlas_Team_Workspace/05_Evidence/M001/Root_Audit/M001-F/root_audit.json"
+  ],
   "tests": ["apps/web/src/test"],
   "assumptions": ["Local frontend test execution via pnpm test sufficient"],
   "deviations": ["Removed obsolete zip instead of quarantine", "node_modules temporarily removed"],

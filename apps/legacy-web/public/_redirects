@@ -1,0 +1,30 @@
+# Redirects for broken links
+/privacy-policy  /legal  301
+/terms-of-service  /legal  301
+/cookie-policy  /legal  301
+
+# SEO redirects for common variations
+/stampa3d  /  301
+/stampa-3d  /  301
+/prototipazione  /  301
+/3d-printing  /  301
+
+# Blog article redirects (old slugs)
+/blog/materiali  /blog/materiali-stampa-3d  301
+/blog/problemi  /blog/problemi-stampa-3d  301
+/blog/design  /blog/dfam-design-stampa-3d  301
+/blog/post-processing  /blog/post-processing-stampa-3d  301
+/blog/manutenzione  /blog/manutenzione-klipper-stampante-3d  301
+/blog/costi  /blog/quanto-costa-stampare-3d  301
+
+# Service page redirects
+/servizi  /  301
+/chi-siamo  /about  301
+/galleria  /gallery  301
+
+# Location-based redirects
+/cassino  /stampa-3d-cassino  301
+/latina  /stampa-3d-latina  301
+
+# Catch-all SPA fallback (must be last)
+/*  /index.html  200 
