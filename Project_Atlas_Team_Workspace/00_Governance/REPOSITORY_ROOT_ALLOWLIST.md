@@ -37,7 +37,7 @@ Adds the approved M-001 technical structure:
 - `packages/`;
 - `supabase/`;
 - `docs/`;
-- approved root configuration files named by the accepted Task Packets.
+- approved root configuration files named by the accepted Task Packets (including `.prettierignore`).
 
 The profile permits locations, not arbitrary content. Scope and task-packet controls remain binding.
 

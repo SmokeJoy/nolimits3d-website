@@ -1,15 +1,14 @@
 # Session Handoff
 *Operational continuity note. Non-authoritative.*
 
-## Current Handoff - 2026-07-15
+## Current Handoff - 2026-07-16
 
-- **Received:** Architect Verdict `PA-AR-M001-013`.
-- **Verdict:** `CHANGES REQUIRED - M001-F ONLY - CODE FREEZE`.
-- **Canonical plan:** `PA-M001-SPRINT-001 v1.0.0-rc3`.
-- **Canonical plan SHA-256:** `4d0bfd0bc747011dcb3bef3e3e87472c23ff12815b6f1952c0c87c7855ebf219`.
-- **Toolchain:** Node.js `24.18.0`; pnpm `9.15.0`.
-- **CODEOWNERS identity:** `@SmokeJoy`.
-- **Active work:** CODE FREEZE. Codex and Claude have completed M001-A-E.
-- **Next parallel handoff:** None (frozen).
-- **Final integration:** Gemini owns M001-F final evidence closure and ZIP handoff.
+- **Received:** Architect Verdict `PA-AR-M002-002`.
+- **Verdict:** `CHANGES REQUIRED - CHARTER CORRECTION AND STATE RECONCILIATION - NO PROCEED`.
+- **Phase:** M-002 Charter Preparation
+- **M-002 Status:** DRAFT / NOT STARTED
+- **Current Gate:** Architect approval of M-002 Charter
+- **Implementation:** NOT AUTHORIZED
+- **Active work:** Charter Correction by Gemini.
+- **Next parallel handoff:** None (Codex/Claude/UI on HOLD).
 - **Production binding:** `BLK-BASE-001` remains open; production is forbidden.

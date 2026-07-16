@@ -49,6 +49,7 @@ M001_EXECUTION_EXTRA = {
     "package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml", "tsconfig.json",
     "eslint.config.js", "eslint.config.mjs", "eslint.config.cjs",
     ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
+    ".prettierignore",
     "README.md", "LICENSE", "LICENSE.md", "LICENSE.txt",
 }
 ROOT_PROFILES = {
