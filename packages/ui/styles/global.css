@@ -88,6 +88,13 @@
   /* Glow Reference */
   --shadow-effect-glow-primary: 0 0 12px 2px var(--palette-green);
 
+  /* Status & hover reference palette (M002-TOKEN-SCHEMA, Status: CANDIDATE) */
+  --palette-red-600: #dc2626;
+  --palette-yellow-500: #eab308;
+  --palette-blue-600: #2563eb;
+  --palette-green-hover-dark: #1ebd59;
+  --palette-green-hover-light: #1ba851;
+
   /* ==========================================
      2. Semantic Tokens (Dark Mode Default)
      ========================================== */
@@ -103,16 +110,16 @@
   --border-hover: var(--palette-gray-700);
 
   --accent-primary: var(--palette-green);
-  --accent-primary-hover: #1ebd59; /* Green modified for dark mode hover */
+  --accent-primary-hover: var(--palette-green-hover-dark);
   --accent-primary-foreground: var(--palette-dark);
 
   --focus-ring: var(--palette-green);
 
-  /* Status Colors */
+  /* Status Colors — reference-mapped, no raw hex in the semantic layer */
   --status-success: var(--palette-green);
-  --status-warning: #eab308;
-  --status-error: #dc2626;
-  --status-info: #2563eb;
+  --status-warning: var(--palette-yellow-500);
+  --status-error: var(--palette-red-600);
+  --status-info: var(--palette-blue-600);
 
   /* ==========================================
      3. Component Tokens
@@ -153,7 +160,7 @@
   --border-hover: var(--palette-gray-300);
 
   --accent-primary: var(--palette-green);
-  --accent-primary-hover: #1ba851; /* Green modified for light mode hover */
+  --accent-primary-hover: var(--palette-green-hover-light);
   --accent-primary-foreground: var(--palette-dark); /* Keeps contrast >= 4.5:1 */
 
   --focus-ring: var(--palette-green);
@@ -271,8 +278,9 @@
   *,
   ::before,
   ::after {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-name: none !important;
     animation-iteration-count: 1 !important;
     background-attachment: scroll !important;
     scroll-behavior: auto !important;
@@ -288,8 +296,9 @@
 [data-motion='reduced'] *,
 [data-motion='reduced'] ::before,
 [data-motion='reduced'] ::after {
-  animation-delay: -1ms !important;
-  animation-duration: 1ms !important;
+  animation-delay: 0s !important;
+  animation-duration: 0s !important;
+  animation-name: none !important;
   animation-iteration-count: 1 !important;
   background-attachment: scroll !important;
   scroll-behavior: auto !important;
