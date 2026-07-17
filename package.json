@@ -22,7 +22,7 @@
     "supabase:start": "supabase start",
     "supabase:status": "supabase status --output json",
     "supabase:stop": "supabase stop",
-    "test": "node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/web --if-present test",
+    "test": "node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test",
     "toolchain:check": "node scripts/guards/toolchain-guard.mjs",
     "typecheck": "pnpm --recursive --if-present typecheck"
   },
