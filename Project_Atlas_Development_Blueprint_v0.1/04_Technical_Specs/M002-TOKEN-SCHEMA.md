@@ -2,8 +2,9 @@
 
 ## Status
 
-- **Status**: PENDING ARCHITECT APPROVAL
-- **Gate**: Requires Architect Approval (Tutti i valori correnti sono `CANDIDATE`)
+- **Status**: APPROVED FOR M-002 WAVE B
+- **Gate**: PASSED by `PA-AR-M002-014`
+- **Value maturity**: I valori elencati restano `CANDIDATE` autorizzati per le Wave successive fino alla review di chiusura M-002.
 
 ## Overview & Categories
 
