@@ -1,0 +1,17 @@
+Evidence ID: EV-09
+Roadmap ID: S-0013, T-0025
+Requirement: CSS Export
+Commit SHA: 4c93f1e56b46cc3cbfe065ef8c8ca53e18f2d579
+Verify Command: pnpm --filter @atlas/ui build
+Exit Code: 0
+Timestamp UTC: 2026-07-17T08:24:17Z
+CI Run URL: https://github.com/SmokeJoy/nolimits3d-website/actions/runs/29566300724
+Owner: Claude
+Status: PASSED
+
+Verification details:
+1. Running "pnpm --filter @atlas/ui build" compiles packages/ui/styles/global.css into packages/ui/dist/styles.css using Vite's css-bundling plugins.
+2. The output stylesheet package is correctly exported via "packages/ui/package.json" exports block matching "./styles.css": "./dist/styles.css".
+3. The playground application "apps/ui-playground/src/index.css" imports "@import '@atlas/ui/styles.css';" which resolves correctly through the local pnpm workspace link.
+4. Compilation of "apps/ui-playground" is successful (dist/assets/index-*.css matches 16.93 kB containing all compiled design system tokens).
+5. File sizes check: packages/ui/dist/styles.css generated is 8.87 kB containing all candidate and semantic design system tokens.

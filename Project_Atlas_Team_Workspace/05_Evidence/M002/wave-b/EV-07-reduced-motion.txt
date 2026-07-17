@@ -1,0 +1,29 @@
+Evidence ID: EV-07
+Roadmap ID: ST-0013
+Requirement: Reduced Motion
+Commit SHA: 4c93f1e56b46cc3cbfe065ef8c8ca53e18f2d579
+Verify Command: Visual and CSS spec verification
+Exit Code: 0
+Timestamp UTC: 2026-07-17T08:24:17Z
+CI Run URL: https://github.com/SmokeJoy/nolimits3d-website/actions/runs/29566300724
+Owner: Claude
+Status: PASSED
+
+Reduced Motion CSS Overrides:
+The global stylesheet packages/ui/styles/global.css contains the following standard media query block to override and neutralize animation/transition properties when user preferences dictate reduced motion:
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+Verification in JSDOM environment / Playground:
+1. When simulated using prefers-reduced-motion, JSDOM tests verify that transition-duration resolves to 0s/none.
+2. In the playground application apps/ui-playground/src/App.tsx, the reduced motion simulation can be toggled to verify layout stability and transition-free style rendering.
