@@ -1,1 +1,337 @@
 @import 'tailwindcss';
+
+:root {
+  /* ==========================================
+     1. Reference Tokens (Absolute Variables)
+     ========================================== */
+  --palette-dark: #101820;
+  --palette-green: #25d366;
+  --palette-white: #ffffff;
+
+  /* Slate-based premium gray scale */
+  --palette-gray-50: #f9fafb;
+  --palette-gray-100: #f3f4f6;
+  --palette-gray-150: #ebf0f5;
+  --palette-gray-200: #e5e7eb;
+  --palette-gray-300: #d1d5db;
+  --palette-gray-400: #9ca3af;
+  --palette-gray-500: #6b7280;
+  --palette-gray-600: #4b5563;
+  --palette-gray-700: #374151;
+  --palette-gray-800: #1f2937;
+  --palette-gray-850: #18202c;
+  --palette-gray-900: #111827;
+  --palette-gray-950: #030712;
+
+  /* Typography Reference */
+  --font-family-ui:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --font-size-scale-h1: 2.25rem;
+  --font-size-scale-h2: 1.875rem;
+  --font-size-scale-h3: 1.5rem;
+  --font-size-scale-h4: 1.25rem;
+  --font-size-scale-h5: 1.125rem;
+  --font-size-scale-h6: 1rem;
+  --font-size-scale-body: 1rem;
+  --font-size-scale-small: 0.875rem;
+  --font-size-scale-muted: 0.875rem;
+
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing Reference (4pt grid, DOC-DES-007 space.*) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Motion Reference */
+  --duration-instant: 100ms;
+  --duration-fast: 160ms;
+  --duration-base: 230ms;
+  --duration-slow: 380ms;
+
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Radius Reference */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Z-Index Reference */
+  --z-index-base: 0;
+  --z-index-dropdown: 50;
+  --z-index-sticky: 100;
+  --z-index-modal: 200;
+  --z-index-toast: 300;
+
+  /* Breakpoint Reference */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Shadow Reference */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* Glow Reference */
+  --shadow-effect-glow-primary: 0 0 12px 2px var(--palette-green);
+
+  /* Status & hover reference palette (M002-TOKEN-SCHEMA, Status: CANDIDATE) */
+  --palette-red-600: #dc2626;
+  --palette-yellow-500: #eab308;
+  --palette-blue-600: #2563eb;
+  --palette-green-hover-dark: #1ebd59;
+  --palette-green-hover-light: #1ba851;
+
+  /* ==========================================
+     2. Semantic Tokens (Dark Mode Default)
+     ========================================== */
+  --bg-canvas: var(--palette-dark);
+  --bg-surface: var(--palette-gray-900);
+  --bg-surface-hover: var(--palette-gray-850);
+  --bg-surface-active: var(--palette-gray-800);
+
+  --text-primary: var(--palette-white);
+  --text-secondary: var(--palette-gray-400);
+
+  --border-default: var(--palette-gray-800);
+  --border-hover: var(--palette-gray-700);
+
+  --accent-primary: var(--palette-green);
+  --accent-primary-hover: var(--palette-green-hover-dark);
+  --accent-primary-foreground: var(--palette-dark);
+
+  --focus-ring: var(--palette-green);
+
+  /* Status Colors — reference-mapped, no raw hex in the semantic layer */
+  --status-success: var(--palette-green);
+  --status-warning: var(--palette-yellow-500);
+  --status-error: var(--palette-red-600);
+  --status-info: var(--palette-blue-600);
+
+  /* ==========================================
+     3. Component Tokens
+     ========================================== */
+  --button-bg-primary: var(--accent-primary);
+  --button-text-primary: var(--accent-primary-foreground);
+  --button-bg-secondary: var(--bg-surface);
+  --button-border-secondary: var(--border-default);
+  --button-text-secondary: var(--text-primary);
+  --input-border-focus: var(--focus-ring);
+  --dialog-bg: var(--bg-canvas);
+  --card-bg: var(--bg-surface);
+  --toast-bg: var(--bg-surface);
+  --toast-text: var(--text-primary);
+  --tabs-trigger-bg-active: var(--bg-surface);
+  --tabs-trigger-text-active: var(--text-primary);
+  --skeleton-bg: var(--border-default);
+  --status-indicator-success-bg: var(--status-success);
+  --status-indicator-error-bg: var(--status-error);
+  --status-indicator-warning-bg: var(--status-warning);
+  --status-indicator-info-bg: var(--status-info);
+}
+
+/* ==========================================
+   Light Mode Overrides
+   ========================================== */
+.light,
+[data-theme='light'] {
+  --bg-canvas: var(--palette-white);
+  --bg-surface: var(--palette-gray-50);
+  --bg-surface-hover: var(--palette-gray-100);
+  --bg-surface-active: var(--palette-gray-150);
+
+  --text-primary: var(--palette-dark);
+  --text-secondary: var(--palette-gray-600);
+
+  --border-default: var(--palette-gray-200);
+  --border-hover: var(--palette-gray-300);
+
+  --accent-primary: var(--palette-green);
+  --accent-primary-hover: var(--palette-green-hover-light);
+  --accent-primary-foreground: var(--palette-dark); /* Keeps contrast >= 4.5:1 */
+
+  --focus-ring: var(--palette-green);
+}
+
+/* ==========================================
+   Tailwind CSS v4 Theme Directive mapping
+   ========================================== */
+@theme {
+  --font-sans: var(--font-family-ui);
+  --font-ui: var(--font-family-ui);
+
+  --color-palette-dark: var(--palette-dark);
+  --color-palette-green: var(--palette-green);
+  --color-palette-white: var(--palette-white);
+
+  --color-bg-canvas: var(--bg-canvas);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-hover: var(--bg-surface-hover);
+  --color-bg-surface-active: var(--bg-surface-active);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-hover: var(--accent-primary-hover);
+  --color-accent-primary-foreground: var(--accent-primary-foreground);
+
+  --color-focus-ring: var(--focus-ring);
+
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-status-info: var(--status-info);
+
+  /* Component mappings */
+  --color-button-bg-primary: var(--button-bg-primary);
+  --color-button-text-primary: var(--button-text-primary);
+  --color-button-bg-secondary: var(--button-bg-secondary);
+  --color-button-border-secondary: var(--button-border-secondary);
+  --color-button-text-secondary: var(--button-text-secondary);
+  --color-input-border-focus: var(--input-border-focus);
+  --color-dialog-bg: var(--dialog-bg);
+  --color-card-bg: var(--card-bg);
+  --color-toast-bg: var(--toast-bg);
+  --color-toast-text: var(--toast-text);
+  --color-tabs-trigger-bg-active: var(--tabs-trigger-bg-active);
+  --color-tabs-trigger-text-active: var(--tabs-trigger-text-active);
+  --color-skeleton-bg: var(--skeleton-bg);
+  --color-status-indicator-success-bg: var(--status-indicator-success-bg);
+  --color-status-indicator-error-bg: var(--status-indicator-error-bg);
+  --color-status-indicator-warning-bg: var(--status-indicator-warning-bg);
+  --color-status-indicator-info-bg: var(--status-indicator-info-bg);
+
+  /* Spacing: 4pt grid — Tailwind v4 dynamic spacing base */
+  --spacing: 0.25rem;
+
+  /* Typography scale — Tailwind v4 `--text-*` namespace generates text-h1 … text-muted */
+  --text-h1: var(--font-size-scale-h1);
+  --text-h2: var(--font-size-scale-h2);
+  --text-h3: var(--font-size-scale-h3);
+  --text-h4: var(--font-size-scale-h4);
+  --text-h5: var(--font-size-scale-h5);
+  --text-h6: var(--font-size-scale-h6);
+  --text-body: var(--font-size-scale-body);
+  --text-small: var(--font-size-scale-small);
+  --text-muted: var(--font-size-scale-muted);
+
+  /* Line heights — Tailwind v4 `--leading-*` namespace */
+  --leading-tight: var(--line-height-tight);
+  --leading-base: var(--line-height-base);
+  --leading-relaxed: var(--line-height-relaxed);
+
+  /* Transition durations: consumed via arbitrary-var syntax `duration-(--duration-base)`;
+     nessuna utility named generata di proposito (namespace v4 non standard). */
+
+  --ease-enter: var(--ease-enter);
+  --ease-exit: var(--ease-exit);
+  --ease-standard: var(--ease-standard);
+
+  /* Radii */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  /* Z-Index */
+  --z-index-base: var(--z-index-base);
+  --z-index-dropdown: var(--z-index-dropdown);
+  --z-index-sticky: var(--z-index-sticky);
+  --z-index-modal: var(--z-index-modal);
+  --z-index-toast: var(--z-index-toast);
+
+  /* Breakpoints — valori build-time: Tailwind li inserisce nelle media query,
+     quindi devono essere letterali (var() qui produrrebbe CSS invalido). */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-effect-glow-primary: var(--shadow-effect-glow-primary);
+}
+
+/* ==========================================
+   4. Reduced Motion Overrides
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-name: none !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Programmatic reduced motion (mirrors the media query above).
+   Attivabile via [data-motion="reduced"] sul nodo root: usato dal playground
+   per la simulazione e disponibile per override applicativi. */
+[data-motion='reduced'],
+[data-motion='reduced'] *,
+[data-motion='reduced'] ::before,
+[data-motion='reduced'] ::after {
+  animation-delay: 0s !important;
+  animation-duration: 0s !important;
+  animation-name: none !important;
+  animation-iteration-count: 1 !important;
+  background-attachment: scroll !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+/* ==========================================
+   5. Performance Quality Tiers
+   ========================================== */
+/* Quality Tier: Low */
+[data-quality-tier='low'] {
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+  --shadow-effect-glow-primary: none !important;
+
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* Quality Tier: Balanced */
+[data-quality-tier='balanced'] {
+  --shadow-effect-glow-primary: none !important;
+}
+
+/* Quality Tier: High (All features active) */
+[data-quality-tier='high'] {
+  /* standard variables remain active */
+}

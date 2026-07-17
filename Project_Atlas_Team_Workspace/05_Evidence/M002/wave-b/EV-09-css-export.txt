@@ -1,0 +1,30 @@
+Evidence ID: EV-09
+Roadmap ID: S-0013, T-0025
+Requirement: CSS Export
+Commit SHA: 9059b44065ece91dc36e70d814adfac2bbf7fa46
+Verify Command: pnpm --filter @atlas/ui build && pnpm --filter @atlas/ui-playground build
+Exit Code: 0
+Timestamp UTC: 2026-07-17T10:05:33Z
+CI Run URL: https://github.com/SmokeJoy/nolimits3d-website/actions/runs/29572205442
+Owner / Executor: Claude (TSK-M002-CLAUDE-B)
+Status: PASSED
+
+Real build steps executed locally (and mirrored by the CI pipeline):
+1. "pnpm --filter @atlas/ui build" compiles packages/ui/styles/global.css
+   into packages/ui/dist/styles.css via Vite (+ Tailwind v4 plugin) and emits
+   the TypeScript declarations. Output: dist/styles.css = 9389 bytes
+   (~9.4 kB) containing reference, semantic and component tokens plus the
+   reduced-motion and quality-tier blocks.
+2. The compiled stylesheet is exported through the package.json exports map
+   entry "./styles.css": "./dist/styles.css" (unchanged in this wave).
+3. The playground (apps/ui-playground/src/index.css) imports the token
+   SOURCE via relative path "../../../packages/ui/styles/global.css": the
+   playground Tailwind pass must see the @theme directive to generate the
+   token utilities. Note: the "./tokens.css" package export was removed by
+   revert b486861 (out of Wave B scope); package.json is outside this
+   task's perimeter, so the relative import is the governed interim
+   solution.
+4. "pnpm --filter @atlas/ui-playground build" succeeds; the compiled
+   playground stylesheet dist/assets/index-*.css = 20431 bytes (~20.4 kB)
+   and contains the generated token utilities (bg-bg-canvas, text-h1,
+   shadow-effect-glow-primary, ...).
