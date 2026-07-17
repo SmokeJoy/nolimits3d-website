@@ -1,2 +1,11 @@
-@import 'tailwindcss';
-@import '@atlas/ui/styles.css';
+/*
+ * Il playground consuma il SORGENTE dei token (@theme incluso), non il CSS
+ * compilato del package: il pass Tailwind locale deve vedere l'@theme per
+ * generare le utility (bg-bg-canvas, text-h1, …). `global.css` importa già
+ * `tailwindcss` al suo interno.
+ *
+ * NOTA per Codex (Wave successiva, package.json fuori dal perimetro Wave B):
+ * esporre un export dedicato es. "./tokens.css" -> "./styles/global.css"
+ * in @atlas/ui per sostituire questo path relativo.
+ */
+@import '../../../packages/ui/styles/global.css';

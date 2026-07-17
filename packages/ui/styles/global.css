@@ -41,6 +41,16 @@
   --line-height-base: 1.5;
   --line-height-relaxed: 1.75;
 
+  /* Spacing Reference (4pt grid, DOC-DES-007 space.*) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
   /* Motion Reference */
   --duration-instant: 100ms;
   --duration-fast: 160ms;
@@ -201,26 +211,27 @@
   --color-status-indicator-warning-bg: var(--status-indicator-warning-bg);
   --color-status-indicator-info-bg: var(--status-indicator-info-bg);
 
-  /* Sizes & Typography scale */
-  --font-size-h1: var(--font-size-scale-h1);
-  --font-size-h2: var(--font-size-scale-h2);
-  --font-size-h3: var(--font-size-scale-h3);
-  --font-size-h4: var(--font-size-scale-h4);
-  --font-size-h5: var(--font-size-scale-h5);
-  --font-size-h6: var(--font-size-scale-h6);
-  --font-size-body: var(--font-size-scale-body);
-  --font-size-small: var(--font-size-scale-small);
-  --font-size-muted: var(--font-size-scale-muted);
+  /* Spacing: 4pt grid — Tailwind v4 dynamic spacing base */
+  --spacing: 0.25rem;
 
-  --line-height-tight: var(--line-height-tight);
-  --line-height-base: var(--line-height-base);
-  --line-height-relaxed: var(--line-height-relaxed);
+  /* Typography scale — Tailwind v4 `--text-*` namespace generates text-h1 … text-muted */
+  --text-h1: var(--font-size-scale-h1);
+  --text-h2: var(--font-size-scale-h2);
+  --text-h3: var(--font-size-scale-h3);
+  --text-h4: var(--font-size-scale-h4);
+  --text-h5: var(--font-size-scale-h5);
+  --text-h6: var(--font-size-scale-h6);
+  --text-body: var(--font-size-scale-body);
+  --text-small: var(--font-size-scale-small);
+  --text-muted: var(--font-size-scale-muted);
 
-  /* Transitions & Animation Durations */
-  --animate-duration-instant: var(--duration-instant);
-  --animate-duration-fast: var(--duration-fast);
-  --animate-duration-base: var(--duration-base);
-  --animate-duration-slow: var(--duration-slow);
+  /* Line heights — Tailwind v4 `--leading-*` namespace */
+  --leading-tight: var(--line-height-tight);
+  --leading-base: var(--line-height-base);
+  --leading-relaxed: var(--line-height-relaxed);
+
+  /* Transition durations: consumed via arbitrary-var syntax `duration-(--duration-base)`;
+     nessuna utility named generata di proposito (namespace v4 non standard). */
 
   --ease-enter: var(--ease-enter);
   --ease-exit: var(--ease-exit);
@@ -239,11 +250,12 @@
   --z-index-modal: var(--z-index-modal);
   --z-index-toast: var(--z-index-toast);
 
-  /* Breakpoints */
-  --breakpoint-sm: var(--breakpoint-sm);
-  --breakpoint-md: var(--breakpoint-md);
-  --breakpoint-lg: var(--breakpoint-lg);
-  --breakpoint-xl: var(--breakpoint-xl);
+  /* Breakpoints — valori build-time: Tailwind li inserisce nelle media query,
+     quindi devono essere letterali (var() qui produrrebbe CSS invalido). */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 
   /* Shadows */
   --shadow-sm: var(--shadow-sm);
@@ -267,6 +279,22 @@
     transition-duration: 0s !important;
     transition-delay: 0s !important;
   }
+}
+
+/* Programmatic reduced motion (mirrors the media query above).
+   Attivabile via [data-motion="reduced"] sul nodo root: usato dal playground
+   per la simulazione e disponibile per override applicativi. */
+[data-motion='reduced'],
+[data-motion='reduced'] *,
+[data-motion='reduced'] ::before,
+[data-motion='reduced'] ::after {
+  animation-delay: -1ms !important;
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  background-attachment: scroll !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
 }
 
 /* ==========================================

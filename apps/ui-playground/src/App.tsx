@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -20,6 +20,16 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute('data-quality-tier', qualityTier);
   }, [qualityTier]);
+
+  // Sync simulated reduced motion to root html element ([data-motion="reduced"]
+  // mirrors the prefers-reduced-motion media block in the token layer)
+  useEffect(() => {
+    if (simulateReducedMotion) {
+      document.documentElement.setAttribute('data-motion', 'reduced');
+    } else {
+      document.documentElement.removeAttribute('data-motion');
+    }
+  }, [simulateReducedMotion]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -77,11 +87,7 @@ function App() {
   ];
 
   return (
-    <div
-      className={`min-h-screen bg-bg-canvas text-text-primary p-8 transition-colors duration-animate-duration-base ease-ease-standard ${
-        simulateReducedMotion ? 'motion-reduce' : ''
-      }`}
-    >
+    <div className="min-h-screen bg-bg-canvas text-text-primary p-8 transition-colors duration-(--duration-base) ease-standard">
       <header className="max-w-6xl mx-auto mb-12 flex flex-col md:flex-row md:items-center md:justify-between border-b border-border-default pb-6">
         <div>
           <div className="flex items-center gap-3">
@@ -99,7 +105,7 @@ function App() {
             <span className="text-small text-text-secondary font-semibold">Tema</span>
             <button
               onClick={toggleTheme}
-              className="px-4 py-2 rounded-md bg-accent-primary text-accent-primary-foreground font-bold hover:bg-accent-primary-hover transition-colors duration-animate-duration-fast cursor-pointer"
+              className="px-4 py-2 rounded-md bg-accent-primary text-accent-primary-foreground font-bold hover:bg-accent-primary-hover transition-colors duration-(--duration-fast) cursor-pointer"
             >
               {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
             </button>
@@ -122,9 +128,9 @@ function App() {
             <span className="text-small text-text-secondary font-semibold">Reduced Motion</span>
             <button
               onClick={() => setSimulateReducedMotion((p) => !p)}
-              className={`px-4 py-2 rounded-md font-bold transition-all duration-animate-duration-fast border ${
+              className={`px-4 py-2 rounded-md font-bold transition-all duration-(--duration-fast) border ${
                 simulateReducedMotion
-                  ? 'bg-status-error text-white border-status-error'
+                  ? 'bg-status-error text-palette-white border-status-error'
                   : 'bg-bg-canvas text-text-primary border-border-default hover:border-border-hover'
               }`}
             >
@@ -169,8 +175,12 @@ function App() {
             <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
               {grays.map((g) => (
                 <div key={g.name} className="flex flex-col items-center text-center">
-                  <div className="h-10 w-full rounded" style={{ backgroundColor: g.hex }} />
-                  <span className="text-[10px] font-semibold mt-1">{g.name}</span>
+                  <div
+                    className="h-10 w-full rounded"
+                    style={{ backgroundColor: `var(${g.varName})` }}
+                    title={g.hex}
+                  />
+                  <span className="text-small font-semibold mt-1">{g.name}</span>
                 </div>
               ))}
             </div>
@@ -290,7 +300,7 @@ function App() {
                   Glow Primario Attivo
                 </div>
                 {/* Micro animation test */}
-                <button className="w-full py-3 bg-accent-primary text-accent-primary-foreground font-bold rounded-md cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-animate-duration-base ease-ease-standard">
+                <button className="w-full py-3 bg-accent-primary text-accent-primary-foreground font-bold rounded-md cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-(--duration-base) ease-standard">
                   Hover / Active Transition
                 </button>
               </div>
