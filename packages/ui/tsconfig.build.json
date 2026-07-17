@@ -8,9 +8,5 @@
     "rootDir": "src",
     "sourceMap": true
   },
-  "exclude": [
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx",
-    "tests/**/*"
-  ]
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "tests/**/*"]
 }

@@ -145,12 +145,6 @@ importers:
       tailwind-merge:
         specifier: 3.6.0
         version: 3.6.0
-      tailwindcss:
-        specifier: 4.3.2
-        version: 4.3.2
-      tw-animate-css:
-        specifier: 1.4.0
-        version: 1.4.0
     devDependencies:
       '@tailwindcss/vite':
         specifier: 4.3.2
@@ -188,6 +182,12 @@ importers:
       shadcn:
         specifier: 4.13.0
         version: 4.13.0(typescript@6.0.3)
+      tailwindcss:
+        specifier: 4.3.2
+        version: 4.3.2
+      tw-animate-css:
+        specifier: 1.4.0
+        version: 1.4.0
       vite:
         specifier: 8.1.4
         version: 8.1.4(@types/node@26.1.1)(jiti@2.7.0)
