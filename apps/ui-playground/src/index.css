@@ -8,4 +8,4 @@
  * esporre un export dedicato es. "./tokens.css" -> "./styles/global.css"
  * in @atlas/ui per sostituire questo path relativo.
  */
-@import '../../../packages/ui/styles/global.css';
+@import '@atlas/ui/tokens.css';
