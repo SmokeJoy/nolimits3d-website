@@ -1,1 +1,300 @@
 @import 'tailwindcss';
+
+:root {
+  /* ==========================================
+     1. Reference Tokens (Absolute Variables)
+     ========================================== */
+  --palette-dark: #101820;
+  --palette-green: #25d366;
+  --palette-white: #ffffff;
+
+  /* Slate-based premium gray scale */
+  --palette-gray-50: #f9fafb;
+  --palette-gray-100: #f3f4f6;
+  --palette-gray-150: #ebf0f5;
+  --palette-gray-200: #e5e7eb;
+  --palette-gray-300: #d1d5db;
+  --palette-gray-400: #9ca3af;
+  --palette-gray-500: #6b7280;
+  --palette-gray-600: #4b5563;
+  --palette-gray-700: #374151;
+  --palette-gray-800: #1f2937;
+  --palette-gray-850: #18202c;
+  --palette-gray-900: #111827;
+  --palette-gray-950: #030712;
+
+  /* Typography Reference */
+  --font-family-ui:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  --font-size-scale-h1: 2.25rem;
+  --font-size-scale-h2: 1.875rem;
+  --font-size-scale-h3: 1.5rem;
+  --font-size-scale-h4: 1.25rem;
+  --font-size-scale-h5: 1.125rem;
+  --font-size-scale-h6: 1rem;
+  --font-size-scale-body: 1rem;
+  --font-size-scale-small: 0.875rem;
+  --font-size-scale-muted: 0.875rem;
+
+  --line-height-tight: 1.25;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Motion Reference */
+  --duration-instant: 100ms;
+  --duration-fast: 160ms;
+  --duration-base: 230ms;
+  --duration-slow: 380ms;
+
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Radius Reference */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Z-Index Reference */
+  --z-index-base: 0;
+  --z-index-dropdown: 50;
+  --z-index-sticky: 100;
+  --z-index-modal: 200;
+  --z-index-toast: 300;
+
+  /* Breakpoint Reference */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Shadow Reference */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* Glow Reference */
+  --shadow-effect-glow-primary: 0 0 12px 2px var(--palette-green);
+
+  /* ==========================================
+     2. Semantic Tokens (Dark Mode Default)
+     ========================================== */
+  --bg-canvas: var(--palette-dark);
+  --bg-surface: var(--palette-gray-900);
+  --bg-surface-hover: var(--palette-gray-850);
+  --bg-surface-active: var(--palette-gray-800);
+
+  --text-primary: var(--palette-white);
+  --text-secondary: var(--palette-gray-400);
+
+  --border-default: var(--palette-gray-800);
+  --border-hover: var(--palette-gray-700);
+
+  --accent-primary: var(--palette-green);
+  --accent-primary-hover: #1ebd59; /* Green modified for dark mode hover */
+  --accent-primary-foreground: var(--palette-dark);
+
+  --focus-ring: var(--palette-green);
+
+  /* Status Colors */
+  --status-success: var(--palette-green);
+  --status-warning: #eab308;
+  --status-error: #dc2626;
+  --status-info: #2563eb;
+
+  /* ==========================================
+     3. Component Tokens
+     ========================================== */
+  --button-bg-primary: var(--accent-primary);
+  --button-text-primary: var(--accent-primary-foreground);
+  --button-bg-secondary: var(--bg-surface);
+  --button-border-secondary: var(--border-default);
+  --button-text-secondary: var(--text-primary);
+  --input-border-focus: var(--focus-ring);
+  --dialog-bg: var(--bg-canvas);
+  --card-bg: var(--bg-surface);
+  --toast-bg: var(--bg-surface);
+  --toast-text: var(--text-primary);
+  --tabs-trigger-bg-active: var(--bg-surface);
+  --tabs-trigger-text-active: var(--text-primary);
+  --skeleton-bg: var(--border-default);
+  --status-indicator-success-bg: var(--status-success);
+  --status-indicator-error-bg: var(--status-error);
+  --status-indicator-warning-bg: var(--status-warning);
+  --status-indicator-info-bg: var(--status-info);
+}
+
+/* ==========================================
+   Light Mode Overrides
+   ========================================== */
+.light,
+[data-theme='light'] {
+  --bg-canvas: var(--palette-white);
+  --bg-surface: var(--palette-gray-50);
+  --bg-surface-hover: var(--palette-gray-100);
+  --bg-surface-active: var(--palette-gray-150);
+
+  --text-primary: var(--palette-dark);
+  --text-secondary: var(--palette-gray-600);
+
+  --border-default: var(--palette-gray-200);
+  --border-hover: var(--palette-gray-300);
+
+  --accent-primary: var(--palette-green);
+  --accent-primary-hover: #1ba851; /* Green modified for light mode hover */
+  --accent-primary-foreground: var(--palette-dark); /* Keeps contrast >= 4.5:1 */
+
+  --focus-ring: var(--palette-green);
+}
+
+/* ==========================================
+   Tailwind CSS v4 Theme Directive mapping
+   ========================================== */
+@theme {
+  --font-sans: var(--font-family-ui);
+  --font-ui: var(--font-family-ui);
+
+  --color-palette-dark: var(--palette-dark);
+  --color-palette-green: var(--palette-green);
+  --color-palette-white: var(--palette-white);
+
+  --color-bg-canvas: var(--bg-canvas);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-hover: var(--bg-surface-hover);
+  --color-bg-surface-active: var(--bg-surface-active);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-hover: var(--accent-primary-hover);
+  --color-accent-primary-foreground: var(--accent-primary-foreground);
+
+  --color-focus-ring: var(--focus-ring);
+
+  --color-status-success: var(--status-success);
+  --color-status-warning: var(--status-warning);
+  --color-status-error: var(--status-error);
+  --color-status-info: var(--status-info);
+
+  /* Component mappings */
+  --color-button-bg-primary: var(--button-bg-primary);
+  --color-button-text-primary: var(--button-text-primary);
+  --color-button-bg-secondary: var(--button-bg-secondary);
+  --color-button-border-secondary: var(--button-border-secondary);
+  --color-button-text-secondary: var(--button-text-secondary);
+  --color-input-border-focus: var(--input-border-focus);
+  --color-dialog-bg: var(--dialog-bg);
+  --color-card-bg: var(--card-bg);
+  --color-toast-bg: var(--toast-bg);
+  --color-toast-text: var(--toast-text);
+  --color-tabs-trigger-bg-active: var(--tabs-trigger-bg-active);
+  --color-tabs-trigger-text-active: var(--tabs-trigger-text-active);
+  --color-skeleton-bg: var(--skeleton-bg);
+  --color-status-indicator-success-bg: var(--status-indicator-success-bg);
+  --color-status-indicator-error-bg: var(--status-indicator-error-bg);
+  --color-status-indicator-warning-bg: var(--status-indicator-warning-bg);
+  --color-status-indicator-info-bg: var(--status-indicator-info-bg);
+
+  /* Sizes & Typography scale */
+  --font-size-h1: var(--font-size-scale-h1);
+  --font-size-h2: var(--font-size-scale-h2);
+  --font-size-h3: var(--font-size-scale-h3);
+  --font-size-h4: var(--font-size-scale-h4);
+  --font-size-h5: var(--font-size-scale-h5);
+  --font-size-h6: var(--font-size-scale-h6);
+  --font-size-body: var(--font-size-scale-body);
+  --font-size-small: var(--font-size-scale-small);
+  --font-size-muted: var(--font-size-scale-muted);
+
+  --line-height-tight: var(--line-height-tight);
+  --line-height-base: var(--line-height-base);
+  --line-height-relaxed: var(--line-height-relaxed);
+
+  /* Transitions & Animation Durations */
+  --animate-duration-instant: var(--duration-instant);
+  --animate-duration-fast: var(--duration-fast);
+  --animate-duration-base: var(--duration-base);
+  --animate-duration-slow: var(--duration-slow);
+
+  --ease-enter: var(--ease-enter);
+  --ease-exit: var(--ease-exit);
+  --ease-standard: var(--ease-standard);
+
+  /* Radii */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  /* Z-Index */
+  --z-index-base: var(--z-index-base);
+  --z-index-dropdown: var(--z-index-dropdown);
+  --z-index-sticky: var(--z-index-sticky);
+  --z-index-modal: var(--z-index-modal);
+  --z-index-toast: var(--z-index-toast);
+
+  /* Breakpoints */
+  --breakpoint-sm: var(--breakpoint-sm);
+  --breakpoint-md: var(--breakpoint-md);
+  --breakpoint-lg: var(--breakpoint-lg);
+  --breakpoint-xl: var(--breakpoint-xl);
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-effect-glow-primary: var(--shadow-effect-glow-primary);
+}
+
+/* ==========================================
+   4. Reduced Motion Overrides
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: scroll !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* ==========================================
+   5. Performance Quality Tiers
+   ========================================== */
+/* Quality Tier: Low */
+[data-quality-tier='low'] {
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+  --shadow-effect-glow-primary: none !important;
+
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* Quality Tier: Balanced */
+[data-quality-tier='balanced'] {
+  --shadow-effect-glow-primary: none !important;
+}
+
+/* Quality Tier: High (All features active) */
+[data-quality-tier='high'] {
+  /* standard variables remain active */
+}
