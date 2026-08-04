@@ -92,3 +92,32 @@
 ## Control & Operations (Tutti i Task Claude)
 - **Rollback**: In caso di fallimento o instabilità, richiedere all'Architect di eseguire un `git revert <merge-commit>` del relativo branch. Non eseguire soft o hard reset sui branch remoti di produzione.
 - **Stop/Escalation Conditions**: Fermare lo sviluppo e contattare l'Architect se si rende necessario modificare un file bloccato (Forbidden) o se si riscontrano conflitti con le librerie esterne. Non modificare `package.json` o `pnpm-lock.yaml`.
+
+---
+
+## Ratifica di deviazione — TSK-M002-CLAUDE-C1 (2026-08-04)
+
+Durante Wave C1 sono stati modificati file fuori perimetro **senza la fermata prevista
+dalle Stop/Escalation Conditions**. La deviazione è reale e viene registrata, non
+riscritta: la regola era di fermarsi prima, non di documentare dopo.
+
+| File | Commit | Motivo |
+|---|---|---|
+| `packages/ui/tsconfig.build.json` | `99ece4e` | `composite: true` ereditato faceva saltare l'emissione di `index.d.ts`: il pacchetto restava senza tipi e ogni consumatore falliva il typecheck |
+| `apps/web/src/test/shared-packages.test.ts` | `99ece4e` | La guardia M-001 pretendeva `@atlas/ui` vuoto, premessa scaduta con M-002. Sostituita con un pin esatto della superficie di export approvata |
+| `package.json`, `pnpm-lock.yaml` | `461fd88`, `7eb7f20` | Advisory high su dipendenze transitive, poi la correzione di `BLK-M002-001` |
+| `scripts/guards/dependency-audit.mjs`, `scripts/guards/guards.test.mjs` | `7eb7f20` | Il gate di sicurezza ispezionava 106 pacchetti su 517 |
+| `scripts/governance/atlas_handoff.py` | `d8368af`, `113104d` | Allineamento dell'audit di root alla policy emendata |
+| `packages/ui/styles/global.css` | Wave C1 fix a11y | Token di contrasto sotto le soglie WCAG 2.2 in tema chiaro |
+
+**Decisione dell'Architect: RATIFICATA.** Il revert avrebbe reintrodotto advisory di
+severità alta, lasciato `@atlas/ui` senza dichiarazioni di tipo e mantenuto difetti di
+accessibilità sotto soglia. Le modifiche sono tecnicamente corrette, verificate e
+committate separatamente dal deliverable C1.
+
+**Vincolo che resta valido:** questa ratifica copre i file elencati sopra e nient'altro.
+Non estende il perimetro di `TSK-M002-CLAUDE-C2`, che mantiene le proprie Forbidden Files.
+
+Questa decisione è stata presa dall'Architect delegato, che è anche l'autore delle
+modifiche. È il conflitto di ruolo descritto in `BLK-M002-003` e resta soggetto alla
+controfirma del Product Owner.

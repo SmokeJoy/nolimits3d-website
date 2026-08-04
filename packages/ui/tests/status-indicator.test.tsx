@@ -26,6 +26,17 @@ describe('StatusIndicator', () => {
     expect(dot).toHaveAttribute('aria-hidden', 'true');
   });
 
+  it('keeps both the size and the colour class on the label (cn regression pin)', () => {
+    render(<StatusIndicator status="info" label="In coda" />);
+
+    // tailwind-merge misreads text-<size> and text-<color> as one group and drops
+    // one of them. cn() must stay clsx-only; this is the pin the other primitives
+    // already have.
+    const label = screen.getByText('In coda');
+    expect(label).toHaveClass('text-small');
+    expect(label).toHaveClass('text-text-primary');
+  });
+
   it('never relies on color alone: the label is mandatory content', () => {
     render(<StatusIndicator status="error" label="Errore di stampa" />);
 

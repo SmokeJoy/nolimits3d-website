@@ -234,4 +234,64 @@ describe('WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs', () => {
     const ratio = contrastRatio(dark(fg), dark(bg));
     expect(ratio).toBeGreaterThanOrEqual(AA);
   });
+
+  /* WCAG 2.2 SC 1.4.11: non-text UI and graphical objects need 3:1, not 4.5:1.
+     These pairs were ungoverned, which is how the brand green shipped as a
+     1.90:1 focus ring on the light canvas. */
+  const NON_TEXT = 3;
+
+  it.each([
+    ['focus.ring / bg.canvas', '--focus-ring', '--bg-canvas'],
+    ['focus.ring / bg.surface', '--focus-ring', '--bg-surface'],
+    ['status.success / bg.surface', '--status-success', '--bg-surface'],
+    ['status.warning / bg.surface', '--status-warning', '--bg-surface'],
+    ['status.error / bg.surface', '--status-error', '--bg-surface'],
+    ['status.info / bg.surface', '--status-info', '--bg-surface'],
+  ])('DARK non-text %s', (_label, fg, bg) => {
+    expect(contrastRatio(dark(fg), dark(bg))).toBeGreaterThanOrEqual(NON_TEXT);
+  });
+
+  it.each([
+    ['focus.ring / bg.canvas', '--focus-ring', '--bg-canvas'],
+    ['focus.ring / bg.surface', '--focus-ring', '--bg-surface'],
+    ['status.success / bg.surface', '--status-success', '--bg-surface'],
+    ['status.warning / bg.surface', '--status-warning', '--bg-surface'],
+    ['status.error / bg.surface', '--status-error', '--bg-surface'],
+    ['status.info / bg.surface', '--status-info', '--bg-surface'],
+  ])('LIGHT non-text %s', (_label, fg, bg) => {
+    expect(contrastRatio(light(fg), light(bg))).toBeGreaterThanOrEqual(NON_TEXT);
+  });
+
+  /* The destructive button used hover:opacity-90, which composited the red
+     toward the page and dropped white-on-red to 4.32:1 in light theme. It now
+     has a real hover token, gated here in both themes. */
+  it.each([
+    [
+      'button.text.destructive / button.bg.destructive',
+      '--button-text-destructive',
+      '--button-bg-destructive',
+    ],
+    [
+      'button.text.destructive / button.bg.destructive.hover',
+      '--button-text-destructive',
+      '--button-bg-destructive-hover',
+    ],
+  ])('DARK %s', (_label, fg, bg) => {
+    expect(contrastRatio(dark(fg), dark(bg))).toBeGreaterThanOrEqual(AA);
+  });
+
+  it.each([
+    [
+      'button.text.destructive / button.bg.destructive',
+      '--button-text-destructive',
+      '--button-bg-destructive',
+    ],
+    [
+      'button.text.destructive / button.bg.destructive.hover',
+      '--button-text-destructive',
+      '--button-bg-destructive-hover',
+    ],
+  ])('LIGHT %s', (_label, fg, bg) => {
+    expect(contrastRatio(light(fg), light(bg))).toBeGreaterThanOrEqual(AA);
+  });
 });

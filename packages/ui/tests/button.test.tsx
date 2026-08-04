@@ -25,7 +25,7 @@ describe('Button', () => {
   it.each([
     ['primary', 'bg-button-bg-primary'],
     ['secondary', 'bg-button-bg-secondary'],
-    ['destructive', 'bg-status-error'],
+    ['destructive', 'bg-button-bg-destructive'],
     ['outline', 'border-border-default'],
     ['ghost', 'hover:bg-bg-surface-hover'],
   ] as const)('applies token classes for the %s variant', (variant, expectedClass) => {
@@ -46,6 +46,55 @@ describe('Button', () => {
     if (size !== 'lg') {
       expect(button).toHaveClass('min-h-11');
     }
+  });
+
+  it('honours a caller-supplied disabled prop and blocks interaction', () => {
+    const onClick = vi.fn();
+    render(
+      <Button disabled onClick={onClick}>
+        Azione
+      </Button>,
+    );
+
+    const button = screen.getByRole('button', { name: 'Azione' });
+    // Goes red if `disabled === true ||` is dropped from the disabled expression.
+    expect(button).toBeDisabled();
+    fireEvent.click(button);
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it('activates on Enter and Space, not only on pointer click', () => {
+    const onClick = vi.fn();
+    render(<Button onClick={onClick}>Invia</Button>);
+
+    const button = screen.getByRole('button', { name: 'Invia' });
+    button.focus();
+    expect(button).toHaveFocus();
+
+    // A native <button> activates on both keys; this pins the element choice.
+    fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
+    fireEvent.keyUp(button, { key: 'Enter', code: 'Enter' });
+    fireEvent.click(button);
+    fireEvent.keyDown(button, { key: ' ', code: 'Space' });
+    fireEvent.keyUp(button, { key: ' ', code: 'Space' });
+    fireEvent.click(button);
+
+    expect(onClick).toHaveBeenCalledTimes(2);
+    expect(button.tagName).toBe('BUTTON');
+  });
+
+  it('keeps a loading button focusable so focus is not lost mid-operation', () => {
+    render(<Button isLoading>Salva</Button>);
+
+    const button = screen.getByRole('button', { name: 'Salva' });
+    button.focus();
+
+    // focusableWhenDisabled yields aria-disabled and keeps the element in the tab
+    // order. Dropping it swaps in the native disabled attribute, which blurs the
+    // control and removes it from the tab order.
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+    expect(button).not.toHaveAttribute('disabled');
+    expect(button).toHaveFocus();
   });
 
   it('communicates the async state: aria-busy, spinner, no interaction, label readable', () => {

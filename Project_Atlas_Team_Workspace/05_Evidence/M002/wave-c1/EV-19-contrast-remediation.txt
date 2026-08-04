@@ -1,0 +1,21 @@
+EV-19 — Wave C1 contrast remediation (BLK-M002-004)
+Commit SHA: 7eb7f20e6395ed59a49cdbb8a7010aa5a80f3845
+Timestamp (UTC): 2026-08-04T15:00:29Z
+Rule: WCAG 2.2 SC 1.4.11 non-text >= 3:1; SC 1.4.3 text >= 4.5:1
+Computed from the literal hex values in packages/ui/styles/global.css.
+----------------------------------------------------------------------
+BEFORE (light theme, on #f9fafb):
+  focus.ring        #25d366  1.90:1  FAIL (needed 3.0)
+  status.success    #25d366  1.90:1  FAIL
+  status.warning    #eab308  1.84:1  FAIL
+  destructive hover opacity-90 -> 4.32:1 white-on-red  FAIL (needed 4.5)
+
+AFTER (light theme, on #f9fafb):
+  focus.ring        #17954a  3.70:1  PASS
+  status.success    #17954a  3.70:1  PASS
+  status.warning    #a16207  4.71:1  PASS
+  destructive hover #b91c1c  6.47:1 white-on-red  PASS
+
+Dark theme values are unchanged and already cleared both thresholds.
+Enforced by 16 new assertions in packages/ui/tests/tokens.test.tsx
+(non-text 3:1 in both themes, destructive 4.5:1 in both themes).

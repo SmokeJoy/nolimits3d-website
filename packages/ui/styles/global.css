@@ -95,6 +95,14 @@
   --palette-green-hover-dark: #1ebd59;
   --palette-green-hover-light: #1ba851;
 
+  /* Deepened variants reserved for the light theme, where the brand green and
+     yellow fall under the 3:1 non-text contrast floor of WCAG 2.2 SC 1.4.11.
+     Ratios against #f9fafb: green-deep 3.70, yellow-deep 4.71, red-hover 6.47
+     against white text. */
+  --palette-green-deep: #17954a;
+  --palette-yellow-deep: #a16207;
+  --palette-red-700: #b91c1c;
+
   /* ==========================================
      2. Semantic Tokens (Dark Mode Default)
      ========================================== */
@@ -129,6 +137,11 @@
   --button-bg-secondary: var(--bg-surface);
   --button-border-secondary: var(--border-default);
   --button-text-secondary: var(--text-primary);
+  /* A real hover colour, not opacity. Compositing the whole element at 90%
+     lightened the red toward the page and dropped white-on-red to 4.32:1. */
+  --button-bg-destructive: var(--status-error);
+  --button-bg-destructive-hover: var(--palette-red-700);
+  --button-text-destructive: var(--palette-white);
   --input-border-focus: var(--focus-ring);
   --dialog-bg: var(--bg-canvas);
   --card-bg: var(--bg-surface);
@@ -163,7 +176,13 @@
   --accent-primary-hover: var(--palette-green-hover-light);
   --accent-primary-foreground: var(--palette-dark); /* Keeps contrast >= 4.5:1 */
 
-  --focus-ring: var(--palette-green);
+  /* The brand green is only 1.90:1 on this surface, so the focus ring and the
+     success and warning dots use deepened variants here. Dark theme keeps the
+     brand values, which already clear the floor. */
+  --focus-ring: var(--palette-green-deep);
+
+  --status-success: var(--palette-green-deep);
+  --status-warning: var(--palette-yellow-deep);
 }
 
 /* ==========================================
@@ -205,6 +224,9 @@
   --color-button-bg-secondary: var(--button-bg-secondary);
   --color-button-border-secondary: var(--button-border-secondary);
   --color-button-text-secondary: var(--button-text-secondary);
+  --color-button-bg-destructive: var(--button-bg-destructive);
+  --color-button-bg-destructive-hover: var(--button-bg-destructive-hover);
+  --color-button-text-destructive: var(--button-text-destructive);
   --color-input-border-focus: var(--input-border-focus);
   --color-dialog-bg: var(--dialog-bg);
   --color-card-bg: var(--card-bg);
