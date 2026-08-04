@@ -8,3 +8,5 @@
 | DEC-004 | 2026-07-15 | Uncertain deletion candidates must move to `99_DELETE_QUARANTINE` | ChatGPT + Andrea | Active |
 | DEC-005 | 2026-07-15 | Patched Sprint Plan is not approved; code remains unauthorized | ChatGPT | Active |
 | DEC-006 | 2026-07-15 | Post-delivery mutations of frozen/accepted artifacts are void; single-writer discipline mandatory; STOP order on package builds until AD-006 closes; counterfeit Node binary must be contained before any Node-based evidence or build | Chief Architect (acting: Claude, Andrea's session mandate) | Active |
+| DEC-007 | 2026-08-04 | Chief Architect & CTO role delegated to Claude Code; executing team realised as Claude Code subagents in `.claude/agents/`; only decisions requiring human authority escalate to Andrea; separation of duties and the no-self-approval rule survive the delegation | Andrea — Product Owner (recorded in AD-008) | Active |
+| DEC-008 | 2026-08-04 | The Codex-native team package (`AGENTS.md`, `.codex/agents/*.toml`) is not adopted; it was never installed in this repository. Any future adoption requires its own directive | Chief Architect (Claude Code) per AD-008 | Active |
