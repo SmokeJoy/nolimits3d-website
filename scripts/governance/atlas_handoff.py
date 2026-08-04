@@ -51,7 +51,11 @@ M001_EXECUTION_EXTRA = {
     ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
     ".prettierignore",
     "README.md", "LICENSE", "LICENSE.md", "LICENSE.txt",
+    "CLAUDE.md", ".claude",
 }
+# Gitignored build artefacts. The audit governs repository content, not the
+# local disk, and a permanently red audit is an audit nobody reads.
+LOCAL_ARTEFACTS = {"node_modules", ".pnpm-store"}
 ROOT_PROFILES = {
     "pre-m001": PRE_M001_ROOT,
     "m001-execution": PRE_M001_ROOT | M001_EXECUTION_EXTRA,
@@ -168,6 +172,9 @@ def audit_root(repo: Path, profile: str = "pre-m001", allow_current_zip: bool = 
         name = item.name
         allowed = name in allowed_names
         reason = None
+        if name in LOCAL_ARTEFACTS:
+            allowed = True
+            reason = "gitignored local artefact; not repository content"
         if name == CURRENT_ZIP and not allow_current_zip:
             allowed = False
             reason = "active handoff ZIP disallowed for this audit"
