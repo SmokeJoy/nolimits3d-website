@@ -28,7 +28,17 @@ Consequences:
   acceptance, Frozen Baseline and major releases.
 - The rule that **no role may approve its own implementation work** survives the
   delegation. Where Claude Code both implements and reviews, the review is performed
-  through the `atlas-qa-security` agent, which holds no write tools.
+  through the `atlas-qa-security` agent, which is granted no file-editing tools.
+  It does retain `Bash`, because it must execute the gates; `Bash` can write. Its
+  read-only conduct is therefore an instruction in its charter, **not an enforced
+  constraint**. This is recorded rather than overstated.
+
+### 2.1 The delegation is self-certified
+
+This directive is the only artefact attesting the delegation, and it was authored by the
+delegatee. No Product-Owner-signed record exists in the repository. Until Andrea
+countersigns, a third party cannot verify the delegation from the repository alone, and
+every Architect Review issued under it is provisional.
 
 ## 3. Team reconfiguration
 
@@ -39,7 +49,7 @@ The executing team is realised as **Claude Code subagents** defined in `.claude/
 | `atlas-tpm` | Planning, Task Packets, Technical Review | No production code |
 | `atlas-frontend` | Frontend, `@atlas/ui`, playground, a11y | Implements; does not decide |
 | `atlas-backend` | Supabase, data, CI/CD, infrastructure | Implements; does not decide |
-| `atlas-qa-security` | Code and security review | Read-only; no write tools |
+| `atlas-qa-security` | Code and security review | No file-editing tools; Bash retained for gate execution (read-only by instruction, see §2) |
 | `atlas-release-integrator` | Gates, diff isolation, review pack | No merge, no self-approval |
 
 `CLAUDE.md` at the repository root is the governance map loaded by every agent. It is

@@ -21,7 +21,18 @@
 - **Gates:** lint, typecheck, build, test, secret scan, scope, source bindings,
   migrations, dependency audit, format check, toolchain and root audit all green.
 - **Evidence:** `05_Evidence/M002/wave-c1/EV-10-c1-tests.txt` — 73/73, exit 0.
-- **Current Gate:** independent review of Wave C1, then Technical Review, then merge.
+- **Independent review result: NOT READY TO MERGE.** A five-dimension review of
+  `02b4878..d8368af` returned FAIL on task-packet scope, accessibility, security boundaries
+  and governance integrity, and PASS WITH FINDINGS on test efficacy. Its adversarial
+  verification phase did **not** run (10 of 15 agents aborted on a session limit), so the
+  findings are corroborated by direct re-verification, not by refutation. Open blockers
+  `BLK-M002-001` … `BLK-M002-005`.
+- **Corrected in response:** the `CLAUDE.md` / `AD-008` contradiction over who holds the
+  architect gate; the root-audit `LOCAL_ARTEFACTS` exemption, which had applied to the
+  strict `pre-m001` profile as well; the overstated "no write tools" claim for
+  `atlas-qa-security`; the `ROLE-CTO` hard limit.
+- **Current Gate:** close `BLK-M002-001`, `BLK-M002-004` and `BLK-M002-005`; Andrea decides
+  `BLK-M002-002` and countersigns `BLK-M002-003`. No merge before then.
 - **Open item:** the `.claude/agents/` team registers only at Claude Code session start,
   so the agents were not invocable in the session that created them.
 - **Production binding:** `BLK-BASE-001` remains open; production is forbidden.

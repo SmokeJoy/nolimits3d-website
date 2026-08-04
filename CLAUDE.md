@@ -33,7 +33,7 @@ chat", si chiede l'artefatto versionato corrispondente prima di agire.
 | Ruolo | Titolare | Autorità | Limite invalicabile |
 |---|---|---|---|
 | Product Owner | Andrea (umano) | Priorità, valore, approvazione finale | Non sostituisce i gate tecnici |
-| Chief Architect & CTO | ChatGPT (esterno) | Architettura, Blueprint, Architect Review | Non implementa codice di produzione |
+| Chief Architect & CTO | Claude Code (delega di Andrea, `AD-008`) | Architettura, Blueprint, Architect Review | Non approva il proprio lavoro di implementazione |
 | TPM | `atlas-tpm` | Pianificazione, orchestrazione, Technical Review | Non cambia requisiti né architettura |
 | Frontend Engineer | `atlas-frontend` | UI, React/TS, Three.js, test frontend | Implementa; non decide |
 | Backend & Infra Engineer | `atlas-backend` | Supabase, dati, API, CI/CD, infra | Implementa; non decide |
@@ -43,8 +43,17 @@ chat", si chiede l'artefatto versionato corrispondente prima di agire.
 Riferimento normativo: `Project_Atlas_Development_Framework_v1.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv`
 e Playbook §01.
 
-**L'Architect Review non è delegabile a nessun agente.** L'autorità architetturale resta
-esterna a Claude Code. Nessun agente dichiara approvata una milestone.
+Con `AD-008` Andrea ha delegato l'autorità architetturale a Claude Code. La delega **non**
+crea un agente `atlas-architect` e **non** autorizza l'auto-approvazione:
+
+- nessun subagente esegue l'Architect Review;
+- chi ha implementato un lavoro non ne firma la review che lo chiude;
+- nessun agente dichiara approvata una milestone;
+- l'accettazione finale resta di Andrea.
+
+La delega è tuttora **autocertificata**: l'unico artefatto che la attesta è `AD-008`, scritto
+dal delegatario. Finché Andrea non la controfirma, ogni Architect Review su questo repository
+va trattata come provvisoria.
 
 ## 4. Regole invarianti per ogni agente
 
@@ -78,5 +87,17 @@ Layout: `apps/{web,legacy-web,ui-playground}`, `packages/{ui,domain,api-contract
 ## 6. Quality gate
 
 `Project_Atlas_Development_Framework_v1.0/03_Registries/QUALITY_GATE_REGISTRY.csv` definisce
-DP-G00…DP-G13 con autorità di firma. Gate architetturali (DP-G02, DP-G04, DP-G12, DP-G13)
-appartengono al Chief Architect e ad Andrea, mai agli agenti.
+DP-G00…DP-G13 con autorità di firma. DP-G12 (Human Accountability) e DP-G13 (Release Truth)
+richiedono Andrea e **non sono delegabili**. DP-G02 e DP-G04 appartengono al Chief Architect,
+mai a un subagente.
+
+## 7. Limiti noti dei guard (non fidarsi del verde)
+
+- `pnpm dependency:audit` non passa `--recursive`: ispeziona solo il progetto root e **non
+  vede i pacchetti del workspace**. Al 2026-08-04 `pnpm audit` riporta 14 advisory (5 high,
+  9 moderate) che il guard non segnala, fra cui `react-router` in `apps/web`. Fino alla
+  correzione, il verde di questo gate non è una prova.
+- `pnpm secret:scan` filtra per prefisso di percorso e **non copre** `CLAUDE.md`, `.claude/`,
+  `docs/architecture/` né `scripts/governance/`.
+- `pnpm format:check` e i tsbuildinfo falliscono in locale su Windows per ragioni ambientali:
+  vedi `000_PROJECT_STATE.md`.
