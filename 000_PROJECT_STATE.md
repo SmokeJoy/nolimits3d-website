@@ -19,8 +19,10 @@ Authoritative hierarchy:
 - **Latest Architect Directive:** `AD-008` — Claude Code native team and architect delegation
 - **Wave A:** MERGED
 - **Wave B:** MERGED (`02b4878`, PR #5)
-- **Wave C1:** IMPLEMENTED on `m002/wave-c1-primitives`, HEAD `d8368af`, pushed; PR to `main` not opened
-- **Next Gate:** independent review of Wave C1, then Technical Review and merge gate
+- **Wave C1:** IMPLEMENTED and independently reviewed on `m002/wave-c1-primitives`. Four of
+  five review dimensions returned FAIL; the resulting blockers `BLK-M002-001`, `-002`, `-004`
+  and `-005` are closed. `BLK-M002-003` (delegation countersignature) remains open.
+- **Next Gate:** Architect Review and merge gate
 - **Last Update:** 2026-08-04
 
 ## Team

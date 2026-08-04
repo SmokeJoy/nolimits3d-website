@@ -31,8 +31,16 @@
   architect gate; the root-audit `LOCAL_ARTEFACTS` exemption, which had applied to the
   strict `pre-m001` profile as well; the overstated "no write tools" claim for
   `atlas-qa-security`; the `ROLE-CTO` hard limit.
-- **Current Gate:** close `BLK-M002-001`, `BLK-M002-004` and `BLK-M002-005`; Andrea decides
-  `BLK-M002-002` and countersigns `BLK-M002-003`. No merge before then.
+- **Blockers closed since:** `BLK-M002-001` (the dependency audit now covers 517 packages
+  instead of 106; 13 advisories fixed, 1 waived with an expiry and a recorded rationale),
+  `BLK-M002-002` (deviation ratified and recorded in the Task Packet),
+  `BLK-M002-004` (light-theme contrast: focus ring 1.90 → 3.70, warning 1.84 → 4.71,
+  destructive hover 4.32 → 6.47, all now gated by tests),
+  `BLK-M002-005` (disabled, keyboard, focus and the missing cn pin; 93 tests, was 73).
+- **Still open:** `BLK-M002-003` — the architect delegation is attested only by an artefact
+  the delegatee wrote. Andrea's countersignature is the one thing that cannot be self-served,
+  and the `BLK-M002-002` ratification inherits that caveat.
+- **Current Gate:** Architect Review and merge of Wave C1.
 - **Open item:** the `.claude/agents/` team registers only at Claude Code session start,
   so the agents were not invocable in the session that created them.
 - **Production binding:** `BLK-BASE-001` remains open; production is forbidden.
