@@ -37,6 +37,7 @@ Adds the approved M-001 technical structure:
 - `packages/`;
 - `supabase/`;
 - `docs/`;
+- `CLAUDE.md` and `.claude/`, the agent governance configuration admitted by AD-008;
 - approved root configuration files named by the accepted Task Packets (including `.prettierignore`).
 
 The profile permits locations, not arbitrary content. Scope and task-packet controls remain binding.

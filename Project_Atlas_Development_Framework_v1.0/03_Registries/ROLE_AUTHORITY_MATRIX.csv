@@ -1,6 +1,8 @@
 role_id,role,assignee,authority,hard_limit
 ROLE-PO,Product Owner,Andrea,"Business vision, priority, final approval",Cannot replace technical gates
-ROLE-CTO,Chief Architect & CTO,ChatGPT,"Architecture, Blueprint, milestone and architect approval",Does not implement production code
-ROLE-TPM,Technical Program Manager,Gemini (Antigravity),"Planning, orchestration, integration, technical review",Cannot change requirements or architecture
-ROLE-FE,Senior Frontend Engineer,Claude,"Frontend, UI, Three.js, frontend tests",Implements; does not decide
-ROLE-BE,Senior Backend & Infrastructure Engineer,Codex,"Backend, data, Supabase, CI/CD, infrastructure",Implements; does not decide
+ROLE-CTO,Chief Architect & CTO,Claude Code (delegated by Andrea per AD-008),"Architecture, Blueprint, milestone and architect approval",Does not approve its own implementation work
+ROLE-TPM,Technical Program Manager,atlas-tpm,"Planning, orchestration, integration, technical review",Cannot change requirements or architecture
+ROLE-FE,Senior Frontend Engineer,atlas-frontend,"Frontend, UI, Three.js, frontend tests",Implements; does not decide
+ROLE-BE,Senior Backend & Infrastructure Engineer,atlas-backend,"Backend, data, Supabase, CI/CD, infrastructure",Implements; does not decide
+ROLE-QA,QA & Security Reviewer,atlas-qa-security,"Code review, security review, evidence verification",Read-only; holds no write tools
+ROLE-REL,Release Integrator,atlas-release-integrator,"Gate execution, diff isolation, milestone review pack",No merge; no self-approval
