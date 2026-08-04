@@ -9,3 +9,10 @@
  * in @atlas/ui per sostituire questo path relativo.
  */
 @import '../../../packages/ui/styles/global.css';
+
+/*
+ * Tailwind non scansiona node_modules: senza @source le classi usate DENTRO
+ * i componenti di @atlas/ui (es. bg-button-bg-primary) non verrebbero
+ * generate dal pass del playground.
+ */
+@source '../../../packages/ui/src';

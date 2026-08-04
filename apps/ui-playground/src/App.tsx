@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import { PrimitivesShowcase } from './PrimitivesShowcase';
+
 function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [qualityTier, setQualityTier] = useState<'low' | 'balanced' | 'high'>('high');
@@ -307,6 +309,7 @@ function App() {
             </div>
           </div>
         </div>
+        <PrimitivesShowcase />
       </main>
     </div>
   );
