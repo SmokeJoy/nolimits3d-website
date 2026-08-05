@@ -54,13 +54,22 @@ request and is superseded by any future written record that contradicts it.
   recorded above.
 - **`BLK-M002-002`'s provisional caveat is lifted.** Its ratification was recorded as "subject
   to Product Owner countersignature"; that condition is now satisfied.
-- **DP-G12 (Human Accountability) and DP-G13 (Release Truth)** for the Wave C1 merge (PR #6)
-  and for subsequent M-002 waves executed under the process already defined in `CLAUDE.md`
-  and the Framework registries are satisfied prospectively by this directive: Andrea has
-  given explicit, scoped authorization to merge once the quality gates already defined by the
-  framework pass and to continue the roadmap without a per-step confirmation loop. This does
-  **not** retire DP-G12/DP-G13 as gates — it records how Andrea chose to satisfy them for this
-  phase of work, through this directive rather than a live sign-off on every PR.
+- **DP-G12 (Human Accountability) and DP-G13 (Release Truth) for the Wave C1 merge (PR #6)**
+  are satisfied by this directive: Andrea gave explicit, scoped authorization to merge PR #6
+  once the quality gates already defined by the framework pass, quoted above.
+- **DP-G12/DP-G13 for subsequent M-002 waves are NOT closed in advance by this directive.**
+  `atlas-qa-security`'s independent review of the commits that closed this same blocker
+  flagged an earlier draft of this section for reading the "continue the roadmap without
+  per-step confirmation" quote as a blanket, indefinite closure of two gates `CLAUDE.md` §6
+  calls non-delegable — the same self-certification shape that produced `BLK-M002-003` in the
+  first place. That reading is corrected here. Andrea's authorization to continue the roadmap
+  covers **planning, implementation and coordinating the subagent team** without a per-step
+  confirmation loop; it does not by itself satisfy DP-G12/DP-G13 for a future wave's merge.
+  Each subsequent wave's merge still requires, per wave: the framework's quality gates green,
+  and a clean independent `atlas-qa-security` review with no unresolved MAJOR finding. That
+  pairing — not a standing declaration — is how DP-G12/DP-G13 get satisfied going forward
+  under Andrea's authorization, and it is what makes the "no per-step confirmation" instruction
+  compatible with §6 rather than an exception to it.
 - **What this does not do:** it does not authorize skipping any technical gate (lint,
   typecheck, build, test, secret scan, scope, source bindings, migrations, dependency audit,
   format check), does not authorize self-review (`atlas-qa-security` review remains required

@@ -20,7 +20,7 @@
   - `3e4018e` accepted the previously untracked production architecture pack.
 - **Gates:** lint, typecheck, build, test, secret scan, scope, source bindings,
   migrations, dependency audit, format check, toolchain and root audit all green.
-- **Evidence:** `05_Evidence/M002/wave-c1/` — EV-10 (93/93, exit 0) and EV-19 (contrast
+- **Evidence:** `05_Evidence/M002/wave-c1/` — EV-10 (94/94, exit 0) and EV-19 (contrast
   remediation, before/after ratios).
 - **Independent review result: NOT READY TO MERGE.** A five-dimension review of
   `02b4878..d8368af` returned FAIL on task-packet scope, accessibility, security boundaries

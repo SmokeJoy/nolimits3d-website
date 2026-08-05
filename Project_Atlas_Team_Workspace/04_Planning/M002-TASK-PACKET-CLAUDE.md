@@ -117,6 +117,7 @@ rilevato come la prima versione ne dichiarasse 7 su circa 30. Elenco integrale, 
 | `scripts/guards/dependency-audit.mjs`, `scripts/guards/guards.test.mjs` | Il gate di sicurezza ispezionava 106 pacchetti su 517 |
 | `scripts/governance/atlas_handoff.py` | Allineamento dell'audit di root alla policy emendata |
 | `.gitignore` | `__pycache__/` generato eseguendo lo script di governance |
+| `.github/workflows/ci.yml` | Riordinato Build prima di Lint: `@atlas/ui` ha un `dist/` buildato e gitignored, i suoi tipi collassavano ad `any` su un checkout pulito eseguito prima della build, e questo faceva fallire il Lint su PR #6. File di competenza `ROLE-BE` (CI/CD), toccato dal track Architect senza stop-and-escalate |
 
 **Governance e documentazione** (introdotti da `AD-008`, delega di architetto)
 
@@ -136,6 +137,13 @@ rilevato come la prima versione ne dichiarasse 7 su circa 30. Elenco integrale, 
 
 Due voci meritano attenzione particolare del Product Owner, perché sono controlli modificati
 da chi ne era soggetto: `ROLE_AUTHORITY_MATRIX.csv` e `REPOSITORY_ROOT_ALLOWLIST.md`.
+
+**Nota di trasparenza (2026-08-05):** la revisione indipendente di `atlas-qa-security` sui
+commit successivi alla chiusura di `BLK-M002-003` ha trovato `.github/workflows/ci.yml`
+assente da questa tabella, nonostante fosse già nel diff quando la tabella è stata dichiarata
+"integrale" il 2026-08-04. È lo stesso difetto già segnalato una volta (prima versione 7/30),
+questa volta su un file di competenza esplicita di un altro ruolo. Corretto qui, non
+riscritto: la riga sopra è stata aggiunta in risposta a quel finding.
 
 **Decisione dell'Architect: RATIFICATA.** Il revert avrebbe reintrodotto advisory di
 severità alta, lasciato `@atlas/ui` senza dichiarazioni di tipo e mantenuto difetti di
