@@ -1,0 +1,104 @@
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+✔ scope guard accepts an empty web scaffold (5.9578ms)
+✔ scope guard rejects public command exposure, Jarvis and operational PrintFlow (12.1836ms)
+✔ scope guard allows PrintFlow only as Coming Soon (7.3224ms)
+✔ secret scan rejects real-looking credentials and allows placeholders (0.9739ms)
+✔ dependency audit collector includes registry packages only (0.4331ms)
+✔ dependency audit summary normalizes severity (0.2158ms)
+✔ dependency audit blocks an advisory with no waiver (0.5147ms)
+✔ dependency audit tolerates an advisory under an unexpired waiver (0.5672ms)
+✔ dependency audit blocks once a waiver has expired (0.3173ms)
+✔ dependency audit does not let a waiver cover a different package (0.4364ms)
+✔ dependency audit reports a waiver that matches nothing as stale (0.1977ms)
+✔ dependency audit always lists the whole workspace (0.3521ms)
+✔ a critical advisory cannot be waived even with a matching waiver (0.2182ms)
+✔ a waiver claiming critical severity is rejected outright (0.6486ms)
+✔ a waiver cannot run past the maximum horizon (0.195ms)
+✔ a waiver must carry every governance field (0.1505ms)
+✔ the shipped waiver file satisfies the schema (0.3962ms)
+✔ current source bindings are valid (2.1905ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 156.4706
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website\packages\ui
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/packages/ui
+
+
+ Test Files  13 passed (13)
+      Tests  134 passed (134)
+   Start at  10:25:02
+   Duration  12.55s (transform 953ms, setup 8.07s, import 19.95s, tests 9.29s, environment 57.87s)
+
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website\apps\web
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/apps/web
+
+ ❯ src/test/shared-packages.test.ts (6 tests | 1 failed) 22ms
+     × limits @atlas/ui to the approved M-002 Wave C1 primitive surface (scope guard) 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/shared-packages.test.ts > Shared workspace packages (M001-B / M001-C) > limits @atlas/ui to the approved M-002 Wave C1 primitive surface (scope guard)
+AssertionError: expected [ 'Badge', 'Button', 'Card', …(20) ] to deeply equal [ 'Badge', 'Button', 'Card', …(7) ]
+
+- Expected
++ Received
+
+@@ -5,8 +5,21 @@
+    "CardContent",
+    "CardDescription",
+    "CardFooter",
+    "CardHeader",
+    "CardTitle",
++   "Dialog",
++   "DialogClose",
++   "DialogContent",
++   "DialogTrigger",
++   "FormField",
++   "Input",
++   "Select",
+    "Skeleton",
+    "StatusIndicator",
++   "Tabs",
++   "TabsList",
++   "TabsPanel",
++   "TabsTab",
++   "Toaster",
++   "toast",
+  ]
+
+ ❯ src/test/shared-packages.test.ts:37:36
+     35|   it('limits @atlas/ui to the approved M-002 Wave C1 primitive surface…
+     36|     // Widening this list requires an approved Task Packet deliverable…
+     37|     expect(Object.keys(ui).sort()).toEqual([
+       |                                    ^
+     38|       'Badge',
+     39|       'Button',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 20 passed (21)
+   Start at  10:25:16
+   Duration  5.30s (transform 1.83s, setup 4.55s, import 2.43s, tests 1.59s, environment 15.31s)
+
+G:\Claude\NoLimits3D-website\apps\web:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @atlas/web@0.0.0 test: `vitest run`
+Exit status 1
+ ELIFECYCLE  Test failed. See above for more details.
