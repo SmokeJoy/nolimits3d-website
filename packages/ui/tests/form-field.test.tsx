@@ -46,6 +46,7 @@ describe('FormField', () => {
     expect(error).toHaveAttribute('id', 'email-error');
     expect(input.getAttribute('aria-describedby')).toContain('email-error');
     expect(input).toHaveAttribute('aria-invalid', 'true');
+    expect(input).toHaveClass('border-status-error');
   });
 
   it('combines description and error ids in aria-describedby when both are present', () => {
@@ -84,6 +85,7 @@ describe('FormField', () => {
     const trigger = screen.getByLabelText('Tecnologia');
     expect(trigger).toHaveAttribute('id', 'tech');
     expect(trigger).toHaveAttribute('aria-invalid', 'true');
+    expect(trigger).toHaveClass('border-status-error');
     expect(trigger.getAttribute('aria-describedby')).toContain('tech-error');
   });
 

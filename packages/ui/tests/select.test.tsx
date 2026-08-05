@@ -72,8 +72,19 @@ describe('Select', () => {
   it('shows the caller-controlled error border on the trigger', () => {
     render(<Select aria-label="Tecnologia di stampa" options={options} error />);
 
-    expect(screen.getByRole('combobox', { name: 'Tecnologia di stampa' })).toHaveClass(
-      'border-status-error',
+    const trigger = screen.getByRole('combobox', { name: 'Tecnologia di stampa' });
+    expect(trigger).toHaveClass('border-status-error');
+    expect(trigger).toHaveAttribute('aria-invalid', 'true');
+  });
+
+  it('respects an explicit caller aria-invalid value over the error shorthand', () => {
+    render(
+      <Select aria-label="Tecnologia di stampa" options={options} error aria-invalid="grammar" />,
+    );
+
+    expect(screen.getByRole('combobox', { name: 'Tecnologia di stampa' })).toHaveAttribute(
+      'aria-invalid',
+      'grammar',
     );
   });
 

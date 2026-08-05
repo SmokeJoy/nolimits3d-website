@@ -166,7 +166,7 @@ export function FormsShowcase() {
               Con azione "Riprova"
             </button>
           </div>
-          <Toaster position="bottom-right" />
+          <Toaster closeButtonAriaLabel="Chiudi notifica" position="bottom-right" />
         </div>
       </div>
     </section>

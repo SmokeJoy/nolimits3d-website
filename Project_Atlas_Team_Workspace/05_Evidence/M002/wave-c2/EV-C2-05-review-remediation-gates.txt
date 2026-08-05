@@ -1,0 +1,68 @@
+EV - Wave C2 PR #9 review remediation gates
+Milestone: M-002 / Wave C2 / TSK-M002-CLAUDE-C2
+Branch: m002/wave-c2-forms
+Captured: 2026-08-05 11:23 Europe/Rome
+Executor: Codex Root verification after Atlas Frontend remediation
+
+Scope verified:
+- FormField error propagation to custom controls.
+- Select error semantic aria-invalid propagation.
+- Toaster default close button with caller-supplied closeButtonAriaLabel.
+- Stale EV-C2-03 workspace test evidence replaced with passing root test output.
+
+Commands and results:
+
+1. pnpm typecheck
+Result: PASS
+Workspace scope: 6 of 7 workspace projects.
+Packages completed: api-contracts, config, domain, ui, ui-playground, web.
+
+2. pnpm build
+Result: PASS
+Workspace scope: 6 of 7 workspace projects.
+Built packages/apps: api-contracts, config, domain, ui, web, ui-playground.
+
+3. pnpm lint
+Result: PASS
+Command was run after build so apps consume fresh @atlas/ui declaration output.
+
+4. pnpm test
+Result: PASS
+Guard tests: 18 passed.
+@atlas/ui: 13 files passed, 137 tests passed.
+@atlas/web: 5 files passed, 21 tests passed.
+Workspace total: 176/176 tests passed.
+
+5. pnpm format:check
+Result: PASS
+All matched files use Prettier code style.
+
+6. pnpm secret:scan
+Result: PASS
+Secret scan fallback: PASS.
+
+7. pnpm guard:scope
+Result: PASS
+Scope and private-route guard: PASS.
+
+8. pnpm guard:source-bindings
+Result: PASS
+Documentation source-binding guard: PASS.
+
+9. pnpm guard:migrations
+Result: PASS / NOT_APPLICABLE
+No migration SQL files.
+
+10. pnpm dependency:audit
+Result: PASS
+Dependency audit scope: 517 registry packages across the workspace.
+Blocking advisory counts: critical 0, high 0, moderate 0, low 0.
+Known waiver remains recorded for react-router until 2026-11-04.
+
+11. git diff --check
+Result: PASS
+No whitespace errors in the final remediation diff.
+
+Notes:
+- Remote PR #9 checks were still green for the previous commit before this remediation is pushed.
+- No Jarvis, operational PrintFlow, auth, routing or apps/legacy-web files were changed.

@@ -8,7 +8,23 @@ function cn(...inputs: ClassValue[]): string {
   return clsx(inputs);
 }
 
-export type ToasterProps = SonnerToasterProps;
+type SonnerToastOptions = NonNullable<SonnerToasterProps['toastOptions']>;
+
+type ToasterCloseButtonProps =
+  | {
+      closeButton?: true | undefined;
+      /** Caller-supplied accessible label for the default close button. */
+      closeButtonAriaLabel: string;
+    }
+  | {
+      closeButton: false;
+      closeButtonAriaLabel?: string;
+    };
+
+export type ToasterProps = Omit<SonnerToasterProps, 'closeButton' | 'toastOptions'> &
+  ToasterCloseButtonProps & {
+    toastOptions?: Omit<SonnerToastOptions, 'closeButtonAriaLabel'>;
+  };
 
 /**
  * Token-styled wrapper around `sonner`'s `<Toaster />`.
@@ -23,13 +39,22 @@ export type ToasterProps = SonnerToasterProps;
  * which forces `animation-duration`/`transition-duration` to `0s` on every
  * element, sonner's toasts included.
  */
-export function Toaster({ className, toastOptions, theme = 'system', ...props }: ToasterProps) {
+export function Toaster({
+  className,
+  toastOptions,
+  theme = 'system',
+  closeButton = true,
+  closeButtonAriaLabel,
+  ...props
+}: ToasterProps) {
   return (
     <SonnerToaster
       theme={theme}
+      closeButton={closeButton}
       className={cn('atlas-toaster', className)}
       toastOptions={{
         ...toastOptions,
+        ...(closeButton ? { closeButtonAriaLabel } : {}),
         classNames: {
           toast: cn(
             'group rounded-md border border-border-default bg-toast-bg text-toast-text shadow-lg font-sans text-body',

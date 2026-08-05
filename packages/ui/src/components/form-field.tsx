@@ -2,6 +2,7 @@ import clsx, { type ClassValue } from 'clsx';
 import {
   cloneElement,
   isValidElement,
+  type AriaAttributes,
   type ComponentPropsWithoutRef,
   type ReactElement,
 } from 'react';
@@ -14,13 +15,13 @@ function cn(...inputs: ClassValue[]): string {
 }
 
 /** Props a `FormField` can inject into its single control child.
- *  `aria-invalid` matches React's own `Booleanish` (`boolean | 'true' | 'false'`)
- *  so both native-input-based controls (`Input`) and composite ones (`Select`)
- *  are valid children. */
+ *  `aria-invalid` matches React's ARIA type so native-input-based controls
+ *  (`Input`) and composite ones (`Select`) are valid children. */
 type ControlInjectedProps = {
   id?: string | undefined;
   'aria-describedby'?: string | undefined;
-  'aria-invalid'?: boolean | 'true' | 'false' | undefined;
+  'aria-invalid'?: AriaAttributes['aria-invalid'];
+  error?: boolean | undefined;
 };
 
 export interface FormFieldProps extends Omit<ComponentPropsWithoutRef<'div'>, 'id' | 'children'> {
@@ -68,7 +69,8 @@ export function FormField({
     ? cloneElement(children, {
         id,
         'aria-describedby': describedBy,
-        'aria-invalid': error ? true : undefined,
+        ...(error ? { 'aria-invalid': true } : {}),
+        ...(error && typeof children.type !== 'string' ? { error: true } : {}),
       })
     : children;
 

@@ -31,8 +31,10 @@ afterEach(() => {
 });
 
 describe('Toaster / toast', () => {
+  const closeButtonAriaLabel = 'Chiudi notifica';
+
   it('shows a toast with caller-supplied copy (no hardcoded default text)', async () => {
-    render(<Toaster />);
+    render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
     act(() => {
       toast.success('Operazione completata');
@@ -42,7 +44,7 @@ describe('Toaster / toast', () => {
   });
 
   it('exposes an aria-live region so the notification is announced', () => {
-    render(<Toaster />);
+    render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
     /* The `aria-live="polite"` region is the always-present outer `<section>`;
        the `[data-sonner-toaster]` list itself only mounts once a toast exists. */
@@ -51,7 +53,7 @@ describe('Toaster / toast', () => {
   });
 
   it('auto-dismisses after its duration elapses', async () => {
-    render(<Toaster />);
+    render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
     act(() => {
       toast('Messaggio temporaneo', { duration: 60 });
@@ -75,7 +77,7 @@ describe('Toaster / toast', () => {
     // so rAF must be faked (and flushed) alongside setTimeout/Date.
     vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'requestAnimationFrame', 'Date'] });
     try {
-      render(<Toaster />);
+      render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
       act(() => {
         toast('Messaggio in pausa', { duration: 1000 });
@@ -112,7 +114,7 @@ describe('Toaster / toast', () => {
   });
 
   it('renders a caller-supplied action button (retry contract), no built-in default', async () => {
-    render(<Toaster />);
+    render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
     act(() => {
       toast.error('Invio fallito', {
@@ -125,8 +127,35 @@ describe('Toaster / toast', () => {
     expect(screen.getByRole('button', { name: 'Riprova' })).toBeInTheDocument();
   });
 
+  it('renders a close button by default and dismisses via that button', async () => {
+    render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
+
+    act(() => {
+      toast.info('Notifica chiudibile', { duration: Infinity });
+    });
+
+    expect(await screen.findByText('Notifica chiudibile')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: closeButtonAriaLabel }));
+
+    await waitFor(() => {
+      expect(screen.queryByText('Notifica chiudibile')).not.toBeInTheDocument();
+    });
+  });
+
+  it('allows callers to disable the default close button', async () => {
+    render(<Toaster closeButton={false} />);
+
+    act(() => {
+      toast.info('Notifica senza X', { duration: Infinity });
+    });
+
+    expect(await screen.findByText('Notifica senza X')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: closeButtonAriaLabel })).not.toBeInTheDocument();
+  });
+
   it('has no axe violations while a toast is visible', async () => {
-    const { container } = render(<Toaster />);
+    const { container } = render(<Toaster closeButtonAriaLabel={closeButtonAriaLabel} />);
 
     act(() => {
       toast.info('Aggiornamento disponibile', { duration: Infinity });

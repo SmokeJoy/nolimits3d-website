@@ -1,7 +1,7 @@
 import { Select as BaseSelect } from '@base-ui/react/select';
 import clsx, { type ClassValue } from 'clsx';
 import { Check, ChevronDown, LoaderCircle } from 'lucide-react';
-import type { ReactNode } from 'react';
+import type { AriaAttributes, ReactNode } from 'react';
 
 /* clsx only: tailwind-merge's class-group heuristics misclassify custom token
    utilities (e.g. color `text-button-text-primary` vs size `text-body`) and
@@ -36,7 +36,7 @@ export interface SelectProps {
   'aria-label'?: string;
   'aria-labelledby'?: string;
   'aria-describedby'?: string;
-  'aria-invalid'?: boolean | 'true' | 'false';
+  'aria-invalid'?: AriaAttributes['aria-invalid'];
 }
 
 /**
@@ -66,6 +66,7 @@ export function Select({
   ...ariaProps
 }: SelectProps) {
   const items = options.map((option) => ({ value: option.value, label: option.label }));
+  const ariaInvalid = ariaProps['aria-invalid'] ?? (error ? true : undefined);
 
   return (
     <BaseSelect.Root
@@ -89,6 +90,7 @@ export function Select({
           className,
         )}
         {...ariaProps}
+        aria-invalid={ariaInvalid}
       >
         <BaseSelect.Value placeholder={placeholder} className="truncate" />
         {isLoading ? (
