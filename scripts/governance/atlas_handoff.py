@@ -51,7 +51,12 @@ M001_EXECUTION_EXTRA = {
     ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
     ".prettierignore",
     "README.md", "LICENSE", "LICENSE.md", "LICENSE.txt",
+    "CLAUDE.md", ".claude",
 }
+# Local dependency directories. A pnpm workspace cannot exist without them, so under
+# m001-execution they are not treated as root violations. Directories only, and never
+# under the strict pre-m001 profile, which must keep rejecting them.
+LOCAL_ARTEFACTS = {"node_modules", ".pnpm-store"}
 ROOT_PROFILES = {
     "pre-m001": PRE_M001_ROOT,
     "m001-execution": PRE_M001_ROOT | M001_EXECUTION_EXTRA,
@@ -168,6 +173,9 @@ def audit_root(repo: Path, profile: str = "pre-m001", allow_current_zip: bool = 
         name = item.name
         allowed = name in allowed_names
         reason = None
+        if profile == "m001-execution" and name in LOCAL_ARTEFACTS and item.is_dir():
+            allowed = True
+            reason = "local dependency directory admitted by the m001-execution profile"
         if name == CURRENT_ZIP and not allow_current_zip:
             allowed = False
             reason = "active handoff ZIP disallowed for this audit"

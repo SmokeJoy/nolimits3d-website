@@ -1,9 +1,15 @@
 import assert from 'node:assert/strict';
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
-import { collectRegistryVersions, summarizeAdvisories } from './dependency-audit.mjs';
+import {
+  applyWaivers,
+  buildListCommand,
+  collectRegistryVersions,
+  summarizeAdvisories,
+  validateWaiver,
+} from './dependency-audit.mjs';
 import { scanText } from './secret-scan.mjs';
 import { scanScope } from './scope-guard.mjs';
 import { validateBindings } from './source-binding-guard.mjs';
@@ -80,6 +86,102 @@ test('dependency audit summary normalizes severity', () => {
     example: [{ severity: 'medium', title: 'Example', url: 'https://example.invalid' }],
   });
   assert.equal(summary.counts.moderate, 1);
+});
+
+const advisory = {
+  name: 'demo',
+  severity: 'high',
+  title: 'Demo',
+  url: 'https://github.com/advisories/GHSA-aaaa-bbbb-cccc',
+};
+const waiver = {
+  advisory: 'GHSA-aaaa-bbbb-cccc',
+  package: 'demo',
+  reason: 'not reachable',
+  owner: 'architect',
+  expires: '2026-11-04',
+};
+const fullWaiver = {
+  ...waiver,
+  severity: 'high',
+  opened: '2026-08-04',
+};
+const now = new Date('2026-08-04T00:00:00Z');
+
+test('dependency audit blocks an advisory with no waiver', () => {
+  const gate = applyWaivers([advisory], [], now);
+  assert.equal(gate.counts.high, 1);
+  assert.equal(gate.blocking.length, 1);
+  assert.equal(gate.waived.length, 0);
+});
+
+test('dependency audit tolerates an advisory under an unexpired waiver', () => {
+  const gate = applyWaivers([advisory], [waiver], now);
+  assert.equal(gate.counts.high, 0);
+  assert.equal(gate.blocking.length, 0);
+  assert.equal(gate.waived.length, 1);
+});
+
+test('dependency audit blocks once a waiver has expired', () => {
+  const gate = applyWaivers([advisory], [{ ...waiver, expires: '2026-01-01' }], now);
+  assert.equal(gate.counts.high, 1);
+  assert.equal(gate.expired.length, 1);
+});
+
+test('dependency audit does not let a waiver cover a different package', () => {
+  const gate = applyWaivers([advisory], [{ ...waiver, package: 'other' }], now);
+  assert.equal(gate.counts.high, 1);
+  assert.equal(gate.blocking.length, 1);
+});
+
+test('dependency audit reports a waiver that matches nothing as stale', () => {
+  const gate = applyWaivers([], [waiver], now);
+  assert.equal(gate.stale.length, 1);
+});
+
+test('dependency audit always lists the whole workspace', () => {
+  // Dropping --recursive shrinks the audit from 517 packages to 106 with no
+  // other visible symptom. That regression is what BLK-M002-001 was.
+  for (const platform of ['win32', 'linux']) {
+    const command = buildListCommand(platform);
+    assert.ok(
+      command.arguments.some((argument) => argument.includes('--recursive')),
+      `${platform} list command lost --recursive`,
+    );
+  }
+});
+
+test('a critical advisory cannot be waived even with a matching waiver', () => {
+  const critical = { ...advisory, severity: 'critical' };
+  const gate = applyWaivers([critical], [waiver], now);
+  assert.equal(gate.counts.critical, 1);
+  assert.equal(gate.waived.length, 0);
+});
+
+test('a waiver claiming critical severity is rejected outright', () => {
+  assert.throws(() => validateWaiver({ ...fullWaiver, severity: 'critical' }), /cannot be waived/);
+});
+
+test('a waiver cannot run past the maximum horizon', () => {
+  assert.throws(() => validateWaiver({ ...fullWaiver, expires: '2999-01-01' }), /maximum horizon/);
+});
+
+test('a waiver must carry every governance field', () => {
+  const withoutOwner = { ...fullWaiver, owner: '' };
+  assert.throws(() => validateWaiver(withoutOwner), /missing "owner"/);
+});
+
+test('the shipped waiver file satisfies the schema', () => {
+  const shipped = JSON.parse(
+    readFileSync(
+      join(
+        process.cwd(),
+        'Project_Atlas_Team_Workspace/00_Governance/Tooling/DEPENDENCY_WAIVERS.json',
+      ),
+      'utf8',
+    ),
+  );
+  for (const entry of shipped.waivers) validateWaiver(entry);
 });
 
 test('current source bindings are valid', () => {

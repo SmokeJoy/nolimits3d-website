@@ -1,0 +1,15 @@
+{
+  "$comment": "Time-bound, named exceptions to the fail-closed dependency audit. An advisory is only tolerated while a matching, unexpired entry exists here. Expired entries fail the gate. Entries that match nothing are reported as stale so this file cannot rot. Authority: Chief Architect per DEPENDENCY_ADOPTION_POLICY.md.",
+  "waivers": [
+    {
+      "advisory": "GHSA-qwww-vcr4-c8h2",
+      "package": "react-router",
+      "severity": "high",
+      "title": "React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response",
+      "reason": "The advisory is scoped to React Router's RSC Mode. apps/web is a client-side SPA: main.tsx uses createBrowserRouter + RouterProvider, and grepping apps/web/src for RSC entry points, server actions and unstable_ RSC APIs returns nothing. PA-AD-005 rejected RSC for Phase 1. The patched range starts at 8.3.0, a major upgrade that react-router-dom@7.18.1 cannot take; forcing it via an override would place an incompatible major under a package pinned to 7.18.1. The coordinated react-router-dom 8 upgrade is tracked as its own task.",
+      "owner": "Claude Code — Chief Architect",
+      "opened": "2026-08-04",
+      "expires": "2026-11-04"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+EV-10 — C1 Unit Tests
+Milestone: M-002 / Wave C1 / TSK-M002-CLAUDE-C1
+Roadmap IDs: S-0014, T-0027, T-0028
+Commit SHA: 8082848 (regenerated after adding the dark-only status-warning contrast pin)
+Branch: m002/wave-c1-primitives
+Timestamp (UTC): 2026-08-05T09:33:57Z
+Command: pnpm --filter @atlas/ui exec vitest run --reporter=verbose
+Pass condition: 100% unit tests green for Button, Badge, Skeleton, StatusIndicator, Card
+Note: 94 tests (was 93) after adding the dark-only status-warning contrast regression test
+flagged by atlas-qa-security's independent review as undocumented if left unpinned.
+Includes the WCAG 2.2 non-text 3:1 gates and the destructive-button 4.5:1 gates.
+----------------------------------------------------------------------
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/packages/ui
+
+ ✓ tests/tokens.test.tsx > Theme switching (dark default vs light override) > switches the governed semantic tokens between themes 5ms
+ ✓ tests/tokens.test.tsx > Theme switching (dark default vs light override) > keeps accent.primary.foreground on palette.dark in BOTH themes (AA on green) 1ms
+ ✓ tests/tokens.test.tsx > Theme switching (dark default vs light override) > maps accent hover to the governed per-theme reference tokens 2ms
+ ✓ tests/tokens.test.tsx > Theme switching (dark default vs light override) > exposes the light override under both .light and [data-theme=light] 1ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > --accent-primary-hover is mapped through var(), not hardcoded 1ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > --status-success is mapped through var(), not hardcoded 0ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > --status-warning is mapped through var(), not hardcoded 0ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > --status-error is mapped through var(), not hardcoded 0ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > --status-info is mapped through var(), not hardcoded 0ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > light-mode accent hover is also reference-mapped 0ms
+ ✓ tests/tokens.test.tsx > Reference-token governance (no raw hex in the semantic layer) > defines the governed status/hover reference palette 0ms
+ ✓ tests/tokens.test.tsx > Reduced motion: real 0s hard-stop > the media query block stops animations and transitions completely 1ms
+ ✓ tests/tokens.test.tsx > Reduced motion: real 0s hard-stop > the [data-motion=reduced] simulator block stops animations and transitions completely 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK text.primary / bg.canvas 2ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK text.secondary / bg.canvas 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK text.primary / bg.surface 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK accent.primary.foreground / accent.primary 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK accent.primary.foreground / accent.primary.hover 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT text.primary / bg.canvas 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT text.secondary / bg.canvas 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT text.primary / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT accent.primary.foreground / accent.primary 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT accent.primary.foreground / accent.primary.hover 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > STATUS white on status.error 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > STATUS dark on status.warning 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > STATUS white on status.info 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > STATUS dark on status.success 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > records that dark-on-warning is AA in dark theme only 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text focus.ring / bg.canvas 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text focus.ring / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text status.success / bg.surface 12ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text status.warning / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text status.error / bg.surface 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK non-text status.info / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text focus.ring / bg.canvas 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text focus.ring / bg.surface 3ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text status.success / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text status.warning / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text status.error / bg.surface 0ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT non-text status.info / bg.surface 2ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK button.text.destructive / button.bg.destructive 2ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > DARK button.text.destructive / button.bg.destructive.hover 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT button.text.destructive / button.bg.destructive 1ms
+ ✓ tests/tokens.test.tsx > WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs > LIGHT button.text.destructive / button.bg.destructive.hover 1ms
+ ✓ tests/placeholder.test.tsx > Placeholder Test > renders successfully 59ms
+ ✓ tests/badge.test.tsx > Badge > renders the default variant with token classes 66ms
+ ✓ tests/badge.test.tsx > Badge > renders the secondary variant with token classes 9ms
+ ✓ tests/badge.test.tsx > Badge > renders the destructive variant with token classes 7ms
+ ✓ tests/badge.test.tsx > Badge > renders the outline variant with token classes 13ms
+ ✓ tests/badge.test.tsx > Badge > is non-interactive: no implicit role, no tab stop 14ms
+ ✓ tests/badge.test.tsx > Badge > merges caller className overrides 6ms
+ ✓ tests/badge.test.tsx > Badge > keeps size AND color text utilities together (tailwind-merge regression) 5ms
+ ✓ tests/skeleton.test.tsx > Skeleton > is hidden from assistive technology 33ms
+ ✓ tests/skeleton.test.tsx > Skeleton > renders the text variant 8ms
+ ✓ tests/skeleton.test.tsx > Skeleton > renders the rectangular variant 5ms
+ ✓ tests/skeleton.test.tsx > Skeleton > renders the circular variant 11ms
+ ✓ tests/skeleton.test.tsx > Skeleton > pulses by default and degrades to static opacity under reduced motion 7ms
+ ✓ tests/skeleton.test.tsx > Skeleton > accepts dimension overrides via className 4ms
+ ✓ tests/badge.test.tsx > Badge > has no axe violations 275ms
+ ✓ tests/skeleton.test.tsx > Skeleton > has no axe violations 324ms
+ ✓ tests/card.test.tsx > Card > composes header, title, description, content and footer 303ms
+ ✓ tests/card.test.tsx > Card > renders the standard variant with surface tokens 12ms
+ ✓ tests/card.test.tsx > Card > renders the outline variant with surface tokens 7ms
+ ✓ tests/card.test.tsx > Card > renders the elevated variant with surface tokens 7ms
+ ✓ tests/card.test.tsx > Card > uses the border token on every variant 11ms
+ ✓ tests/card.test.tsx > Card > keeps size AND color text utilities on the description (tailwind-merge regression) 7ms
+ ✓ tests/card.test.tsx > Card > has no axe violations 96ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > announces the state politely with a visible textual label 333ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > maps the success status to its token dot 11ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > maps the warning status to its token dot 6ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > maps the error status to its token dot 7ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > maps the info status to its token dot 6ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > keeps both the size and the colour class on the label (cn regression pin) 4ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > never relies on color alone: the label is mandatory content 18ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > stops the dot pulse under reduced motion (class contract) 4ms
+ ✓ tests/status-indicator.test.tsx > StatusIndicator > has no axe violations 106ms
+ ✓ tests/button.test.tsx > Button > renders an accessible button and fires the click callback 269ms
+ ✓ tests/button.test.tsx > Button > applies token classes for the primary variant 15ms
+ ✓ tests/button.test.tsx > Button > applies token classes for the secondary variant 11ms
+ ✓ tests/button.test.tsx > Button > applies token classes for the destructive variant 10ms
+ ✓ tests/button.test.tsx > Button > applies token classes for the outline variant 10ms
+ ✓ tests/button.test.tsx > Button > applies token classes for the ghost variant 8ms
+ ✓ tests/button.test.tsx > Button > applies the sm size with a mobile touch target 9ms
+ ✓ tests/button.test.tsx > Button > applies the md size with a mobile touch target 8ms
+ ✓ tests/button.test.tsx > Button > applies the lg size with a mobile touch target 7ms
+ ✓ tests/button.test.tsx > Button > honours a caller-supplied disabled prop and blocks interaction 10ms
+ ✓ tests/button.test.tsx > Button > activates on Enter and Space, not only on pointer click 17ms
+ ✓ tests/button.test.tsx > Button > keeps a loading button focusable so focus is not lost mid-operation 15ms
+ ✓ tests/button.test.tsx > Button > communicates the async state: aria-busy, spinner, no interaction, label readable 15ms
+ ✓ tests/button.test.tsx > Button > stops the spinner rotation under reduced motion (class contract) 3ms
+ ✓ tests/button.test.tsx > Button > renders a leading icon and the analytics attribute 10ms
+ ✓ tests/button.test.tsx > Button > exposes the focus-ring contract on focus-visible 8ms
+ ✓ tests/button.test.tsx > Button > keeps color AND size text utilities together (tailwind-merge regression) 6ms
+ ✓ tests/button.test.tsx > Button > has no axe violations in idle and loading states 72ms
+
+ Test Files  7 passed (7)
+      Tests  94 passed (94)
+   Start at  09:33:57
+   Duration  6.93s (transform 736ms, setup 3.78s, import 6.63s, tests 2.38s, environment 27.11s)
+
+Exit code: 0

@@ -26,9 +26,25 @@ describe('Shared workspace packages (M001-B / M001-C)', () => {
     expect(typeof config).toBe('object');
   });
 
-  it('keeps the scaffolds empty of business exports (M001 scope guard)', () => {
-    for (const moduleNamespace of [ui, domain, apiContracts, config] as Record<string, unknown>[]) {
+  it('keeps the not-yet-started scaffolds empty of business exports (scope guard)', () => {
+    for (const moduleNamespace of [domain, apiContracts, config] as Record<string, unknown>[]) {
       expect(Object.keys(moduleNamespace)).toHaveLength(0);
     }
+  });
+
+  it('limits @atlas/ui to the approved M-002 Wave C1 primitive surface (scope guard)', () => {
+    // Widening this list requires an approved Task Packet deliverable, not a local decision.
+    expect(Object.keys(ui).sort()).toEqual([
+      'Badge',
+      'Button',
+      'Card',
+      'CardContent',
+      'CardDescription',
+      'CardFooter',
+      'CardHeader',
+      'CardTitle',
+      'Skeleton',
+      'StatusIndicator',
+    ]);
   });
 });

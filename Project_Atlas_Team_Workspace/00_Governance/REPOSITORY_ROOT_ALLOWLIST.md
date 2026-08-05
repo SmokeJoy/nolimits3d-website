@@ -37,6 +37,10 @@ Adds the approved M-001 technical structure:
 - `packages/`;
 - `supabase/`;
 - `docs/`;
+- `CLAUDE.md` and `.claude/`, the agent governance configuration admitted by AD-008;
+- `node_modules/` and `.pnpm-store/` **as directories only**, being the local dependency
+  tree a pnpm workspace cannot exist without. This is a narrow, named exception to §2 and
+  applies to this profile alone; `pre-m001` continues to reject both;
 - approved root configuration files named by the accepted Task Packets (including `.prettierignore`).
 
 The profile permits locations, not arbitrary content. Scope and task-packet controls remain binding.
