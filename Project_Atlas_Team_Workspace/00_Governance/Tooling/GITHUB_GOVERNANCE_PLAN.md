@@ -32,7 +32,7 @@ Pipeline commands must fail with a non-zero exit code on error and must not muta
 
 - Verified repository owner: `@SmokeJoy`.
 - `.github/CODEOWNERS` must map governed paths to `@SmokeJoy`.
-- AI roles such as Claude, Codex, Gemini and ChatGPT must never appear as fictional GitHub accounts.
+- AI role names must never appear as fictional GitHub accounts.
 - Unresolved placeholders are forbidden.
 - CODEOWNERS does not replace the Architect Review gate.
 
@@ -46,7 +46,10 @@ Pipeline commands must fail with a non-zero exit code on error and must not muta
 ## Authority Mapping
 
 - **Andrea / `@SmokeJoy`**: Product Owner and repository account owner.
-- **ChatGPT**: Chief Architect and architectural gate.
-- **Gemini**: integration and QA.
-- **Claude**: frontend implementation.
-- **Codex**: backend and infrastructure implementation.
+- **Codex Root**: Chief Architect and architectural gate; no production implementation.
+- **Atlas TPM**: planning, PR integration and Technical Review; no production implementation.
+- **Atlas Frontend**: frontend implementation on assigned branches and Task Packets.
+- **Atlas Backend**: backend, infrastructure and CI implementation on assigned Task Packets.
+
+No implementer approves its own PR. Atlas TPM does not replace Codex Root Architect Review,
+and Codex Root does not replace Andrea's business acceptance.

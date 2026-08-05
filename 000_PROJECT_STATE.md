@@ -1,61 +1,61 @@
 # Project State
+
 *Operational continuity index. Non-authoritative.*
 
-Authoritative hierarchy:
+## Authority
 
-1. `NoLimits3D_Documentation_v0.96/` pending Frozen Baseline binding;
-2. `Project_Atlas_Development_Framework_v1.0/`;
-3. `Project_Atlas_Development_Blueprint_v0.1/`;
-4. approved Development Blueprint implementation in source code.
+1. `NoLimits3D_Documentation_v0.96/` - immutable Documentation Bible;
+2. `Project_Atlas_Development_Framework_v2.0.0/` - active governance candidate for M0R;
+3. `Project_Atlas_Development_Blueprint_v0.1/` - directives, blueprint and reviews;
+4. approved implementation in source code.
+
+`Project_Atlas_Development_Framework_v1.0/` is immutable historical governance and is
+superseded for future execution when M0R closes.
 
 ## Executive Status
 
-- **Project Status:** Active
-- **Current Phase:** M-002 Implementation
-- **Current Milestone:** M-002 Design System & UI Foundation — IN PROGRESS
-- **Last Completed Milestone:** M-001 - Repository Foundation
-- **M-001 Status:** CLOSED
-- **Latest Architect Review:** `PA-AR-M002-015` (Wave C1 closed, `M002-PRIMITIVE-INVENTORY.md`
-  approved, Wave C2 activated)
-- **Latest Architect Directive:** `AD-009` — Product Owner countersignature, closes BLK-M002-003
-- **Wave A:** MERGED
-- **Wave B:** MERGED (`02b4878`, PR #5)
-- **Wave C1:** CLOSED BY ARCHITECT REVIEW (`26cb068`, PR #6; closure `PA-AR-M002-015`, PR #8)
-  2026-08-05. `BLK-M002-001` through `-005` all closed; CI green; independent
-  `atlas-qa-security` review PASS WITH FINDINGS, all findings addressed pre-merge.
-- **Next Gate:** Wave C2 (`TSK-M002-CLAUDE-C2`, Forms & Complex Components) — ACTIVATED,
-  implementation in progress on `m002/wave-c2-forms`
+- **Project Status:** Active, M0R Architect Review approved
+- **Current Milestone:** M0R - ACTIVE; ARCHITECT APPROVED; AWAITING PRODUCT OWNER ACCEPTANCE; MERGE BLOCKED
+- **Last Historical Milestone:** M0 - Legacy Team Bootstrap - DONE / SUPERSEDED
+- **Next Delivery Gate:** Blueprint 00 / M1 - Repository Foundation - BLOCKED by M0R
+- **Latest Architect Directive:** `AD-010_CODEX_NATIVE_TEAM_RECONFIGURATION.md`
+- **Latest Technical Review:** `Project_Atlas_Team_Workspace/07_Reports/M0R_TECHNICAL_REVIEW.md` - APPROVED FOR INTEGRATION
+- **Latest Architect Review:** `M0R_CODEX_NATIVE_ARCHITECT_REVIEW.md` - APPROVED FOR PRODUCT OWNER ACCEPTANCE
 - **Last Update:** 2026-08-05
 
-## Team
+## Active Team
 
-Per `AD-008`, Andrea delegated the Chief Architect & CTO role to Claude Code on
-2026-08-04. Execution runs through the Claude Code subagents defined in
-`.claude/agents/`. Governance map: `CLAUDE.md`. Separation of duties is unchanged:
-no role approves its own implementation work, and no Architect agent exists.
+Andrea is Product Owner. Codex Root is Chief Architect & CTO and does not implement
+production code. Atlas TPM coordinates, integrates and performs Technical Review. Atlas
+Frontend and Atlas Backend are the only implementers. The only delegation chain is:
 
-## Non-negotiable product boundaries
+`Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend`
+
+Implementers cannot create subagents and cannot approve their own work.
+
+## Historical Delivery Record
+
+M-001 Repository Foundation was closed by `PA-AR-M001-019`. M-002 Waves A, B, C1 and C2
+were delivered under the superseded Claude-native governance, including PR #9 and its green
+CI. Those facts remain historical evidence; they do not authorize a future milestone or
+replace M0R Role Boundary Tests.
+
+## Non-Negotiable Product Boundaries
 
 - Jarvis remains private to Andrea inside the Command Center, enforced server-side.
-- PrintFlow remains Coming Soon in the current phase.
-- The PC worker remains pull-only, with no inbound control port.
-- `apps/legacy-web` remains the public fallback, preserved byte-for-byte.
+- PrintFlow remains `Coming Soon`.
+- The PC worker remains pull-only with no inbound control port.
+- `apps/legacy-web` remains the preserved public fallback.
+- `BLK-BASE-001` keeps production blocked.
 
-## Open blockers
+## Review Status
 
-- `BLK-BASE-001` - production baseline binding; blocks production release, does not
-  block M-002 implementation.
+- `BLK-M0R-001` and `BLK-M0R-002` are closed by runtime, integration, validator, gate, and
+  Technical Review evidence.
+- M0R is not DONE. Architect Review is approved; Andrea Product Owner acceptance and the
+  post-acceptance closure update remain.
+- Merge is not authorized.
 
-## Recently closed
+## Open Blocker
 
-- `BLK-M002-001` through `BLK-M002-005` - all closed. `BLK-M002-003` closed 2026-08-04:
-  Andrea countersigned the `AD-008` delegation directly in a Claude Code CLI session;
-  recorded in `AD-009`. `BLK-M002-002`'s provisional caveat is lifted with it.
-
-## Known local-environment note
-
-`core.autocrlf` must be `false` in this clone. `.gitattributes` is stored as UTF-16
-and is therefore inert, so with `autocrlf=true` the working tree checks out as CRLF
-while `.prettierrc` requires LF, and `pnpm format:check` fails locally on files that
-are byte-correct in the repository. Re-encoding `.gitattributes` is a separate,
-isolated change: renormalising touches ~195 files including the preserved legacy tree.
+- `BLK-BASE-001` - production baseline binding remains open.

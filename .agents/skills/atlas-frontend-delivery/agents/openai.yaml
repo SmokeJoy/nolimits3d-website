@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Atlas Frontend Delivery'
+  short_description: 'Deliver governed Atlas frontend tasks'
+  default_prompt: 'Use $atlas-frontend-delivery to implement an approved Atlas frontend Task Packet within its exact file scope.'

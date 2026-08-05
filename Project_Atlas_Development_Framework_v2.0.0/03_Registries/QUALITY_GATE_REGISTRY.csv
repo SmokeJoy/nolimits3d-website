@@ -1,0 +1,15 @@
+gate_id,name,evidence,authority
+DP-G00,Authority,Approval record,Atlas TPM verifies; Andrea/Codex Root approve
+DP-G01,Baseline,Requirement and Owner Document,Atlas TPM
+DP-G02,Blueprint,Approved Blueprint section,Codex Root
+DP-G03,Traceability,Requirement–task–PR–test links,Atlas TPM
+DP-G04,Architecture,ADR/invariant checklist,Codex Root
+DP-G05,Security & Privacy,Scans and review,Atlas TPM/Codex Root
+DP-G06,Data & Migration,Migration/restore evidence,Atlas TPM
+DP-G07,UX & Accessibility,Tests and audit,Atlas TPM
+DP-G08,Performance,Budget evidence,Atlas TPM
+DP-G09,Testing,Test report,Atlas TPM
+DP-G10,Observability,Logs/metrics/alerts,Atlas TPM
+DP-G11,Integration,Integration report,Atlas TPM
+DP-G12,Human Accountability,Approval evidence,Codex Root/Andrea
+DP-G13,Release Truth,Release review,Codex Root/Andrea

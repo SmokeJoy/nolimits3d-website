@@ -1,47 +1,51 @@
 # Session Handoff
+
 *Operational continuity note. Non-authoritative.*
 
-## Current Handoff - 2026-08-04
+## Current Handoff - 2026-08-05
 
-- **Received:** Product Owner instruction from Andrea delegating the Chief Architect &
-  CTO role to Claude Code. Recorded as `AD-008` / `DEC-007`.
-- **Phase:** M-002 Implementation, Wave C1.
-- **M-002 Status:** IN PROGRESS. Wave A and Wave B merged; Wave C1 implemented.
-- **Branch:** `m002/wave-c1-primitives`, pushed to origin. **PR #6 open against `main`**,
-  not merged.
-- **Delivered this session:**
-  - `e367dcb` Wave C1 primitives — Button, Badge, Card, Skeleton, StatusIndicator,
-    45 tests, playground showcase `[TSK-M002-CLAUDE-C1]`.
-  - `99ece4e` restored `@atlas/ui` declaration emit (a `composite: true` inheritance made
-    `tsc` skip `index.d.ts` after `vite build` emptied `dist/`), and realigned the
-    expired M-001 shared-package scope guard to pin the approved export surface.
-  - `461fd88` `brace-expansion` override to 5.0.9, clearing two high-severity advisories.
-  - `c14e087` / `d8368af` AD-008 team, allowlist amendment and audit enforcement alignment.
-  - `3e4018e` accepted the previously untracked production architecture pack.
-- **Gates:** lint, typecheck, build, test, secret scan, scope, source bindings,
-  migrations, dependency audit, format check, toolchain and root audit all green.
-- **Evidence:** `05_Evidence/M002/wave-c1/` — EV-10 (94/94, exit 0) and EV-19 (contrast
-  remediation, before/after ratios).
-- **Independent review result: NOT READY TO MERGE.** A five-dimension review of
-  `02b4878..d8368af` returned FAIL on task-packet scope, accessibility, security boundaries
-  and governance integrity, and PASS WITH FINDINGS on test efficacy. Its adversarial
-  verification phase did **not** run (10 of 15 agents aborted on a session limit), so the
-  findings are corroborated by direct re-verification, not by refutation. Open blockers
-  `BLK-M002-001` … `BLK-M002-005`.
-- **Corrected in response:** the `CLAUDE.md` / `AD-008` contradiction over who holds the
-  architect gate; the root-audit `LOCAL_ARTEFACTS` exemption, which had applied to the
-  strict `pre-m001` profile as well; the overstated "no write tools" claim for
-  `atlas-qa-security`; the `ROLE-CTO` hard limit.
-- **Blockers closed since:** `BLK-M002-001` (the dependency audit now covers 517 packages
-  instead of 106; 13 advisories fixed, 1 waived with an expiry and a recorded rationale),
-  `BLK-M002-002` (deviation ratified and recorded in the Task Packet),
-  `BLK-M002-004` (light-theme contrast: focus ring 1.90 → 3.70, warning 1.84 → 4.71,
-  destructive hover 4.32 → 6.47, all now gated by tests),
-  `BLK-M002-005` (disabled, keyboard, focus and the missing cn pin; 93 tests, was 73).
-- **Still open:** `BLK-M002-003` — the architect delegation is attested only by an artefact
-  the delegatee wrote. Andrea's countersignature is the one thing that cannot be self-served,
-  and the `BLK-M002-002` ratification inherits that caveat.
-- **Current Gate:** Architect Review and merge of Wave C1.
-- **Open item:** the `.claude/agents/` team registers only at Claude Code session start,
-  so the agents were not invocable in the session that created them.
-- **Production binding:** `BLK-BASE-001` remains open; production is forbidden.
+- **Authority:** Andrea authorized M0R implementation under Codex Root.
+- **Branch:** `codex/m0r-team-reconfiguration`.
+- **Role:** Atlas TPM; coordination, governance integration and Technical Review only.
+- **Current Gate:** M0R - ARCHITECT APPROVED / AWAITING PRODUCT OWNER ACCEPTANCE / MERGE BLOCKED.
+- **Production code:** not authorized in this handoff.
+- **Documentation Bible:** immutable; no write is authorized below
+  `NoLimits3D_Documentation_v0.96/`.
+
+## Integrated by Atlas TPM
+
+- root governance in `AGENTS.md` and the Claude compatibility bridge;
+- Atlas TPM custom-agent definition;
+- AD-010, M0R charter and Role Boundary Test specification;
+- Development Framework v2.0.0 derived from immutable v1;
+- four TPM-owned operational skills initialized with the official skill scaffold;
+- active state, registers, handoff and root allowlist migration;
+- removal of the five superseded `.claude/agents/*.md` definitions from the active path.
+
+## Child Execution Status
+
+The initial Atlas TPM subagent exposed no supported multi-agent tools. Codex Root therefore
+launched Atlas Frontend and Atlas Backend directly for bootstrap. This is recorded as
+`DEV-M0R-001`; it does not satisfy RBT-02 or alter the canonical delegation chain.
+
+The disjoint implementer outputs were handed off, statically validated, and integrated
+without the TPM editing their owned files.
+
+A later fresh Desktop runtime demonstrated the canonical nested chain with IDs
+`/root/atlas_tpm`, `/root/atlas_tpm/atlas_frontend`, and
+`/root/atlas_tpm/atlas_backend`. RBT-01..07 passed with zero writes. The wrapper exit 1
+caused by stderr warnings and policy-declined read probes is documented in the Technical
+Review and does not conceal the underlying `turn.completed` PASS result.
+
+## Next Gate
+
+1. Andrea reviews the M0R pull request and records Product Owner acceptance or rejection.
+2. On acceptance, Codex Root records the decision and completes the post-acceptance state
+   and validator update required by `M0R_CODEX_NATIVE_ARCHITECT_REVIEW.md`.
+3. Only after that update and green CI may M0R be considered for closure and merge.
+
+Technical Review and Architect Review are approved. M0R is not DONE and merge is not
+authorized.
+
+Jarvis remains private, PrintFlow remains `Coming Soon`, and production remains blocked by
+`BLK-BASE-001`.

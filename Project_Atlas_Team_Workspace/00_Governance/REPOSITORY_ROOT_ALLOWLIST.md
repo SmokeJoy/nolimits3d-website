@@ -1,74 +1,65 @@
 # Repository Root Allowlist
 
-> **Version:** 1.2  
-> **Authority:** PA-DF-POL-001; AD-001; AD-002; AD-003  
-> **Owner:** Gemini for enforcement; ChatGPT for exceptions  
-> **Status:** Active
+> **Version:** 2.0
+> **Authority:** PA-DF-POL-002; AD-010
+> **Owner:** Atlas TPM for enforcement; Codex Root for architecture exceptions
+> **Status:** Active for M0R
 
-## 1. Audit profiles
+## 1. Audit Profiles
 
 ### `pre-m001`
 
-Used before an explicit Architect `PROCEED` for M-001 execution.
-
-Allowed root entries:
-
-- `NoLimits3D_Documentation_v0.96/`;
-- `Project_Atlas_Development_Framework_v1.0/`;
-- `Project_Atlas_Development_Blueprint_v0.1/`;
-- `Project_Atlas_Team_Workspace/`;
-- `000_PROJECT_STATE.md`;
-- `001_SESSION_HANDOFF.md`;
-- `002_PROJECT_DNA.md`;
-- `.git/` when present;
-- `scripts/`, restricted to `scripts/governance/atlas_handoff.py`;
-- `PROJECT_ATLAS_CURRENT_HANDOFF.zip` only as an active transport exception.
-
-Application roots and build configuration are forbidden under this profile.
+Historical strict profile retained for validating immutable M-001 evidence. Its historical
+contract is not rewritten and it does not describe the current M0R worktree.
 
 ### `m001-execution`
 
-May be used only after a recorded Architect `PROCEED`.
+Historical application profile retained for existing delivery evidence. It admits the
+approved application roots and root configuration but no longer treats `.claude/agents/` as
+an active governance path. `CLAUDE.md` is permitted only as a compatibility bridge.
 
-Adds the approved M-001 technical structure:
+### `m0r-reconfiguration`
 
-- `.github/`;
-- `apps/`;
-- `packages/`;
-- `supabase/`;
-- `docs/`;
-- `CLAUDE.md` and `.claude/`, the agent governance configuration admitted by AD-008;
-- `node_modules/` and `.pnpm-store/` **as directories only**, being the local dependency
-  tree a pnpm workspace cannot exist without. This is a narrow, named exception to §2 and
-  applies to this profile alone; `pre-m001` continues to reject both;
-- approved root configuration files named by the accepted Task Packets (including `.prettierignore`).
+Current M0R profile. It inherits the application structure admitted after M-001 and adds:
 
-The profile permits locations, not arbitrary content. Scope and task-packet controls remain binding.
+- `AGENTS.md`;
+- `.codex/`;
+- `.agents/`;
+- `Project_Atlas_Development_Framework_v2.0.0/`;
+- `CLAUDE.md` as a compatibility bridge only.
 
-## 2. Always disallowed in root
+The following existing roots remain permitted: the immutable Documentation Bible, immutable
+Framework v1, Blueprint, Team Workspace, state/handoff files, application/package roots,
+`supabase/`, `docs/`, `.github/`, governed scripts, dependency directories, and approved root
+configuration files.
 
-- loose `REPORT.md`, tree, audit, prompt, plan or command-log files;
-- extracted/staging directories such as `temp_handoff/` or `CURRENT/`;
+`.claude/agents/*` is forbidden under this profile. Non-agent local metadata such as
+`settings.local.json` may remain, but cannot define roles or delegation. The five legacy
+agent definitions were removed from active discovery under AD-010.
+
+## 2. Always Disallowed In Root
+
+- loose reports, trees, audits, prompts, plans, or command logs;
+- extracted or staging directories such as `temp_handoff/` or `CURRENT/`;
 - historical or numbered handoff ZIPs;
-- loose generation/update/patch scripts;
+- loose generation, update, or patch scripts;
 - duplicate and backup directories;
-- caches, logs, dependencies and build output;
-- application roots before `PROCEED`.
+- logs, caches, or build output not expressly admitted by a profile;
+- unowned files outside an approved Task Packet.
 
-## 3. Evidence location
+## 3. Evidence Location
 
-Root audits, trees, validation outputs and command logs belong under:
-
-`Project_Atlas_Team_Workspace/05_Evidence/`
-
-The machine-readable JSON audit is authoritative. A text tree is supplementary.
+Root audits, trees, validation outputs, runtime traces, and command logs belong under
+`Project_Atlas_Team_Workspace/05_Evidence/`. Machine-readable evidence is authoritative;
+narrative summaries cannot replace it.
 
 ## 4. Enforcement
 
-Before `PROCEED`:
+For M0R:
 
 ```powershell
-python scripts/governance/atlas_handoff.py audit-root --profile pre-m001 --disallow-current-zip --fail-on-violations --output <canonical-evidence-path>/root_audit.json
+python scripts/governance/atlas_handoff.py audit-root --profile m0r-reconfiguration --disallow-current-zip --fail-on-violations
 ```
 
-After `PROCEED`, the Architect directive opening M-001 execution must authorize use of `m001-execution`.
+Location permission does not override Task Packet scope, Documentation Bible immutability,
+role boundaries, or the no-self-approval rule.

@@ -58,6 +58,9 @@ jobs:
       - name: Test
         run: pnpm test
 
+      - name: Codex-native governance
+        run: pnpm governance:codex-native
+
       - name: Secret scan fallback
         run: pnpm secret:scan
 

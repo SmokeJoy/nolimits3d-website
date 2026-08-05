@@ -1,27 +1,37 @@
 # Current Project State
 
-- **Phase:** M-002 Implementation
-- **Current Milestone:** M-002 Design System & UI Foundation — IN PROGRESS
-- **Last Completed Milestone:** M-001 — Repository Foundation
-- **Implementation:** AUTHORIZED (Wave A, Wave B and Wave C1 merged)
-- **Wave C1 status:** MERGED — PR #6, merge commit `26cb068`, 2026-08-05.
-- **Reviews:** a five-dimension review returned FAIL on four dimensions and opened
-  `BLK-M002-001` … `-005`; all five are closed. `BLK-M002-003` closed by Andrea's direct
-  countersignature in a Claude Code CLI session (`AD-009`), which also lifted `BLK-M002-002`'s
-  provisional caveat. A follow-up independent `atlas-qa-security` review of the closing commits
-  returned PASS WITH FINDINGS (two MAJOR: an incomplete deviation-table update, and
-  overly-broad DP-G12/DP-G13 language in `AD-009`); both addressed before merge.
-- **Wave C1 closure:** `PA-AR-M002-015` (PR #8, 2026-08-05) formally closed Wave C1, approved
-  `M002-PRIMITIVE-INVENTORY.md` (resolving a `PENDING ARCHITECT APPROVAL` status carried since
-  2026-07-16 that `atlas-tpm`'s Wave C2 readiness check surfaced), and activated Wave C2. An
-  external automated reviewer on PR #8 (after merge) found the Inventory's Tabs anatomy named
-  a nonexistent `Tabs.Trigger` instead of the real `@base-ui/react@1.6.0` export `Tabs.Tab`;
-  corrected in the Inventory directly.
-- **Next Wave:** Wave C2 — `TSK-M002-CLAUDE-C2` (Forms & Complex Components), ACTIVATED,
-  implementation running on `m002/wave-c2-forms`.
-- **Latest Architect Directive:** `AD-009`; **Latest Architect Review:** `PA-AR-M002-015`
-- **Evidence:** `05_Evidence/M002/wave-c1/` — EV-10 (94/94, exit 0), EV-19 (contrast
-  remediation, before/after ratios)
-- **Deliberately not pinned here:** a HEAD SHA beyond the merge commit already named above.
-  Use `git log` on `main` for anything past this point.
+- **Phase:** M0R Codex-Native Team Reconfiguration
+- **Current Milestone:** M0R - ACTIVE; ARCHITECT APPROVED; AWAITING PRODUCT OWNER ACCEPTANCE; MERGE BLOCKED
+- **Last Historical Milestone:** M0 Legacy Team Bootstrap - DONE / SUPERSEDED
+- **Next Milestone:** Blueprint 00 / M1 Repository Foundation - BLOCKED by M0R
+- **Latest Directive:** AD-010
+- **Latest Technical Review:** `M0R_TECHNICAL_REVIEW.md` - APPROVED FOR INTEGRATION
+- **Latest Architect Review:** `M0R_CODEX_NATIVE_ARCHITECT_REVIEW.md` - APPROVED FOR PRODUCT OWNER ACCEPTANCE
+- **Implementation:** governance-only M0R work authorized; production code unauthorized
 - **Last Update:** 2026-08-05
+
+## Active Governance
+
+Codex Root is Chief Architect & CTO and does not implement production code. Atlas TPM owns
+coordination, integration and Technical Review. Atlas Frontend and Atlas Backend are the
+only implementers; they cannot create subagents or self-approve.
+
+## Historical Continuity
+
+M-001 closed under `PA-AR-M001-019`. M-002 Waves A, B, C1 and C2 were delivered under the
+now-superseded Claude-native governance; PR #9 reported green CI. These remain historical
+facts and do not satisfy the M0R acceptance gate.
+
+## M0R Evidence Status
+
+- Static validator 46/46, repository skills 5/5, and all applicable repository gates pass.
+- The canonical nested runtime trace passes RBT-01..07 with TPM and both implementer IDs.
+- The wrapper exit 1 anomaly is retained in the Technical Review; the underlying Codex turn
+  completed with PASS.
+- `BLK-M0R-001` and `BLK-M0R-002` are closed.
+- Architect Review is approved. M0R remains open for Andrea Product Owner acceptance and
+  the required post-acceptance closure update.
+- Merge is not authorized.
+
+Jarvis remains private, PrintFlow remains `Coming Soon`, and `BLK-BASE-001` blocks
+production.

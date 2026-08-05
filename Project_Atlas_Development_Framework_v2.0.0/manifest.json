@@ -1,0 +1,181 @@
+{
+  "project": "Project Atlas - Development Framework",
+  "version": "2.0.0",
+  "status": "M0R Implementation Candidate",
+  "generated_at": "2026-08-05",
+  "source_reference": "Development Framework v1.0.1 (immutable historical source); AD-010 Codex-native reconfiguration; Documentation Bible v0.96 unchanged",
+  "manifest_scope": "All regular files below this directory except manifest.json",
+  "file_count": 34,
+  "files": [
+    {
+      "path": "000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+      "size": 62524,
+      "sha256": "edcc3626b1b68dab54c337b52af2d34266a741df0f593b04938ada0791f97e0e"
+    },
+    {
+      "path": "01_Templates/ADR_INTAKE_TEMPLATE.md",
+      "size": 264,
+      "sha256": "a72a6c9252081aa4043550e56d2edd5238fbec83bd856c187310f4cc216ce4f6"
+    },
+    {
+      "path": "01_Templates/ARCHITECT_REVIEW_TEMPLATE.md",
+      "size": 469,
+      "sha256": "e0c976945cf030da7d97201cceb82aba3e5eced652d6b749b487ed96aaf0854e"
+    },
+    {
+      "path": "01_Templates/BASELINE_BINDING_RECORD_TEMPLATE.md",
+      "size": 280,
+      "sha256": "012a0de3341fc6638224191966a32dca8b5058bd9739809c06682f687a40efec"
+    },
+    {
+      "path": "01_Templates/BLOCKER_ESCALATION_TEMPLATE.md",
+      "size": 411,
+      "sha256": "f20c3b8f9db2491272d946ebf322e7df0edcd87e158f3d7c5d00192c8b5f48e7"
+    },
+    {
+      "path": "01_Templates/BUSINESS_APPROVAL_TEMPLATE.md",
+      "size": 253,
+      "sha256": "8783c16bdc30e500dadba8014cd40eb82f0a8fa8b9e59b2463bcff7caf60f51a"
+    },
+    {
+      "path": "01_Templates/MILESTONE_CHARTER_TEMPLATE.md",
+      "size": 521,
+      "sha256": "cc1fc27e4847abb44717792038fd1564c81ff6585e707ed41f05e2179e414f59"
+    },
+    {
+      "path": "01_Templates/MILESTONE_REVIEW_PACK_TEMPLATE.md",
+      "size": 331,
+      "sha256": "e833a386c34edc395c935a7d840a05ebfa81ca9fb66aebeaa7c748cad2056a3d"
+    },
+    {
+      "path": "01_Templates/RELEASE_REPORT_TEMPLATE.md",
+      "size": 368,
+      "sha256": "fa93a4e4311095073b20dc51016e4d87177533e9a401b670765f2a2c97f40f1b"
+    },
+    {
+      "path": "01_Templates/RETROSPECTIVE_TEMPLATE.md",
+      "size": 336,
+      "sha256": "3d2bd44de7fcb689de54f448df01fd0ceb14e2951a010395381db7c5d95635d3"
+    },
+    {
+      "path": "01_Templates/RFC_TEMPLATE.md",
+      "size": 433,
+      "sha256": "88625d896bc6c435727ee9b7b5bd067ad3a8a32dc5d381b78ef40289075c2a31"
+    },
+    {
+      "path": "01_Templates/SPRINT_PLAN_TEMPLATE.md",
+      "size": 369,
+      "sha256": "e36cd445d8aeb0073f3536c01fee507a8cdae7a3b2d6bbc6fe9de468f26ed6ac"
+    },
+    {
+      "path": "01_Templates/TASK_PACKET_TEMPLATE.md",
+      "size": 467,
+      "sha256": "c6b25248ac9ed37b1afa249c32a748a274debef60edcc8da3f066cdb77fcf495"
+    },
+    {
+      "path": "01_Templates/TECHNICAL_REVIEW_TEMPLATE.md",
+      "size": 461,
+      "sha256": "50abc0864ef6c4cbf587e58c19d16609e0b254f3d6d68729e8104d898714f359"
+    },
+    {
+      "path": "02_Checklists/ARCHITECT_REVIEW_CHECKLIST.md",
+      "size": 298,
+      "sha256": "4227d04afb3a0a507d054be0a1af099fe3b19928024837fb0ecde1db7a4cd923"
+    },
+    {
+      "path": "02_Checklists/MILESTONE_START_CHECKLIST.md",
+      "size": 332,
+      "sha256": "55624963080ada8157fc52bbde8809e76f5f3ecb6bda244d118187eada4704b8"
+    },
+    {
+      "path": "02_Checklists/POST_RELEASE_CHECKLIST.md",
+      "size": 275,
+      "sha256": "10dbf267313a29ac0c6aa124b72c4351dd599aaffa3087d9222374e532f0507b"
+    },
+    {
+      "path": "02_Checklists/PULL_REQUEST_CHECKLIST.md",
+      "size": 347,
+      "sha256": "9ed3940412d7673b5bdf8dfbe97f91edfae54f37d53b26fbcc5e7fa550118ed1"
+    },
+    {
+      "path": "02_Checklists/RELEASE_CHECKLIST.md",
+      "size": 322,
+      "sha256": "28e098b3448e87770dc11418d53ba6bad3ab4abde71d2f6a9412f0f3dd987b23"
+    },
+    {
+      "path": "02_Checklists/SPRINT_START_CHECKLIST.md",
+      "size": 227,
+      "sha256": "b5e4088fac50702bbbe71e9d2289dc808be8c88979742e583d9620c69627d2b2"
+    },
+    {
+      "path": "02_Checklists/TECHNICAL_REVIEW_CHECKLIST.md",
+      "size": 344,
+      "sha256": "8ead05b1bb91e851ed9107b64cdc08aeb78153c637a5a5308fd875e40647421e"
+    },
+    {
+      "path": "03_Registries/METRICS_CATALOG.csv",
+      "size": 608,
+      "sha256": "55657628ed7927aab74108783e450cda9c078164bc147716848c84ec3e97a479"
+    },
+    {
+      "path": "03_Registries/QUALITY_GATE_REGISTRY.csv",
+      "size": 821,
+      "sha256": "b1af06748786ba3ca8a19a3084943a7b965700544331748f23b666d3ecf78c04"
+    },
+    {
+      "path": "03_Registries/ROLE_AUTHORITY_MATRIX.csv",
+      "size": 886,
+      "sha256": "0846a0afa436a167c8b194572d13420302e119725855443ded5950b25eab3e15"
+    },
+    {
+      "path": "03_Registries/WORKFLOW_TRANSITIONS.csv",
+      "size": 626,
+      "sha256": "79b90bb2ec265d9ec8fff52d6ec62524f2318245ec0f5c904a1a933c2ed6426f"
+    },
+    {
+      "path": "04_Assurance/AUDIT_REPORT.md",
+      "size": 1113,
+      "sha256": "db7f18098e72d4fba4b9671b3c359b83ae9b0bae54b65a25df8d8aa189a69773"
+    },
+    {
+      "path": "04_Assurance/EXECUTIVE_SUMMARY.md",
+      "size": 949,
+      "sha256": "418013dae9bb3b80ecff6bbe4165275fd3ebcc8d31c763fbfa5c8977836df4bf"
+    },
+    {
+      "path": "04_Assurance/PLAYBOOK_CONFORMANCE_REVIEW.md",
+      "size": 1931,
+      "sha256": "75d168fbb464f05fc9dd8d8a7e9a59f71d6bec67d060549f208828c7753db3e3"
+    },
+    {
+      "path": "04_Assurance/RELEASE_REPORT.md",
+      "size": 681,
+      "sha256": "352fa50e0d58ba9adf25459d1498f79cdfb882ca05ed9e29d317220b8a617d91"
+    },
+    {
+      "path": "05_Operational_Policies/REPOSITORY_HYGIENE_AND_HANDOFF_PACKAGING_POLICY_v2.0.0.md",
+      "size": 8820,
+      "sha256": "b9808bc342f42c8dd4b584840126c43244136db4cb3861e0b5ac22756855c75a"
+    },
+    {
+      "path": "BASELINE_BINDING_RECORD.md",
+      "size": 1340,
+      "sha256": "21927914260f13df4c9b9acf97c20f730ac5daa506c4269f1e18c775f98308d1"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 2380,
+      "sha256": "cd7199b02206e886b86f592e709c2a5ff95dc81fee8a4e1b11898089dcb5583e"
+    },
+    {
+      "path": "README.md",
+      "size": 1407,
+      "sha256": "7fbca0fb5d9b6e0ccb5b1a892c0cedb233798870f494f10544c9fcaa52f9166c"
+    },
+    {
+      "path": "VERSION",
+      "size": 6,
+      "sha256": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624"
+    }
+  ]
+}

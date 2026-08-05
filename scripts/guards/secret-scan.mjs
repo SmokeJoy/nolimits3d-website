@@ -60,18 +60,22 @@ export function scanText(path, content) {
   return findings;
 }
 
-function isTechnicalPath(path) {
+export function isTechnicalPath(path) {
   return (
     [
+      '.agents/',
+      '.codex/',
       '.github/',
       'apps/',
       'docs/source-bindings/',
       'packages/',
+      'scripts/governance/',
       'scripts/guards/',
       'supabase/',
     ].some((prefix) => path.startsWith(prefix)) ||
     [
       '.env.example',
+      'AGENTS.md',
       'eslint.config.js',
       'package.json',
       'pnpm-lock.yaml',

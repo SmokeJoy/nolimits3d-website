@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Atlas Backend Delivery'
+  short_description: 'Guide approved Atlas backend delivery.'
+  default_prompt: 'Execute an approved Atlas Backend task packet within its exact write set and return test and handoff evidence.'

@@ -44,4 +44,16 @@ AI machine changes are governed by `AI_MACHINE_CHANGE_CONTROL_POLICY.md`. AD-007
 
 ## 7. Authority
 
-A valid package does not self-authorize implementation. Only an explicit Chief Architect verdict can issue `PROCEED`.
+A valid package does not self-authorize implementation. Only an explicit Codex Root Architect
+verdict can issue `PROCEED`; Atlas TPM may issue Technical Review only.
+
+## 8. M0R Codex-Native Handoffs
+
+The canonical chain is `Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend`.
+Implementer handoffs must name the Task Packet, exact write set, changed files, commands,
+exit codes, evidence, deviations, blockers, and a statement that no child agent or
+self-approval was used.
+
+`DEV-M0R-001` permits direct Root-to-implementer launch for initial bootstrap only because
+the first TPM subagent lacked multi-agent tools. It does not satisfy RBT-02 and cannot be
+reused as the normal handoff route.

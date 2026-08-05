@@ -8,8 +8,10 @@ Backlog -> Ready -> In Progress -> In Review -> QA / Integration -> Architect Re
 *(Blocked, Cancelled)*
 
 ## Rules
-- Gemini owns Linear operations.
-- Claude/Codex update only assigned work.
+- Atlas TPM owns Linear operations and workflow reconciliation.
+- Atlas Frontend and Atlas Backend update only their assigned work.
+- Codex Root records architecture decisions and gate verdicts; Andrea records product decisions.
 - No issue enters `In Progress` without a Definition of Ready.
 - Issues must link to Blueprint slices and requirement IDs.
 - CI results must be reflected before issue closure.
+- Implementers cannot move their own work past Technical Review or self-approve it.

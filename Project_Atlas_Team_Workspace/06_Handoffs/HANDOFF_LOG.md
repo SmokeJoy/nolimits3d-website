@@ -17,3 +17,6 @@
 | AD-006-RECOVERY-EVIDENCE | 2026-07-15 | Andrea | ChatGPT | Manual trusted runtime recovery | Accepted — PA-AR-M001-009 |
 | AD-007-20260715-SECURITY-CLOSURE-EVIDENCE-REBASE | 2026-07-15 | ChatGPT | Gemini | Close security incident and rebase evidence | Issued |
 | M001-F-FINAL-EVIDENCE-CLOSURE | 2026-07-15 | ChatGPT | Gemini | Complete final evidence closure and code freeze for M001 | Issued |
+| M0R-ROOT-TPM | 2026-08-05 | Codex Root | Atlas TPM | Integrate Codex-native governance v2.0.0 and perform Technical Review | Complete - APPROVED FOR INTEGRATION |
+| DEV-M0R-001 | 2026-08-05 | Codex Root | Atlas Frontend / Atlas Backend | Direct bootstrap launch because the initial TPM runtime lacked multi-agent tools | Bootstrap deviation recorded; not counted as RBT-02; canonical RBT-02 later passed in the supported runtime trace |
+| M0R-ROOT-PO | 2026-08-05 | Codex Root | Andrea | Architect-approved M0R change set for Product Owner acceptance | Awaiting Product Owner decision; merge blocked |
