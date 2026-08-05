@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import { FormsShowcase } from './FormsShowcase';
 import { PrimitivesShowcase } from './PrimitivesShowcase';
 
 function App() {
@@ -310,6 +311,7 @@ function App() {
           </div>
         </div>
         <PrimitivesShowcase />
+        <FormsShowcase />
       </main>
     </div>
   );

@@ -157,3 +157,33 @@ Questa decisione è stata presa dall'Architect delegato, che è anche l'autore d
 modifiche. È il conflitto di ruolo descritto in `BLK-M002-003`. Andrea ha controfirmato
 la delega direttamente in sessione il 2026-08-04, chiudendo `BLK-M002-003` e con esso
 la riserva su questa ratifica — vedi `AD-009_PRODUCT_OWNER_COUNTERSIGNATURE_AND_BLK-M002-003_CLOSURE.md`.
+
+---
+
+## Ratifica di deviazione — TSK-M002-CLAUDE-C2 (2026-08-05)
+
+A differenza di Wave C1, qui `atlas-frontend` **si è fermato correttamente** davanti a un
+Forbidden File invece di modificarlo in silenzio. Root `pnpm test` falliva perché
+`apps/web/src/test/shared-packages.test.ts` — introdotto in Wave C1 con il commento
+esplicito "Widening this list requires an approved Task Packet deliverable, not a local
+decision" — pinnava `@atlas/ui` alla sola superficie di export di Wave C1. `TSK-M002-CLAUDE-C2`
+è esattamente il deliverable che quel commento anticipava: aggiunge `Input`, `FormField`,
+`Select`, `Dialog`, `DialogClose`, `DialogContent`, `DialogTrigger`, `Tabs`, `TabsList`,
+`TabsPanel`, `TabsTab`, `Toaster`, `toast`. `atlas-frontend` ha corretto la superficie di
+export in `packages/ui` (dentro il proprio perimetro), documentato l'esatta modifica
+necessaria fuori perimetro in
+`Project_Atlas_Team_Workspace/05_Evidence/M002/wave-c2/EV-C2-04-known-issue-apps-web-scope-guard.md`,
+e si è fermato senza toccare `apps/web/**`.
+
+| File | Motivo |
+|---|---|
+| `apps/web/src/test/shared-packages.test.ts` | Elenco atteso allargato da 10 a 23 nomi per includere gli export approvati di Wave C2. Il fix è esattamente quello prescritto da `atlas-frontend` in EV-C2-04, applicato dall'Architect delegato, non dall'implementatore |
+
+**Decisione dell'Architect: RATIFICATA.** La modifica è un allargamento meccanico di un
+elenco già approvato (`M002-PRIMITIVE-INVENTORY.md` §5-7/§9-11 via `PA-AR-M002-015`), non
+una nuova decisione architetturale. Il revert lascerebbe `pnpm test` rosso alla radice per
+un test che pretende una superficie di export scaduta con l'approvazione stessa di Wave C2.
+
+**Vincolo che resta valido:** questa ratifica copre solo `apps/web/src/test/shared-packages.test.ts`
+per l'elenco sopra. Non estende il resto del perimetro Forbidden di `TSK-M002-CLAUDE-C2`
+né di wave successive.

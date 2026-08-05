@@ -32,8 +32,12 @@ describe('Shared workspace packages (M001-B / M001-C)', () => {
     }
   });
 
-  it('limits @atlas/ui to the approved M-002 Wave C1 primitive surface (scope guard)', () => {
+  it('limits @atlas/ui to the approved M-002 Wave C1+C2 primitive surface (scope guard)', () => {
     // Widening this list requires an approved Task Packet deliverable, not a local decision.
+    // Widened for TSK-M002-CLAUDE-C2 (Input, FormField, Select, Dialog, Tabs, Toast),
+    // approved by PA-AR-M002-015. atlas-frontend stopped at this file per its Forbidden
+    // Files and documented the exact widening in
+    // Project_Atlas_Team_Workspace/05_Evidence/M002/wave-c2/EV-C2-04-known-issue-apps-web-scope-guard.md.
     expect(Object.keys(ui).sort()).toEqual([
       'Badge',
       'Button',
@@ -43,8 +47,21 @@ describe('Shared workspace packages (M001-B / M001-C)', () => {
       'CardFooter',
       'CardHeader',
       'CardTitle',
+      'Dialog',
+      'DialogClose',
+      'DialogContent',
+      'DialogTrigger',
+      'FormField',
+      'Input',
+      'Select',
       'Skeleton',
       'StatusIndicator',
+      'Tabs',
+      'TabsList',
+      'TabsPanel',
+      'TabsTab',
+      'Toaster',
+      'toast',
     ]);
   });
 });

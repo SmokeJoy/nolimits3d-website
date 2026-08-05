@@ -1,0 +1,70 @@
+=== pnpm lint ===
+
+> nolimits3d-platform@0.0.0 lint G:\Claude\NoLimits3D-website
+> eslint . --max-warnings=0
+
+
+=== pnpm typecheck ===
+
+> nolimits3d-platform@0.0.0 typecheck G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts typecheck$ tsc -p tsconfig.json
+packages/config typecheck$ tsc -p tsconfig.json
+packages/domain typecheck$ tsc -p tsconfig.json
+packages/ui typecheck$ tsc -p tsconfig.json
+packages/api-contracts typecheck: Done
+packages/config typecheck: Done
+packages/domain typecheck: Done
+packages/ui typecheck: Done
+apps/ui-playground typecheck$ tsc -p tsconfig.json
+apps/web typecheck$ tsc -p tsconfig.json
+apps/ui-playground typecheck: Done
+apps/web typecheck: Done
+
+=== pnpm build ===
+
+> nolimits3d-platform@0.0.0 build G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present build
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts build$ tsc -p tsconfig.build.json
+packages/config build$ tsc -p tsconfig.build.json
+packages/domain build$ tsc -p tsconfig.build.json
+packages/ui build$ vite build && tsc -p tsconfig.build.json --emitDeclarationOnly
+packages/config build: Done
+packages/api-contracts build: Done
+packages/domain build: Done
+packages/ui build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+packages/ui build: [2K
+packages/ui build: transforming...✓ 1999 modules transformed.
+packages/ui build: rendering chunks...
+packages/ui build: computing gzip size...
+packages/ui build: dist/styles.css   24.08 kB │ gzip:  5.51 kB
+packages/ui build: dist/index.js    267.68 kB │ gzip: 75.57 kB
+packages/ui build: [32m✓ built in 560ms[39m
+packages/ui build: Done
+apps/web build$ vite build
+apps/ui-playground build$ vite build
+apps/web build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/web build: [2K
+apps/web build: transforming...✓ 29 modules transformed.
+apps/web build: rendering chunks...
+apps/web build: computing gzip size...
+apps/web build: dist/index.html                            0.36 kB │ gzip:  0.24 kB
+apps/web build: dist/assets/CommandBoundary-DcWSVRjl.js    0.26 kB │ gzip:  0.20 kB
+apps/web build: dist/assets/AccountHome-DYZWSPG3.js        0.26 kB │ gzip:  0.21 kB
+apps/web build: dist/assets/index-CWhYiVTZ.js            286.82 kB │ gzip: 91.30 kB
+apps/web build: [32m✓ built in 248ms[39m
+apps/web build: Done
+apps/ui-playground build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/ui-playground build: [2K
+apps/ui-playground build: transforming...✓ 19 modules transformed.
+apps/ui-playground build: rendering chunks...
+apps/ui-playground build: computing gzip size...
+apps/ui-playground build: dist/index.html                   0.40 kB │ gzip:   0.27 kB
+apps/ui-playground build: dist/assets/index-D-mXa8y9.css   28.41 kB │ gzip:   6.18 kB
+apps/ui-playground build: dist/assets/index-DNgZWEIA.js   398.44 kB │ gzip: 125.10 kB
+apps/ui-playground build: [32m✓ built in 256ms[39m
+apps/ui-playground build: Done

@@ -1,0 +1,59 @@
+Command: pnpm test
+Working directory: G:\Claude\NoLimits3D-website
+Captured: 2026-08-05 11:14 Europe/Rome
+Branch: m002/wave-c2-forms
+Result: PASS
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+PASS scope guard accepts an empty web scaffold (6.9318ms)
+PASS scope guard rejects public command exposure, Jarvis and operational PrintFlow (13.7943ms)
+PASS scope guard allows PrintFlow only as Coming Soon (9.9189ms)
+PASS secret scan rejects real-looking credentials and allows placeholders (1.2769ms)
+PASS dependency audit collector includes registry packages only (0.4688ms)
+PASS dependency audit summary normalizes severity (0.2079ms)
+PASS dependency audit blocks an advisory with no waiver (0.4206ms)
+PASS dependency audit tolerates an advisory under an unexpired waiver (1.3159ms)
+PASS dependency audit blocks once a waiver has expired (0.3291ms)
+PASS dependency audit does not let a waiver cover a different package (0.3437ms)
+PASS dependency audit reports a waiver that matches nothing as stale (0.1986ms)
+PASS dependency audit always lists the whole workspace (0.3747ms)
+PASS a critical advisory cannot be waived even with a matching waiver (0.1699ms)
+PASS a waiver claiming critical severity is rejected outright (0.6679ms)
+PASS a waiver cannot run past the maximum horizon (0.156ms)
+PASS a waiver must carry every governance field (0.1481ms)
+PASS the shipped waiver file satisfies the schema (0.4263ms)
+PASS current source bindings are valid (2.6219ms)
+
+Guard tests:
+tests 18
+suites 0
+pass 18
+fail 0
+cancelled 0
+skipped 0
+todo 0
+duration_ms 186.1654
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website\packages\ui
+> vitest run
+
+RUN v4.1.10 G:/Claude/NoLimits3D-website/packages/ui
+
+Test Files 13 passed (13)
+Tests 137 passed (137)
+Start at 11:13:43
+Duration 18.57s (transform 1.49s, setup 11.62s, import 37.97s, tests 13.42s, environment 80.07s)
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website\apps\web
+> vitest run
+
+RUN v4.1.10 G:/Claude/NoLimits3D-website/apps/web
+
+Test Files 5 passed (5)
+Tests 21 passed (21)
+Start at 11:14:04
+Duration 7.66s (transform 1.44s, setup 6.56s, import 2.96s, tests 1.98s, environment 23.55s)
+
+Workspace total: 176/176 passing tests.

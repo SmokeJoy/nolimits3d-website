@@ -15,14 +15,16 @@ Authoritative hierarchy:
 - **Current Milestone:** M-002 Design System & UI Foundation — IN PROGRESS
 - **Last Completed Milestone:** M-001 - Repository Foundation
 - **M-001 Status:** CLOSED
-- **Latest Architect Review:** `PA-AR-M002-014` (Wave B approved)
+- **Latest Architect Review:** `PA-AR-M002-015` (Wave C1 closed, `M002-PRIMITIVE-INVENTORY.md`
+  approved, Wave C2 activated)
 - **Latest Architect Directive:** `AD-009` — Product Owner countersignature, closes BLK-M002-003
 - **Wave A:** MERGED
 - **Wave B:** MERGED (`02b4878`, PR #5)
-- **Wave C1:** MERGED (`26cb068`, PR #6) 2026-08-05. `BLK-M002-001` through `-005` all closed;
-  CI green; independent `atlas-qa-security` review PASS WITH FINDINGS, both findings addressed
-  pre-merge (see `M002-TASK-PACKET-CLAUDE.md` and `AD-009`).
-- **Next Gate:** Wave C2 (`TSK-M002-CLAUDE-C2`, Forms & Complex Components) — planning
+- **Wave C1:** CLOSED BY ARCHITECT REVIEW (`26cb068`, PR #6; closure `PA-AR-M002-015`, PR #8)
+  2026-08-05. `BLK-M002-001` through `-005` all closed; CI green; independent
+  `atlas-qa-security` review PASS WITH FINDINGS, all findings addressed pre-merge.
+- **Next Gate:** Wave C2 (`TSK-M002-CLAUDE-C2`, Forms & Complex Components) — ACTIVATED,
+  implementation in progress on `m002/wave-c2-forms`
 - **Last Update:** 2026-08-05
 
 ## Team
