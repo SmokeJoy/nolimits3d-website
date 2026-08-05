@@ -1,8 +1,8 @@
 # Primitive Inventory: Design System M-002
 
 ## Status
-* **Status**: PENDING ARCHITECT APPROVAL
-* **Gate**: Requires Architect Approval
+* **Status**: APPROVED
+* **Gate**: Approved by `PA-AR-M002-015` (2026-08-05) — §1-4/§8 verified against the shipped Wave C1 implementation, §5-7/§9-11 cleared for Wave C2
 * **Roadmap Governance**: `S-0014`, `T-0027`, `T-0028`, `ST-0014`
 
 ---
