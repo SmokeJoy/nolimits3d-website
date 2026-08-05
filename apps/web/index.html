@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>NoLimits3D</title>
+    <!--
+      LocalBusiness structured data, reused verbatim from the same real,
+      already-live block in apps/legacy-web/src/components/Footer.tsx --
+      not invented for this app. Every fact here (address, phone, email,
+      opening hours, social profiles) is already published on the current
+      production site, so it is real content per the placeholder policy
+      established across M-003, not a business claim awaiting Andrea's
+      confirmation. Static in index.html rather than injected by React so
+      it is present in the raw HTML for any crawler/tool that doesn't
+      execute JS -- the one piece of this app that doesn't need
+      TSEO-F-001's SSR gate to be crawlable, because it isn't
+      route-dependent.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "NoLimits3D",
+        "image": "https://nolimits3d.store/images/logo.jpg",
+        "description": "Servizio di stampa 3D FDM professionale con materiali tecnici certificati. Prototipazione industriale e produzione componenti con preventivi gratuiti in 2 ore lavorative.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Dante Alighieri",
+          "addressLocality": "Frosinone",
+          "postalCode": "03100",
+          "addressRegion": "FR",
+          "addressCountry": "IT"
+        },
+        "telephone": "+393770918590",
+        "email": "nolimits.3d.print@gmail.com",
+        "url": "https://nolimits3d.store",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61570487165349",
+          "https://www.instagram.com/nolimits_3d_print"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
