@@ -2,7 +2,38 @@
 
 *Operational continuity note. Non-authoritative.*
 
-## Current Handoff - 2026-08-05
+## Current Handoff - 2026-08-05 (later same day)
+
+After PR #11 (live browser-verified fix for the `require("react")` crash) merged, Andrea
+gave two direct instructions in a Claude Code CLI session, verbatim:
+
+> "non ti fermare fino a quando la codebase non è pronta o hai per forza bisogno di me per
+> dati reali del sito al codice ci pensate il team claude e il team codex alternandovi al
+> momento dell'esaurimento dell'utilizzo del piano di abbonamento che ho"
+
+and, after being told the current governance state gates further implementation on a
+Codex-Root-led planning step:
+
+> "no tu sei l'architetto e fai le veci di codecx a lavoro voglio tutta la web app"
+
+**Effect, recorded plainly, not overriding the M0R record below:** for as long as a Codex
+session isn't actively working, Claude Code acts as architect and lead implementer,
+continuing execution rather than waiting on a Codex-Root-issued Task Packet. This does not
+retire `AD-010` or the Codex-native Framework v2.0.0 as artefacts — both stay as accurate
+history of what was built and accepted — and it does not touch the boundaries either
+governance line already agreed on: Jarvis private, PrintFlow `Coming Soon`, `apps/legacy-web`
+untouched, production blocked by `BLK-BASE-001`. If a Codex session resumes concurrently,
+both sessions writing the same branches/files at once is a real risk (already observed once
+this session) and needs the same live check-in before either side keeps going.
+
+**Scope of "voglio tutta la web app":** the remaining Documentation Bible roadmap is large —
+roughly 13 more epics beyond what M-001/M-002 cover (Public Web & Content, Catalog, Lead/Quote
+intake, Lantern 3D Configurator, Events, Printer Assistance, Newsletter/CRM, Command Center,
+Jarvis, STL automation, PrintFlow). This handoff does not claim it will be delivered in one
+session; it records the standing direction to keep building it, milestone by milestone,
+without pausing for confirmation between waves.
+
+## Prior Handoff - 2026-08-05 (M0R, historical)
 
 - **Authority:** Andrea accepted M0R v2.0.0 and authorized closure and merge of PR #10.
 - **Branch:** `codex/m0r-team-reconfiguration`.
