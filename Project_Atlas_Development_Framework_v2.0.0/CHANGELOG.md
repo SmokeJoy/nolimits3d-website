@@ -2,6 +2,10 @@
 
 ## 2.0.0 - 2026-08-05
 
+- Activated v2.0.0 for development governance after Product Owner acceptance and the
+  post-acceptance M0R closure contract; production binding remains blocked.
+- Recorded DEV-M0R-002 as a transport-only workaround after nested Backend writes were
+  unavailable; Task authority, Backend ownership and independent TPM review were preserved.
 - Replaced the active ChatGPT/Gemini/Claude/Codex allocation and the later Claude Code delegation with the Codex-native authority chain defined by AD-010.
 - Defined Codex Root as Chief Architect & CTO with no production-code authority.
 - Consolidated planning, coordination, integration, and Technical Review in Atlas TPM.

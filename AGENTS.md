@@ -32,11 +32,18 @@ did not expose multi-agent tools, Codex Root launched the two implementers direc
 does not change the canonical chain and does not satisfy RBT-02. A fresh supported runtime
 must still demonstrate `Root -> TPM -> Frontend / Backend` before M0R can close.
 
+`DEV-M0R-002` records a post-acceptance transport-only workaround. Canonical Atlas TPM to
+Atlas Backend delegation was attempted and proved, but the nested child received an
+effective read-only sandbox. Codex Root therefore launched one top-level Atlas Backend
+worker solely to transport the already-approved TPM Task Packet. Task authority, Backend
+ownership, TPM independence, and the canonical delegation chain were unchanged. This is
+not general authority for direct Root-to-implementer work.
+
 ## M0R Gate
 
 - Historical M0 is `DONE / SUPERSEDED`.
-- M0R Codex-Native Team Reconfiguration is `ACTIVE` until configuration loading, nested delegation, role boundaries, evidence, Technical Review, Architect Review, and Product Owner acceptance pass.
-- Blueprint 00 / the next implementation milestone remains blocked by M0R.
+- M0R Codex-Native Team Reconfiguration is `M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED`.
+- Blueprint 00 / M1 is the next planning gate only. M0R closure does not authorize implementation, release, deployment, or production.
 - Existing source history remains factual; the governance reset does not erase merged commits.
 
 ## Product Boundaries
@@ -54,7 +61,7 @@ must still demonstrate `Root -> TPM -> Frontend / Backend` before M0R can close.
 3. Never let an implementer approve its own output.
 4. Archive real command output and behavioral traces under `Project_Atlas_Team_Workspace/05_Evidence/`.
 5. Treat missing decisions, unavailable test lanes, and undocumented deviations as blockers, not assumptions.
-6. Do not change the Documentation Bible during M0R.
+6. Do not change the Documentation Bible during M0R closure or without a separately approved baseline change.
 7. Do not commit, push, merge, deploy, or access production unless the active Task Packet explicitly authorizes that action.
 
 ## Canonical Verification

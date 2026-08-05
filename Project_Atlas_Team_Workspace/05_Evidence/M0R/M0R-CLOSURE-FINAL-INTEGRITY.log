@@ -1,0 +1,42 @@
+BRANCH=codex/m0r-team-reconfiguration
+HEAD=b8de532651083b11bfb210307a3143b0de3c84e5
+DIFF_CHECK_EXIT=0
+
+> nolimits3d-platform@0.0.0 secret:scan G:\Claude\NoLimits3D-website
+> node scripts/guards/secret-scan.mjs
+
+Secret scan fallback: PASS
+SECRET_SCAN_EXIT=0
+BIBLE_TREE=6fe3bd23c7e4dd5ee2d9277f96371275da13964d
+BIBLE_STATUS=
+PRODUCT_DIFF=
+PRODUCT_UNTRACKED=
+BACKEND_FILES:
+scripts/governance/codex_native_team_test.py
+ALL_STATUS:
+ M 000_PROJECT_STATE.md
+ M 001_SESSION_HANDOFF.md
+ M AGENTS.md
+ M Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md
+ M Project_Atlas_Development_Framework_v2.0.0/04_Assurance/AUDIT_REPORT.md
+ M Project_Atlas_Development_Framework_v2.0.0/04_Assurance/EXECUTIVE_SUMMARY.md
+ M Project_Atlas_Development_Framework_v2.0.0/04_Assurance/PLAYBOOK_CONFORMANCE_REVIEW.md
+ M Project_Atlas_Development_Framework_v2.0.0/04_Assurance/RELEASE_REPORT.md
+ M Project_Atlas_Development_Framework_v2.0.0/BASELINE_BINDING_RECORD.md
+ M Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md
+ M Project_Atlas_Development_Framework_v2.0.0/README.md
+ M Project_Atlas_Development_Framework_v2.0.0/manifest.json
+ M Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+ M Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+ M Project_Atlas_Team_Workspace/01_Shared_Memory/DECISION_LEDGER.md
+ M Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md
+ M Project_Atlas_Team_Workspace/04_Planning/M0R-TEAM-RECONFIGURATION-CHARTER.md
+ M Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+ M Project_Atlas_Team_Workspace/04_Planning/SPRINT_REGISTER.md
+ M Project_Atlas_Team_Workspace/05_Evidence/M0R/M0R-GATE-SUMMARY.md
+ M Project_Atlas_Team_Workspace/06_Handoffs/HANDOFF_LOG.md
+ M Project_Atlas_Team_Workspace/README.md
+ M scripts/governance/codex_native_team_test.py
+?? Project_Atlas_Team_Workspace/04_Planning/M0R-POST-ACCEPTANCE-CLOSURE-TASK-PACKET.md
+?? Project_Atlas_Team_Workspace/07_Reports/M0R_POST_ACCEPTANCE_CLOSURE_TECHNICAL_REVIEW.md
+?? Project_Atlas_Team_Workspace/08_Approvals/

@@ -5,22 +5,23 @@
 ## Authority
 
 1. `NoLimits3D_Documentation_v0.96/` - immutable Documentation Bible;
-2. `Project_Atlas_Development_Framework_v2.0.0/` - active governance candidate for M0R;
+2. `Project_Atlas_Development_Framework_v2.0.0/` - active development governance;
 3. `Project_Atlas_Development_Blueprint_v0.1/` - directives, blueprint and reviews;
 4. approved implementation in source code.
 
 `Project_Atlas_Development_Framework_v1.0/` is immutable historical governance and is
-superseded for future execution when M0R closes.
+superseded for future execution.
 
 ## Executive Status
 
-- **Project Status:** Active, M0R Architect Review approved
-- **Current Milestone:** M0R - ACTIVE; ARCHITECT APPROVED; AWAITING PRODUCT OWNER ACCEPTANCE; MERGE BLOCKED
+- **Project Status:** Active under Codex-native development governance
+- **Current Milestone:** M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED
 - **Last Historical Milestone:** M0 - Legacy Team Bootstrap - DONE / SUPERSEDED
-- **Next Delivery Gate:** Blueprint 00 / M1 - Repository Foundation - BLOCKED by M0R
+- **Next Delivery Gate:** Blueprint 00 / M1 - NEXT PLANNING GATE ONLY; IMPLEMENTATION NOT AUTHORIZED
 - **Latest Architect Directive:** `AD-010_CODEX_NATIVE_TEAM_RECONFIGURATION.md`
-- **Latest Technical Review:** `Project_Atlas_Team_Workspace/07_Reports/M0R_TECHNICAL_REVIEW.md` - APPROVED FOR INTEGRATION
-- **Latest Architect Review:** `M0R_CODEX_NATIVE_ARCHITECT_REVIEW.md` - APPROVED FOR PRODUCT OWNER ACCEPTANCE
+- **Latest Technical Review:** `Project_Atlas_Team_Workspace/07_Reports/M0R_POST_ACCEPTANCE_CLOSURE_TECHNICAL_REVIEW.md` - APPROVED FOR CLOSURE INTEGRATION
+- **Latest Architect Review:** `M0R_POST_ACCEPTANCE_CLOSURE_ARCHITECT_REVIEW.md` - APPROVED FOR SIGNED CLOSURE COMMIT AND MERGE AFTER GREEN CI
+- **Product Owner Acceptance:** `M0R_PRODUCT_OWNER_ACCEPTANCE_2026-08-05.md` - ACCEPTED
 - **Last Update:** 2026-08-05
 
 ## Active Team
@@ -52,9 +53,16 @@ replace M0R Role Boundary Tests.
 
 - `BLK-M0R-001` and `BLK-M0R-002` are closed by runtime, integration, validator, gate, and
   Technical Review evidence.
-- M0R is not DONE. Architect Review is approved; Andrea Product Owner acceptance and the
-  post-acceptance closure update remain.
-- Merge is not authorized.
+- Product Owner acceptance and the post-acceptance validator contract are integrated;
+  closure Technical Review is approved for integration.
+- Codex Root closure Architect Review is approved; signed commit, push, new green PR CI,
+  and verified merge remain operational steps.
+- `DEV-M0R-002` records the transport-only top-level Backend workaround after canonical
+  TPM-to-Backend delegation proved read-only; authority, ownership and independent TPM
+  review remained unchanged.
+- PR #10 has not been committed, pushed, merged, deployed, or used for production by this
+  closure task. Merge authorization is recorded, but execution still requires the reviewed
+  closure commit, push, green PR CI, and Codex Root closure review.
 
 ## Open Blocker
 

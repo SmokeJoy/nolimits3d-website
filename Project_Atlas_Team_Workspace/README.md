@@ -11,8 +11,13 @@ evidence, handoffs and temporary delete quarantine.
 - `05_Evidence/`: test and review evidence indexes;
 - `06_Handoffs/`: current contracts and archived handoff metadata;
 - `07_Reports/`: governed reports;
+- `08_Approvals/`: versioned Product Owner and business-acceptance records;
 - `99_DELETE_QUARANTINE/`: uncertain deletion candidates only.
 
 The active chain is `Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend`. This
 workspace does not replace the Documentation Bible, Development Framework, Development
 Blueprint or `AGENTS.md`.
+
+Current governance state: `M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED`.
+Blueprint 00 / M1 is the next planning gate only; implementation and production remain
+unauthorized.

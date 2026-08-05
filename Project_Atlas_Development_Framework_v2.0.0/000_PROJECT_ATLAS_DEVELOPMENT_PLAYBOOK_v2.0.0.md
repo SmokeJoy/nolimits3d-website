@@ -2,12 +2,12 @@
 
 > **Document ID:** PA-DF-DOC-000
 > **Versione:** 2.0.0
-> **Stato:** M0R Implementation Candidate
+> **Stato:** Active Development Governance
 > **Progetto:** Project Atlas — Development Framework
 > **Owner congiunti:** Product Owner e Chief Architect & CTO
 > **Approvatori obbligatori:** Andrea (Product Owner) + Codex Root (Chief Architect & CTO)
 > **Data di emissione:** 2026-08-05
-> **Data di efficacia:** successiva all’approvazione congiunta e al binding con la Documentation Bible v1.0 Frozen Baseline
+> **Data di efficacia governance:** 2026-08-05; efficacia per produzione subordinata al binding con la Documentation Bible v1.0 Frozen Baseline
 > **Ambito autorevole:** organizzazione, governance operativa, ruoli, comunicazione, pianificazione, review, merge, release e miglioramento continuo del team di sviluppo AI di Project Atlas.
 > **Non-Scope autorevole:** requisiti di prodotto, UX, architettura applicativa dettagliata e implementazione, che appartengono rispettivamente alla Documentation Bible e al Development Blueprint.
 
@@ -102,7 +102,13 @@ Il Playbook non:
 
 ## 00.6 Condizione di attivazione
 
-La versione 2.0.0 governa M0R e il lavoro non produttivo autorizzato. Diventa **vincolante per l’implementazione di prodotto** solo quando M0R è chiusa e il `Baseline Binding Record` riporta:
+La versione 2.0.0 è il Development Framework attivo e vincolante per la governance del
+team dopo la chiusura M0R. La sua attivazione non autorizza automaticamente
+l’implementazione di prodotto: ogni lavoro richiede un Blueprint slice, una milestone e un
+Task Packet approvati, oltre ai gate applicabili.
+
+L’efficacia per rilascio o produzione resta bloccata finché il `Baseline Binding Record`
+non riporta:
 
 - versione esatta della Documentation Bible v1.0;
 - checksum SHA-256 del pacchetto approvato;
@@ -110,7 +116,9 @@ La versione 2.0.0 governa M0R e il lavoro non produttivo autorizzato. Diventa **
 - firma/evidenza del Product Owner;
 - firma/evidenza del Chief Architect & CTO.
 
-Fino a quel momento sono consentiti soltanto preparazione del Blueprint, configurazione degli strumenti, esercizi non produttivi e attività esplicitamente autorizzate.
+Fino a quel momento sono consentiti la pianificazione Blueprint, la configurazione degli
+strumenti, gli esercizi non produttivi e soltanto le attività esplicitamente autorizzate da
+un gate successivo. M0R non autorizza deploy o produzione.
 
 ---
 
@@ -1245,8 +1253,16 @@ Le skill operative canoniche sono `atlas-task-packet-planning`,
 
 `DEV-M0R-001` registra un'eccezione limitata al bootstrap iniziale: il primo subagent Atlas
 TPM non esponeva tool multi-agent, quindi Codex Root ha avviato direttamente i due
-implementatori. L'eccezione non modifica la catena target e non soddisfa RBT-02. M0R resta
-aperto finché un nuovo runtime non dimostra la delegazione annidata canonica.
+implementatori. L'eccezione non modifica la catena target e non soddisfa RBT-02; una
+successiva traccia su runtime supportato ha dimostrato la delegazione annidata canonica e
+ha chiuso il gate senza rendere retroattivamente conforme il bootstrap.
+
+`DEV-M0R-002` registra un workaround limitato al trasporto del Task Packet di closure. Atlas
+TPM ha tentato e dimostrato la delegazione canonica verso Atlas Backend, ma il sandbox del
+figlio era effettivamente read-only. Codex Root ha quindi avviato un worker Atlas Backend
+top-level soltanto per eseguire il Task Packet TPM già approvato. Autorità del Task Packet,
+ownership Backend, integrazione e review indipendente TPM sono rimaste invariate. La
+deviazione non autorizza future delegazioni dirette Root-to-implementer.
 
 Ogni agente DEVE:
 
@@ -1682,7 +1698,9 @@ Gli artefatti operativi allegati al Playbook sono parte del Development Framewor
 
 | Ruolo                 | Nome       | Decisione | Data | Evidenza |
 | --------------------- | ---------- | --------- | ---- | -------- |
-| Product Owner         | Andrea     | PENDING   | —    | —        |
-| Chief Architect & CTO | Codex Root | PENDING   | —    | —        |
+| Product Owner         | Andrea     | ACCEPTED  | 2026-08-05 | `PA-BA-M0R-001` |
+| Chief Architect & CTO | Codex Root | APPROVED  | 2026-08-05 | `M0R_CODEX_NATIVE_ARCHITECT_REVIEW.md` |
 
-Dopo entrambe le approvazioni, lo stato passa da `Approval Candidate` a `Approved`. L’efficacia sul codice di produzione resta subordinata al Baseline Binding Record.
+Le approvazioni attivano il Framework per la governance dello sviluppo. L’efficacia per
+rilascio e produzione resta subordinata al Baseline Binding Record e ai gate specifici;
+questa approvazione non autorizza da sola codice di prodotto.

@@ -1,0 +1,40 @@
+Codex Doctor v0.147.0-alpha.1.2 · windows-x86_64
+
+Notes
+   [!!] sandbox      filesystem unrestricted · network enabled
+   [!!] auth         mixed auth signals: ChatGPT login plus API key env var; HTTP reachability uses API-key mode
+-------------------------------------------------------------
+
+Environment
+  [ok] system       it-IT
+  [ok] runtime      other
+  [ok] install      consistent
+  [ok] search       ripgrep 15.2.0 (rev e89fff89ac) (system, `rg.exe`)
+  [ok] git          git version 2.47.1.windows.2
+  [ok] terminal     unknown
+  [ok] title        default | project NoLimits3D-website
+  [ok] state        databases healthy
+  [ok] threads      rollout files and state DB thread inventory agree
+
+Configuration
+  [ok] config       loaded
+  [ok] auth         auth is configured
+  [ok] mcp          1 server (1 stdio) · 0 disabled
+  [ok] sandbox      unrestricted fs + enabled network · approval Never
+
+Updates
+  [ok] updates      update configuration is locally consistent
+
+Connectivity
+  [ok] network      no proxy env vars
+  [ok] websocket    connected (HTTP 101 Switching Protocols) · 15s timeout
+  [ok] reachability active provider endpoints are reachable over HTTP
+
+Background Server
+  [--] app-server   not running (ephemeral mode)
+
+-------------------------------------------------------------
+17 ok | 1 idle | 2 notes | 0 warn | 0 fail ok
+
+Run codex doctor without --summary for detailed diagnostics.
+--all expand truncated lists       --json redacted report

@@ -9,9 +9,12 @@
 | Playbook Version              | 2.0.0                                                                   |
 | Documentation Bible Version   | PENDING - v1.0 Frozen Baseline                                          |
 | Documentation Bible SHA-256   | PENDING                                                                 |
-| Product Owner Approval        | M0R implementation authorized; production binding PENDING               |
-| Chief Architect Approval      | M0R implementation authorized by Codex Root; production binding PENDING |
+| Product Owner Approval        | M0R v2.0.0 ACCEPTED; production binding PENDING                          |
+| Chief Architect Approval      | M0R architecture APPROVED; production binding PENDING                    |
 | Repository Commit/Tag         | PENDING                                                                 |
 | Effective for Production Code | **NO**                                                                  |
 
-M0R governance work is authorized. Product implementation remains blocked until M0R closes. Production remains blocked until every production-binding field is complete and Andrea plus Codex Root approve it.
+Development Framework v2.0.0 is active for development governance. M0R closure authorizes
+only the next planning gate. Product implementation is not authorized. Release and production remain unauthorized.
+`BLK-BASE-001` remains open, and production remains blocked until
+every production-binding field is complete and Andrea plus Codex Root approve it.

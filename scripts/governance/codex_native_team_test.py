@@ -58,6 +58,43 @@ ARCHITECTURE_DOC = (
     "Project_Atlas_Team_Workspace/00_Governance/"
     "CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md"
 )
+ACCEPTANCE_ARTIFACT = (
+    "Project_Atlas_Team_Workspace/08_Approvals/"
+    "M0R_PRODUCT_OWNER_ACCEPTANCE_2026-08-05.md"
+)
+FINAL_M0R_STATE = "M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED"
+FINAL_STATE_RECORDS = (
+    "AGENTS.md",
+    "000_PROJECT_STATE.md",
+    "001_SESSION_HANDOFF.md",
+    f"{FRAMEWORK_PATH}/README.md",
+    ARCHITECTURE_DOC,
+    "Project_Atlas_Team_Workspace/README.md",
+    "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+    "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+    "Project_Atlas_Team_Workspace/04_Planning/SPRINT_REGISTER.md",
+)
+HISTORICAL_M0_RECORDS = (
+    "000_PROJECT_STATE.md",
+    "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+    "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+)
+BLUEPRINT_PLANNING_RECORDS = (
+    "AGENTS.md",
+    "000_PROJECT_STATE.md",
+    "001_SESSION_HANDOFF.md",
+    ARCHITECTURE_DOC,
+    "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+    "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+)
+STALE_CURRENT_MARKERS = (
+    "AWAITING PRODUCT OWNER ACCEPTANCE",
+    "M0R is not DONE",
+    "merge is not authorized",
+    "MERGE NOT READY",
+    "POST-ACCEPTANCE CLOSURE BLOCKED",
+    "M0R Product Owner Accepted / Activation Pending Closure",
+)
 
 
 @dataclass(frozen=True)
@@ -355,24 +392,44 @@ class Validator:
             f"missing marker(s): {', '.join(missing)}",
         )
 
-    def validate_state_markers(self) -> None:
-        current_records = (
-            "000_PROJECT_STATE.md",
-            "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
-            "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+    def validate_acceptance_artifact(self) -> None:
+        content = self.read_text(ACCEPTANCE_ARTIFACT)
+        self.check(
+            "M0R Product Owner acceptance artifact exists",
+            content is not None,
+            f"{ACCEPTANCE_ARTIFACT} is missing",
         )
-        patterns = {
-            "M0R ACTIVE": re.compile(
-                r"(?:\bM0R\b[^\n]*\bACTIVE\b|\bACTIVE\b[^\n]*\bM0R\b)", re.IGNORECASE
-            ),
-            "M0R BLOCKED": re.compile(
-                r"(?:\bM0R\b[^\n]*\bBLOCKED\b|\bBLOCKED\b[^\n]*\bM0R\b)", re.IGNORECASE
-            ),
-            "M0 DONE / SUPERSEDED": re.compile(
-                r"\bM0\b[^\n]*\bDONE\b[^\n]*\bSUPERSEDED\b", re.IGNORECASE
-            ),
-        }
-        for relative_path in current_records:
+        if content is None:
+            return
+
+        required_markers = (
+            "PA-BA-M0R-001",
+            "2026-08-05",
+            "Product Owner: Andrea",
+            "M0R Codex-Native Team Reconfiguration v2.0.0 and PR #10",
+            "Decision: `ACCEPTED`",
+            FINAL_M0R_STATE,
+            "accceto tutto io non capisco nulla di codice sei tu che devi revisionare e verificare",
+            "does not authorize Blueprint 00 / M1 implementation",
+            "does not authorize deployment, release, production access, or production binding",
+            "does not close `BLK-BASE-001`",
+            "does not expose Jarvis or change its private status",
+            "PrintFlow, which remains `Coming Soon`",
+            "does not replace `apps/legacy-web` as the public fallback",
+            "does not authorize a Documentation Bible change",
+        )
+        missing = [marker for marker in required_markers if marker not in content]
+        self.check(
+            "M0R Product Owner acceptance artifact integrity",
+            not missing,
+            f"{ACCEPTANCE_ARTIFACT} is missing marker(s): {', '.join(missing)}",
+        )
+
+    def validate_state_markers(self) -> None:
+        historical_m0_pattern = re.compile(
+            r"\bM0\b[^\n]*\bDONE\b[^\n]*\bSUPERSEDED\b", re.IGNORECASE
+        )
+        for relative_path in HISTORICAL_M0_RECORDS:
             content = self.read_text(relative_path)
             self.check(
                 f"current-state record exists: {relative_path}",
@@ -381,11 +438,36 @@ class Validator:
             )
             if content is None:
                 continue
-            missing = [label for label, pattern in patterns.items() if not pattern.search(content)]
             self.check(
-                f"current-state markers: {relative_path}",
-                not missing,
-                f"missing marker(s): {', '.join(missing)}",
+                f"historical M0 marker: {relative_path}",
+                historical_m0_pattern.search(content) is not None,
+                "missing historical state M0 - DONE / SUPERSEDED",
+            )
+
+        for relative_path in FINAL_STATE_RECORDS:
+            content = self.read_text(relative_path)
+            self.check(
+                f"post-acceptance state record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is None:
+                continue
+
+            self.check(
+                f"exact final M0R state: {relative_path}",
+                FINAL_M0R_STATE in content,
+                f"add the exact canonical state {FINAL_M0R_STATE!r}",
+            )
+            stale = [
+                marker
+                for marker in STALE_CURRENT_MARKERS
+                if marker.casefold() in content.casefold()
+            ]
+            self.check(
+                f"no stale M0R state: {relative_path}",
+                not stale,
+                f"remove stale current-state marker(s): {', '.join(stale)}",
             )
 
         allowlist_path = "Project_Atlas_Team_Workspace/00_Governance/REPOSITORY_ROOT_ALLOWLIST.md"
@@ -401,6 +483,141 @@ class Validator:
                 "M0R audit profile marker",
                 marker in allowlist,
                 f"{allowlist_path} does not reference {marker!r}",
+            )
+
+    def validate_framework_activation(self) -> None:
+        framework_readme_path = f"{FRAMEWORK_PATH}/README.md"
+        framework_readme = self.read_text(framework_readme_path)
+        self.check(
+            "Framework v2 development-governance status exists",
+            framework_readme is not None,
+            f"{framework_readme_path} is missing",
+        )
+        if framework_readme is not None:
+            active_markers = (
+                "active Codex-native operating framework",
+                "Development governance: active",
+                "Production: blocked",
+            )
+            missing = [marker for marker in active_markers if marker not in framework_readme]
+            self.check(
+                "Framework v2 active for development, blocked for production",
+                not missing,
+                f"{framework_readme_path} is missing marker(s): {', '.join(missing)}",
+            )
+
+        baseline_path = f"{FRAMEWORK_PATH}/BASELINE_BINDING_RECORD.md"
+        baseline = self.read_text(baseline_path)
+        self.check(
+            "production baseline binding record exists",
+            baseline is not None,
+            f"{baseline_path} is missing",
+        )
+        if baseline is not None:
+            baseline_markers = (
+                "Pending production binding",
+                "production remain unauthorized",
+                "BLK-BASE-001",
+            )
+            missing = [marker for marker in baseline_markers if marker not in baseline]
+            self.check(
+                "production baseline remains blocked",
+                not missing,
+                f"{baseline_path} is missing marker(s): {', '.join(missing)}",
+            )
+
+        blocker_path = "Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md"
+        blocker_register = self.read_text(blocker_path)
+        self.check(
+            "blocker register exists for production gate",
+            blocker_register is not None,
+            f"{blocker_path} is missing",
+        )
+        if blocker_register is not None:
+            blocker_line = next(
+                (line for line in blocker_register.splitlines() if "BLK-BASE-001" in line),
+                "",
+            )
+            valid_open_blocker = all(
+                marker.casefold() in blocker_line.casefold()
+                for marker in ("OPEN", "production", "blocker")
+            )
+            self.check(
+                "BLK-BASE-001 remains open as production-only blocker",
+                valid_open_blocker,
+                f"{blocker_path} must retain an OPEN production-blocker row for BLK-BASE-001",
+            )
+
+    def validate_blueprint_planning_gate(self) -> None:
+        blueprint_pattern = re.compile(r"Blueprint\s+00\s*/\s*M1", re.IGNORECASE)
+        planning_only_pattern = re.compile(
+            r"(?:next\s+planning\s+gate\s+only|only\s+the\s+next\s+planning\s+gate)",
+            re.IGNORECASE,
+        )
+        for relative_path in BLUEPRINT_PLANNING_RECORDS:
+            content = self.read_text(relative_path)
+            self.check(
+                f"Blueprint planning record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is None:
+                continue
+
+            self.check(
+                f"Blueprint 00 / M1 is planning-only: {relative_path}",
+                blueprint_pattern.search(content) is not None
+                and planning_only_pattern.search(content) is not None,
+                "record must identify Blueprint 00 / M1 as the next planning gate only",
+            )
+
+        agents_md = self.read_text("AGENTS.md") or ""
+        authorization_boundaries = (
+            "does not authorize implementation, release, deployment, or production",
+            "Production remains blocked while `BLK-BASE-001` is open",
+        )
+        missing = [marker for marker in authorization_boundaries if marker not in agents_md]
+        self.check(
+            "Blueprint gate grants no implementation or production authority",
+            not missing,
+            f"AGENTS.md is missing boundary marker(s): {', '.join(missing)}",
+        )
+
+    def validate_product_boundaries(self) -> None:
+        boundary_records = {
+            "AGENTS.md": (
+                "Jarvis is private",
+                "PrintFlow remains `Coming Soon`",
+                "PC worker remains pull-only",
+                "`apps/legacy-web` remains the public fallback",
+                "Production remains blocked while `BLK-BASE-001` is open",
+            ),
+            ARCHITECTURE_DOC: (
+                "Jarvis remains private",
+                "PrintFlow remains `Coming Soon`",
+                "Production remains blocked by `BLK-BASE-001`",
+            ),
+            "000_PROJECT_STATE.md": (
+                "Jarvis remains private",
+                "PrintFlow remains `Coming Soon`",
+                "`apps/legacy-web` remains the preserved public fallback",
+                "`BLK-BASE-001` keeps production blocked",
+            ),
+        }
+        for relative_path, required_markers in boundary_records.items():
+            content = self.read_text(relative_path)
+            self.check(
+                f"product-boundary record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is None:
+                continue
+            missing = [marker for marker in required_markers if marker not in content]
+            self.check(
+                f"product boundaries preserved: {relative_path}",
+                not missing,
+                f"missing boundary marker(s): {', '.join(missing)}",
             )
 
     def validate_skills(self) -> None:
@@ -467,7 +684,11 @@ class Validator:
         self.validate_skills()
         self.validate_framework()
         self.validate_architecture_doc()
+        self.validate_acceptance_artifact()
         self.validate_state_markers()
+        self.validate_framework_activation()
+        self.validate_blueprint_planning_gate()
+        self.validate_product_boundaries()
         self.validate_legacy_agents()
         self.validate_bible()
 

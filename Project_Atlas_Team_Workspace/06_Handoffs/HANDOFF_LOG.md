@@ -19,4 +19,8 @@
 | M001-F-FINAL-EVIDENCE-CLOSURE | 2026-07-15 | ChatGPT | Gemini | Complete final evidence closure and code freeze for M001 | Issued |
 | M0R-ROOT-TPM | 2026-08-05 | Codex Root | Atlas TPM | Integrate Codex-native governance v2.0.0 and perform Technical Review | Complete - APPROVED FOR INTEGRATION |
 | DEV-M0R-001 | 2026-08-05 | Codex Root | Atlas Frontend / Atlas Backend | Direct bootstrap launch because the initial TPM runtime lacked multi-agent tools | Bootstrap deviation recorded; not counted as RBT-02; canonical RBT-02 later passed in the supported runtime trace |
-| M0R-ROOT-PO | 2026-08-05 | Codex Root | Andrea | Architect-approved M0R change set for Product Owner acceptance | Awaiting Product Owner decision; merge blocked |
+| M0R-ROOT-PO | 2026-08-05 | Codex Root | Andrea | Architect-approved M0R change set for Product Owner acceptance | ACCEPTED - PA-BA-M0R-001; merge authorized, not executed |
+| M0R-TPM-BACKEND-CLOSE | 2026-08-05 | Atlas TPM | `/root/atlas_backend` | Execute TSK-M0R-CLOSE-001 validator update | Delegation proved; runtime forced read-only; zero Backend writes |
+| DEV-M0R-002 | 2026-08-05 | Codex Root transport | Atlas Backend | Transport the already-approved TSK-M0R-CLOSE-001 after nested write failure | Complete - delivered only `scripts/governance/codex_native_team_test.py`; authority and ownership unchanged; TPM APPROVED FOR CLOSURE INTEGRATION |
+| M0R-CLOSE-TPM-ROOT | 2026-08-05 | Atlas TPM | Codex Root | Post-acceptance closure diff and Technical Review for final Architect closure review | Ready - validator 100/100 and all local gates green; no commit/push/merge |
+| M0R-CLOSE-ROOT-GIT | 2026-08-05 | Codex Root | Git integration | Closure Architect Review and authorization for signed commit, push and conditional merge | APPROVED - merge only after new green PR CI |

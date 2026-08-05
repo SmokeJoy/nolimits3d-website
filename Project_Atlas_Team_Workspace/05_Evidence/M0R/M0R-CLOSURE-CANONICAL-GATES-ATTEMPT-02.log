@@ -1,0 +1,178 @@
+BRANCH=codex/m0r-team-reconfiguration
+HEAD=b8de532651083b11bfb210307a3143b0de3c84e5
+=== pnpm build ===
+
+> nolimits3d-platform@0.0.0 build G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present build
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts build$ tsc -p tsconfig.build.json
+packages/config build$ tsc -p tsconfig.build.json
+packages/domain build$ tsc -p tsconfig.build.json
+packages/ui build$ vite build && tsc -p tsconfig.build.json --emitDeclarationOnly
+packages/api-contracts build: Done
+packages/domain build: Done
+packages/config build: Done
+packages/ui build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+packages/ui build: [2K
+packages/ui build: transforming...✓ 1999 modules transformed.
+packages/ui build: rendering chunks...
+packages/ui build: computing gzip size...
+packages/ui build: dist/styles.css   24.08 kB │ gzip:  5.51 kB
+packages/ui build: dist/index.js    267.93 kB │ gzip: 75.65 kB
+packages/ui build: [32m✓ built in 1.12s[39m
+packages/ui build: Done
+apps/ui-playground build$ vite build
+apps/web build$ vite build
+apps/web build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/web build: [2K
+apps/web build: transforming...✓ 29 modules transformed.
+apps/web build: rendering chunks...
+apps/web build: computing gzip size...
+apps/web build: dist/index.html                            0.36 kB │ gzip:  0.24 kB
+apps/web build: dist/assets/CommandBoundary-DcWSVRjl.js    0.26 kB │ gzip:  0.20 kB
+apps/web build: dist/assets/AccountHome-DYZWSPG3.js        0.26 kB │ gzip:  0.21 kB
+apps/web build: dist/assets/index-CWhYiVTZ.js            286.82 kB │ gzip: 91.30 kB
+apps/web build: [32m✓ built in 245ms[39m
+apps/web build: Done
+apps/ui-playground build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/ui-playground build: [2K
+apps/ui-playground build: transforming...✓ 19 modules transformed.
+apps/ui-playground build: rendering chunks...
+apps/ui-playground build: computing gzip size...
+apps/ui-playground build: dist/index.html                   0.40 kB │ gzip:   0.27 kB
+apps/ui-playground build: dist/assets/index-D-mXa8y9.css   28.41 kB │ gzip:   6.18 kB
+apps/ui-playground build: dist/assets/index-D0kJlydQ.js   398.68 kB │ gzip: 125.20 kB
+apps/ui-playground build: [32m✓ built in 268ms[39m
+apps/ui-playground build: Done
+EXIT_CODE=0
+=== pnpm lint ===
+
+> nolimits3d-platform@0.0.0 lint G:\Claude\NoLimits3D-website
+> eslint . --max-warnings=0
+
+EXIT_CODE=0
+=== pnpm format:check ===
+
+> nolimits3d-platform@0.0.0 format:check G:\Claude\NoLimits3D-website
+> prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*
+
+Checking formatting...
+All matched files use Prettier code style!
+EXIT_CODE=0
+=== pnpm typecheck ===
+
+> nolimits3d-platform@0.0.0 typecheck G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts typecheck$ tsc -p tsconfig.json
+packages/domain typecheck$ tsc -p tsconfig.json
+packages/config typecheck$ tsc -p tsconfig.json
+packages/ui typecheck$ tsc -p tsconfig.json
+packages/api-contracts typecheck: Done
+packages/config typecheck: Done
+packages/domain typecheck: Done
+packages/ui typecheck: Done
+apps/ui-playground typecheck$ tsc -p tsconfig.json
+apps/web typecheck$ tsc -p tsconfig.json
+apps/ui-playground typecheck: Done
+apps/web typecheck: Done
+EXIT_CODE=0
+=== pnpm test ===
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+✔ scope guard accepts an empty web scaffold (5.7958ms)
+✔ scope guard rejects public command exposure, Jarvis and operational PrintFlow (12.3241ms)
+✔ scope guard allows PrintFlow only as Coming Soon (7.9326ms)
+✔ secret scan rejects real-looking credentials and allows placeholders (1.909ms)
+✔ secret scan includes Codex-native governance surfaces (0.2796ms)
+✔ dependency audit collector includes registry packages only (0.57ms)
+✔ dependency audit summary normalizes severity (0.2211ms)
+✔ dependency audit blocks an advisory with no waiver (0.3702ms)
+✔ dependency audit tolerates an advisory under an unexpired waiver (0.2404ms)
+✔ dependency audit blocks once a waiver has expired (0.232ms)
+✔ dependency audit does not let a waiver cover a different package (0.1472ms)
+✔ dependency audit reports a waiver that matches nothing as stale (0.1095ms)
+✔ dependency audit always lists the whole workspace (0.2318ms)
+✔ a critical advisory cannot be waived even with a matching waiver (0.1514ms)
+✔ a waiver claiming critical severity is rejected outright (1.5603ms)
+✔ a waiver cannot run past the maximum horizon (0.4224ms)
+✔ a waiver must carry every governance field (0.2321ms)
+✔ the shipped waiver file satisfies the schema (0.5799ms)
+✔ current source bindings are valid (2.1165ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.9897
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website\packages\ui
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/packages/ui
+
+
+ Test Files  13 passed (13)
+      Tests  137 passed (137)
+   Start at  14:28:49
+   Duration  14.44s (transform 940ms, setup 9.04s, import 20.46s, tests 9.33s, environment 69.48s)
+
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website\apps\web
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/apps/web
+
+
+ Test Files  5 passed (5)
+      Tests  21 passed (21)
+   Start at  14:29:05
+   Duration  5.47s (transform 1.96s, setup 4.67s, import 3.10s, tests 2.03s, environment 14.98s)
+
+EXIT_CODE=0
+=== pnpm secret:scan ===
+
+> nolimits3d-platform@0.0.0 secret:scan G:\Claude\NoLimits3D-website
+> node scripts/guards/secret-scan.mjs
+
+Secret scan fallback: PASS
+EXIT_CODE=0
+=== pnpm dependency:audit ===
+
+> nolimits3d-platform@0.0.0 dependency:audit G:\Claude\NoLimits3D-website
+> node scripts/guards/dependency-audit.mjs
+
+Dependency audit scope: 517 registry packages across the workspace
+Dependency audit counts: {"critical":0,"high":0,"moderate":0,"low":0,"info":0,"unknown":0}
+[waived until 2026-11-04] react-router: React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response (https://github.com/advisories/GHSA-qwww-vcr4-c8h2)
+EXIT_CODE=0
+=== pnpm guard:scope ===
+
+> nolimits3d-platform@0.0.0 guard:scope G:\Claude\NoLimits3D-website
+> node scripts/guards/scope-guard.mjs
+
+Scope and private-route guard: PASS
+EXIT_CODE=0
+=== pnpm guard:migrations ===
+
+> nolimits3d-platform@0.0.0 guard:migrations G:\Claude\NoLimits3D-website
+> node scripts/guards/migration-guard.mjs
+
+Migration dry-run: NOT_APPLICABLE (no migration SQL files)
+EXIT_CODE=0
+=== pnpm guard:source-bindings ===
+
+> nolimits3d-platform@0.0.0 guard:source-bindings G:\Claude\NoLimits3D-website
+> node scripts/guards/source-binding-guard.mjs
+
+Documentation source-binding guard: PASS
+EXIT_CODE=0
+CANONICAL_GATES=PASS

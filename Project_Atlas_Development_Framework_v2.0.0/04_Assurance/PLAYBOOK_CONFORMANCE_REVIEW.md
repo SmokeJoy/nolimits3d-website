@@ -14,6 +14,9 @@
 | Documentation Bible unchanged                                  | PASS - TREE AND WORKTREE VERIFIED                       |
 | Historical artifacts preserved                                 | PASS BY FULL DIFF REVIEW                                |
 | DEV-M0R-001 is limited to bootstrap and cannot satisfy RBT-02  | PASS - FRESH CANONICAL RUNTIME SUPERSEDES THE DEVIATION |
+| DEV-M0R-002 preserves Task authority, Backend ownership and TPM review | PASS - TRANSPORT-ONLY, DOCUMENTED, NON-PRECEDENTIAL |
 
-Technical conformance is approved. Architect Review and Product Owner acceptance remain
-mandatory before M0R closure or merge.
+Technical conformance, Architect Review and Product Owner acceptance passed. M0R is
+`DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED`, and Framework v2.0.0 is active for
+development governance. Product implementation, release, deployment and production remain
+unauthorized without their later gates.

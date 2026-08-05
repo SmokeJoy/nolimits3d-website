@@ -1,6 +1,6 @@
 # Codex-Native Team Architecture v2.0.0
 
-> **Status:** Active for M0R
+> **Status:** Active Development Governance
 > **Authority:** AD-010 and Product Owner mandate
 > **Canonical scope:** Project Atlas development-team governance
 
@@ -43,12 +43,13 @@ cannot prove nested delegation.
 
 ## M0R Gate
 
-M0R remains `ACTIVE` and is `ARCHITECT APPROVED / AWAITING PRODUCT OWNER ACCEPTANCE` after
-static validation, runtime Role Boundary Tests, Atlas TPM Technical Review, and Codex Root
-Architect Review passed.
-Branching, a signed commit, branch push, and PR creation are authorized by the M0R Charter;
-merge remains `BLOCKED` until Andrea Product Owner acceptance and the post-acceptance
-closure update pass with real evidence and green CI.
+Andrea Product Owner acceptance and the post-acceptance closure contract are recorded.
+The canonical state is `M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED`.
+Framework v2.0.0 is active for development governance.
+
+Blueprint 00 / M1 is the next planning gate only. M0R closure does not authorize product
+implementation, release, deployment, or production. Merge authorization is not evidence
+that a commit, push, CI run, or merge execution occurred.
 
 ## Non-Negotiable Boundaries
 
@@ -64,3 +65,14 @@ The initial Atlas TPM subagent lacked callable multi-agent tools, so Codex Root 
 Atlas Frontend and Atlas Backend directly for bootstrap. This deviation does not change the
 canonical chain and does not satisfy RBT-02. A fresh supported runtime must demonstrate
 Root-to-TPM-to-implementer delegation before M0R can close.
+
+## DEV-M0R-002
+
+For TSK-M0R-CLOSE-001, Atlas TPM twice launched only `/root/atlas_backend` and proved the
+canonical delegation route, but the runtime imposed read-only and rejected writes before
+mutation. The available spawn schema exposed no permission override. Codex Root launched a
+top-level Atlas Backend worker only as transport for that already-approved Task Packet.
+The worker retained the Backend write set; Atlas TPM retained integration and independent
+Technical Review. No product code, architecture authority, self-approval, commit, push,
+merge, deploy, or production authority moved. This deviation is closed with M0R and cannot
+authorize future direct Root-to-implementer delivery.

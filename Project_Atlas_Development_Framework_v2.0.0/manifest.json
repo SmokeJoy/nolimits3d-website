@@ -1,7 +1,7 @@
 {
   "project": "Project Atlas - Development Framework",
   "version": "2.0.0",
-  "status": "M0R Implementation Candidate",
+  "status": "Active Development Governance",
   "generated_at": "2026-08-05",
   "source_reference": "Development Framework v1.0.1 (immutable historical source); AD-010 Codex-native reconfiguration; Documentation Bible v0.96 unchanged",
   "manifest_scope": "All regular files below this directory except manifest.json",
@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
-      "size": 62524,
-      "sha256": "edcc3626b1b68dab54c337b52af2d34266a741df0f593b04938ada0791f97e0e"
+      "size": 63549,
+      "sha256": "aff722c1c96bf3b40890e65d70cdf4bf7fc3c9d0ef1ed3103e91695ce623f6b8"
     },
     {
       "path": "01_Templates/ADR_INTAKE_TEMPLATE.md",
@@ -134,23 +134,23 @@
     },
     {
       "path": "04_Assurance/AUDIT_REPORT.md",
-      "size": 1113,
-      "sha256": "db7f18098e72d4fba4b9671b3c359b83ae9b0bae54b65a25df8d8aa189a69773"
+      "size": 1434,
+      "sha256": "64d308ac70338bd3e924d614998695662bc8e101291a2b2a793ad69528808a56"
     },
     {
       "path": "04_Assurance/EXECUTIVE_SUMMARY.md",
-      "size": 949,
-      "sha256": "418013dae9bb3b80ecff6bbe4165275fd3ebcc8d31c763fbfa5c8977836df4bf"
+      "size": 1542,
+      "sha256": "f586d2cab1accecb324b23ae9e5bfafb4d0fde6ac266ccfcf26f7d87bc5befbd"
     },
     {
       "path": "04_Assurance/PLAYBOOK_CONFORMANCE_REVIEW.md",
-      "size": 1931,
-      "sha256": "75d168fbb464f05fc9dd8d8a7e9a59f71d6bec67d060549f208828c7753db3e3"
+      "size": 2234,
+      "sha256": "314d8d404dd3380ad70b7bad31938f1e1f400b1a3784884dad5d23a609d0df27"
     },
     {
       "path": "04_Assurance/RELEASE_REPORT.md",
-      "size": 681,
-      "sha256": "352fa50e0d58ba9adf25459d1498f79cdfb882ca05ed9e29d317220b8a617d91"
+      "size": 1148,
+      "sha256": "5ca2c1f9dca1a4c76e21a1097df60bfff225c8f4e07f58c3dac408a67671c0c4"
     },
     {
       "path": "05_Operational_Policies/REPOSITORY_HYGIENE_AND_HANDOFF_PACKAGING_POLICY_v2.0.0.md",
@@ -159,18 +159,18 @@
     },
     {
       "path": "BASELINE_BINDING_RECORD.md",
-      "size": 1340,
-      "sha256": "21927914260f13df4c9b9acf97c20f730ac5daa506c4269f1e18c775f98308d1"
+      "size": 1488,
+      "sha256": "0fc53d9ac05f5349f626a489297cb2cc85bb43d481a172fd7554425e7048a226"
     },
     {
       "path": "CHANGELOG.md",
-      "size": 2380,
-      "sha256": "cd7199b02206e886b86f592e709c2a5ff95dc81fee8a4e1b11898089dcb5583e"
+      "size": 2720,
+      "sha256": "70d201481958d352c6eb7fb48b7049706c3297d194bde49c1310528c5686a99d"
     },
     {
       "path": "README.md",
-      "size": 1407,
-      "sha256": "7fbca0fb5d9b6e0ccb5b1a892c0cedb233798870f494f10544c9fcaa52f9166c"
+      "size": 1979,
+      "sha256": "fb35c566dca689d7952cf0a1bb65b3f1b95a14f655564d1af8967198240ebcec"
     },
     {
       "path": "VERSION",
