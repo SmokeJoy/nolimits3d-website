@@ -16,15 +16,14 @@ Authoritative hierarchy:
 - **Last Completed Milestone:** M-001 - Repository Foundation
 - **M-001 Status:** CLOSED
 - **Latest Architect Review:** `PA-AR-M002-014` (Wave B approved)
-- **Latest Architect Directive:** `AD-008` — Claude Code native team and architect delegation
+- **Latest Architect Directive:** `AD-009` — Product Owner countersignature, closes BLK-M002-003
 - **Wave A:** MERGED
 - **Wave B:** MERGED (`02b4878`, PR #5)
-- **Wave C1:** IMPLEMENTED and independently reviewed on `m002/wave-c1-primitives`. Four of
-  five review dimensions returned FAIL; the resulting blockers `BLK-M002-001` through `-005`
-  are all closed — `BLK-M002-003` (delegation countersignature) closed 2026-08-04 by Andrea's
-  direct countersignature, recorded in `AD-009`.
-- **Next Gate:** green CI on PR #6, independent `atlas-qa-security` review, then merge
-- **Last Update:** 2026-08-04
+- **Wave C1:** MERGED (`26cb068`, PR #6) 2026-08-05. `BLK-M002-001` through `-005` all closed;
+  CI green; independent `atlas-qa-security` review PASS WITH FINDINGS, both findings addressed
+  pre-merge (see `M002-TASK-PACKET-CLAUDE.md` and `AD-009`).
+- **Next Gate:** Wave C2 (`TSK-M002-CLAUDE-C2`, Forms & Complex Components) — planning
+- **Last Update:** 2026-08-05
 
 ## Team
 
@@ -47,9 +46,9 @@ no role approves its own implementation work, and no Architect agent exists.
 
 ## Recently closed
 
-- `BLK-M002-003` - closed 2026-08-04. Andrea countersigned the `AD-008` delegation directly
-  in a Claude Code CLI session; recorded in `AD-009`. `BLK-M002-002`'s provisional caveat
-  is lifted with it.
+- `BLK-M002-001` through `BLK-M002-005` - all closed. `BLK-M002-003` closed 2026-08-04:
+  Andrea countersigned the `AD-008` delegation directly in a Claude Code CLI session;
+  recorded in `AD-009`. `BLK-M002-002`'s provisional caveat is lifted with it.
 
 ## Known local-environment note
 
