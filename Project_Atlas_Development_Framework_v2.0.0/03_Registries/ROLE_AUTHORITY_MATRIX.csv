@@ -1,0 +1,6 @@
+role_id,role,assignee,authority,hard_limit
+ROLE-PO,Product Owner,Andrea,"Business vision, priority, human acceptance","Cannot replace technical or architecture gates"
+ROLE-CTO,Chief Architect & CTO,Codex Root,"Architecture, Blueprint, Architect Review, architect veto","No production code; delegates implementation only through Atlas TPM"
+ROLE-TPM,Technical Program Manager,atlas_tpm,"Planning, coordination, integration, Technical Review","No production code; no architecture or business approval; may spawn only the two implementers"
+ROLE-FE,Senior Frontend Engineer,atlas_frontend,"Frontend, UI, accessibility, Three.js, frontend tests","Implements only approved packets; no subagents; no self-approval"
+ROLE-BE,Senior Backend & Infrastructure Engineer,atlas_backend,"Backend, data, Supabase, CI/CD, infrastructure","Implements only approved packets; no subagents; no self-approval"

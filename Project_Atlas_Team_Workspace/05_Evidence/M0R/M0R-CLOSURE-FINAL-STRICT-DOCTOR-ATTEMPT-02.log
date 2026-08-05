@@ -1,0 +1,11 @@
+codex.exe : error: unexpected argument '--strict-config' found
+In riga:4 car:1
++ & $exe -C 'G:\Claude\NoLimits3D-website' doctor --strict-config -c ag ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (error: unexpect...t-config' found:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+Usage: codex doctor [OPTIONS]
+
+For more information, try '--help'.

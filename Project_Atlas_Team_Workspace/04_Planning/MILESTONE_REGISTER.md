@@ -2,6 +2,8 @@
 
 | Milestone | Name | Status | Gate |
 |---|---|---|---|
-| M0 | Team Bootstrap & Alignment | DONE with tracked conditions | Architect Review completed |
-| M-001 | Repository Foundation | CLOSED | PA-AR-M001-019 |
-| M-002 | Design System & UI Foundation | IN PROGRESS | Wave A merged; Wave B merged (PA-AR-M002-014, `02b4878`); Wave C1 closed by Architect Review (PA-AR-M002-015, PR #6 `26cb068`) 2026-08-05 — BLK-M002-001..005 closed, `AD-009` countersignature, clean `atlas-qa-security` review, `M002-PRIMITIVE-INVENTORY.md` approved. Wave C2 (`TSK-M002-CLAUDE-C2`, Forms & Complex Components) ACTIVATED |
+| M0 | Legacy Team Bootstrap & Alignment | DONE / SUPERSEDED | Historical Architect Review completed; no authority for the Codex-native team |
+| M-001 | Repository Foundation | HISTORICAL / CLOSED | PA-AR-M001-019 |
+| M-002 | Design System & UI Foundation | HISTORICAL DELIVERY / GOVERNANCE HOLD | Waves A, B, C1 and C2 delivered under superseded governance; future advancement requires M0R closure |
+| M0R | Codex-Native Team Reconfiguration | M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED | RBT-01..09, post-acceptance validator, Technical Reviews, Architect Review and Product Owner acceptance passed; DEV-M0R-002 documented; BLK-M0R-001..004 closed |
+| Blueprint 00 / M1 | Repository Foundation under Codex-native governance | NEXT PLANNING GATE ONLY | Planning may begin after Codex Root closure review; implementation, release, deployment and production remain unauthorized |

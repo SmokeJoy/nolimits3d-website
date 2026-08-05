@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Atlas Technical Review'
+  short_description: 'Review and integrate Atlas delivery evidence.'
+  default_prompt: 'Perform Atlas TPM Technical Review and integration without writing product code or granting architecture approval.'

@@ -10,7 +10,7 @@ import {
   summarizeAdvisories,
   validateWaiver,
 } from './dependency-audit.mjs';
-import { scanText } from './secret-scan.mjs';
+import { isTechnicalPath, scanText } from './secret-scan.mjs';
 import { scanScope } from './scope-guard.mjs';
 import { validateBindings } from './source-binding-guard.mjs';
 
@@ -64,6 +64,18 @@ test('secret scan rejects real-looking credentials and allows placeholders', () 
     scanText('.env.example', 'SUPABASE_SECRET_KEY=server-only-local-secret-placeholder'),
     [],
   );
+});
+
+test('secret scan includes Codex-native governance surfaces', () => {
+  for (const path of [
+    'AGENTS.md',
+    '.codex/config.toml',
+    '.codex/agents/atlas-backend.toml',
+    '.agents/skills/atlas-backend-delivery/SKILL.md',
+    'scripts/governance/codex_native_team_test.py',
+  ]) {
+    assert.equal(isTechnicalPath(path), true, `${path} is outside the secret scan`);
+  }
 });
 
 test('dependency audit collector includes registry packages only', () => {

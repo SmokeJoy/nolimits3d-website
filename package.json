@@ -13,6 +13,7 @@
     "build": "pnpm --recursive --if-present build",
     "dependency:audit": "node scripts/guards/dependency-audit.mjs",
     "format:check": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*",
+    "governance:codex-native": "python scripts/governance/codex_native_team_test.py --repo .",
     "guard:migrations": "node scripts/guards/migration-guard.mjs",
     "guard:scope": "node scripts/guards/scope-guard.mjs",
     "guard:source-bindings": "node scripts/guards/source-binding-guard.mjs",

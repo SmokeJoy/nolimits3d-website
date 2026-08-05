@@ -1,0 +1,32 @@
+codex.exe : 2026-08-05T12:20:34.897650Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for
+powershell: Shell snapshot not supported yet for PowerShell
+In riga:20 car:11
++ $prompt | & $exe -a on-request -s workspace-write -C $repo exec --jso ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-08-05T12:2... for PowerShell:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+2026-08-05T12:20:57.010846Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-Content -Raw
+.agents/skills/atlas-task-packet-planning/SKILL.md; "`n---TPM-CONFIG---`n"; Get-Content -Raw
+.codex/agents/atlas-tpm.toml; "`n---TASK-PACKET---`n"; Get-Content -Raw
+Project_Atlas_Team_Workspace/04_Planning/M0R-POST-ACCEPTANCE-CLOSURE-TASK-PACKET.md'` rejected: blocked by policy
+2026-08-05T12:21:12.609291Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git rev-parse HEAD'` rejected:
+blocked by policy
+2026-08-05T12:21:21.853903Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -NoProfile -Command 'git rev-parse HEAD'`
+rejected: blocked by policy
+2026-08-05T12:22:14.893075Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git branch --show-current; git
+rev-parse HEAD; git status --short; Get-Content -Raw scripts/governance/codex_native_team_test.py; Get-Content -Raw
+scripts/governance/test_codex_native_team.py'` rejected: blocked by policy
+2026-08-05T12:22:21.227431Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git rev-parse HEAD'` rejected:
+blocked by policy
+2026-08-05T12:22:21.227577Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'if (Test-Path
+scripts/governance/test_codex_native_team.py) { Get-Content -Raw scripts/governance/test_codex_native_team.py }'`
+rejected: blocked by policy
+2026-08-05T12:22:30.110557Z ERROR codex_core::tools::router: error=patch rejected: writing is blocked by read-only
+sandbox; rejected by user approval settings

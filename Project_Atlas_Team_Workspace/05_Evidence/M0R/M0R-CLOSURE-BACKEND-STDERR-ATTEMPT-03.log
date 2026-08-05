@@ -1,0 +1,7 @@
+codex.exe : 2026-08-05T12:24:42.108623Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for
+powershell: Shell snapshot not supported yet for PowerShell
+In riga:16 car:11
++ $prompt | & $exe -a on-request -s workspace-write -C $repo exec --jso ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-08-05T12:2... for PowerShell:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError

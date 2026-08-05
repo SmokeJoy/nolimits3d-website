@@ -27,6 +27,7 @@ ARCHIVE_ROOT = Path("Project_Atlas_Team_Workspace/06_Handoffs/Archive")
 PROTECTED_PREFIXES = (
     "NoLimits3D_Documentation_v0.96/",
     "Project_Atlas_Development_Framework_v1.0/",
+    "Project_Atlas_Development_Framework_v2.0.0/",
     "Project_Atlas_Development_Blueprint_v0.1/",
     ".git/",
 )
@@ -51,7 +52,11 @@ M001_EXECUTION_EXTRA = {
     ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.yaml",
     ".prettierignore",
     "README.md", "LICENSE", "LICENSE.md", "LICENSE.txt",
-    "CLAUDE.md", ".claude",
+    "CLAUDE.md",
+}
+M0R_GOVERNANCE_EXTRA = {
+    "AGENTS.md", ".codex", ".agents", ".claude",
+    "Project_Atlas_Development_Framework_v2.0.0",
 }
 # Local dependency directories. A pnpm workspace cannot exist without them, so under
 # m001-execution they are not treated as root violations. Directories only, and never
@@ -60,6 +65,7 @@ LOCAL_ARTEFACTS = {"node_modules", ".pnpm-store"}
 ROOT_PROFILES = {
     "pre-m001": PRE_M001_ROOT,
     "m001-execution": PRE_M001_ROOT | M001_EXECUTION_EXTRA,
+    "m0r-reconfiguration": PRE_M001_ROOT | M001_EXECUTION_EXTRA | M0R_GOVERNANCE_EXTRA,
 }
 REQUIRED_MANIFEST = {
     "schema_version", "handoff_id", "package_name", "sender", "recipient",
@@ -173,9 +179,22 @@ def audit_root(repo: Path, profile: str = "pre-m001", allow_current_zip: bool = 
         name = item.name
         allowed = name in allowed_names
         reason = None
-        if profile == "m001-execution" and name in LOCAL_ARTEFACTS and item.is_dir():
+        if profile in {"m001-execution", "m0r-reconfiguration"} and name in LOCAL_ARTEFACTS and item.is_dir():
             allowed = True
-            reason = "local dependency directory admitted by the m001-execution profile"
+            reason = f"local dependency directory admitted by the {profile} profile"
+        if profile == "m0r-reconfiguration" and name == ".claude" and item.is_dir():
+            reason = "local Claude metadata allowed; legacy agent definitions are forbidden"
+            legacy_dir = item / "agents"
+            legacy_files = []
+            if legacy_dir.exists():
+                legacy_files = sorted(
+                    child.relative_to(repo).as_posix()
+                    for child in legacy_dir.rglob("*")
+                    if child.is_file()
+                )
+            if legacy_files:
+                allowed = False
+                violations.extend(legacy_files)
         if name == CURRENT_ZIP and not allow_current_zip:
             allowed = False
             reason = "active handoff ZIP disallowed for this audit"

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Atlas Task Packet Planning'
+  short_description: 'Create governed Project Atlas task packets.'
+  default_prompt: 'Create or review the next Project Atlas task packet with exact scope, acceptance criteria, tests, evidence, and stop conditions.'

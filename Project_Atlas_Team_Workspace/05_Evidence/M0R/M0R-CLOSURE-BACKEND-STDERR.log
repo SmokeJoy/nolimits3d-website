@@ -1,0 +1,23 @@
+codex.exe : 2026-08-05T12:15:43.976363Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for
+powershell: Shell snapshot not supported yet for PowerShell
+In riga:20 car:11
++ $prompt | & $exe -a never -s workspace-write -C $repo exec --json --s ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-08-05T12:1... for PowerShell:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+2026-08-05T12:16:22.410041Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw -LiteralPath
+'AGENTS.md'; Get-Content -Raw -LiteralPath '.codex/agents/atlas-backend.toml'; Get-Content -Raw -LiteralPath
+'.agents/skills/atlas-backend-delivery/SKILL.md'; Get-Content -Raw -LiteralPath
+'Project_Atlas_Team_Workspace/04_Planning/M0R-POST-ACCEPTANCE-CLOSURE-TASK-PACKET.md'; git branch --show-current; git
+rev-parse HEAD; git status --short; git status --porcelain=v1 -- 'scripts/governance/codex_native_team_test.py'
+'scripts/governance/test_codex_native_team.py'"` rejected: blocked by policy
+2026-08-05T12:16:30.278192Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git rev-parse HEAD'` rejected:
+blocked by policy
+2026-08-05T12:16:58.078403Z ERROR codex_core::tools::router:
+error=`"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git rev-parse HEAD'` rejected:
+blocked by policy
+2026-08-05T12:17:57.466553Z ERROR codex_core::tools::router: error=patch rejected: writing is blocked by read-only
+sandbox; rejected by user approval settings

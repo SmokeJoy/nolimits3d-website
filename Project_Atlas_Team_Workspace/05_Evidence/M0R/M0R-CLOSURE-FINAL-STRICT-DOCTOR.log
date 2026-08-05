@@ -1,0 +1,14 @@
+codex.exe : error: unexpected argument '--ignore-user-config' found
+In riga:2 car:171
++ ... codex.exe'; & $exe -C 'G:\Claude\NoLimits3D-website' --strict-config  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (error: unexpect...r-config' found:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+  tip: to pass '--ignore-user-config' as a value, use '-- --ignore-user-config'
+
+Usage: codex [OPTIONS] [PROMPT]
+       codex [OPTIONS] <COMMAND> [ARGS]
+
+For more information, try '--help'.

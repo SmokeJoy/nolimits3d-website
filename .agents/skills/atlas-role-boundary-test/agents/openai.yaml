@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Atlas Role Boundary Test'
+  short_description: 'Validate Codex-native role boundaries.'
+  default_prompt: 'Validate M0R static and runtime role boundaries, reporting unavailable runtime lanes as blocked.'
