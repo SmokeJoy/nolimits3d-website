@@ -7,8 +7,8 @@
   CTO role to Claude Code. Recorded as `AD-008` / `DEC-007`.
 - **Phase:** M-002 Implementation, Wave C1.
 - **M-002 Status:** IN PROGRESS. Wave A and Wave B merged; Wave C1 implemented.
-- **Branch:** `m002/wave-c1-primitives`, HEAD `d8368af`, pushed to origin. PR to `main`
-  not opened.
+- **Branch:** `m002/wave-c1-primitives`, pushed to origin. **PR #6 open against `main`**,
+  not merged.
 - **Delivered this session:**
   - `e367dcb` Wave C1 primitives — Button, Badge, Card, Skeleton, StatusIndicator,
     45 tests, playground showcase `[TSK-M002-CLAUDE-C1]`.
@@ -20,7 +20,8 @@
   - `3e4018e` accepted the previously untracked production architecture pack.
 - **Gates:** lint, typecheck, build, test, secret scan, scope, source bindings,
   migrations, dependency audit, format check, toolchain and root audit all green.
-- **Evidence:** `05_Evidence/M002/wave-c1/EV-10-c1-tests.txt` — 73/73, exit 0.
+- **Evidence:** `05_Evidence/M002/wave-c1/` — EV-10 (93/93, exit 0) and EV-19 (contrast
+  remediation, before/after ratios).
 - **Independent review result: NOT READY TO MERGE.** A five-dimension review of
   `02b4878..d8368af` returned FAIL on task-packet scope, accessibility, security boundaries
   and governance integrity, and PASS WITH FINDINGS on test efficacy. Its adversarial

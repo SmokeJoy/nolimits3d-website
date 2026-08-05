@@ -101,14 +101,41 @@ Durante Wave C1 sono stati modificati file fuori perimetro **senza la fermata pr
 dalle Stop/Escalation Conditions**. La deviazione è reale e viene registrata, non
 riscritta: la regola era di fermarsi prima, non di documentare dopo.
 
-| File | Commit | Motivo |
-|---|---|---|
-| `packages/ui/tsconfig.build.json` | `99ece4e` | `composite: true` ereditato faceva saltare l'emissione di `index.d.ts`: il pacchetto restava senza tipi e ogni consumatore falliva il typecheck |
-| `apps/web/src/test/shared-packages.test.ts` | `99ece4e` | La guardia M-001 pretendeva `@atlas/ui` vuoto, premessa scaduta con M-002. Sostituita con un pin esatto della superficie di export approvata |
-| `package.json`, `pnpm-lock.yaml` | `461fd88`, `7eb7f20` | Advisory high su dipendenze transitive, poi la correzione di `BLK-M002-001` |
-| `scripts/guards/dependency-audit.mjs`, `scripts/guards/guards.test.mjs` | `7eb7f20` | Il gate di sicurezza ispezionava 106 pacchetti su 517 |
-| `scripts/governance/atlas_handoff.py` | `d8368af`, `113104d` | Allineamento dell'audit di root alla policy emendata |
-| `packages/ui/styles/global.css` | Wave C1 fix a11y | Token di contrasto sotto le soglie WCAG 2.2 in tema chiaro |
+L'elenco è stato completato il 2026-08-04 dopo la review di `atlas-qa-security`, che ha
+rilevato come la prima versione ne dichiarasse 7 su circa 30. Elenco integrale, ottenuto da
+`git diff --name-only 02b4878..HEAD` sottraendo gli Allowed Files di C1.
+
+**Codice e configurazione**
+
+| File | Motivo |
+|---|---|
+| `packages/ui/tsconfig.build.json` | `composite: true` ereditato faceva saltare l'emissione di `index.d.ts`: il pacchetto restava senza tipi e ogni consumatore falliva il typecheck |
+| `packages/ui/styles/global.css` | Token di contrasto sotto le soglie WCAG 2.2 in tema chiaro (`BLK-M002-004`) |
+| `packages/ui/tests/tokens.test.tsx` | Porta le 16 asserzioni che chiudono `BLK-M002-004`: senza questo file la remediation non sarebbe verificabile |
+| `apps/web/src/test/shared-packages.test.ts` | La guardia M-001 pretendeva `@atlas/ui` vuoto, premessa scaduta con M-002. Sostituita con un pin esatto della superficie di export approvata |
+| `package.json`, `pnpm-lock.yaml` | Advisory high su dipendenze transitive, poi la correzione di `BLK-M002-001` |
+| `scripts/guards/dependency-audit.mjs`, `scripts/guards/guards.test.mjs` | Il gate di sicurezza ispezionava 106 pacchetti su 517 |
+| `scripts/governance/atlas_handoff.py` | Allineamento dell'audit di root alla policy emendata |
+| `.gitignore` | `__pycache__/` generato eseguendo lo script di governance |
+
+**Governance e documentazione** (introdotti da `AD-008`, delega di architetto)
+
+| File | Motivo |
+|---|---|
+| `CLAUDE.md`, `.claude/agents/*.md` (5 file) | Mappa di governance e team di subagenti |
+| `AD-008_CLAUDE_CODE_NATIVE_TEAM_AND_ARCHITECT_DELEGATION.md` | Direttiva che registra la delega |
+| `03_Registries/ROLE_AUTHORITY_MATRIX.csv` | **Registro autoritativo di livello 2**, riscritto per assegnare ROLE-CTO a Claude Code |
+| `00_Governance/REPOSITORY_ROOT_ALLOWLIST.md` | Emendata per ammettere `CLAUDE.md`, `.claude/` e le directory di dipendenze |
+| `00_Governance/Tooling/DEPENDENCY_WAIVERS.json` | **Controllo di sicurezza**: registro dei waiver con scadenza |
+| `00_Governance/Tooling/DEPENDENCY_ADOPTION_POLICY.md` | Aggiunta la clausola di waiver che il file JSON citava senza che esistesse |
+| `01_Shared_Memory/DECISION_LEDGER.md`, `CURRENT_PROJECT_STATE.md` | Registrazione decisioni e stato |
+| `04_Planning/BLOCKER_REGISTER.md`, `MILESTONE_REGISTER.md`, questo Task Packet | Blocker, milestone e questa stessa ratifica |
+| `000_PROJECT_STATE.md`, `001_SESSION_HANDOFF.md` | Indici di continuità non autoritativi |
+| `docs/architecture/PRODUCTION_ARCHITECTURE_DECISION_PACK.md` | Artefatto preesistente non tracciato, recuperato prima che andasse perso |
+| `05_Evidence/M002/wave-c1/*` | Evidenze EV-10 ed EV-19 |
+
+Due voci meritano attenzione particolare del Product Owner, perché sono controlli modificati
+da chi ne era soggetto: `ROLE_AUTHORITY_MATRIX.csv` e `REPOSITORY_ROOT_ALLOWLIST.md`.
 
 **Decisione dell'Architect: RATIFICATA.** Il revert avrebbe reintrodotto advisory di
 severità alta, lasciato `@atlas/ui` senza dichiarazioni di tipo e mantenuto difetti di
@@ -119,5 +146,6 @@ committate separatamente dal deliverable C1.
 Non estende il perimetro di `TSK-M002-CLAUDE-C2`, che mantiene le proprie Forbidden Files.
 
 Questa decisione è stata presa dall'Architect delegato, che è anche l'autore delle
-modifiche. È il conflitto di ruolo descritto in `BLK-M002-003` e resta soggetto alla
-controfirma del Product Owner.
+modifiche. È il conflitto di ruolo descritto in `BLK-M002-003`. Andrea ha controfirmato
+la delega direttamente in sessione il 2026-08-04, chiudendo `BLK-M002-003` e con esso
+la riserva su questa ratifica — vedi `AD-009_PRODUCT_OWNER_COUNTERSIGNATURE_AND_BLK-M002-003_CLOSURE.md`.

@@ -20,9 +20,10 @@ Authoritative hierarchy:
 - **Wave A:** MERGED
 - **Wave B:** MERGED (`02b4878`, PR #5)
 - **Wave C1:** IMPLEMENTED and independently reviewed on `m002/wave-c1-primitives`. Four of
-  five review dimensions returned FAIL; the resulting blockers `BLK-M002-001`, `-002`, `-004`
-  and `-005` are closed. `BLK-M002-003` (delegation countersignature) remains open.
-- **Next Gate:** Architect Review and merge gate
+  five review dimensions returned FAIL; the resulting blockers `BLK-M002-001` through `-005`
+  are all closed — `BLK-M002-003` (delegation countersignature) closed 2026-08-04 by Andrea's
+  direct countersignature, recorded in `AD-009`.
+- **Next Gate:** green CI on PR #6, independent `atlas-qa-security` review, then merge
 - **Last Update:** 2026-08-04
 
 ## Team
@@ -43,6 +44,12 @@ no role approves its own implementation work, and no Architect agent exists.
 
 - `BLK-BASE-001` - production baseline binding; blocks production release, does not
   block M-002 implementation.
+
+## Recently closed
+
+- `BLK-M002-003` - closed 2026-08-04. Andrea countersigned the `AD-008` delegation directly
+  in a Claude Code CLI session; recorded in `AD-009`. `BLK-M002-002`'s provisional caveat
+  is lifted with it.
 
 ## Known local-environment note
 
