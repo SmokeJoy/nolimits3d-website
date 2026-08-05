@@ -30,6 +30,14 @@
   top: var(--space-4);
 }
 
+/* `#main-content` is a skip-link focus target (`AppShell.tsx`,
+   `tabIndex={-1}`), not an interactive control -- it still needs a visible
+   focus indicator (WCAG 2.2 AA) for the moment the skip link activates. */
+#main-content:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: -2px;
+}
+
 .site-header {
   display: flex;
   flex-wrap: wrap;

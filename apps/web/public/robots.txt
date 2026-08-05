@@ -1,0 +1,19 @@
+# NoLimits3D -- apps/web (TSK-M003-WEB-D4, DOC-SEO-005)
+#
+# Public routes are crawlable. /account and /command are the two private
+# boundaries (customer area, internal Command Center) that must never be
+# indexed (TSEO-F-005: "admin/customer non generano index bloat").
+#
+# Note: index.html still carries a site-wide `<meta name="robots"
+# content="noindex">` while production is blocked by BLK-BASE-001. This
+# robots.txt is the correct target policy for when that block lifts; the
+# meta tag is the actual gate until then. Crawling (robots.txt) and indexing
+# (meta robots) are independent controls -- both are documented in
+# Project_Atlas_Team_Workspace/05_Evidence/M003/sprint4/EV-01-tseo-f001-ssr-gap.md.
+
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /command
+
+Sitemap: https://nolimits3d.store/sitemap.xml

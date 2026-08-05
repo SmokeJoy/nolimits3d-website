@@ -108,10 +108,12 @@ const futureFunctionalityPaths = [
 describe('Remaining sitemap pages (TSK-M003-WEB-D3)', () => {
   it.each(expectedPages)(
     'renders the expected <h1> and breadcrumb trail at $path',
-    ({ path, heading, breadcrumb, testId }) => {
+    // Content pages are lazy-loaded (`TSK-M003-WEB-D4`) -- await the route's
+    // `Component` instead of assuming it's already in the DOM.
+    async ({ path, heading, breadcrumb, testId }) => {
       renderAt(path);
 
-      const page = screen.getByTestId(testId);
+      const page = await screen.findByTestId(testId);
       expect(within(page).getByRole('heading', { level: 1, name: heading })).toBeInTheDocument();
 
       const nav = within(page).getByRole('navigation', { name: 'Breadcrumb' });
@@ -134,9 +136,9 @@ describe('Remaining sitemap pages (TSK-M003-WEB-D3)', () => {
     ).toBeInTheDocument();
   });
 
-  it('keeps PrintFlow to Coming Soon only, with no feature description', () => {
+  it('keeps PrintFlow to Coming Soon only, with no feature description', async () => {
     renderAt('/printflow');
-    const page = screen.getByTestId('content-page-printflow');
+    const page = await screen.findByTestId('content-page-printflow');
 
     expect(within(page).getByText('Coming Soon')).toBeInTheDocument();
     expect(page.textContent).toMatch(/Coming Soon/);
@@ -150,9 +152,9 @@ describe('Remaining sitemap pages (TSK-M003-WEB-D3)', () => {
   });
 
   describe.each(futureFunctionalityPaths)('honesty policy at %s', (path) => {
-    it('renders a clear "not yet available" state with no fake interactive form', () => {
+    it('renders a clear "not yet available" state with no fake interactive form', async () => {
       renderAt(path);
-      const page = screen.getByTestId(`content-page${path.replaceAll('/', '-')}`);
+      const page = await screen.findByTestId(`content-page${path.replaceAll('/', '-')}`);
 
       // The honesty messaging is present via the shared StatusIndicator...
       const status = within(page).getByRole('status');
@@ -173,14 +175,14 @@ describe('Remaining sitemap pages (TSK-M003-WEB-D3)', () => {
 });
 
 describe('Regression: previously-404 destinations now resolve (TSK-M003-WEB-D3)', () => {
-  it('resolves every new route to a real, distinct page instead of NotFound', () => {
+  it('resolves every new route to a real, distinct page instead of NotFound', async () => {
     const testIds = new Set<string>();
 
     for (const { path, testId } of expectedPages) {
       const { view } = renderAt(path);
 
+      expect(await screen.findByTestId(testId)).toBeInTheDocument();
       expect(screen.queryByTestId('route-not-found')).not.toBeInTheDocument();
-      expect(screen.getByTestId(testId)).toBeInTheDocument();
       testIds.add(testId);
 
       view.unmount();
@@ -203,7 +205,7 @@ describe('Regression: previously-404 destinations now resolve (TSK-M003-WEB-D3)'
     expect(footerOtherLinks.map((link) => link.to)).toContain('/blog');
   });
 
-  it('keeps /printflow unlinked from every navigation surface (product boundary)', () => {
+  it('keeps /printflow unlinked from every navigation surface (product boundary)', async () => {
     const allLinkedPaths = [
       ...footerSitemapSections.flatMap((section) => [
         section.to,
@@ -216,6 +218,6 @@ describe('Regression: previously-404 destinations now resolve (TSK-M003-WEB-D3)'
 
     // The route itself still resolves directly, it just isn't linked.
     renderAt('/printflow');
-    expect(screen.getByTestId('content-page-printflow')).toBeInTheDocument();
+    expect(await screen.findByTestId('content-page-printflow')).toBeInTheDocument();
   });
 });

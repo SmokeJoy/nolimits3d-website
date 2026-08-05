@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
+import { getSitemapPaths } from '../../scripts/generate-sitemap';
 import { appRoutes } from '../app/routes';
 
 function renderAt(initialPath: string) {
@@ -57,5 +58,9 @@ describe('Command boundary privacy (M001-B)', () => {
     expect(commandLinks(primaryNav)).toHaveLength(0);
     expect(commandLinks(utilityNav)).toHaveLength(0);
     expect(commandLinks(footer)).toHaveLength(0);
+  });
+
+  it('never lists the command boundary in the generated sitemap (TSK-M003-WEB-D4)', () => {
+    expect(getSitemapPaths()).not.toContain('/command');
   });
 });

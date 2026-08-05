@@ -13,7 +13,9 @@ const placeholderPosts = [1, 2, 3];
 export function BlogPage() {
   return (
     <PageLayout>
-      <p className="home-section__question">Hanno davvero competenza?</p>
+      {/* `<h2>`, not `<p>`: fixes an axe `heading-order` violation -- see
+          `HeroSection.tsx` for the identical reasoning. */}
+      <h2 className="home-section__question">Hanno davvero competenza?</h2>
       <ul className="card-grid">
         {placeholderPosts.map((index) => (
           <li key={index}>

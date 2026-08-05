@@ -7,6 +7,13 @@
       "runtimeArgs": ["--filter", "@atlas/web", "dev"],
       "port": 5173,
       "autoPort": true
+    },
+    {
+      "name": "atlas-web-preview",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@atlas/web", "preview"],
+      "port": 4173,
+      "autoPort": true
     }
   ]
 }

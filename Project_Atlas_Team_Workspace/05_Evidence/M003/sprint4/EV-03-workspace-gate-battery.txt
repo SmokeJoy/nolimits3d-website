@@ -1,0 +1,187 @@
+=== pnpm build ===
+
+> nolimits3d-platform@0.0.0 build G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present build
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts build$ tsc -p tsconfig.build.json
+packages/config build$ tsc -p tsconfig.build.json
+packages/domain build$ tsc -p tsconfig.build.json
+packages/ui build$ vite build && tsc -p tsconfig.build.json --emitDeclarationOnly
+packages/api-contracts build: Done
+packages/domain build: Done
+packages/config build: Done
+packages/ui build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+packages/ui build: [2K
+packages/ui build: transforming...✓ 2000 modules transformed.
+packages/ui build: rendering chunks...
+packages/ui build: computing gzip size...
+packages/ui build: dist/styles.css   24.08 kB │ gzip:  5.51 kB
+packages/ui build: dist/index.js    267.51 kB │ gzip: 75.50 kB
+packages/ui build: [32m✓ built in 555ms[39m
+packages/ui build: Done
+apps/ui-playground build$ vite build
+apps/web build$ vite build
+apps/web build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/web build: [2K
+apps/web build: transforming...✓ 75 modules transformed.
+apps/web build: rendering chunks...
+apps/ui-playground build: [36mvite v8.1.4 [32mbuilding client environment for production...[36m[39m
+apps/ui-playground build: [2K
+apps/web build: computing gzip size...
+apps/web build: dist/index.html                                      0.44 kB │ gzip:   0.28 kB
+apps/web build: dist/assets/PageLayout-DLklRaTv.css                  1.87 kB │ gzip:   0.60 kB
+apps/web build: dist/assets/index-0yrhaBEF.css                      30.12 kB │ gzip:   6.54 kB
+apps/web build: dist/assets/Stampa3DPage-C3FAV71n.js                 0.15 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/PiccoleSeriePage-DPgXXJNL.js             0.15 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/PrototipazionePage-BwnfZBwj.js           0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/Progettazione3DPage-D1sCsQXt.js          0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/RicambiPersonalizzatiPage-CQFt52mg.js    0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/AssistenzaStampantiPage-DVz0v61x.js      0.21 kB │ gzip:   0.19 kB
+apps/web build: dist/assets/RichiediProgettoPage-q1CSn0PJ.js         0.22 kB │ gzip:   0.19 kB
+apps/web build: dist/assets/CatalogoPage-c_b3JL-M.js                 0.23 kB │ gzip:   0.21 kB
+apps/web build: dist/assets/CommandBoundary-Bwlqj1ZL.js              0.26 kB │ gzip:   0.20 kB
+apps/web build: dist/assets/AccountHome-AQFImpi9.js                  0.26 kB │ gzip:   0.21 kB
+apps/web build: dist/assets/ConfiguratoreLanternePage-Y-7zqpZg.js    0.26 kB │ gzip:   0.21 kB
+apps/web build: dist/assets/PreventivoStampa3DPage-C-o1EhnQ.js       0.26 kB │ gzip:   0.22 kB
+apps/web build: dist/assets/PrintFlowPage-C2GroQby.js                0.34 kB │ gzip:   0.25 kB
+apps/web build: dist/assets/RealizzaPage-B1ACcmEO.js                 0.35 kB │ gzip:   0.25 kB
+apps/web build: dist/assets/EventiPage-haskgGQ7.js                   0.52 kB │ gzip:   0.37 kB
+apps/web build: dist/assets/FutureFeatureNotice-BVZDFuvs.js          0.56 kB │ gzip:   0.35 kB
+apps/web build: dist/assets/SectionLandingPage-CxTqTKLK.js           0.60 kB │ gzip:   0.35 kB
+apps/web build: dist/assets/ServiceLayout-BnwnvXbk.js                0.62 kB │ gzip:   0.39 kB
+apps/web build: dist/assets/QualitaPage-Dhw93o2p.js                  0.68 kB │ gzip:   0.37 kB
+apps/web build: dist/assets/EsploraPage-BXtbnik-.js                  0.68 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/ContattiPage-BiemjHLF.js                 0.69 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/MetodoPage-BZRLnabL.js                   0.73 kB │ gzip:   0.42 kB
+apps/web build: dist/assets/BlogPage-pQ1gtYir.js                     0.76 kB │ gzip:   0.42 kB
+apps/web build: dist/assets/RealizzazioniPage-5t8JGp0F.js            0.81 kB │ gzip:   0.45 kB
+apps/web build: dist/assets/PageLayout-Don9z5u3.js                   0.82 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/IspiratiPage-COuz7eT2.js                 0.85 kB │ gzip:   0.47 kB
+apps/web build: dist/assets/ArteInStampa3DPage-9CsGzI0u.js           0.91 kB │ gzip:   0.47 kB
+apps/web build: dist/assets/ChiSiamoPage-D0xdH0En.js                 1.01 kB │ gzip:   0.46 kB
+apps/web build: dist/assets/index-C-Q45LaX.js                      345.44 kB │ gzip: 106.46 kB
+apps/web build: [32m✓ built in 339ms[39m
+apps/web build: Done
+apps/ui-playground build: transforming...✓ 19 modules transformed.
+apps/ui-playground build: rendering chunks...
+apps/ui-playground build: computing gzip size...
+apps/ui-playground build: dist/index.html                   0.40 kB │ gzip:   0.27 kB
+apps/ui-playground build: dist/assets/index-D-mXa8y9.css   28.41 kB │ gzip:   6.18 kB
+apps/ui-playground build: dist/assets/index-DzaZxuER.js   397.97 kB │ gzip: 124.85 kB
+apps/ui-playground build: [32m✓ built in 282ms[39m
+apps/ui-playground build: Done
+EXIT:0
+
+=== pnpm lint ===
+
+> nolimits3d-platform@0.0.0 lint G:\Claude\NoLimits3D-website
+> eslint . --max-warnings=0
+
+EXIT:0
+
+=== pnpm typecheck ===
+
+> nolimits3d-platform@0.0.0 typecheck G:\Claude\NoLimits3D-website
+> pnpm --recursive --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts typecheck$ tsc -p tsconfig.json
+packages/config typecheck$ tsc -p tsconfig.json
+packages/domain typecheck$ tsc -p tsconfig.json
+packages/ui typecheck$ tsc -p tsconfig.json
+packages/api-contracts typecheck: Done
+packages/config typecheck: Done
+packages/domain typecheck: Done
+packages/ui typecheck: Done
+apps/ui-playground typecheck$ tsc -p tsconfig.json
+apps/web typecheck$ tsc -p tsconfig.json
+apps/ui-playground typecheck: Done
+apps/web typecheck: Done
+EXIT:0
+
+=== pnpm test ===
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+✔ scope guard accepts an empty web scaffold (5.1567ms)
+✔ scope guard rejects public command exposure, Jarvis and operational PrintFlow (10.5603ms)
+✔ scope guard allows PrintFlow only as Coming Soon (7.8945ms)
+✔ secret scan rejects real-looking credentials and allows placeholders (1.029ms)
+✔ secret scan includes Codex-native governance surfaces (0.1877ms)
+✔ dependency audit collector includes registry packages only (0.4396ms)
+✔ dependency audit summary normalizes severity (0.2137ms)
+✔ dependency audit blocks an advisory with no waiver (0.3703ms)
+✔ dependency audit tolerates an advisory under an unexpired waiver (0.2418ms)
+✔ dependency audit blocks once a waiver has expired (0.3544ms)
+✔ dependency audit does not let a waiver cover a different package (0.2758ms)
+✔ dependency audit reports a waiver that matches nothing as stale (0.1761ms)
+✔ dependency audit always lists the whole workspace (0.3864ms)
+✔ a critical advisory cannot be waived even with a matching waiver (0.3325ms)
+✔ a waiver claiming critical severity is rejected outright (0.6781ms)
+✔ a waiver cannot run past the maximum horizon (0.2715ms)
+✔ a waiver must carry every governance field (0.194ms)
+✔ the shipped waiver file satisfies the schema (0.5155ms)
+✔ current source bindings are valid (2.5265ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 149.1406
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website\packages\ui
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/packages/ui
+
+
+ Test Files  13 passed (13)
+      Tests  137 passed (137)
+   Start at  01:22:43
+   Duration  13.82s (transform 689ms, setup 8.21s, import 20.30s, tests 11.67s, environment 63.99s)
+
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website\apps\web
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website/apps/web
+
+
+ Test Files  13 passed (13)
+      Tests  122 passed (122)
+   Start at  01:22:58
+   Duration  18.94s (transform 5.17s, setup 17.97s, import 12.24s, tests 28.24s, environment 82.83s)
+
+EXIT:0
+
+=== pnpm format:check ===
+
+> nolimits3d-platform@0.0.0 format:check G:\Claude\NoLimits3D-website
+> prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*
+
+Checking formatting...
+All matched files use Prettier code style!
+EXIT:0
+
+=== pnpm guard:scope ===
+
+> nolimits3d-platform@0.0.0 guard:scope G:\Claude\NoLimits3D-website
+> node scripts/guards/scope-guard.mjs
+
+Scope and private-route guard: PASS
+EXIT:0
+
+=== pnpm guard:source-bindings ===
+
+> nolimits3d-platform@0.0.0 guard:source-bindings G:\Claude\NoLimits3D-website
+> node scripts/guards/source-binding-guard.mjs
+
+Documentation source-binding guard: PASS
+EXIT:0
+
