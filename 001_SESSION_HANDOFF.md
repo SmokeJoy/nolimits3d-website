@@ -48,6 +48,36 @@ business data — product/service list, real pricing, materials, categories — 
 can supply. This is the "dati reali del sito" condition from his own standing instruction above;
 implementation of the commerce backend should not proceed by inventing that data.
 
+**Andrea, same session:** "Andrea non ha ancora fornito i dati reali per il catalogo. Nel
+frattempo prosegui in autonomia su tutto ciò che non dipende da quei dati (altre pagine,
+hardening, performance, accessibilità, test, qualunque lavoro tecnico della roadmap non
+bloccato). Appena arrivano i dati del catalogo te li giro io." — standing direction to keep
+working unblocked technical work while catalog data is pending, verbatim.
+
+**M-003 Sprint 4 + structured data delivered same session** (PR #15, #16, merged): axe-core
+accessibility coverage added for every `apps/web` route (26 checks; 6 real `heading-order`
+violations found and fixed; a genuinely broken skip link found and fixed — `<main>` had no
+`tabindex`, so activating it scrolled the viewport but never moved keyboard focus); public
+routes code-split via `lazy()`; `robots.txt` + build-time `sitemap.xml` (single source of
+truth: `navigation.ts`) + per-page `<title>`; `LocalBusiness` JSON-LD reused verbatim from
+`apps/legacy-web`'s own live block (real, already-published facts, not invented). `TSEO-F-001`
+(server rendering) recorded as a known, deliberately deferred gap — `ADR-0018` defers that
+formal Next.js-vs-Vite comparison to a gate before the Frozen Baseline, not before ongoing
+feature work, so it was not solved here.
+
+**Two more real bugs found by review, not by the task packets that shipped them:** `/servizi`,
+`/nolimits3d` and `/carrello` were linked from `GlobalNav`/`Footer` since Sprint 1-2 with no
+route ever registered — confirmed 404s, fixed with `ServiziPage`/`Nolimits3DPage`/`CarrelloPage`.
+`axe-core` resolved locally only because of a machine-level (non-repo) `node-linker=hoisted`
+pnpm config, not because of anything committed — the same class of bug as the `rolldown`
+dependency issue earlier in this session; declared as an explicit `apps/web` devDependency
+instead of trusting the local resolution. Both caught before merge, not after a CI failure.
+
+**Current state:** `main` has a fully real, navigable public site (every link resolves, WCAG
+2.2 AA axe-clean, code-split, basic technical SEO in place) with zero fabricated business
+content. Next real milestone (Catalog/commerce backend) is blocked on data only Andrea can
+supply.
+
 ## Prior Handoff - 2026-08-05 (M0R, historical)
 
 - **Authority:** Andrea accepted M0R v2.0.0 and authorized closure and merge of PR #10.
