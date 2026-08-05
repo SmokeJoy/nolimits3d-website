@@ -235,6 +235,19 @@ describe('WCAG 2.2 AA contrast audit (>= 4.5:1) on governed pairs', () => {
     expect(ratio).toBeGreaterThanOrEqual(AA);
   });
 
+  /* The block above is dark-theme only, and the light theme deliberately breaks
+     one of its pairs: --status-warning is deepened to #a16207 there, where
+     palette.dark on it is 3.63:1. That is fine for the aria-hidden dot, which
+     is governed by the 3:1 non-text rule below, but it is NOT a licence to put
+     dark text on the warning surface in light theme. Pinned so the asymmetry is
+     explicit rather than a trap for the next reader. */
+  it('records that dark-on-warning is AA in dark theme only', () => {
+    expect(contrastRatio(dark('--palette-dark'), dark('--status-warning'))).toBeGreaterThanOrEqual(
+      AA,
+    );
+    expect(contrastRatio(light('--palette-dark'), light('--status-warning'))).toBeLessThan(AA);
+  });
+
   /* WCAG 2.2 SC 1.4.11: non-text UI and graphical objects need 3:1, not 4.5:1.
      These pairs were ungoverned, which is how the brand green shipped as a
      1.90:1 focus ring on the light canvas. */
