@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "atlas-web-dev",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@atlas/web", "dev"],
+      "port": 5173,
+      "autoPort": true
+    }
+  ]
+}
