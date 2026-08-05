@@ -1,0 +1,115 @@
+/**
+ * Layout for the M-003 Sprint 2 content destination pages
+ * (`TSK-M003-WEB-D2`): the shared `PageLayout` wrapper and breadcrumb
+ * trail.
+ *
+ * Kept as its own stylesheet under `pages/` rather than added to
+ * `apps/web/src/routes/public/public-layout.css` -- that file is outside
+ * this task packet's Allowed Files. Reuses the same `@atlas/ui` design
+ * tokens (CSS custom properties on `:root`) that `public-layout.css`
+ * already documents consuming; several existing global classes from that
+ * file (`.placeholder-note`, `.card-grid`, `.intent-card-link`,
+ * `.timeline-list`, `.home-section__question`, `.home-section__lede`,
+ * `.cta-link`) are reused as-is by the page components, not redefined
+ * here.
+ */
+
+.content-page {
+  padding: var(--space-12) var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-page__breadcrumb {
+  margin-bottom: var(--space-6);
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-size-scale-small);
+  color: var(--text-secondary);
+}
+
+.breadcrumb-list li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-list a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.breadcrumb-list a:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.breadcrumb-list a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.breadcrumb-list [aria-current='page'] {
+  color: var(--text-primary);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+}
+
+.breadcrumb-list__separator {
+  color: var(--text-secondary);
+}
+
+.content-page__heading {
+  font-size: var(--font-size-scale-h1);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-6);
+  max-width: 30ch;
+}
+
+.content-page .timeline-list li {
+  align-items: flex-start;
+}
+
+.content-page .timeline-list li > div > p.placeholder-note {
+  margin-top: var(--space-2);
+}
+
+.content-page__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  font-size: var(--font-size-scale-body);
+  color: var(--text-primary);
+}
+
+.content-page__contact a {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.content-page__contact a:hover {
+  text-decoration: underline;
+}
+
+.content-page__contact a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .content-page {
+    padding: var(--space-8) var(--space-4);
+  }
+}
