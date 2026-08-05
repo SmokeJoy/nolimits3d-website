@@ -108,6 +108,30 @@
   outline-offset: 2px;
 }
 
+/*
+ * `/esplora`'s taxonomy definitions (`DOC-UX-001`, "Distinzioni
+ * tassonomiche"), rendered as a real `<dl>` -- term/definition semantics
+ * fit this content better than the `card-grid` pattern used for the
+ * sub-page index below it.
+ */
+.taxonomy-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+}
+
+.taxonomy-list dt {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.taxonomy-list dd {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
 @media (max-width: 767px) {
   .content-page {
     padding: var(--space-8) var(--space-4);
