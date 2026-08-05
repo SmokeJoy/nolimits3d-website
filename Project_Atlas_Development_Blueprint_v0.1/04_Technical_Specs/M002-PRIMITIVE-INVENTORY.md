@@ -177,7 +177,7 @@ Ogni primitiva sotto indicata deve rispettare integralmente il seguente contratt
 
 ### 10. Tabs
 - **Scopo**: Suddivisione di contenuti in viste distinte all'interno della stessa pagina.
-- **Anatomia**: Base UI Tabs: `<Tabs.Root>`, `<Tabs.List>`, `<Tabs.Trigger>`, `<Tabs.Panel>`.
+- **Anatomia**: Base UI Tabs: `<Tabs.Root>`, `<Tabs.List>`, `<Tabs.Tab>`, `<Tabs.Panel>`. (Correzione 2026-08-05: la versione pinnata `@base-ui/react@1.6.0` esporta `Tabs.Tab`, non `Tabs.Trigger` — l'anatomia precedente non avrebbe compilato. Segnalato da un reviewer automatico esterno su PR #8, verificato leggendo `node_modules/@base-ui/react/tabs/index.parts.d.ts`.)
 - **API e Proprietà**: `defaultValue` (string), `value` (string), `onValueChange` (function).
 - **Varianti**: Default.
 - **Stati**: Active (`data-selected`), inactive, hover, active, focus-visible.
