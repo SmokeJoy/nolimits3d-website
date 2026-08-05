@@ -1,0 +1,360 @@
+/**
+ * Layout for the public site shell (global nav, footer) and the homepage
+ * sections (TSK-M003-WEB-D1).
+ *
+ * Hand-written CSS, not Tailwind utility classes: `@atlas/ui`'s Tailwind
+ * build only scans `packages/ui/src` for class names in use (verified
+ * empirically -- a probe utility class added under `apps/web` did not reach
+ * the compiled `packages/ui/dist/styles.css`), so utility class names
+ * written in this app would compile to nothing. This file instead consumes
+ * the design tokens `@atlas/ui`'s stylesheet always exposes as CSS custom
+ * properties on `:root` (see `packages/ui/styles/global.css`), regardless of
+ * Tailwind's content scan.
+ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent-primary);
+  color: var(--accent-primary-foreground);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  z-index: var(--z-index-toast);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: var(--space-4);
+  top: var(--space-4);
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-canvas);
+}
+
+.site-header__brand {
+  font-size: var(--font-size-scale-h4);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header__nav-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+}
+
+.site-nav__list,
+.utility-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__list a,
+.utility-nav__list a,
+.footer-sitemap__list a,
+.site-footer__contact a,
+.footer-other__list a {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.utility-nav__list a,
+.footer-other__list a {
+  color: var(--text-secondary);
+}
+
+.site-nav__list a:hover,
+.utility-nav__list a:hover,
+.footer-sitemap__list a:hover,
+.site-footer__contact a:hover,
+.footer-other__list a:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.site-nav__list a:focus-visible,
+.utility-nav__list a:focus-visible,
+.footer-sitemap__list a:focus-visible,
+.site-footer__contact a:focus-visible,
+.footer-other__list a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border-default);
+  background: var(--bg-canvas);
+  padding: var(--space-12) var(--space-6) var(--space-6);
+  color: var(--text-secondary);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-footer__heading {
+  font-size: var(--font-size-scale-h6);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+}
+
+.footer-sitemap__list,
+.footer-other__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-sitemap__list a,
+.footer-other__list a {
+  padding: 0;
+  display: inline;
+}
+
+.site-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--font-size-scale-small);
+}
+
+.site-footer__bottom {
+  max-width: 1200px;
+  margin: var(--space-8) auto 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-default);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--font-size-scale-small);
+}
+
+.home-section {
+  padding: var(--space-12) var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-section + .home-section {
+  border-top: 1px solid var(--border-default);
+}
+
+.home-section__heading {
+  font-size: var(--font-size-scale-h2);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4);
+}
+
+.home-section__hero-heading {
+  font-size: var(--font-size-scale-h1);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4);
+  max-width: 20ch;
+}
+
+.home-section__lede {
+  font-size: var(--font-size-scale-body);
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+.home-section__question {
+  font-size: var(--font-size-scale-h4);
+  color: var(--text-primary);
+  margin: var(--space-8) 0 0;
+}
+
+.intent-grid,
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intent-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-lg);
+  height: 100%;
+}
+
+.intent-card-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+/**
+ * Visual language for navigational CTAs, matching `@atlas/ui`'s Button
+ * component (same tokens, same touch-target sizing) without reusing Button
+ * itself: Base UI's Button always attaches `role="button"` when rendered
+ * through a non-native `render` target (`nativeButton={false}`), which
+ * overrides the anchor's native `link` role -- confirmed by a failing role
+ * query in `apps/web/src/test/public-home.test.tsx` during development. The
+ * Primitive Inventory is explicit that hyperlinks must keep native `<a>`
+ * semantics and that Button carries no "link" variant, so CTAs that
+ * navigate use this class on a real `Link`/`<a>` instead of Button.
+ */
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
+}
+
+.cta-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.cta-link--primary {
+  background: var(--button-bg-primary);
+  color: var(--button-text-primary);
+}
+
+.cta-link--primary:hover {
+  background: var(--accent-primary-hover);
+}
+
+.cta-link--secondary {
+  background: var(--button-bg-secondary);
+  color: var(--button-text-secondary);
+  border: 1px solid var(--button-border-secondary);
+}
+
+.cta-link--secondary:hover {
+  background: var(--bg-surface-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-link {
+    transition: none;
+  }
+}
+
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  counter-reset: timeline;
+}
+
+.timeline-list li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.timeline-list li::before {
+  counter-increment: timeline;
+  content: counter(timeline);
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  font-size: var(--font-size-scale-small);
+  color: var(--text-primary);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.chip-row + .chip-row {
+  margin-top: var(--space-2);
+}
+
+.chip-row-label {
+  display: block;
+  font-size: var(--font-size-scale-small);
+  color: var(--text-secondary);
+  margin-top: var(--space-4);
+}
+
+.chip-row-label:first-of-type {
+  margin-top: var(--space-6);
+}
+
+.placeholder-note {
+  border: 1px dashed var(--border-hover);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-scale-small);
+  margin-top: var(--space-3);
+}
+
+.placeholder-note:first-child {
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .home-section {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .site-header {
+    padding: var(--space-3) var(--space-4);
+  }
+}
