@@ -33,6 +33,21 @@ Jarvis, STL automation, PrintFlow). This handoff does not claim it will be deliv
 session; it records the standing direction to keep building it, milestone by milestone,
 without pausing for confirmation between waves.
 
+**M-003 Sprint 1-3 delivered same session** (PR #12, #13, #14, all merged): global navigation,
+footer, ten-section homepage, and every destination page the sitemap (`DOC-UX-001`) links to —
+the site's full navigation graph is now real, zero dead links except the intentionally private
+`command` route. Two real regressions found only by live browser verification, not by the
+automated suite (see PR #11, #12 commit messages): a bundler CJS-interop crash, and `@atlas/ui`'s
+stylesheet never being imported into `apps/web`. Content is honestly placeholder-marked
+throughout (no invented pricing, testimonials, bio, or photos); five future-transactional pages
+(Catalogo, Richiedi-progetto, Preventivo, Configuratore, Assistenza) explicitly avoid rendering
+any form/input/product-price UI with no backend behind it.
+
+**Real blocker for the next milestone:** Catalog & Product Discovery (`E-0005`) needs actual
+business data — product/service list, real pricing, materials, categories — that only Andrea
+can supply. This is the "dati reali del sito" condition from his own standing instruction above;
+implementation of the commerce backend should not proceed by inventing that data.
+
 ## Prior Handoff - 2026-08-05 (M0R, historical)
 
 - **Authority:** Andrea accepted M0R v2.0.0 and authorized closure and merge of PR #10.
