@@ -13,6 +13,41 @@ export function advisoryId(url) {
   return match ? match[0] : null;
 }
 
+/* A waiver may never cover a critical advisory, and may never be open-ended.
+   Without these two bounds a one-line JSON edit silences anything, forever. */
+export const UNWAIVABLE_SEVERITIES = new Set(['critical']);
+export const MAX_WAIVER_DAYS = 180;
+
+export function validateWaiver(waiver) {
+  for (const field of ['advisory', 'package', 'severity', 'reason', 'owner', 'opened', 'expires']) {
+    if (typeof waiver[field] !== 'string' || waiver[field].trim() === '') {
+      throw new Error(`Waiver for ${waiver.advisory ?? '(unnamed)'} is missing "${field}"`);
+    }
+  }
+  if (UNWAIVABLE_SEVERITIES.has(waiver.severity)) {
+    throw new Error(
+      `Waiver ${waiver.advisory} claims severity "${waiver.severity}", which cannot be waived`,
+    );
+  }
+  const opened = Date.parse(waiver.opened);
+  const expires = Date.parse(waiver.expires);
+  if (Number.isNaN(opened))
+    throw new Error(`Waiver ${waiver.advisory} has an unparseable "opened"`);
+  if (Number.isNaN(expires)) {
+    throw new Error(`Waiver ${waiver.advisory} has an unparseable expiry "${waiver.expires}"`);
+  }
+  if (expires <= opened) {
+    throw new Error(`Waiver ${waiver.advisory} expires on or before the day it was opened`);
+  }
+  const days = (expires - opened) / 86_400_000;
+  if (days > MAX_WAIVER_DAYS) {
+    throw new Error(
+      `Waiver ${waiver.advisory} runs ${Math.round(days)} days; the maximum horizon is ${MAX_WAIVER_DAYS}`,
+    );
+  }
+  return waiver;
+}
+
 export function loadWaivers(path) {
   let raw;
   try {
@@ -22,17 +57,7 @@ export function loadWaivers(path) {
   }
   const parsed = JSON.parse(raw);
   if (!Array.isArray(parsed.waivers)) throw new Error('Waiver file must expose a waivers array');
-  for (const waiver of parsed.waivers) {
-    for (const field of ['advisory', 'package', 'reason', 'owner', 'expires']) {
-      if (typeof waiver[field] !== 'string' || waiver[field].trim() === '') {
-        throw new Error(`Waiver for ${waiver.advisory ?? '(unnamed)'} is missing "${field}"`);
-      }
-    }
-    if (Number.isNaN(Date.parse(waiver.expires))) {
-      throw new Error(`Waiver ${waiver.advisory} has an unparseable expiry "${waiver.expires}"`);
-    }
-  }
-  return parsed.waivers;
+  return parsed.waivers.map(validateWaiver);
 }
 
 // An advisory is tolerated only while a matching, unexpired waiver exists. Expired waivers
@@ -48,7 +73,9 @@ export function applyWaivers(advisories, waivers, now) {
     const waiver = waivers.find(
       (entry) => entry.advisory === id && entry.package === advisory.name,
     );
-    if (!waiver) {
+    // The live severity wins over whatever the waiver claims: a package that
+    // escalates to critical after the waiver was written must block again.
+    if (!waiver || UNWAIVABLE_SEVERITIES.has(advisory.severity)) {
       blocking.push(advisory);
       continue;
     }
@@ -127,17 +154,23 @@ export function summarizeAdvisories(response) {
   return { advisories, counts };
 }
 
+/* Exported so the --recursive flag is pinned by a test. Dropping it silently
+   shrinks the audit from the whole workspace to the root project alone, which
+   is exactly how BLK-M002-001 went unnoticed. */
+export function buildListCommand(platform) {
+  return platform === 'win32'
+    ? {
+        executable: process.env.ComSpec,
+        arguments: ['/d', '/s', '/c', 'pnpm list --recursive --json --depth Infinity'],
+      }
+    : {
+        executable: 'pnpm',
+        arguments: ['list', '--recursive', '--json', '--depth', 'Infinity'],
+      };
+}
+
 async function runAudit() {
-  const pnpmCommand =
-    process.platform === 'win32'
-      ? {
-          executable: process.env.ComSpec,
-          arguments: ['/d', '/s', '/c', 'pnpm list --recursive --json --depth Infinity'],
-        }
-      : {
-          executable: 'pnpm',
-          arguments: ['list', '--recursive', '--json', '--depth', 'Infinity'],
-        };
+  const pnpmCommand = buildListCommand(process.platform);
   const list = spawnSync(pnpmCommand.executable, pnpmCommand.arguments, {
     encoding: 'utf8',
     maxBuffer: 20 * 1024 * 1024,
