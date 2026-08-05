@@ -47,7 +47,13 @@ export function HeroSection() {
         della pubblicazione.]
       </p>
 
-      <p className="home-section__question">Cosa vuoi realizzare oggi?</p>
+      {/* `<h2>`, not `<p>`: this text already reads and is styled as the
+          heading for the six intent cards below it -- as a paragraph it left
+          the cards' `CardTitle` (`<h3>`, `@atlas/ui`) jumping straight from
+          the page's `<h1>`, an axe `heading-order` violation
+          (`TSK-M003-WEB-D4`; see
+          `Project_Atlas_Team_Workspace/05_Evidence/M003/sprint4/EV-05-axe-a11y-findings.md`). */}
+      <h2 className="home-section__question">Cosa vuoi realizzare oggi?</h2>
 
       <ul className="intent-grid">
         {primaryNavSections.map((section) => (

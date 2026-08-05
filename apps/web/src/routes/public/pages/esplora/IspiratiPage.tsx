@@ -18,9 +18,15 @@ const placeholderItems = [1, 2, 3, 4, 5, 6];
 export function IspiratiPage() {
   return (
     <PageLayout>
-      <p className="home-section__lede">
+      {/* `<h2>`, not `<p>`: same `home-section__lede` styling (this doesn't
+          change how it looks), but fixes an axe `heading-order` violation --
+          see `HeroSection.tsx` for the identical reasoning. This page has no
+          other candidate "question" copy to promote, so the existing lede
+          (real text, reused verbatim from the homepage's `DiscoverySection`)
+          takes the heading role instead of inventing new copy. */}
+      <h2 className="home-section__lede">
         Rail trasversale di prodotti, casi, HueForge, lanterne, ricambi e guide.
-      </p>
+      </h2>
       <ul className="card-grid">
         {placeholderItems.map((index) => (
           <li key={index}>

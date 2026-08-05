@@ -97,10 +97,13 @@ const expectedPages: ExpectedPage[] = [
 describe('Content destination pages (TSK-M003-WEB-D2)', () => {
   it.each(expectedPages)(
     'renders the expected <h1> and breadcrumb trail at $path',
-    ({ path, heading, breadcrumb, testId }) => {
+    // Content pages are lazy-loaded (`TSK-M003-WEB-D4`) -- the route's
+    // `Component` resolves asynchronously, so the first lookup must await it
+    // rather than assume it is already in the DOM.
+    async ({ path, heading, breadcrumb, testId }) => {
       renderAt(path);
 
-      const page = screen.getByTestId(testId);
+      const page = await screen.findByTestId(testId);
       expect(within(page).getByRole('heading', { level: 1, name: heading })).toBeInTheDocument();
 
       const nav = within(page).getByRole('navigation', { name: 'Breadcrumb' });
@@ -115,16 +118,16 @@ describe('Content destination pages (TSK-M003-WEB-D2)', () => {
     },
   );
 
-  it('links each sub-page breadcrumb back to its real hub section', () => {
+  it('links each sub-page breadcrumb back to its real hub section', async () => {
     renderAt('/servizi/stampa-3d');
-    const nav = screen.getByRole('navigation', { name: 'Breadcrumb' });
+    const nav = await screen.findByRole('navigation', { name: 'Breadcrumb' });
     expect(within(nav).getByRole('link', { name: 'Servizi' })).toHaveAttribute('href', '/servizi');
     expect(within(nav).getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/');
   });
 
-  it('keeps Contatti free of placeholder markers (real, verified contact data)', () => {
+  it('keeps Contatti free of placeholder markers (real, verified contact data)', async () => {
     renderAt('/nolimits3d/contatti');
-    const page = screen.getByTestId('content-page-nolimits3d-contatti');
+    const page = await screen.findByTestId('content-page-nolimits3d-contatti');
 
     expect(page.textContent).not.toMatch(/PLACEHOLDER/);
     expect(within(page).getByRole('link', { name: /@/ })).toHaveAttribute(
@@ -139,14 +142,14 @@ describe('Content destination pages (TSK-M003-WEB-D2)', () => {
 });
 
 describe('Regression: previously-404 destinations now resolve (TSK-M003-WEB-D2)', () => {
-  it('resolves every new route to a real, distinct page instead of NotFound', () => {
+  it('resolves every new route to a real, distinct page instead of NotFound', async () => {
     const testIds = new Set<string>();
 
     for (const { path, testId } of expectedPages) {
       const { unmount } = renderAt(path);
 
+      expect(await screen.findByTestId(testId)).toBeInTheDocument();
       expect(screen.queryByTestId('route-not-found')).not.toBeInTheDocument();
-      expect(screen.getByTestId(testId)).toBeInTheDocument();
       testIds.add(testId);
 
       unmount();

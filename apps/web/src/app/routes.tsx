@@ -4,33 +4,17 @@ import { AppShell } from './AppShell';
 import { SegmentErrorBoundary } from './SegmentErrorBoundary';
 import { NotFound } from '../routes/NotFound';
 import { PublicHome } from '../routes/public/PublicHome';
-import { BlogPage } from '../routes/public/pages/BlogPage';
-import { ChiSiamoPage } from '../routes/public/pages/ChiSiamoPage';
-import { ContattiPage } from '../routes/public/pages/ContattiPage';
-import { EventiPage } from '../routes/public/pages/EventiPage';
-import { ArteInStampa3DPage } from '../routes/public/pages/esplora/ArteInStampa3DPage';
-import { CatalogoPage } from '../routes/public/pages/esplora/CatalogoPage';
-import { EsploraPage } from '../routes/public/pages/esplora/EsploraPage';
-import { IspiratiPage } from '../routes/public/pages/esplora/IspiratiPage';
-import { MetodoPage } from '../routes/public/pages/MetodoPage';
-import { PrintFlowPage } from '../routes/public/pages/PrintFlowPage';
-import { QualitaPage } from '../routes/public/pages/QualitaPage';
-import { AssistenzaStampantiPage } from '../routes/public/pages/realizza/AssistenzaStampantiPage';
-import { ConfiguratoreLanternePage } from '../routes/public/pages/realizza/ConfiguratoreLanternePage';
-import { PreventivoStampa3DPage } from '../routes/public/pages/realizza/PreventivoStampa3DPage';
-import { RealizzaPage } from '../routes/public/pages/realizza/RealizzaPage';
-import { RichiediProgettoPage } from '../routes/public/pages/realizza/RichiediProgettoPage';
-import { RealizzazioniPage } from '../routes/public/pages/RealizzazioniPage';
-import { PiccoleSeriePage } from '../routes/public/pages/servizi/PiccoleSeriePage';
-import { Progettazione3DPage } from '../routes/public/pages/servizi/Progettazione3DPage';
-import { PrototipazionePage } from '../routes/public/pages/servizi/PrototipazionePage';
-import { RicambiPersonalizzatiPage } from '../routes/public/pages/servizi/RicambiPersonalizzatiPage';
-import { Stampa3DPage } from '../routes/public/pages/servizi/Stampa3DPage';
 
 /**
  * Route boundaries for M001-B: `public`, `account` and `command`.
  *
- * - `public` is the only eagerly loaded segment.
+ * - `public` is the app's default-visible segment, but only `PublicHome`
+ *   loads eagerly (first paint, `TSK-M003-WEB-D1`). Every other public
+ *   destination page below uses React Router's `lazy` loader
+ *   (`TSK-M003-WEB-D4`, `DOC-SEC-005`) -- the exact same code-splitting
+ *   pattern `account` and `command` already used from Sprint 1 onward, now
+ *   extended to the public segment's own destination pages so a visit to
+ *   `/` doesn't ship all twenty-five content pages' JS up front.
  * - `account` and `command` are lazy segments with their own error boundary,
  *   so they stay out of the initial public bundle.
  * - `command` is private: no navigation surface links to it and it carries no
@@ -41,11 +25,16 @@ import { Stampa3DPage } from '../routes/public/pages/servizi/Stampa3DPage';
  * (M-003 Sprint 2, `TSK-M003-WEB-D2`) and the twelve `esplora` / `realizza` /
  * `blog` / `printflow` routes below them (M-003 Sprint 3, `TSK-M003-WEB-D3`)
  * are real content destination pages replacing what previously fell through
- * to the catch-all `NotFound` -- they stay in the `public` boundary's eager
- * segment for the same reason `PublicHome` does.
+ * to the catch-all `NotFound` -- they stay in the `public` boundary for the
+ * same reason `PublicHome` does, they just no longer load eagerly.
  *
  * `printflow` stays Coming Soon (binding product boundary, not a judgment
  * call): `PrintFlowPage` carries no feature description beyond that.
+ *
+ * `esplora/hueforge` and the `*` catch-all stay eager: both resolve to a
+ * built-in `react-router-dom` primitive (`Navigate`) or a trivial shared
+ * fallback (`NotFound`) rather than a page-sized component, so there is no
+ * meaningful bundle weight to defer.
  */
 export const appRoutes: RouteObject[] = [
   {
@@ -59,79 +48,145 @@ export const appRoutes: RouteObject[] = [
         errorElement: <SegmentErrorBoundary segment="public" />,
       },
       {
-        path: 'nolimits3d/chi-siamo',
-        element: <ChiSiamoPage />,
+        path: 'nolimits3d',
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { Nolimits3DPage } = await import('../routes/public/pages/Nolimits3DPage');
+          return { Component: Nolimits3DPage };
+        },
+      },
+      {
+        path: 'nolimits3d/chi-siamo',
+        errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { ChiSiamoPage } = await import('../routes/public/pages/ChiSiamoPage');
+          return { Component: ChiSiamoPage };
+        },
       },
       {
         path: 'nolimits3d/metodo',
-        element: <MetodoPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { MetodoPage } = await import('../routes/public/pages/MetodoPage');
+          return { Component: MetodoPage };
+        },
       },
       {
         path: 'nolimits3d/qualita',
-        element: <QualitaPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { QualitaPage } = await import('../routes/public/pages/QualitaPage');
+          return { Component: QualitaPage };
+        },
       },
       {
         path: 'nolimits3d/contatti',
-        element: <ContattiPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { ContattiPage } = await import('../routes/public/pages/ContattiPage');
+          return { Component: ContattiPage };
+        },
+      },
+      {
+        path: 'servizi',
+        errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { ServiziPage } = await import('../routes/public/pages/servizi/ServiziPage');
+          return { Component: ServiziPage };
+        },
       },
       {
         path: 'servizi/stampa-3d',
-        element: <Stampa3DPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { Stampa3DPage } = await import('../routes/public/pages/servizi/Stampa3DPage');
+          return { Component: Stampa3DPage };
+        },
       },
       {
         path: 'servizi/progettazione-3d',
-        element: <Progettazione3DPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { Progettazione3DPage } =
+            await import('../routes/public/pages/servizi/Progettazione3DPage');
+          return { Component: Progettazione3DPage };
+        },
       },
       {
         path: 'servizi/prototipazione',
-        element: <PrototipazionePage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { PrototipazionePage } =
+            await import('../routes/public/pages/servizi/PrototipazionePage');
+          return { Component: PrototipazionePage };
+        },
       },
       {
         path: 'servizi/ricambi-personalizzati',
-        element: <RicambiPersonalizzatiPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { RicambiPersonalizzatiPage } =
+            await import('../routes/public/pages/servizi/RicambiPersonalizzatiPage');
+          return { Component: RicambiPersonalizzatiPage };
+        },
       },
       {
         path: 'servizi/piccole-serie',
-        element: <PiccoleSeriePage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { PiccoleSeriePage } =
+            await import('../routes/public/pages/servizi/PiccoleSeriePage');
+          return { Component: PiccoleSeriePage };
+        },
       },
       {
         path: 'realizzazioni',
-        element: <RealizzazioniPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { RealizzazioniPage } = await import('../routes/public/pages/RealizzazioniPage');
+          return { Component: RealizzazioniPage };
+        },
       },
       {
         path: 'eventi',
-        element: <EventiPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { EventiPage } = await import('../routes/public/pages/EventiPage');
+          return { Component: EventiPage };
+        },
       },
       {
         path: 'esplora',
-        element: <EsploraPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { EsploraPage } = await import('../routes/public/pages/esplora/EsploraPage');
+          return { Component: EsploraPage };
+        },
       },
       {
         path: 'esplora/catalogo',
-        element: <CatalogoPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { CatalogoPage } = await import('../routes/public/pages/esplora/CatalogoPage');
+          return { Component: CatalogoPage };
+        },
       },
       {
         path: 'esplora/ispirati',
-        element: <IspiratiPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { IspiratiPage } = await import('../routes/public/pages/esplora/IspiratiPage');
+          return { Component: IspiratiPage };
+        },
       },
       {
         path: 'esplora/arte-in-stampa-3d',
-        element: <ArteInStampa3DPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { ArteInStampa3DPage } =
+            await import('../routes/public/pages/esplora/ArteInStampa3DPage');
+          return { Component: ArteInStampa3DPage };
+        },
       },
       {
         // `DOC-UX-001` ("Distinzioni tassonomiche"): "Una stessa entità può
@@ -150,39 +205,72 @@ export const appRoutes: RouteObject[] = [
       },
       {
         path: 'realizza',
-        element: <RealizzaPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { RealizzaPage } = await import('../routes/public/pages/realizza/RealizzaPage');
+          return { Component: RealizzaPage };
+        },
       },
       {
         path: 'realizza/richiedi-progetto',
-        element: <RichiediProgettoPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { RichiediProgettoPage } =
+            await import('../routes/public/pages/realizza/RichiediProgettoPage');
+          return { Component: RichiediProgettoPage };
+        },
       },
       {
         path: 'realizza/preventivo-stampa-3d',
-        element: <PreventivoStampa3DPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { PreventivoStampa3DPage } =
+            await import('../routes/public/pages/realizza/PreventivoStampa3DPage');
+          return { Component: PreventivoStampa3DPage };
+        },
       },
       {
         path: 'realizza/configuratore-lanterne',
-        element: <ConfiguratoreLanternePage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { ConfiguratoreLanternePage } =
+            await import('../routes/public/pages/realizza/ConfiguratoreLanternePage');
+          return { Component: ConfiguratoreLanternePage };
+        },
       },
       {
         path: 'realizza/assistenza-stampanti-3d',
-        element: <AssistenzaStampantiPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { AssistenzaStampantiPage } =
+            await import('../routes/public/pages/realizza/AssistenzaStampantiPage');
+          return { Component: AssistenzaStampantiPage };
+        },
       },
       {
         path: 'blog',
-        element: <BlogPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { BlogPage } = await import('../routes/public/pages/BlogPage');
+          return { Component: BlogPage };
+        },
       },
       {
         path: 'printflow',
-        element: <PrintFlowPage />,
         errorElement: <SegmentErrorBoundary segment="public" />,
         handle: { status: 'Coming Soon' },
+        lazy: async () => {
+          const { PrintFlowPage } = await import('../routes/public/pages/PrintFlowPage');
+          return { Component: PrintFlowPage };
+        },
+      },
+      {
+        path: 'carrello',
+        errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { CarrelloPage } = await import('../routes/public/pages/CarrelloPage');
+          return { Component: CarrelloPage };
+        },
       },
       {
         path: 'account',

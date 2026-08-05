@@ -14,7 +14,9 @@ const placeholderCases = [1, 2, 3, 4, 5, 6];
 export function RealizzazioniPage() {
   return (
     <PageLayout>
-      <p className="home-section__question">Lo hanno già fatto o sanno affrontarlo?</p>
+      {/* `<h2>`, not `<p>`: fixes an axe `heading-order` violation -- see
+          `HeroSection.tsx` for the identical reasoning. */}
+      <h2 className="home-section__question">Lo hanno già fatto o sanno affrontarlo?</h2>
       <ul className="card-grid">
         {placeholderCases.map((index) => (
           <li key={index}>

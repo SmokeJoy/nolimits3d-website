@@ -30,6 +30,14 @@ export function SectionLandingPage({ sectionHeading, children }: SectionLandingP
   return (
     <PageLayout>
       {children}
+      {/* Structural sub-heading, not marketing copy (same register as the
+          Footer's plain "Altro"/"Contatti" headings) -- required so the
+          sub-page cards' `CardTitle` (`<h3>`, `@atlas/ui`) don't jump
+          straight from the page's `<h1>`, an axe `heading-order` violation
+          (`TSK-M003-WEB-D4`). `EsploraPage`'s `children` is a `<dl>` with no
+          paragraph to promote instead, so this lives here once, for every
+          `SectionLandingPage` caller, rather than per-page. */}
+      <h2 className="home-section__question">Pagine di questa sezione</h2>
       <ul className="card-grid">
         {links.map((link) => (
           <li key={link.to}>
