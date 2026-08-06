@@ -120,8 +120,22 @@ Root-to-TPM-to-implementer chain therefore passed without a bootstrap deviation.
 - Source bindings guard: PASS.
 - Command logs are archived under
   `Project_Atlas_Team_Workspace/05_Evidence/INV-JARVIS-001/`.
-- Final full-repository gate rerun: PENDING at report creation while the delegated frontend
-  stability packet completes.
+- The first clean `pnpm test` attempt exposed one concurrency-only timeout in the existing
+  axe test for `/`; 24/24 guard tests, 137/137 UI tests, and 161/162 web tests passed.
+- Atlas Frontend child `019fd6cc-1eb9-71d2-ad92-271623da95be` supplied the one-line
+  `test.fileParallelism = false` correction in `apps/web/vite.config.ts`.
+- Independent Atlas TPM Pauli `019fd6fb-ad3b-7da2-a7ad-ca7ce1c089df` approved that exact
+  one-file packet. No timeout, product behavior, or test assertion was changed.
+- Final clean commit: `a61a5edaae15cf9c5874f7c4e0400b4dd72c8db3`.
+- Final canonical gates: build PASS; lint PASS; format check PASS; typecheck PASS; test PASS;
+  secret scan PASS; dependency audit PASS; scope guard PASS; migration guard NOT APPLICABLE;
+  source-bindings guard PASS.
+- Final automated tests: 24/24 guards, 137/137 UI, and 162/162 web, for 323/323 PASS.
+- Chromium production-preview E2E: 57/57 PASS.
+- Dependency audit: 528 packages, zero critical/high/moderate/low/info/unknown findings; the
+  documented React Router waiver remains valid through 2026-11-04.
+- Performance budget: 103.1 KB initial JS gzip against 180 KB; 6.4 KB CSS gzip against 60 KB.
+- Final committed-state Codex-native validator: 153/153 PASS.
 
 ## Technical Review Verdict
 
