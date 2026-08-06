@@ -1,4 +1,3 @@
-/// <reference types="vitest/config" />
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
