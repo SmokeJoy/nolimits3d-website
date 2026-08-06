@@ -78,6 +78,38 @@ instead of trusting the local resolution. Both caught before merge, not after a 
 content. Next real milestone (Catalog/commerce backend) is blocked on data only Andrea can
 supply.
 
+**Andrea, same session, again:** "Ancora nessun dato del catalogo da Andrea. Continua in
+autonomia su altro lavoro tecnico non bloccato dai dati di business (hardening, performance
+ulteriore, test, qualità del codice, documentazione tecnica, qualunque voce della roadmap non
+dipendente dal catalogo). Non restare ferma in attesa." — standing direction confirmed twice.
+
+**Extended hardening pass, same session** (PR #17, #18, merged): a live `prefers-color-scheme`
+browser check found a real, serious bug that four sprints of otherwise-thorough browser
+verification had missed -- `body` had no explicit background/text-color rule, so the page fell
+through to the *browser's own* UA default (which follows the visitor's OS/browser preference),
+not `@atlas/ui`'s theme tokens (dark is the unconditional default here, no
+`prefers-color-scheme` gating). On this machine's dark-mode browser it looked fine; emulating
+light mode and screenshotting the result showed genuinely illegible white-on-white content
+across most of the site. Fixed by setting the tokens explicitly on `body`.
+
+A new regression test (`nav-links-resolve.test.tsx`) then rendered the real router at every
+`GlobalNav`/`Footer` href and found a **fourth** dead link beyond the three found by manual
+review earlier (`/servizi`, `/nolimits3d`, `/carrello`): `/ricerca` had no route either. Fixed
+the same way (`FutureFeatureNotice` pattern). A corrected full-site color-contrast audit (the
+first attempt had a bug in the audit script itself, caught before trusting its output) found
+zero further violations after the background fix.
+
+**Pattern worth naming for whoever picks this up next:** four real bugs across this session
+(`require("react")` crash, `axe-core` CI-resolution risk, the missing `body` background, four
+dead nav links) were all found by *live verification* -- a real browser, a real color-scheme
+emulation, a real router rendering every link -- not by the automated test suites that shipped
+alongside the code that had the bug. Keep doing both; neither one alone would have caught all
+four.
+
+**Total this session:** 18 PRs merged (#6-#18 plus the earlier M-002 work), all independently
+verified before merge, all with real gate battery + live browser evidence, zero fabricated
+business content anywhere in the codebase.
+
 ## Prior Handoff - 2026-08-05 (M0R, historical)
 
 - **Authority:** Andrea accepted M0R v2.0.0 and authorized closure and merge of PR #10.
