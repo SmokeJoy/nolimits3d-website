@@ -1,5 +1,14 @@
 # Claude Peer Task Packet (self-scoped) - WPR-M2 Typed Contract Proposal
 
+> **Extended 2026-08-06 ~23:10** (commit `00f03ea`) under Andrea's standing autonomous-
+> continuation authorization: added `packages/domain/auth.ts` (`CustomerSession`,
+> `AuthorizationScope`, `SessionRevocationReason`) and `packages/api-contracts/auth.ts` +
+> `storage.ts` (session refresh/revoke, upload request/response). Same non-binding status, same
+> allowed/forbidden boundaries below -- no new file category introduced. Also found, while
+> re-running the gate battery, that `pnpm dependency:audit` now fails closed on a pre-existing,
+> unrelated `js-yaml` advisory (devDependency of `@atlas/ui`'s `shadcn` tooling) present on
+> `origin/main`'s own lockfile too -- not caused by this packet, being addressed separately.
+
 > **Status:** SELF-SCOPED, NON-BINDING PROPOSAL ONLY -- per `AD-015` section 2, "Claude Team may
 > propose architecture and contracts but cannot approve them." No Atlas TPM confirmation, no
 > Codex Root Architect Review, not integrated into `main`. Backend owns acceptance, amendment,
