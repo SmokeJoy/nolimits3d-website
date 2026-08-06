@@ -58,6 +58,12 @@ jobs:
       - name: Test
         run: pnpm test
 
+      - name: Install Playwright browsers
+        run: pnpm --filter @atlas/web exec playwright install --with-deps chromium
+
+      - name: E2E
+        run: pnpm test:e2e
+
       - name: Codex-native governance
         run: pnpm governance:codex-native
 

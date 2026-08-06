@@ -2,7 +2,60 @@
 
 *Operational continuity note. Non-authoritative.*
 
-## Current Handoff - 2026-08-05 (later same day)
+## Current Handoff - 2026-08-06
+
+Andrea, in a Claude Code CLI session, gave full engineering delegation:
+
+> "Io sul codice non metto bocca, pensateci voi." -- confirmed to cover Supabase/backend,
+> E2E framework, any needed npm dependencies, and any other engineering choice, with the
+> explicit instruction not to wait for a check-in on this class of decision anymore. The only
+> remaining wait conditions: real business data for the catalog, and product/commercial
+> constraints not derivable from code.
+
+Recorded as `AD-011_ENGINEERING_DECISION_AUTHORITY_SUPABASE_AND_E2E.md`, which also decides
+and reasons through the two specific questions this unblocked:
+
+- **Supabase:** add `@supabase/supabase-js` client plumbing (`apps/web/src/lib/supabase/client.ts`,
+  a lazy singleton reading `VITE_SUPABASE_URL`/`VITE_SUPABASE_PUBLISHABLE_KEY`, the two vars
+  already scaffolded in `.env.example` since M-001) with no schema, migration, RLS policy, or
+  auth UI -- those need real product specifics that stay Andrea's call. Covered by
+  `src/test/supabase-client.test.ts` (env-var contract, singleton behaviour, mocked -- no
+  network). `getSupabaseClient()` has no caller yet; it is plumbing for a future feature to
+  use, not a feature itself.
+- **E2E:** Playwright, scoped narrowly to the exact regression classes live browser
+  verification caught by hand this session and `jsdom` cannot (`AD-011` section 3): zero
+  console/page errors, the `prefers-color-scheme` background regression, and nav links
+  resolving to a real page in a real rendered browser against the actual production build
+  (`apps/web/playwright.config.ts`, `apps/web/e2e/*.spec.ts`). Verified working end-to-end
+  locally (57/57 passing against a real `vite build` + `vite preview`), and the
+  `color-scheme.spec.ts` regression check was sanity-tested by temporarily reverting the
+  `body` background fix and confirming it fails loudly (`rgba(0, 0, 0, 0)` instead of the
+  expected dark-palette color) before reverting back -- same discipline applied earlier this
+  session to the contrast-audit script. Wired into CI as a new step after `Test`.
+
+**Two real environment bugs found and fixed while doing this, neither a code defect:**
+this machine's pnpm is configured with `node-linker=hoisted` (a pre-existing local/global
+config, not anything in this repo), and its `node_modules` had drifted out of sync with
+`pnpm-lock.yaml` -- `@supabase/functions-js`'s own declared `tslib` dependency was resolving
+to nothing, failing every test that imported the Supabase client. A clean
+`rm -rf node_modules && pnpm install` fixed it; the lockfile itself was correct throughout, so
+this does not affect CI's from-scratch install. Separately, `vite preview` on this machine
+binds to the IPv6 loopback (`::1`) only, not `127.0.0.1` -- Playwright's `webServer` health
+check against `127.0.0.1` timed out even though the server was up and serving; fixed by
+pointing Playwright at `localhost` instead, which resolves correctly either way.
+
+**Docker/local Supabase stack:** Docker Desktop was not running at the start of this work;
+starting it and `pnpm supabase:start` were both attempted, but the daemon took longer to
+become ready than this session had time to wait on. The client code itself is verified by its
+own unit tests (mocked env, real `createClient()` call, singleton behaviour) and by the fact
+that nothing in the app calls it yet, so nothing depends on live connectivity being proven
+today. Live-stack verification (an actual `getSupabaseClient()` call reaching a running local
+Supabase instance) remains a real gap against `AD-011`'s own stated verification bar and is
+the first thing to do the next time this environment's Docker Desktop is confirmed running --
+not a blocker for anything currently shipped, since no feature reads or writes through this
+client yet.
+
+## Prior Handoff - 2026-08-05 (later same day)
 
 After PR #11 (live browser-verified fix for the `require("react")` crash) merged, Andrea
 gave two direct instructions in a Claude Code CLI session, verbatim:
