@@ -31,11 +31,13 @@
 | Capability | Andrea Admin | Staff futuro | Cliente | Pubblico |
 |---|---:|---:|---:|---:|
 | `command_center.access` | ✅ | per ruolo futuro | ❌ | ❌ |
-| `jarvis.use` | ✅ esclusivo | ❌ salvo ADR futuro | ❌ | ❌ |
-| `jarvis.execute_consequential` | ✅ con conferma | ❌ | ❌ | ❌ |
+| `jarvis.use` | FUTURE: Andrea-only dopo Blueprint e gate | ❌ | ❌ | ❌ |
+| `jarvis.execute_consequential` | FUTURE: Andrea con conferma esplicita | ❌ | ❌ | ❌ |
 | `media.delete_referenced` | ✅ con sostituzione/override audit | ❌ | ❌ | ❌ |
 | `catalog.bulk_price` | ✅ con approval gate | ❌ | ❌ | ❌ |
 | `worker.admin` | ✅ dopo hardening | ❌ | ❌ | ❌ |
 
 RLS e Edge Functions applicano la matrice; nascondere UI non è autorizzazione.
+
+Le capability `jarvis.*` non sono provisionate né autorizzate nella fase corrente. La matrice descrive il target futuro: autenticazione Andrea, autorizzazione server-side per ogni tool, approval scope-bound, audit, revoca e negative test sono prerequisiti bloccanti.
 <!-- V0952-PERMISSIONS:END -->

@@ -8,7 +8,11 @@
 
 ## 1. Scopo
 
-Il NoLimits Command Center è il centro operativo privato della Website Platform. Non è un pannello CRUD: prioritizza lavoro, rischio, scadenze e stato del sistema. Jarvis è interno e accessibile esclusivamente ad Andrea.
+Il NoLimits Command Center è il centro operativo privato della Website Platform. Non è un pannello CRUD: prioritizza lavoro, rischio, scadenze e stato del sistema.
+
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+Il modulo Jarvis è futuro e resta assente finché il Blueprint dedicato e i gate server-side di identità/capability non sono approvati.
 
 ## 2. Overview
 
@@ -47,6 +51,6 @@ Ogni work item apre il record e il contesto, preserva filtri e ritorno alla coda
 | ADM-F-005 | Gestire configurazioni con validazione e versioning. |
 | ADM-F-006 | Evitare accesso diretto al database per operazioni ordinarie. |
 | ADM-F-007 | Mostrare code prioritarie, salute sistema e stato Compute Worker. |
-| ADM-F-008 | Rendere Jarvis disponibile solo ad Andrea e solo nel Command Center. |
+| ADM-F-008 | Rendere Jarvis disponibile solo ad Andrea e solo nel Command Center, dopo il Blueprint dedicato e i gate server-side. |
 | ADM-F-009 | Mostrare preview, impatto e approval gate per azioni Jarvis rilevanti. |
 | ADM-F-010 | Collegare ogni work item al record, owner, scadenza e recovery. |

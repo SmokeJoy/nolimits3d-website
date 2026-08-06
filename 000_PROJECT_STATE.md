@@ -18,11 +18,11 @@ superseded for future execution.
 - **Current Milestone:** M0R - DONE / PRODUCT OWNER ACCEPTED / MERGE AUTHORIZED
 - **Last Historical Milestone:** M0 - Legacy Team Bootstrap - DONE / SUPERSEDED
 - **Next Delivery Gate:** Blueprint 00 / M1 - NEXT PLANNING GATE ONLY; IMPLEMENTATION NOT AUTHORIZED
-- **Latest Architect Directive:** `AD-010_CODEX_NATIVE_TEAM_RECONFIGURATION.md`
+- **Latest Architect Directive:** `AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md`
 - **Latest Technical Review:** `Project_Atlas_Team_Workspace/07_Reports/M0R_POST_ACCEPTANCE_CLOSURE_TECHNICAL_REVIEW.md` - APPROVED FOR CLOSURE INTEGRATION
 - **Latest Architect Review:** `M0R_POST_ACCEPTANCE_CLOSURE_ARCHITECT_REVIEW.md` - APPROVED FOR SIGNED CLOSURE COMMIT AND MERGE AFTER GREEN CI
 - **Product Owner Acceptance:** `M0R_PRODUCT_OWNER_ACCEPTANCE_2026-08-05.md` - ACCEPTED
-- **Last Update:** 2026-08-05
+- **Last Update:** 2026-08-06
 
 ## Active Team
 
@@ -43,7 +43,8 @@ replace M0R Role Boundary Tests.
 
 ## Non-Negotiable Product Boundaries
 
-- Jarvis remains private to Andrea inside the Command Center, enforced server-side.
+- `INV-JARVIS-001` is active. **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+- Jarvis implementation is blocked until a dedicated Blueprint and server-side identity/capability security foundation are approved.
 - PrintFlow remains `Coming Soon`.
 - The PC worker remains pull-only with no inbound control port.
 - `apps/legacy-web` remains the preserved public fallback.

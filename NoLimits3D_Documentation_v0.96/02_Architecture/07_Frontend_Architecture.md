@@ -31,7 +31,7 @@ apps/web/
   src/three/               # renderer adapter, scenes, fallback
 ```
 
-Il Command Center può condividere build e design system, ma ha route, navigation tree e authorization boundary separati. Jarvis è caricato solo nelle route Command Center dopo verifica server-side della capability `jarvis.use` e dell’identità amministrativa Andrea.
+Il Command Center può condividere build e design system, ma ha route, navigation tree e authorization boundary separati. In una milestone futura autorizzata da un Blueprint dedicato, Jarvis potrà essere caricato solo nelle route Command Center dopo verifica server-side della capability `jarvis.use` e dell’identità amministrativa Andrea. Nella fase corrente non esistono route o bundle Jarvis autorizzati.
 
 ## 3. Routing
 
@@ -57,7 +57,7 @@ La candidate usa SPA/Vite con strategie di prerendering o rendering compatibili 
 ## 7. Code splitting e budgets
 
 - chunk per route e dominio;
-- 3D/video/Jarvis caricati on demand;
+- 3D/video caricati on demand; Jarvis resta assente finché il Blueprint dedicato e i gate di identità/capability non ne autorizzano l'attivazione;
 - vendor chunk monitorati, senza manual split fragile non misurato;
 - prefetch solo su intento e rete adeguata;
 - fallbacks skeleton/stale data senza blocco artificiale;
@@ -83,4 +83,5 @@ Componenti in PascalCase; hook `useX`; schema `xSchema`; query key factory per m
 | FE-NF-002 | Prima della Frozen Baseline deve essere completato e approvato il review gate React/Vite–Next.js. |
 | FE-NF-003 | Route pubbliche, account e Command Center devono avere boundary di routing e autorizzazione distinti. |
 | FE-NF-004 | Jarvis deve essere escluso da sitemap, navigazione pubblica, area cliente e accesso non amministrativo. |
+| FE-NF-006 | Nessuna UI, route o integrazione Jarvis può essere implementata durante M-001 o prima del Blueprint dedicato e dei controlli server-side di identità/capability. |
 | FE-NF-005 | 3D, video e motion devono essere lazy, adattivi e dotati di fallback. |

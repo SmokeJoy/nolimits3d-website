@@ -41,6 +41,7 @@ Una domanda aperta non autorizza implementazioni alternative. Finché non viene 
 | Q-018 | Validazione utenti della navigazione e dei sei intenti. | UX validation gate |
 | Q-020 | Personalizzazione Home. | Fuori Fase 1 finché consenso e valore non sono dimostrati |
 | Q-022 | Ripartizione controlli Documentation CI tra locale e GitHub Actions. | Development Blueprint entry gate |
+| Q-023 | Blueprint Jarvis dedicato: provider, identity/capability model, tool/approval matrix, memoria, retention, threat/privacy review, eval, audit, rollback e kill switch. | Jarvis implementation gate; `INV-JARVIS-001` vieta implementazione fino alla chiusura |
 
 ## 4. Domande consolidate o chiuse
 
@@ -48,6 +49,11 @@ Una domanda aperta non autorizza implementazioni alternative. Finché non viene 
 |---|---|---|
 | Q-004 | Merged | consolidata in Q-015; ID preservato per continuità storica |
 | Q-021 | Closed | Chief Architect Review completata dalla v0.96; esito nel Release Candidate Report |
+
+Il boundary di prodotto Jarvis non è una domanda aperta: Andrea-only, Command Center-only,
+non customer-facing, non membro del team e non implementabile prima del Blueprint dedicato
+sono decisioni Accepted in AD-012/CR-0007. `Q-023` riguarda soltanto le future scelte
+implementative e di sicurezza.
 
 ## 5. Regola di chiusura
 

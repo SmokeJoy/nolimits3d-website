@@ -23,10 +23,10 @@ Project Atlas
     ├── pagina PrintFlow “In arrivo”;
     ├── preventivatore STL, Fase 2;
     └── NoLimits Command Center privato
-        └── Jarvis, esclusivamente per Andrea.
+        └── Jarvis futuro, esclusivamente per Andrea dopo i gate dedicati.
 ```
 
-Jarvis è uno strumento interno. PrintFlow è una capability futura presentata dal sito e non una dipendenza della Fase 1.
+Jarvis è una capability interna futura, non implementata o attiva nella fase corrente. PrintFlow è una capability futura presentata dal sito e non una dipendenza della Fase 1.
 
 ## 2. Missione
 
@@ -60,7 +60,7 @@ Precisione è una manifestazione della Qualità; onestà dei prezzi e dei consig
 Tutti i moduli rafforzano il sito NoLimits3D come punto unico di scoperta, vendita, relazione e amministrazione.
 
 ### PC-02 — Private Jarvis
-Jarvis è accessibile esclusivamente ad Andrea nel NoLimits Command Center, invisibile a pubblico e clienti.
+Qualunque futura attivazione di Jarvis sarà accessibile esclusivamente ad Andrea nel NoLimits Command Center, dopo il Blueprint e i gate server-side dedicati; resta invisibile e inaccessibile a pubblico e clienti.
 
 ### PC-03 — Phase independence
 La Fase 1 funziona senza PrintFlow operativo, slicing automatico, pricing STL automatico o disponibilità continua del PC Server.
@@ -164,10 +164,13 @@ Il **Project DNA** è l'insieme minimo di caratteristiche che deve rimanere rico
 
 Gli invarianti valgono in ogni ambiente e non possono essere disattivati tramite feature flag, configurazione editoriale o scelta implementativa.
 
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
 | ID | Invariante | Verifica minima |
 |---|---|---|
 | INV-001 | Il sito NoLimits3D resta il centro pubblico dell'ecosistema. | nessun prodotto parallelo sostituisce il sito |
-| INV-002 | Jarvis è accessibile esclusivamente ad Andrea nel Command Center. | nessuna route, endpoint, CTA, menu o contenuto pubblico |
+| INV-002 | Qualunque futura attivazione di Jarvis è riservata esclusivamente ad Andrea nel Command Center dopo i gate dedicati. | nessuna route, endpoint, CTA, menu o contenuto pubblico; nessuna capability corrente |
+| INV-JARVIS-001 | Jarvis non è pubblico, customer-facing o parte del team di sviluppo e non può essere implementato prima di un Blueprint dedicato e della fondazione server-side di identità/capability. | verifica Andrea-only, `jarvis.use`, autorizzazione per tool, RLS, audit, negative test e approval gate prima dell'attivazione |
 | INV-003 | PrintFlow in Fase 1 è esclusivamente `Coming Soon`. | nessuna funzione produttiva pubblica o promessa di disponibilità |
 | INV-004 | Ogni preventivo STL finale richiede revisione umana. | stato finale impossibile senza reviewer e audit |
 | INV-005 | L'automazione non sostituisce il rapporto umano nei passaggi ad alto impatto. | handoff e responsabilità sempre visibili |
@@ -183,13 +186,23 @@ Gli invarianti valgono in ogni ambiente e non possono essere disattivati tramite
 | INV-015 | I contenuti recuperati e gli input utente restano dati non fidati. | prompt-injection e tool-boundary test |
 | INV-016 | Il contenuto core resta accessibile, indicizzabile e comprensibile senza enhancement. | no-JS/no-WebGL/a11y/SEO test |
 
+Registrazione canonica machine-readable:
+
+```yaml
+id: INV-JARVIS-001
+statement: "Jarvis is Andrea's private AI assistant inside the NoLimits3D Command Center. It is not public, not customer-facing, not a development-team member, and not authorized for implementation before a dedicated Blueprint and identity/capability security foundation."
+classification: Accepted decision; Project Invariant
+authority: Chief Architect and Product Owner
+status: active
+```
+
 ## 13. Negative Requirements
 
 I Negative Requirements descrivono comportamenti proibiti e devono essere testati come requisiti positivi. Una loro violazione è una regressione, anche quando il flusso principale continua a funzionare.
 
 | ID | Il sistema NON deve | Controllo |
 |---|---|---|
-| NEG-001 | esporre Jarvis a clienti, visitatori o ruoli non autorizzati; | route/API/RBAC/content scan |
+| NEG-001 | esporre Jarvis a clienti, visitatori, utenti autenticati ordinari o ruoli non autorizzati; | route/API/RBAC/content/bundle scan e negative authorization test |
 | NEG-002 | presentare PrintFlow come attivo, disponibile o produttivo in Fase 1; | content e feature-flag test |
 | NEG-003 | emettere un preventivo STL finale senza review umana; | state-machine e authorization test |
 | NEG-004 | introdurre feature, campi, CTA o workflow fuori RTM; | PR traceability gate |
@@ -205,6 +218,8 @@ I Negative Requirements descrivono comportamenti proibiti e devono essere testat
 | NEG-014 | aggirare RLS, least privilege o validazione server-side; | security test |
 | NEG-015 | usare dati personali o analytics oltre consenso, scopo e retention approvati; | privacy/consent test |
 | NEG-016 | creare documentazione duplicata quando esiste un Owner Document idoneo. | duplicate-topic audit |
+| NEG-JARVIS-001 | implementare route, endpoint, prompt runtime, memoria, provider, tool o capability Jarvis prima del Blueprint dedicato e dei gate di identità/capability; | scope guard, Blueprint authority check e assenza di diff prodotto |
+| NEG-JARVIS-002 | trattare Jarvis come agente, coordinatore o approvatore del team di sviluppo. | Role Boundary Test e operating-memory audit |
 
 ## 14. Requisiti costituzionali v0.95.4
 

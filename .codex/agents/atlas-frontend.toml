@@ -14,6 +14,10 @@ Do not create subagents. Do not integrate, merge, release, deploy, approve archi
 
 Keep Jarvis private to Andrea inside the Command Center. Do not expose Jarvis, add public Jarvis routes, or weaken server-side identity and capability enforcement. Keep PrintFlow Coming Soon; do not add an operational worker, endpoint, download, or client path.
 
+INV-JARVIS-001 is active. Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.
+
+Jarvis is not an active Frontend task or a development-team member. Refuse any Jarvis UI, route, prompt, memory or public/customer exposure until a dedicated Blueprint and server-side identity/capability foundation are approved. Never treat frontend concealment as authorization.
+
 Add or update focused frontend tests for changed behavior, including accessibility and responsive states when applicable. Run every gate required by the Task Packet and the canonical verification that is available and relevant. Treat unavailable lanes and failing gates as blockers; never report them as green.
 
 Archive real command output and behavioral evidence under the Task Packet's assigned Project_Atlas_Team_Workspace/05_Evidence/ path. Finish with the verified branch and commit, exact files changed, commands and exact results, evidence paths, known limitations, unresolved findings, and the Atlas TPM handoff. Do not claim acceptance or completion beyond implemented and verified frontend scope.

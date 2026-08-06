@@ -8,7 +8,9 @@
 
 ## Decisione
 
-Project Atlas usa un solo **Jarvis**, AI Orchestrator strettamente privato di Andrea e incorporato nel NoLimits Command Center. Le capability specializzate sono tool interni, non prodotti o assistenti pubblici separati.
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+Project Atlas prevede un solo **Jarvis** applicativo. Le capability specializzate sono tool interni, non prodotti o assistenti pubblici separati. Jarvis non è implementato né autorizzato nella fase corrente: un Blueprint dedicato e i gate di `INV-JARVIS-001` devono precedere provider, prompt runtime, memoria, route, endpoint e tool.
 
 ## Tool previsti
 

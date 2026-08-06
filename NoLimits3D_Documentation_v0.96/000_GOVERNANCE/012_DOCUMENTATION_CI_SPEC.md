@@ -57,7 +57,8 @@ La Documentation CI deve fallire quando rileva:
 - modifica in-place di un ADR Accepted;
 - requisito fuori RTM o roadmap;
 - documento costituzionale modificato senza CR;
-- Jarvis descritto come pubblico o customer-facing;
+- Jarvis descritto come pubblico, customer-facing, membro del team di sviluppo o capability corrente;
+- implementazione Jarvis autorizzata durante M-001 o prima di un Blueprint dedicato e dei controlli server-side di identità/capability;
 - PrintFlow descritto come operativo in Fase 1;
 - preventivo STL finale privo di human review;
 - Negative Requirement senza controllo associato;

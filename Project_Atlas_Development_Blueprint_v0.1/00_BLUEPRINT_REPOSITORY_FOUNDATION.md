@@ -35,7 +35,7 @@ Questo Blueprint e' sufficiente per consentire a Gemini di preparare Sprint Plan
 - Ultima milestone completata: `M0 - Team Bootstrap & Alignment`.
 - Milestone successiva: `M-001 - Repository Foundation`.
 - Product center: NoLimits3D Website Platform.
-- Jarvis: esclusivamente privato, Andrea-only, Command Center only.
+- Jarvis: `INV-JARVIS-001`, esclusivamente privato, Andrea-only, Command Center only, non customer-facing e non membro del team di sviluppo.
 - PrintFlow: `Coming Soon` in Fase 1.
 - Worker: non e' requisito di uptime del sito e non viene attivato in M-001.
 
@@ -138,7 +138,9 @@ Route operative sotto `src/routes/command`. Richiedono ruolo/capability server-s
 
 ### Jarvis
 
-Nessuna route pubblica, sitemap entry, navigation item pubblico, bundle iniziale pubblico o API consumer pubblicata. Qualsiasi file futuro legato a Jarvis deve essere dietro capability e task packet dedicato.
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+Nessuna route pubblica, sitemap entry, navigation item pubblico, bundle iniziale pubblico o API consumer pubblicata. M-001 non autorizza implementazione Jarvis. Qualsiasi lavoro futuro richiede un Blueprint Jarvis dedicato e, prima di route/endpoint/prompt/memoria/tool/provider, identità Andrea verificata, `jarvis.use`, autorizzazione server-side per tool/resource scope, RLS, audit, approval matrix, privacy/threat review, negative test, Architect Review e Product Owner approval.
 
 ### PrintFlow
 
@@ -214,7 +216,7 @@ M-001 must evaluate Architecture Compliance Gates `ACG-00` through `ACG-11` with
 | ACG-01 Authority | Architect Blueprint + Andrea business approval |
 | ACG-02 Constitution | invariant checklist |
 | ACG-03 Website center | single `apps/web` center |
-| ACG-04 Jarvis privacy | route/API/bundle guard |
+| ACG-04 Jarvis privacy | `INV-JARVIS-001`; route/API/bundle/team-role guard; dedicated-Blueprint and server identity/capability gate |
 | ACG-05 Phase boundary | PrintFlow coming-soon guard and worker-offline smoke |
 | ACG-06 Human accountability | no consequential AI/STL finalization in scope |
 | ACG-07 Security/privacy | secrets/RLS/auth checks |
@@ -271,4 +273,3 @@ M-001 can enter Architect Review only with:
 `APPROVED FOR M-001 PLANNING`.
 
 This Blueprint authorizes Gemini to prepare Sprint Plan and Task Packets after Andrea approves M-001 business priority. It does not authorize production release, feature implementation beyond shell/scaffold, or changes to the Documentation Bible and Development Playbook.
-

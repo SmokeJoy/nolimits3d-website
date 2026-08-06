@@ -41,3 +41,9 @@ Un ecosistema in cui l'AI (Jarvis) e l'automazione (PrintFlow) lavorano silenzio
 ## AI Philosophy
 - AI-Assisted, Human Approved.
 - L'AI analizza, progetta e implementa su larga scala, ma l'umano (Andrea) mantiene il controllo assoluto sul valore generato e sulle direzioni strategiche.
+
+## Jarvis invariant
+
+**Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+`INV-JARVIS-001` non autorizza implementazione durante M-001. L'attivazione futura richiede un Blueprint dedicato e controlli server-side di identità e capability.

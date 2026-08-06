@@ -48,7 +48,8 @@ not general authority for direct Root-to-implementer work.
 
 ## Product Boundaries
 
-- Jarvis is private to Andrea inside the Command Center and requires server-side identity and capability enforcement.
+- `INV-JARVIS-001` is active. **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+- Jarvis implementation is not authorized. A future activation requires a dedicated Blueprint, server-side verified Andrea identity, explicit `jarvis.use`, per-tool capability enforcement, RLS, audit, negative tests, privacy review, Architect Review and Product Owner approval.
 - PrintFlow remains `Coming Soon`; no operational worker, endpoint, download, or client path is authorized.
 - The PC worker remains pull-only with no public inbound control port.
 - `apps/legacy-web` remains the public fallback until an approved cutover.
@@ -63,6 +64,7 @@ not general authority for direct Root-to-implementer work.
 5. Treat missing decisions, unavailable test lanes, and undocumented deviations as blockers, not assumptions.
 6. Do not change the Documentation Bible during M0R closure or without a separately approved baseline change.
 7. Do not commit, push, merge, deploy, or access production unless the active Task Packet explicitly authorizes that action.
+8. Refuse any request that treats Jarvis as public, customer-facing, a development-team member, or currently implementable. Jarvis may propose future CR/ADR drafts but cannot approve or implement them.
 
 ## Canonical Verification
 

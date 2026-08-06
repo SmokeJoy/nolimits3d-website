@@ -9,9 +9,13 @@
 ## Regole
 
 - Gli ID preesistenti sono immutabili.
-- La v0.96 non aggiunge elementi: aggiorna esclusivamente lo stato del lavoro documentale completato.
+- La v0.96.1 non rinumera né riutilizza elementi; CR-0007 aggiunge soltanto il gate costituzionale Jarvis senza anticiparne l'implementazione.
 - `S-0115` resta pianificata perché l’implementazione effettiva della Documentation CI appartiene al Development Blueprint.
 - I blocker di Frozen Baseline sono nel Documentation Debt Register.
+
+## Jarvis activation gate
+
+`E-0012` resta `Planned` e non può diventare `Active` finché non esistono un Blueprint Jarvis dedicato, identity/capability model server-side, `jarvis.use`, tool permission matrix, RLS, audit, approval matrix, privacy/threat review, negative test, Architect Review e Product Owner approval. M-001 resta priva di implementazione Jarvis.
 
 ## Roadmap
 
@@ -325,7 +329,7 @@
 | T-0131 | S-0066 | Task | Admin, Media & Operations UX | Implement data/API and state contract for: Implement governed settings | P0 | M2 | S-0066 | 3 | 16 | Admin | Medium | Planned |
 | T-0132 | S-0066 | Task | Admin, Media & Operations UX | Implement responsive UI and interaction for: Implement governed settings | P0 | M2 | T-0131 | 3 | 16 | Admin | Medium | Planned |
 | ST-0066 | T-0132 | Subtask | Admin, Media & Operations UX | Add accessibility, analytics and automated tests for: Implement governed settings | P0 | M2 | T-0132 | 2 | 8 | Admin | Medium | Planned |
-| E-0012 |  | Epic | Private AI Platform & Jarvis | Private AI Platform & Jarvis | P1 | M4 | E-0011 | 48 | 240 | AI | Medium | Planned |
+| E-0012 |  | Epic | Private AI Platform & Jarvis | Private AI Platform & Jarvis - gated by dedicated Blueprint and identity/capability foundation | P1 | M4 | E-0011 | 48 | 240 | AI | High | Planned |
 | F-0034 | E-0012 | Feature | Private AI Platform & Jarvis | Jarvis orchestration and security | P1 | M4 | E-0012 | 16 | 80 | AI | High | Planned |
 | S-0067 | F-0034 | Story | Private AI Platform & Jarvis | Implement private Jarvis tool registry and three operating modes | P1 | M4 | F-0034 | 8 | 40 | AI | Medium | Planned |
 | T-0133 | S-0067 | Task | Private AI Platform & Jarvis | Implement secure orchestration/backend for: Implement prompt/tool registry | P1 | M4 | S-0067 | 3 | 16 | AI | Medium | Planned |

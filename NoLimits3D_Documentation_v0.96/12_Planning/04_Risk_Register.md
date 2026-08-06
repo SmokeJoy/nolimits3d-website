@@ -29,7 +29,7 @@
 |---|---|---:|---:|---|
 | R-013 | React/Vite non soddisfa rendering/SEO atteso o migrazione tardiva | Media | Alta | Review gate S-0097 prima della Baseline. |
 | R-014 | Configurazione RLS errata espone dati customer/admin | Media | Critica | deny-by-default, policy tests, negative matrix. |
-| R-015 | Jarvis diventa accessibile fuori dal Command Center | Bassa | Critica | Andrea-only in route/API/RLS/tool gateway e semantic audit. |
+| R-015 | Jarvis diventa accessibile fuori dal Command Center, viene confuso con il team di sviluppo o viene implementato prima della security foundation | Media | Critica | `INV-JARVIS-001`; Blueprint dedicato; Andrea identity + `jarvis.use`; per-tool server authorization; RLS/audit/negative test; Role Boundary e semantic audit; fail-closed. |
 | R-016 | Catalogo unificato diventa modello generico incoerente | Media | Alta | subtype, invariants, commercial mode e snapshots. |
 | R-017 | Metodo pagamento non coerente con producibilità/prezzo | Media | Alta | server payment policy, admin confirmation e audit. |
 | R-018 | PC Worker attivato senza hardening | Media | Critica | T-0173 blocking gate, outbound-only, machine identity e sandbox. |

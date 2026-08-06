@@ -19,6 +19,7 @@
 | DEC-009 | Valori: Innovazione, Personalizzazione, Competenza, Qualità, Trasparenza. | **Approvata** | ADR-0016 |
 | DEC-010 | Web Application Premium immersiva, semplice, performante e con motion solo funzionale. | **Approvata** | ADR-0017 |
 | DEC-011 | Nome interno dell’ecosistema: Project Atlas. | **Approvata** | ADR-0015 |
+| DEC-012 | `INV-JARVIS-001`: Jarvis è Andrea-only nel Command Center, non è pubblico/customer-facing o parte del team di sviluppo e non è implementabile prima di un Blueprint dedicato e della fondazione identity/capability server-side. | **Approvata** | AD-012 / CR-0007 |
 
 <!-- V0952-DECISION-LOG:START -->
 ## CR-0003 — 2026-07-15
@@ -44,3 +45,7 @@ Approvato Project Atlas Operating System: Project DNA, invarianti, Negative Requ
 
 Completata la Chief Architect Review: normalizzate le descrizioni obsolete di DEC-001, DEC-003 e DEC-004 senza cambiare gli ID; nessun nuovo ADR e nessuna nuova funzionalità. La Documentation Bible viene promossa a Release Candidate, non a Frozen Baseline.
 <!-- V096-DECISION-LOG:END -->
+
+## CR-0007 — 2026-08-06
+
+Accettata la Jarvis Authoritative Boundary Directive. Registrato `INV-JARVIS-001`, mantenuto `ADR-0020` byte-identico, allineati Owner Document, RTM, roadmap, security/privacy e memorie operative. Nessuna implementazione Jarvis è autorizzata.

@@ -12,9 +12,9 @@
     {
       "id": "documentation-bible",
       "path": "NoLimits3D_Documentation_v0.96/manifest.json",
-      "version": "0.96 Release Candidate",
+      "version": "0.96.1 Jarvis Authoritative Boundary Release Candidate",
       "status": "binding-conditional",
-      "sha256_lf": "dbdaeb3cd2e97ebc1803bbaac642cc41bf9b5c2621708656990b9f154bc3312c"
+      "sha256_lf": "339c4645c82e7483665ead68c63824db7e65664b31bac8300fea122c88168397"
     },
     {
       "id": "development-playbook",
@@ -28,7 +28,7 @@
       "path": "Project_Atlas_Development_Blueprint_v0.1/00_BLUEPRINT_REPOSITORY_FOUNDATION.md",
       "version": "0.1.0",
       "status": "approved-for-m001",
-      "sha256_lf": "6956dfd2579f33efab48f072fec816104c523265b6ca5b88d3dfbc03eb4b09b9"
+      "sha256_lf": "96b26541659a7dc4178b46fd47be0dfc7a400002cfd7a7d952c989878ab158e1"
     },
     {
       "id": "sprint-plan",

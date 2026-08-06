@@ -8,7 +8,13 @@
 
 ## 1. Identity boundary
 
-Jarvis è accessibile esclusivamente all’amministratore Andrea nel NoLimits Command Center. Non è pubblico, non è acquistabile, non appare nell’area cliente e non viene presentato come prodotto. Autorizzazione UI, route, API, RLS e tool gateway devono concordare.
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+`INV-JARVIS-001` è il boundary costituzionale. Jarvis non è implementato né autorizzato nella fase corrente. In futuro potrà essere accessibile esclusivamente all’amministratore Andrea nel NoLimits Command Center. Non è pubblico, non è acquistabile, non appare nell’area cliente e non viene presentato come prodotto. Autorizzazione UI, route, API, RLS e tool gateway devono concordare.
+
+## 1.1 Activation gate
+
+Prima di qualsiasi implementazione devono esistere un Blueprint dedicato, autenticazione server-side, identità Andrea verificata, ruolo amministrativo dedicato, `jarvis.use`, autorizzazione per ogni tool/resource scope, RLS deny-by-default, session management, revoca, audit, rate limit, secret management, privacy review, test negativi e comportamento fail-closed. Nascondere l'interfaccia non è sicurezza.
 
 ## 2. Modalità
 
@@ -62,6 +68,9 @@ Prompt template/versione, modello, retrieval sources, tool plan/calls, approvals
 | JAR-F-012 | In modalità Architetto preparare impact analysis, CR e ADR prima dell’implementazione. |
 | JAR-F-013 | Bloccare le azioni vietate senza approvazione esplicita e audit. |
 | JAR-F-014 | Escludere Jarvis da sitemap, navigazione pubblica, account cliente e marketing. |
+| JAR-NF-001 | Non implementare Jarvis prima di un Blueprint dedicato e della fondazione identity/capability approvata. |
+| JAR-NF-002 | Non trattare Jarvis come membro, coordinatore, reviewer o approvatore del team di sviluppo. |
+| JAR-NF-003 | Non permettere a Jarvis di modificare il proprio perimetro o documenti governati senza CR, approval e tool server-side autorizzato. |
 
 <!-- V0954-JARVIS-INVARIANT:START -->
 ## 18. Privacy invariant e negative surface test
@@ -76,3 +85,7 @@ L'invariante `INV-002` è bloccante. Devono risultare assenti:
 
 Ogni release esegue un negative surface test su routing, API catalog, RBAC, contenuti e bundle/configurazioni client.
 <!-- V0954-JARVIS-INVARIANT:END -->
+
+## 19. Phase boundary
+
+M-001 resta priva di implementazione Jarvis. La documentazione di prompt e tool è design-only e non autorizza runtime, provider, segreti, memoria o endpoint. E-0012 può passare da `Planned` ad `Active` soltanto dopo il Blueprint Jarvis dedicato, Architect Review e approvazione Product Owner.

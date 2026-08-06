@@ -24,6 +24,8 @@ Migrazioni, backup, rollback, alert, legal content, SEO crawl, performance, secu
 - [ ] Decision Authority Matrix soddisfatta.
 - [ ] Architecture Compliance Gates `ACG-00`–`ACG-11` valutati.
 - [ ] Jarvis non è presente in alcuna superficie pubblica/cliente.
+- [ ] Jarvis non è trattato come membro del team di sviluppo e non esiste codice Jarvis durante M-001.
+- [ ] Qualunque futura attivazione Jarvis richiede Blueprint dedicato, identità Andrea verificata server-side, capability allowlisted, audit e controllo umano sulle azioni consequenziali.
 - [ ] PrintFlow è esclusivamente Coming Soon in Fase 1.
 - [ ] Ogni preventivo STL finale richiede reviewer umano.
 - [ ] Nessuna feature è fuori RTM e roadmap.
