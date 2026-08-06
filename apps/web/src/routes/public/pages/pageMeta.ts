@@ -1,15 +1,21 @@
-import { footerOtherLinks, footerSitemapSections, type NavLink } from '../navigation';
+import {
+  alwaysAccessibleLinks,
+  footerOtherLinks,
+  footerSitemapSections,
+  type NavLink,
+} from '../navigation';
 
 /**
  * Breadcrumb trail and page title for the M-003 content destination pages
- * (`TSK-M003-WEB-D2`, extended by `TSK-M003-WEB-D3`), derived purely from
- * the already-approved sitemap data in `navigation.ts`. Every content
+ * (`TSK-M003-WEB-D2`, extended by `TSK-M003-WEB-D3`/`D4`), derived purely
+ * from the already-approved sitemap data in `navigation.ts`. Every content
  * page's `<h1>` and breadcrumb come from here, not from per-page hardcoded
  * strings, so a single source of truth backs the header/footer navigation
  * and these destination pages alike.
  *
- * `footerSitemapSections` and `footerOtherLinks` together already carry an
- * entry for every route this and the prior task packet build -- except one.
+ * `footerSitemapSections`, `footerOtherLinks` and `alwaysAccessibleLinks`
+ * together carry an entry for every route this and the prior task packets
+ * build -- except one.
  */
 const HOME: NavLink = { label: 'Home', to: '/' };
 
@@ -41,6 +47,17 @@ export function getBreadcrumbTrail(pathname: string): readonly NavLink[] {
   const otherLink = footerOtherLinks.find((candidate) => candidate.to === pathname);
   if (otherLink) {
     return [HOME, otherLink];
+  }
+
+  // `alwaysAccessibleLinks` is `GlobalNav`'s utility-nav data, not
+  // `Footer`'s sitemap data -- `/ricerca` lives only here (found as a dead
+  // link, alongside `/servizi`/`/nolimits3d`/`/carrello`, by
+  // `nav-links-resolve.test.tsx`; `RicercaPage` fixed the missing route,
+  // this fixes the breadcrumb/title that was silently falling back to
+  // "Home" for it).
+  const utilityLink = alwaysAccessibleLinks.find((candidate) => candidate.to === pathname);
+  if (utilityLink) {
+    return [HOME, utilityLink];
   }
 
   if (pathname === PRINTFLOW_LINK.to) {

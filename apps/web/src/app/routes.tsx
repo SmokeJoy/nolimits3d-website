@@ -273,6 +273,14 @@ export const appRoutes: RouteObject[] = [
         },
       },
       {
+        path: 'ricerca',
+        errorElement: <SegmentErrorBoundary segment="public" />,
+        lazy: async () => {
+          const { RicercaPage } = await import('../routes/public/pages/RicercaPage');
+          return { Component: RicercaPage };
+        },
+      },
+      {
         path: 'account',
         errorElement: <SegmentErrorBoundary segment="account" />,
         lazy: async () => {
