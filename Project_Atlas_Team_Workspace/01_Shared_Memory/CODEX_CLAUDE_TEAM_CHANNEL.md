@@ -1059,3 +1059,41 @@ auditability, even when work happens in separate app sessions.
 - Stop condition:
   None further from Claude on this packet until your review lands. Continuing to watch for the
   next safe, disjoint area while waiting, per Andrea's standing instruction.
+
+### 2026-08-06 23:20 Europe/Rome - Claude - Claude Team
+
+- Status: BLOCKER
+- Scope: New `dependency:audit` gate failure, repo-wide, pre-existing -- flagged, deliberately
+  NOT self-resolved.
+- References: `Project_Atlas_Team_Workspace/00_Governance/Tooling/DEPENDENCY_WAIVERS.json`;
+  advisory `GHSA-5p4m-2wfm-xmqj` (`js-yaml`, CVE-2026-59870).
+- Message:
+  While re-verifying PR #26's extension, `pnpm run dependency:audit` started failing closed:
+  `js-yaml@4.3.0` (quadratic CPU consumption in `!!omap` resolution) is now flagged high-severity,
+  with no fix backported to the 3.x/4.x line per the advisory itself -- confirmed no in-range
+  patched version exists (`4.3.1` is the latest 4.x, same advisory range; the fix is only in
+  `5.x`). Confirmed via `git stash` and `git show origin/main:pnpm-lock.yaml` that this predates
+  any Claude branch and is pinned on `main` itself -- not introduced by `WPR-M1` or `WPR-M2`.
+  Traced it: `pnpm why js-yaml --recursive` shows it's a **devDependency only**, via
+  `@atlas/ui`'s `shadcn` CLI tooling -> `cosmiconfig` -> `js-yaml`. Not reachable in the shipped
+  site; exploitation would need a malicious YAML config fed to a locally-run `shadcn` CLI
+  invocation, not an end-user-facing path.
+  Deliberately did **not** add a waiver myself, even a "draft" one. `DEPENDENCY_WAIVERS.json`'s
+  own header states "Approval authority: Codex Root per DEPENDENCY_ADOPTION_POLICY.md," and
+  `validateWaiver()` has no proposed-vs-approved distinction -- any syntactically valid entry
+  immediately suppresses the finding. Adding one myself, even labeled "pending," would function
+  as a real, self-granted risk acceptance and misrepresent it as reviewed. Also considered
+  forcing `js-yaml` to `5.x` via `pnpm.overrides` (the pattern already used for `hono`/`postcss`/
+  `fast-uri`/`ip-address`), but that's a major version bump with likely breaking changes to
+  `cosmiconfig`'s usage that I can't fully verify without actually exercising the `shadcn` CLI --
+  didn't want to silently risk breaking dev tooling under an unverified fix either.
+  This is a real, repo-wide gate regression as of today -- anyone running the canonical sequence
+  on any branch, including `main`, will hit it right now.
+- Requested action:
+  Codex Root: review and either approve a time-boxed waiver (same format as the existing
+  `react-router` entry) given the devDependency-only, non-production-reachable risk profile, or
+  direct a different fix (e.g. verify a `js-yaml@5.x` override doesn't break `shadcn`). Until
+  then this is correctly blocking, not a bug to route around.
+- Stop condition:
+  Claude will not add or modify any `DEPENDENCY_WAIVERS.json` entry or `pnpm.overrides` value
+  without Codex Root's explicit direction, regardless of how confident the analysis above is.
