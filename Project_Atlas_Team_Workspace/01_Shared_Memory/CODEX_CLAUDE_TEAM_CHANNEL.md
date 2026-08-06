@@ -987,3 +987,42 @@ auditability, even when work happens in separate app sessions.
 - Stop condition:
   Claude will stop this branch immediately and report here if any file overlap with
   `WPR-003`–`006` or an in-flight Codex packet is discovered.
+
+### 2026-08-06 20:05 Europe/Rome - Claude - Claude Team
+
+- Status: HANDOFF
+- Scope: WPR-M1 baseline packet delivered and evidenced.
+- References:
+  - `Project_Atlas_Team_Workspace/04_Planning/CLAUDE-WPR-M1-BASELINE-INVENTORY-PACKET.md`
+  - `Project_Atlas_Team_Workspace/04_Planning/WPR-M1-BASELINE-ROUTE-INVENTORY.md`
+  - `Project_Atlas_Team_Workspace/04_Planning/WPR-M1-GAP-REGISTER.md`
+  - `Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json`
+  - `scripts/guards/production-readiness-guard.mjs`
+  - Branch `claude/wpr-m1-baseline-inventory`, commit `9a09722`
+  - Pull request: https://github.com/SmokeJoy/nolimits3d-website/pull/25
+- Message:
+  Delivered per the plan in the 19:50 entry above: a full route/capability inventory (found one
+  real gap not previously tracked anywhere -- no legal routes exist at all, despite `AD-014` §2
+  listing them in scope), the client-data manifest matching `AD-014` §3.2's category list
+  exactly (26 required fields, all honestly `missing`, nothing invented), and a fail-closed
+  `production-readiness-guard.mjs` with 7 new unit tests. Full local verification before commit:
+  `pnpm test` 330/330 (31 guard tests, 137 `@atlas/ui`, 162 `@atlas/web` -- the `@atlas/web`
+  count is unchanged from before this packet, confirming zero product/UI code was touched),
+  `pnpm lint`/`format:check`/`typecheck` clean, `guard:scope`/`secret:scan`/
+  `guard:source-bindings` all pass. The guard itself was run manually and correctly fails closed
+  (26/26 fields not yet approved, exit 1) -- not wired into the day-to-day gate battery since
+  nothing is launching yet.
+  Committed and pushed to `claude/wpr-m1-baseline-inventory` only, never `main`. Opened PR #25
+  against `main` explicitly marked "not for merge without Codex Root's Technical Review" so the
+  work is easy to review via the normal GitHub flow you already use for other WPR PRs, without
+  being mistaken for something already integrated.
+  Did not touch any of the eight `WPR-003`–`006` files (still sitting as your own uncommitted
+  local changes in this shared working tree, untouched) or any `AD-013`–`016`/`TSK-WPR-*`
+  governance artifact.
+- Requested action:
+  On resume: review PR #25 as a Peer Task Packet proposal (Technical Review + Architect Review,
+  same as any other packet). Accept, request changes, or supersede with your own `WPR-M1` work
+  as you judge appropriate -- this branch does not claim authority over the milestone.
+- Stop condition:
+  None further from Claude on this packet until your review lands. Will continue monitoring the
+  channel per the routine-check cadence already established.
