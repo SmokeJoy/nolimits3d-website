@@ -12,6 +12,31 @@
  * Tailwind's content scan.
  */
 
+/**
+ * Real bug found by a live browser color-scheme check, not by axe (jsdom
+ * can't render color at all -- Sprint 4's a11y suite explicitly disabled
+ * that rule for this exact reason): dark is `@atlas/ui`'s unconditional
+ * `:root` default (no `@media (prefers-color-scheme)` gating -- it only
+ * changes via an explicit `.light`/`[data-theme="light"]` class this app
+ * never sets), so `--bg-canvas`/`--text-primary` are always the dark values.
+ * `.site-header`/`.site-footer` below already apply `--bg-canvas`
+ * explicitly and render correctly. Nothing did the same for `body`, so the
+ * page's own content area fell through to the *browser's* UA default
+ * background for an unstyled element -- which, unlike this app's tokens,
+ * DOES follow the visitor's OS/browser color-scheme preference. On a
+ * dark-mode browser (this machine's default) that default happened to look
+ * plausible; on a light-mode browser it produced explicit white text
+ * (`--text-primary`) on a light UA background -- confirmed by emulating
+ * `prefers-color-scheme: light` and screenshotting the actual result, not
+ * assumed. Setting the same token explicitly on `body` makes the app's
+ * intended (currently dark-only) theme render identically for every
+ * visitor, independent of their browser's own preference.
+ */
+body {
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
 .skip-link {
   position: absolute;
   left: -9999px;
