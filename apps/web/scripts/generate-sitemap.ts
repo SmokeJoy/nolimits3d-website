@@ -63,6 +63,18 @@ const REDIRECT_ONLY_PATHS = new Set<string>(['/esplora/hueforge']);
  */
 const EXCLUDED_PATHS = new Set<string>(['/account']);
 
+/**
+ * Real, registered routes that aren't part of `footerSitemapSections` /
+ * `footerOtherLinks` at all -- `/ricerca` is only in `navigation.ts`'s
+ * `alwaysAccessibleLinks` (`GlobalNav`'s utility nav, not `Footer`'s
+ * sitemap data), so the loop below never sees it. Found and fixed as a dead
+ * link (`RicercaPage`, `routes.tsx`) alongside `/servizi`/`/nolimits3d`/
+ * `/carrello`; listed explicitly here rather than folding `Ricerca` into
+ * `footerOtherLinks`, which would also add it to `Footer`'s rendered output
+ * -- a UI decision outside this file's scope.
+ */
+const EXTRA_REAL_PATHS = new Set<string>(['/ricerca']);
+
 /** The site's one real, already-live production domain (`apps/legacy-web/public/robots.txt`). */
 export const SITE_ORIGIN = 'https://nolimits3d.store';
 
@@ -86,6 +98,10 @@ export function getSitemapPaths(): readonly string[] {
 
   for (const link of footerOtherLinks) {
     paths.add(link.to);
+  }
+
+  for (const extra of EXTRA_REAL_PATHS) {
+    paths.add(extra);
   }
 
   for (const excluded of EXCLUDED_PATHS) {
