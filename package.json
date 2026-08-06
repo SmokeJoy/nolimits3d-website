@@ -24,6 +24,7 @@
     "supabase:status": "supabase status --output json",
     "supabase:stop": "supabase stop",
     "test": "node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test",
+    "test:e2e": "pnpm --filter @atlas/web --if-present test:e2e",
     "toolchain:check": "node scripts/guards/toolchain-guard.mjs",
     "typecheck": "pnpm --recursive --if-present typecheck"
   },

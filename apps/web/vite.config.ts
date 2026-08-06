@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
+import { configDefaults } from 'vitest/config';
 
 import { buildSitemapXml } from './scripts/generate-sitemap';
 
@@ -39,5 +40,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: false,
+    // `e2e/**` uses `@playwright/test`'s own `test()` (see `playwright.config.ts`);
+    // without this exclude, vitest's default glob picks those files up too and
+    // fails immediately since a Playwright test isn't runnable under vitest.
+    exclude: [...configDefaults.exclude, 'e2e/**'],
   },
 });
