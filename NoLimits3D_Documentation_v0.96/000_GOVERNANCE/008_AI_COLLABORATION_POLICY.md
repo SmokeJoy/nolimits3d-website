@@ -72,12 +72,16 @@ Un'AI può analizzare, proporre, documentare, implementare e verificare soltanto
 
 ### 7.3 Separazione tra Jarvis e AI di sviluppo
 
-Jarvis è il solo orchestratore AI applicativo privato di Andrea. Un coding/documentation agent è uno strumento di sviluppo esterno al prodotto e non può:
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+`INV-JARVIS-001` è attivo. Un coding/documentation agent è uno strumento di sviluppo esterno al prodotto e non può:
 
 - trasformarsi in un endpoint Jarvis;
 - accedere alla memoria privata di Jarvis senza autorizzazione e contratto specifico;
 - esporre capability di Jarvis al pubblico;
 - modificare prompt, permessi, tool o memoria di Jarvis senza Change Request e approvazione.
+- trattare Jarvis come TPM, implementatore, reviewer o autorità di progetto;
+- implementare Jarvis prima del Blueprint dedicato e della fondazione server-side di identità/capability.
 
 ## 8. AI Development Contract
 

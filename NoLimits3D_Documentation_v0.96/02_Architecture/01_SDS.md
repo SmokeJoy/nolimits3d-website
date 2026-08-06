@@ -68,7 +68,11 @@ Un aggregate catalog item descrive prodotto o servizio e il relativo `commercial
 
 ## 7. Command Center e Jarvis
 
-Il Command Center è una protected application area con RBAC/capability checks. La dashboard aggrega read model operativi. Jarvis è una capability privata con tre modalità, tool allowlist, approval records e audit. Nessun modulo pubblico importa route, prompt o secret di Jarvis.
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+Il Command Center è una protected application area con RBAC/capability checks. La dashboard aggrega read model operativi. Jarvis sarà una capability privata con tre modalità, tool allowlist, approval records e audit. Nessun modulo pubblico importa route, prompt o secret di Jarvis.
+
+L'implementazione non è autorizzata nell'attuale foundation. Un Blueprint Jarvis dedicato deve definire identity/capability model, `jarvis.use`, autorizzazione server-side per tool e resource scope, RLS, audit, approval matrix, privacy, threat model, negative test, fallback e kill switch prima di qualsiasi route, endpoint, prompt runtime, memoria o provider.
 
 ## 8. Compute Worker pattern
 

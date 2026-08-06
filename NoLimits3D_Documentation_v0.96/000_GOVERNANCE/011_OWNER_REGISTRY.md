@@ -29,7 +29,7 @@
 | componenti | `03_Design/04_Component_Library.md` | API dei componenti UI |
 | feature | rispettivo file in `05_Features/` | comportamento end-to-end |
 | admin | `06_Admin/01_Admin_Information_Architecture.md` | moduli; workflow nel file 02 |
-| Jarvis | `07_AI/02_Jarvis_Admin.md` | capability, memoria, tool e limiti |
+| Jarvis | `07_AI/02_Jarvis_Admin.md` | capability, memoria e tool; il boundary costituzionale è `INV-JARVIS-001` / AD-012 |
 | prompt operativi | `prompts/README.md` e singoli prompt | versioni e eval |
 | database | `08_Data_API/01_Database_Design.md` | ER, tabelle e vincoli |
 | API | `08_Data_API/04_API_Contract.md` | convenzioni; endpoint nel Catalog |
@@ -87,6 +87,7 @@
 | Decision Authority Matrix | `00_Foundation/03_Documentation_Governance.md` |
 | Architecture Compliance Gates | `000_GOVERNANCE/007_QUALITY_GATES.md` |
 | Development Constitution | `11_Engineering_Operations/01_Developer_Handbook.md` |
+| Jarvis authoritative boundary | `00_Foundation/00_Project_Constitution.md` + `AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md` | `07_AI/02_Jarvis_Admin.md` resta owner della futura specifica funzionale |
 <!-- V0954-OWNER-REGISTRY:END -->
 
 <!-- V096-RELEASE-EVIDENCE:START -->

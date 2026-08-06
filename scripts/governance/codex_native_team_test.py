@@ -18,7 +18,47 @@ except ModuleNotFoundError:  # Python 3.10 compatibility for the local M0R runti
     import tomli as tomllib
 
 
-EXPECTED_BIBLE_TREE = "6fe3bd23c7e4dd5ee2d9277f96371275da13964d"
+EXPECTED_BIBLE_TREE = "60e1b11dafeb58ab4e4377210820934b0f0b8f13"
+BIBLE_PATH = "NoLimits3D_Documentation_v0.96"
+BIBLE_RELEASE = "0.96.1"
+JARVIS_CANONICAL_PHRASE = (
+    "Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente "
+    "nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e "
+    "nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi "
+    "verificati server-side e controllo umano sulle azioni consequenziali. Non è un "
+    "servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo."
+)
+JARVIS_INVARIANT_STATEMENT = (
+    "Jarvis is Andrea's private AI assistant inside the NoLimits3D Command Center. It is "
+    "not public, not customer-facing, not a development-team member, and not authorized "
+    "for implementation before a dedicated Blueprint and identity/capability security "
+    "foundation."
+)
+JARVIS_CANONICAL_RECORDS = (
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".codex/agents/atlas-tpm.toml",
+    ".codex/agents/atlas-frontend.toml",
+    ".codex/agents/atlas-backend.toml",
+    "002_PROJECT_DNA.md",
+    "NoLimits3D_Documentation_v0.96/README.md",
+    "NoLimits3D_Documentation_v0.96/000_PROJECT_CHARTER.md",
+    "NoLimits3D_Documentation_v0.96/00_Foundation/00_Project_Constitution.md",
+    "NoLimits3D_Documentation_v0.96/01_Product/01_PRD.md",
+    "NoLimits3D_Documentation_v0.96/07_AI/01_AI_Overview.md",
+    "NoLimits3D_Documentation_v0.96/07_AI/02_Jarvis_Admin.md",
+    "NoLimits3D_Documentation_v0.96/10_Security_Performance/04_AI_Security.md",
+    "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md",
+    "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+)
+JARVIS_REQUIRED_RECORDS = (
+    "NoLimits3D_Documentation_v0.96/12_Planning/Change_Requests/CR-0007_Jarvis_Authoritative_Boundary.md",
+    "NoLimits3D_Documentation_v0.96/12_Planning/05_Traceability_Matrix.md",
+    "Project_Atlas_Development_Blueprint_v0.1/00_BLUEPRINT_REPOSITORY_FOUNDATION.md",
+    "Project_Atlas_Team_Workspace/01_Shared_Memory/DECISION_LEDGER.md",
+    "Project_Atlas_Team_Workspace/04_Planning/JARVIS-ROLE-BOUNDARY-TESTS.md",
+    ".agents/skills/atlas-role-boundary-test/SKILL.md",
+)
 EXPECTED_AGENT_FILES = {
     "atlas-tpm.toml": "atlas_tpm",
     "atlas-frontend.toml": "atlas_frontend",
@@ -27,7 +67,7 @@ EXPECTED_AGENT_FILES = {
 IMPLEMENTER_FILES = {"atlas-frontend.toml", "atlas-backend.toml"}
 EXPECTED_AGENT_RUNTIME = {
     "atlas-tpm.toml": {
-        "model": "gpt-5.6",
+        "model": "gpt-5.6-sol",
         "model_reasoning_effort": "high",
         "sandbox_mode": "workspace-write",
         "agents": {"enabled": True},
@@ -104,8 +144,9 @@ class Result:
 
 
 class Validator:
-    def __init__(self, repo: Path) -> None:
+    def __init__(self, repo: Path, candidate_staged_bible: bool = False) -> None:
         self.repo = repo
+        self.candidate_staged_bible = candidate_staged_bible
         self.results: list[Result] = []
 
     def check(self, name: str, condition: bool, error: str) -> None:
@@ -167,7 +208,7 @@ class Validator:
             "atlas_frontend",
             "atlas_backend",
             "Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend",
-            "Jarvis is private",
+            "INV-JARVIS-001",
             "PrintFlow remains `Coming Soon`",
         )
         missing = [term for term in required_terms if term not in content]
@@ -380,7 +421,7 @@ class Validator:
             "Atlas Backend",
             "Technical Review",
             "Jarvis",
-            "private",
+            "INV-JARVIS-001",
             "PrintFlow",
             "Coming Soon",
             "M0R",
@@ -586,19 +627,19 @@ class Validator:
     def validate_product_boundaries(self) -> None:
         boundary_records = {
             "AGENTS.md": (
-                "Jarvis is private",
+                "INV-JARVIS-001",
                 "PrintFlow remains `Coming Soon`",
                 "PC worker remains pull-only",
                 "`apps/legacy-web` remains the public fallback",
                 "Production remains blocked while `BLK-BASE-001` is open",
             ),
             ARCHITECTURE_DOC: (
-                "Jarvis remains private",
+                "INV-JARVIS-001",
                 "PrintFlow remains `Coming Soon`",
                 "Production remains blocked by `BLK-BASE-001`",
             ),
             "000_PROJECT_STATE.md": (
-                "Jarvis remains private",
+                "INV-JARVIS-001",
                 "PrintFlow remains `Coming Soon`",
                 "`apps/legacy-web` remains the preserved public fallback",
                 "`BLK-BASE-001` keeps production blocked",
@@ -619,6 +660,89 @@ class Validator:
                 not missing,
                 f"missing boundary marker(s): {', '.join(missing)}",
             )
+
+    def validate_jarvis_boundary(self) -> None:
+        for relative_path in JARVIS_CANONICAL_RECORDS:
+            content = self.read_text(relative_path)
+            self.check(
+                f"Jarvis canonical record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is None:
+                continue
+            self.check(
+                f"Jarvis canonical phrase: {relative_path}",
+                JARVIS_CANONICAL_PHRASE in content,
+                "canonical INV-JARVIS-001 phrase is missing or altered",
+            )
+
+        required_markers = (
+            "INV-JARVIS-001",
+            "Blueprint",
+            "server-side",
+        )
+        for relative_path in JARVIS_REQUIRED_RECORDS:
+            content = self.read_text(relative_path)
+            self.check(
+                f"Jarvis governance record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is None:
+                continue
+            missing = [
+                marker
+                for marker in required_markers
+                if marker.casefold() not in content.casefold()
+            ]
+            self.check(
+                f"Jarvis governance markers: {relative_path}",
+                not missing,
+                f"missing marker(s): {', '.join(missing)}",
+            )
+
+        invariant_records = (
+            "NoLimits3D_Documentation_v0.96/00_Foundation/00_Project_Constitution.md",
+            "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md",
+            "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+        )
+        for relative_path in invariant_records:
+            content = self.read_text(relative_path) or ""
+            self.check(
+                f"exact INV-JARVIS-001 statement: {relative_path}",
+                JARVIS_INVARIANT_STATEMENT in content,
+                "exact English invariant statement is missing or altered",
+            )
+
+        forbidden_roots = (
+            "apps/web/public",
+            "apps/web/src/routes/public",
+            "apps/web/src/routes/account",
+            "supabase/functions",
+        )
+        forbidden_matches: list[str] = []
+        for relative_root in forbidden_roots:
+            root = self.repo / relative_root
+            if not root.exists():
+                continue
+            for path in root.rglob("*"):
+                if not path.is_file():
+                    continue
+                if "jarvis" in path.name.casefold():
+                    forbidden_matches.append(path.relative_to(self.repo).as_posix())
+                    continue
+                try:
+                    content = path.read_text(encoding="utf-8")
+                except (OSError, UnicodeError):
+                    continue
+                if "jarvis" in content.casefold():
+                    forbidden_matches.append(path.relative_to(self.repo).as_posix())
+        self.check(
+            "no public, customer, or Edge Function Jarvis implementation",
+            not forbidden_matches,
+            f"forbidden Jarvis application reference(s): {sorted(set(forbidden_matches))!r}",
+        )
 
     def validate_skills(self) -> None:
         skills_dir = self.repo / ".agents" / "skills"
@@ -663,19 +787,112 @@ class Validator:
         )
 
     def validate_bible(self) -> None:
-        tree = self.git("rev-parse", "HEAD:NoLimits3D_Documentation_v0.96")
+        bible = self.repo / BIBLE_PATH
+        manifest = self.read_json(f"{BIBLE_PATH}/manifest.json")
         self.check(
-            "Documentation Bible committed tree",
+            "Documentation Bible manifest parses",
+            manifest is not None,
+            f"{BIBLE_PATH}/manifest.json is missing or invalid",
+        )
+        if manifest is not None:
+            actual_files = {
+                path.relative_to(bible).as_posix()
+                for path in bible.rglob("*")
+                if path.is_file() and path != bible / "manifest.json"
+            }
+            entries = manifest.get("files")
+            valid_entries = isinstance(entries, list) and all(
+                isinstance(entry, dict)
+                and isinstance(entry.get("path"), str)
+                and isinstance(entry.get("size_bytes"), int)
+                and isinstance(entry.get("sha256"), str)
+                for entry in entries
+            )
+            self.check(
+                "Documentation Bible manifest entries",
+                valid_entries,
+                "manifest files must contain path, size_bytes and sha256",
+            )
+            if valid_entries:
+                entries_by_path = {str(entry["path"]): entry for entry in entries}
+                duplicate_count = len(entries_by_path) != len(entries)
+                self.check(
+                    "Documentation Bible manifest exact file set",
+                    not duplicate_count and set(entries_by_path) == actual_files,
+                    "manifest file set differs from the Documentation Bible worktree",
+                )
+                metadata_errors: list[str] = []
+                for relative_path in sorted(actual_files & set(entries_by_path)):
+                    content = (bible / relative_path).read_bytes()
+                    entry = entries_by_path[relative_path]
+                    actual_hash = hashlib.sha256(content).hexdigest()
+                    if entry.get("size_bytes") != len(content):
+                        metadata_errors.append(f"{relative_path}: size mismatch")
+                    if entry.get("sha256") != actual_hash:
+                        metadata_errors.append(f"{relative_path}: SHA-256 mismatch")
+                self.check(
+                    "Documentation Bible manifest sizes and SHA-256",
+                    not metadata_errors,
+                    "; ".join(metadata_errors) or "metadata verification failed",
+                )
+                self.check(
+                    "Documentation Bible manifest count",
+                    manifest.get("file_count_excluding_manifest") == len(actual_files)
+                    and len(entries) == len(actual_files),
+                    f"expected {len(actual_files)} files",
+                )
+            self.check(
+                "Documentation Bible manifest release",
+                manifest.get("release") == BIBLE_RELEASE,
+                f"expected release {BIBLE_RELEASE!r}, found {manifest.get('release')!r}",
+            )
+
+        version = self.read_text(f"{BIBLE_PATH}/VERSION") or ""
+        self.check(
+            "Documentation Bible VERSION release",
+            version.strip().startswith(BIBLE_RELEASE),
+            f"VERSION must start with {BIBLE_RELEASE!r}",
+        )
+
+        if self.candidate_staged_bible:
+            index_tree = self.git("write-tree")
+            tree = (
+                self.git("rev-parse", f"{index_tree.stdout.strip()}:{BIBLE_PATH}")
+                if index_tree.returncode == 0
+                else index_tree
+            )
+            tree_label = "staged candidate"
+        else:
+            tree = self.git("rev-parse", f"HEAD:{BIBLE_PATH}")
+            tree_label = "committed"
+        self.check(
+            f"Documentation Bible {tree_label} tree",
             tree.returncode == 0 and tree.stdout.strip() == EXPECTED_BIBLE_TREE,
             f"expected {EXPECTED_BIBLE_TREE}, found {tree.stdout.strip() or tree.stderr.strip()!r}",
         )
 
-        status = self.git("status", "--porcelain", "--", "NoLimits3D_Documentation_v0.96")
-        self.check(
-            "Documentation Bible worktree unchanged",
-            status.returncode == 0 and not status.stdout.strip(),
-            status.stdout.strip() or status.stderr.strip() or "unable to inspect Bible worktree",
-        )
+        if self.candidate_staged_bible:
+            unstaged = self.git("diff", "--quiet", "--", BIBLE_PATH)
+            untracked = self.git("ls-files", "--others", "--exclude-standard", "--", BIBLE_PATH)
+            clean_candidate = (
+                unstaged.returncode == 0
+                and untracked.returncode == 0
+                and not untracked.stdout.strip()
+            )
+            self.check(
+                "Documentation Bible staged candidate has no unstaged files",
+                clean_candidate,
+                untracked.stdout.strip()
+                or unstaged.stderr.strip()
+                or "unstaged Bible changes remain",
+            )
+        else:
+            status = self.git("status", "--porcelain", "--", BIBLE_PATH)
+            self.check(
+                "Documentation Bible worktree unchanged",
+                status.returncode == 0 and not status.stdout.strip(),
+                status.stdout.strip() or status.stderr.strip() or "unable to inspect Bible worktree",
+            )
 
     def run(self) -> int:
         self.validate_agents_md()
@@ -689,6 +906,7 @@ class Validator:
         self.validate_framework_activation()
         self.validate_blueprint_planning_gate()
         self.validate_product_boundaries()
+        self.validate_jarvis_boundary()
         self.validate_legacy_agents()
         self.validate_bible()
 
@@ -707,6 +925,11 @@ class Validator:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", default=".", help="repository root (default: current directory)")
+    parser.add_argument(
+        "--candidate-staged-bible",
+        action="store_true",
+        help="validate the staged Bible candidate and require no unstaged Bible files",
+    )
     return parser.parse_args()
 
 
@@ -716,7 +939,7 @@ def main() -> int:
     if not (repo / ".git").exists():
         print(f"FAIL: repository root not found: {repo}")
         return 2
-    return Validator(repo).run()
+    return Validator(repo, candidate_staged_bible=args.candidate_staged_bible).run()
 
 
 if __name__ == "__main__":

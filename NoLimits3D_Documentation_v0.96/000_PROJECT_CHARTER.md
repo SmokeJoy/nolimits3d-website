@@ -441,7 +441,7 @@ La versione `0.95` resta `In Review`. Solo l'approvazione esplicita può generar
 Queste guardie sono controllate dalla Documentation CI e non sostituiscono gli Owner Document di prodotto:
 
 - **Website-centric guard:** il sito NoLimits3D è il centro dell’ecosistema Project Atlas; documenti, roadmap e diagrammi non possono rappresentare sito, Jarvis e PrintFlow come prodotti pubblici equivalenti.
-- **Jarvis private guard:** Jarvis è accessibile esclusivamente ad Andrea nel NoLimits Command Center; non compare nella navigazione pubblica, nell’area cliente o nell’offerta commerciale.
+- **Jarvis private guard (`INV-JARVIS-001`):** Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo. L'implementazione richiede un Blueprint dedicato successivo a M-001 e una fondazione server-side di identità e capability.
 - **PrintFlow Phase 1 guard:** PrintFlow resta “In arrivo”, privo di funzioni pubbliche operative e non blocca il rilascio del sito.
 - **Accepted ADR immutability guard:** ADR-0013–ADR-0017 non vengono riscritti; le nuove decisioni complementari hanno ID successivi.
 - **Application stack review guard:** React + TypeScript + Vite è la scelta corrente, ma la Frozen Baseline richiede il review gate formale contro Next.js definito da ADR-0018.

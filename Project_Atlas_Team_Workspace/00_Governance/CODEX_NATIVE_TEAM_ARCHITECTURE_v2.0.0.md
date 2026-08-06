@@ -53,7 +53,8 @@ that a commit, push, CI run, or merge execution occurred.
 
 ## Non-Negotiable Boundaries
 
-- Jarvis remains private to Andrea with server-side identity and capability enforcement.
+- `INV-JARVIS-001` is active. **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+- Jarvis implementation requires a dedicated future Blueprint and server-side verified Andrea identity, `jarvis.use`, per-tool capability enforcement, RLS, audit, privacy/threat review and negative tests. The development team cannot be replaced or coordinated by Jarvis.
 - PrintFlow remains `Coming Soon` and no operational path is authorized.
 - `NoLimits3D_Documentation_v0.96/**` is immutable during M0R.
 - Production remains blocked by `BLK-BASE-001` and the incomplete baseline binding.

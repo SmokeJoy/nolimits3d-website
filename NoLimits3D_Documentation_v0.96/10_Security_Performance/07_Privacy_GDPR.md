@@ -12,7 +12,7 @@ Privacy by design, minimizzazione, registro trattamenti, basi giuridiche, inform
 <!-- V0952-PRIVACY:START -->
 ## Decisioni ancora richieste
 
-Definire titolare, finalità/basi giuridiche, informative, DPA/provider, cookie categories, consent implementation, retention, diritti, data breach e trasferimenti. Jarvis log/memoria e file cliente richiedono DPIA/valutazione proporzionata prima del lancio delle capability. Il documento resta `In Review` e blocca il public launch, non viene dichiarato legalmente validato.
+Definire titolare, finalità/basi giuridiche, informative, DPA/provider, cookie categories, consent implementation, retention, diritti, data breach e trasferimenti. Jarvis è Andrea-only, ma log, memoria, retrieval e file cliente restano trattamento di dati: richiedono purpose limitation, minimizzazione, retention, cancellazione/revoca, DPA/provider e DPIA/valutazione proporzionata prima del lancio delle capability. Il documento resta `In Review` e blocca sia il public launch sia l'attivazione Jarvis; non viene dichiarato legalmente validato.
 <!-- V0952-PRIVACY:END -->
 
 <!-- V0953-PRIVACY:START -->

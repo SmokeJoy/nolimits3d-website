@@ -19,10 +19,13 @@ Azioni distruttive con conferma e undo quando possibile; impersonation vietata s
 <!-- V0952-ADMIN-WORKFLOWS:START -->
 ## Jarvis-assisted workflow
 
+Questo workflow è una specifica futura, non un'autorizzazione all'implementazione. Può essere attivato soltanto dopo il Blueprint Jarvis dedicato e la verifica server-side di identità, `jarvis.use`, capability per tool, RLS e audit.
+
 1. Andrea seleziona modalità Assistente, Operativa o Architetto.
 2. Jarvis legge solo dati/tool autorizzati.
 3. Per side effect prepara preview, diff, impatto, dipendenze e rischio.
 4. Il Command Center richiede conferma quando la policy lo impone.
 5. L’azione viene eseguita server-side e registrata con correlation ID.
 6. Successo/fallimento e recovery sono mostrati senza falsi positivi.
+7. Jarvis non approva il proprio piano, non cambia il proprio perimetro e non sostituisce Andrea o il team di sviluppo.
 <!-- V0952-ADMIN-WORKFLOWS:END -->

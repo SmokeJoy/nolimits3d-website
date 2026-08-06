@@ -4,6 +4,19 @@
 
 ## Current Handoff - 2026-08-06
 
+### Jarvis boundary accepted
+
+Andrea accepted `AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md` as a non-negotiable project
+invariant and ordered documentation/governance alignment only. `INV-JARVIS-001` is active.
+
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+
+No Jarvis implementation is authorized. Future activation requires a dedicated Blueprint,
+verified Andrea identity, `jarvis.use`, per-tool server authorization, RLS, audit, privacy
+review, negative tests, Architect Review and Product Owner approval. The source directive's
+old Gemini/Claude/Codex role labels map to the current Atlas TPM/Frontend/Backend memories;
+they do not reactivate the superseded team.
+
 Andrea, in a Claude Code CLI session, gave full engineering delegation:
 
 > "Io sul codice non metto bocca, pensateci voi." -- confirmed to cover Supabase/backend,

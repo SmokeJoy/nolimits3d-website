@@ -31,7 +31,7 @@ Repository / provider ports
 Supabase DB, Storage, Edge Functions, provider esterni
 ```
 
-SQL/RLS proteggono i dati; Edge Functions gestiscono segreti, webhook, provider, idempotency, comandi amministrativi, Jarvis e operazioni multi-step.
+SQL/RLS proteggono i dati; Edge Functions gestiscono segreti, webhook, provider, idempotency, comandi amministrativi e operazioni multi-step. Il futuro gateway Jarvis resta escluso dall'implementazione corrente.
 
 ## 3. Edge Function classes
 
@@ -39,7 +39,7 @@ SQL/RLS proteggono i dati; Edge Functions gestiscono segreti, webhook, provider,
 - authenticated customer commands: cart/order/account;
 - admin commands: catalog/media/publish/settings;
 - provider webhooks: payment/email;
-- Jarvis tool gateway: admin-only, allowlist, confirmation token;
+- futuro Jarvis tool gateway, solo dopo Blueprint dedicato: Andrea-only, allowlist, confirmation token e autorizzazione server-side;
 - worker job gateway: machine identity, lease e heartbeat.
 
 Ogni function definisce input Zod/JSON schema, auth mode, RLS interaction, idempotency, rate limit, audit e error contract.
@@ -62,7 +62,7 @@ Scheduler solo per reminder, cleanup, retry, digest e manutenzione documentati. 
 
 ## 8. Jarvis tool gateway
 
-Un solo orchestratore privato invoca tool identificati e autorizzati. Il server risolve identity, mode, capability, risk tier, preview, approval e audit. I prompt non concedono permessi.
+Questa sezione definisce un contratto futuro, non una capability implementata o autorizzata. Dopo un Blueprint dedicato, un solo orchestratore privato potrà invocare tool identificati e autorizzati. Il server dovrà risolvere identity, mode, capability, risk tier, preview, approval e audit. I prompt non concedono permessi e il frontend non costituisce un confine di sicurezza.
 
 ## 9. Requisiti
 
@@ -74,3 +74,4 @@ Un solo orchestratore privato invoca tool identificati e autorizzati. Il server 
 | BE-NF-004 | Il frontend deve rimanere disaccoppiato tramite contratti e adapter. |
 | BE-NF-005 | Il Compute Worker deve usare un modello pull autenticato e non essere requisito di uptime del sito. |
 | BE-NF-006 | Jarvis deve invocare tool solo tramite gateway server-side admin-only con audit. |
+| BE-NF-007 | Nessun endpoint, capability, memoria o gateway Jarvis può essere implementato durante M-001 o prima del Blueprint dedicato e della fondazione di identità/autorizzazione server-side. |

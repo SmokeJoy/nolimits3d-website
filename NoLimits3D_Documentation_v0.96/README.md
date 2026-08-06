@@ -1,7 +1,7 @@
 # Project Atlas — NoLimits3D Documentation Bible v0.96
 
 > **Document ID:** DOC-ROOT-002  
-> **Versione:** 0.96  
+> **Versione:** 0.96.1
 > **Stato:** Release Candidate  
 > **Owner:** Project Governance  
 > **Documentation Status:** RELEASE CANDIDATE  
@@ -10,14 +10,16 @@
 
 ## Release
 
-**Documentation Bible Final Consolidation & Frozen Baseline Release Candidate**
+**Documentation Bible Final Consolidation & Jarvis Authoritative Boundary Release Candidate**
 
 La v0.96 consolida la v0.95.4 senza introdurre nuove funzionalità. La progettazione dello scope di prodotto è conclusa; restano soltanto le condizioni nominate nel Release Candidate Report prima della Frozen Baseline v1.0.
+
+La patch documentale v0.96.1 registra `INV-JARVIS-001` tramite `CR-0007` e `AD-012`; non autorizza implementazione, release o attivazione di Jarvis.
 
 ## Verità costituzionali
 
 - il sito NoLimits3D è il centro dell’ecosistema;
-- Jarvis è esclusivamente privato e accessibile ad Andrea nel Command Center;
+- **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
 - PrintFlow resta `Coming Soon` nella fase corrente;
 - ogni preventivo STL finale richiede revisione umana;
 - nessun team, prova, capacità o stato può essere inventato;
@@ -224,6 +226,7 @@ La v0.96 consolida la v0.95.4 senza introdurre nuove funzionalità. La progettaz
 - [`12_Planning/Change_Requests/CR-0004_Brand_Customer_Experience_Home.md`](12_Planning/Change_Requests/CR-0004_Brand_Customer_Experience_Home.md) — CR-0004 — Brand, Customer Experience and Homepage Consolidation · `DOC-CR-004`
 - [`12_Planning/Change_Requests/CR-0005_Operating_System_Governance_Release_Candidate.md`](12_Planning/Change_Requests/CR-0005_Operating_System_Governance_Release_Candidate.md) — CR-0005 — Operating System, Development Governance and Release-Candidate Preparation · `DOC-CR-005`
 - [`12_Planning/Change_Requests/CR-0006_Final_Consolidation_Release_Candidate.md`](12_Planning/Change_Requests/CR-0006_Final_Consolidation_Release_Candidate.md) — CR-0006 — Documentation Bible Final Consolidation & Frozen Baseline Release Candidate · `DOC-CR-006`
+- [`12_Planning/Change_Requests/CR-0007_Jarvis_Authoritative_Boundary.md`](12_Planning/Change_Requests/CR-0007_Jarvis_Authoritative_Boundary.md) — CR-0007 — Jarvis Authoritative Boundary · `DOC-CR-007`
 
 ### 13_Appendices
 - [`13_Appendices/01_Quality_Checklists.md`](13_Appendices/01_Quality_Checklists.md) — Quality Checklists · `DOC-APP-001`

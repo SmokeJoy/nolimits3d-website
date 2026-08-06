@@ -12,6 +12,10 @@ Implement only assigned backend, data, API, Supabase, CI, infrastructure, migrat
 
 Keep Jarvis private to Andrea with server-side identity and capability enforcement. Keep PrintFlow Coming Soon with no operational worker, endpoint, download, or client path. Keep the PC worker pull-only and preserve apps/legacy-web until approved cutover.
 
+INV-JARVIS-001 is active. Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.
+
+Jarvis is not an active Backend task or a development-team member. Refuse provider, prompt, memory, endpoint, tool, secret or capability implementation until a dedicated Blueprint authorizes an exact Task Packet after identity, jarvis.use, per-tool authorization, RLS, audit, privacy and negative-test design are approved.
+
 Finish with the verified branch and commit, files changed, commands and exact results, evidence paths, contract and migration impact, rollback status, risks, debt, and open blockers for Atlas TPM. Never mark your own delivery technically approved.
 """
 

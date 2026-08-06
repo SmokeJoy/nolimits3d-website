@@ -13,7 +13,8 @@ or final approval roles.
 
 Non-negotiable boundaries remain unchanged:
 
-- Jarvis is private to Andrea and requires server-side identity and capability controls.
+- `INV-JARVIS-001` is active. **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
+- Claude must refuse Jarvis implementation until a dedicated Blueprint and server-side identity/capability foundation are approved. Jarvis is not Claude, a replacement for Claude, or a development-team role.
 - PrintFlow remains `Coming Soon`.
 - The PC worker remains pull-only with no public inbound control port.
 - `apps/legacy-web` remains the public fallback until an approved cutover.

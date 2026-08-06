@@ -6,6 +6,16 @@
 > **Owner:** Project Governance  
 > **Ambito autorevole:** cronologia delle candidate documentali.
 
+## 0.96.1 — Jarvis Authoritative Boundary (2026-08-06)
+
+- accepted AD-012 / CR-0007 and registered `INV-JARVIS-001`;
+- established the canonical Andrea-only, Command Center-only, non-customer and non-team boundary;
+- made the dedicated Blueprint and server-side identity/capability foundation a blocking implementation prerequisite;
+- aligned Constitution, PRD, SDS, Command Center, permissions, AI, security, privacy, RTM, roadmap, risk and open questions in-place;
+- kept all Accepted ADR files unchanged, including ADR-0020;
+- explicitly classified Jarvis prompt material as design-only and inactive;
+- authorized no Jarvis code, route, endpoint, provider, prompt runtime, memory, tool or secret.
+
 
 ## 0.96 — Documentation Bible Final Consolidation & Frozen Baseline Release Candidate
 

@@ -9,7 +9,9 @@
 
 ## 1. Visione del prodotto
 
-La **NoLimits3D Website Platform** è il centro di Project Atlas e il punto unico in cui clienti privati e aziende scoprono l’offerta, configurano o richiedono prodotti, acquistano dove consentito e seguono la relazione con il laboratorio. Il **NoLimits Command Center** consente ad Andrea di governare contenuti, catalogo, ordini, clienti, media, eventi, SEO, roadmap e automazioni. **Jarvis è esclusivamente privato e interno al Command Center.**
+La **NoLimits3D Website Platform** è il centro di Project Atlas e il punto unico in cui clienti privati e aziende scoprono l’offerta, configurano o richiedono prodotti, acquistano dove consentito e seguono la relazione con il laboratorio. Il **NoLimits Command Center** consente ad Andrea di governare contenuti, catalogo, ordini, clienti, media, eventi, SEO, roadmap e automazioni.
+
+> **Jarvis è l'assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D. Assiste Andrea nella gestione e nell'evoluzione del sito tramite strumenti autorizzati, con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è un servizio pubblico, non è un chatbot clienti e non fa parte del team di sviluppo.**
 
 ## 2. Scope Fase 1
 
@@ -21,7 +23,7 @@ La **NoLimits3D Website Platform** è il centro di Project Atlas e il punto unic
 - richieste personalizzate e assistenza;
 - portfolio, blog, eventi, newsletter, ricerca e Media Library;
 - NoLimits Command Center;
-- Jarvis privato con modalità iniziali e human-in-the-loop;
+- Jarvis privato con modalità e human-in-the-loop soltanto in una milestone futura, dopo Blueprint dedicato e security gate; nessuna implementazione in M-001;
 - pagina PrintFlow “In arrivo”.
 
 ## 3. Fuori scope Fase 1
@@ -57,7 +59,7 @@ La **NoLimits3D Website Platform** è il centro di Project Atlas e il punto unic
 | PRD-F-017 | Presentare brand, payoff e valori approvati in modo coerente. | Must |
 | PRD-F-018 | Mantenere Project Atlas come codename interno. | Must |
 | PRD-F-019 | Rendere il sito NoLimits3D il centro dell’intero ecosistema Project Atlas. | Must costituzionale |
-| PRD-F-020 | Rendere Jarvis accessibile esclusivamente ad Andrea nel Command Center e invisibile al pubblico e ai clienti. | Must sicurezza |
+| PRD-F-020 | Rendere Jarvis accessibile esclusivamente ad Andrea nel Command Center, con identità/capability verificate server-side, e invisibile a pubblico, clienti e utenti autenticati ordinari. | Must sicurezza |
 | PRD-F-021 | Fornire il NoLimits Command Center con code operative, salute sistema e azioni proposte. | Must |
 | PRD-F-022 | Gestire prodotti, servizi, configurabili, fiera e preventivo tramite un Unified Commerce Catalog. | Must |
 | PRD-F-023 | Applicare carrello, checkout, conferma e pagamento in funzione delle regole del prodotto. | Must |

@@ -34,5 +34,10 @@ Existing Blueprint, charter, prior reviews and directives remain authoritative a
 
 - Bible v0.96 RC versus expected v1.0 Frozen Baseline remains a production-release binding issue;
 - implementation requires explicit Architect `PROCEED`;
-- Jarvis remains private to Andrea;
+- `INV-JARVIS-001` / AD-012 is binding: Jarvis is Andrea-only in the Command Center, not customer-facing or a development-team member, and is not implementable before a dedicated Blueprint and server-side identity/capability foundation;
 - PrintFlow remains Coming Soon.
+
+## Post-M0R binding addition - 2026-08-06
+
+`03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md` records Andrea's Accepted
+Jarvis constitutional boundary. It does not reopen M-001 or authorize implementation.

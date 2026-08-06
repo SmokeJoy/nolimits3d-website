@@ -12,5 +12,5 @@ MFA obbligatoria per privilegi elevati; sessioni sicure; password hashing robust
 <!-- V0952-API-SEC:START -->
 ## Supabase/RLS/Jarvis controls
 
-RLS deny-by-default, Edge Function auth/capability, service-role solo server-side, signed URL brevi, webhook signature, idempotency e rate limit. Jarvis richiede identity Andrea e `jarvis.use` in ogni livello; una route nascosta non è un controllo. Test negativi verificano accesso pubblico/cliente negato.
+RLS deny-by-default, Edge Function auth/capability, service-role solo server-side, signed URL brevi, webhook signature, idempotency e rate limit. Jarvis richiederà identità Andrea verificata, `jarvis.use` e autorizzazione server-side per ogni tool/resource scope; una route nascosta non è un controllo. Test negativi devono verificare accesso pubblico, cliente e utente autenticato ordinario negato anche conoscendo route, endpoint e payload. Questi controlli sono un gate futuro: nessuna API Jarvis è autorizzata prima del Blueprint dedicato.
 <!-- V0952-API-SEC:END -->

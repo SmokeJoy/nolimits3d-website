@@ -18,7 +18,7 @@
 | Lantern Configuration | Configurazione persistita di struttura, pannelli, immagini e opzioni di una lanterna. |
 | HueForge Artwork | Immagine e metadati tecnici destinati a una stampa HueForge. |
 | PrintFlow | Software esterno/interno in sviluppo; in Fase 1 è solo oggetto informativo. |
-| Jarvis | Unico AI Orchestrator privato di Andrea, incorporato nel NoLimits Command Center; non è pubblico né disponibile ai clienti. |
+| Jarvis | Assistente AI strettamente privato di Andrea, integrato esclusivamente nel Command Center amministrativo di NoLimits3D; usa solo strumenti autorizzati con identità e permessi verificati server-side e controllo umano sulle azioni consequenziali. Non è pubblico, non è un chatbot clienti, non fa parte del team di sviluppo e non è autorizzato prima di un Blueprint dedicato. |
 | Customer/CRM Manager | Tool interno di Jarvis per attività CRM autorizzate; non è un assistente pubblico e non possiede identità autonoma. |
 | GEO | Ottimizzazione dei contenuti per motori generativi e sistemi di risposta AI. |
 
