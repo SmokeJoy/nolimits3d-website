@@ -7,3 +7,5 @@ export * from './catalog';
 export * from './cart';
 export * from './intake';
 export * from './configurator';
+export * from './auth';
+export * from './storage';

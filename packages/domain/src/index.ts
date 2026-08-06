@@ -8,3 +8,4 @@ export * from './catalog';
 export * from './configurator';
 export * from './cart';
 export * from './intake';
+export * from './auth';
