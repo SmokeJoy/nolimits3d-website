@@ -10,6 +10,13 @@ import {
   summarizeAdvisories,
   validateWaiver,
 } from './dependency-audit.mjs';
+import {
+  checkBudget,
+  CSS_BUDGET_BYTES,
+  JS_BUDGET_BYTES,
+  measureInitialPayload,
+  parseInitialAssets,
+} from './performance-budget-guard.mjs';
 import { isTechnicalPath, scanText } from './secret-scan.mjs';
 import { scanScope } from './scope-guard.mjs';
 import { validateBindings } from './source-binding-guard.mjs';
@@ -198,4 +205,56 @@ test('the shipped waiver file satisfies the schema', () => {
 
 test('current source bindings are valid', () => {
   assert.deepEqual(validateBindings(process.cwd()), []);
+});
+
+test('performance budget guard parses the initial module script and stylesheet, ignoring ld+json', () => {
+  const html = `<!doctype html><html><head>
+    <script type="application/ld+json">{"not":"a script"}</script>
+    <script type="module" crossorigin src="/assets/index-ABC123.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-XYZ789.css">
+  </head><body></body></html>`;
+  assert.deepEqual(parseInitialAssets(html), {
+    scripts: ['/assets/index-ABC123.js'],
+    styles: ['/assets/index-XYZ789.css'],
+  });
+});
+
+test('performance budget guard passes comfortably under DOC-SEC-005 §4 budget', () => {
+  const gate = checkBudget({ jsBytes: JS_BUDGET_BYTES - 1024, cssBytes: CSS_BUDGET_BYTES - 1024 });
+  assert.equal(gate.passed, true);
+  assert.deepEqual(gate.violations, []);
+});
+
+test('performance budget guard fails closed when the initial payload exceeds DOC-SEC-005 §4 budget', () => {
+  const gate = checkBudget({ jsBytes: JS_BUDGET_BYTES + 1, cssBytes: CSS_BUDGET_BYTES + 1 });
+  assert.equal(gate.passed, false);
+  assert.equal(gate.violations.length, 2);
+});
+
+test('performance budget guard measures real gzip size of the built initial payload', () => {
+  const root = fixture();
+  try {
+    writeFileSync(
+      join(root, 'index.html'),
+      '<script type="module" src="/app.js"></script><link rel="stylesheet" href="/app.css">',
+    );
+    // Highly compressible fixture content -- gzip should shrink it far under budget.
+    writeFileSync(join(root, 'app.js'), 'console.log("a");'.repeat(100));
+    writeFileSync(join(root, 'app.css'), 'body{color:red}'.repeat(100));
+
+    const { jsBytes, cssBytes } = measureInitialPayload(root);
+    assert.ok(jsBytes > 0 && jsBytes < JS_BUDGET_BYTES);
+    assert.ok(cssBytes > 0 && cssBytes < CSS_BUDGET_BYTES);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('performance budget guard fails clearly when dist/index.html is missing', () => {
+  const root = fixture();
+  try {
+    assert.throws(() => measureInitialPayload(root), /run the build first/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
