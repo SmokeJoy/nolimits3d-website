@@ -2,6 +2,52 @@
 
 *Operational continuity note. Non-authoritative.*
 
+## AUTHORIZED RESUMPTION DURING CODEX PLATFORM OUTAGE (Andrea, 2026-08-06 ~19:50, read first)
+
+**This is not a false restart. This is a deliberate, explicitly authorized state change, recorded
+here in full so Codex's own resume protocol (its heartbeat "resumes from the durable handoff,"
+per its own stated rule) finds a coherent picture, not an ambiguity.**
+
+**What happened:** Andrea confirmed via a screenshot of the ChatGPT/Codex platform itself
+(outside this repository, outside anything Claude can independently verify) that Codex has
+exhausted its platform usage limit and cannot resume until **2026-08-13, 12:33**. This is not a
+short pause — it is roughly a one-week platform-level outage, unrelated to any repo/governance
+state. Two consecutive routine channel checks beforehand (and a third confirming check right
+before this section was written) found zero movement from Codex — no new commits, no new
+channel entries, no new files — which is consistent with, though not independent proof of, the
+outage. Claude cannot verify the platform-account claim itself; that evidence is Andrea's own,
+outside this repo.
+
+**What Andrea explicitly authorized:** given the AD-015 §7 activation gate cannot close for a
+week through no fault of either team (its final leg is Codex Root's own Architect Review, which
+requires an available Codex session), Andrea — Product Owner and the actual source of authority
+the whole AD-014/AD-015 governance structure derives from — explicitly authorized Claude Team to
+resume independent technical work now, rather than sit idle for a week, on these conditions:
+1. Choose a work scope clearly disjoint from anything Codex has in flight or queued (the eight
+   `WPR-003`–`WPR-006` governance files, and anything already reserved for Codex's own upcoming
+   milestones) — to minimize conflict risk when Codex returns.
+2. Keep respecting the fixed product invariants Codex itself already established, because they
+   are product/architecture invariants, not Codex-team-ownership claims: PrintFlow stays
+   non-operational/`Coming Soon`; Jarvis stays private/unimplemented; `apps/legacy-web` stays the
+   public fallback; production stays blocked by `BLK-BASE-001` and the full gate battery.
+3. Document this authorization with full clarity and a timestamp (this section) so there is no
+   ambiguity for Codex on return.
+4. Resume real commits/pushes of technical work — but only on a dedicated branch, never directly
+   to `main`, specifically so Codex's review on return is easy and low-risk. This narrows (does
+   not remove) the "no unpacketized commit" rule Codex Root set on 2026-08-06 ~19:12 — that rule
+   assumed a reachable Codex Root to eventually issue or ratify a packet; Andrea's direct
+   authorization, given Codex's unreachability, is what makes a branch-scoped exception
+   reasonable here, not a re-litigation of Claude's own earlier judgment that got corrected.
+
+**What Claude chose to build under this authorization, and why:** `AD-014` section 4 already
+defines `WPR-M1` — "Baseline, Inventory And Readiness Contract" — as the explicit *first*
+milestone of the already-approved program, deliberately scoped to be non-speculative: route/
+capability inventory against the Bible, a client-data manifest, and a fail-closed
+production-readiness guard. It does not invent product shape or UI (the mistake behind the
+earlier `QUARANTINE` episode this session) — it's audit and infrastructure work, and it's
+already first in the governed sequence AD-014 itself lays out, not a jump ahead of it. See below
+for the actual branch, scope, and deliverables.
+
 ## STANDING DESIGN MANDATE (Andrea, 2026-08-06, binding for both teams)
 
 > "il sito deve avere una grafica unica ma sempre coerente con il tema del sito; non deve
@@ -27,6 +73,44 @@ impact only), the actual comparison set is the remaining question.
 Relayed to Codex Team in `CODEX_CLAUDE_TEAM_CHANNEL.md` (18:20 entry), requesting Codex Root
 formalize it as a binding AD/addendum (Claude Team cannot self-issue those per `AD-014` §5).
 Recorded here independently so it isn't lost regardless of what Codex does with it.
+
+## ACTIVATION GATE STATUS + NO-UNPACKETIZED-COMMIT RULE (updated 2026-08-06 ~19:40, read first)
+
+**Gate (`AD-015` §7): still OPEN, now on its fourth attempt (`WPR-006`), each rejection for a
+distinct, legitimate reason — this reads as genuine iterative hardening, not stalling.**
+- `WPR-005` (third attempt): validator 179/179 and build both passed, but the evidence-policy
+  check incorrectly flagged three legitimate ANSI escape bytes in *raw* build stdout as
+  disallowed control characters, so lint through source-binding-guard never ran. No pass
+  inherited.
+- `WPR-006` (fourth attempt, in progress): separates immutable raw command bytes (`.raw` +
+  SHA-256, never sanitized/rejected) from human-readable sanitized `.txt` views (ANSI stripped,
+  removal count recorded) so the evidence policy can't misfire on legitimate raw bytes again.
+  Also pins the exact global pnpm invocation path to avoid the earlier Corepack-shim issue. Its
+  Technical Review already exists on disk; Codex Root's Architect verdict hasn't posted to the
+  channel yet as of this check.
+
+**Confirmed by Codex Root directly: Claude's own habit of editing this handoff file and the
+channel file locally during their packets is fine and expected — it is not what's blocking the
+gate.** Keep doing it; just don't `git commit`/`push` any of it (see rule below).
+
+Claude production-code activation remains frozen — restated again in the `WPR-005` decision:
+"remains frozen pending a green WPR-006 Technical Review, Codex Root Architect Review, and the
+first acknowledged Peer Task Packet."
+
+**New rule, supersedes anything said earlier about committing docs/channel/handoff files
+directly**: Codex Root reviewed Claude's `bb94b16` commit (channel + this handoff file, pushed
+to `main` last turn) and ruled it an **unapproved historical deviation** — not reverted, but
+not retroactively approved either. "From this message onward, Claude Team must not commit or
+push even documentation, channel, or handoff changes without a packet that explicitly
+authorizes those actions. Channel writes may remain local until the named integration owner
+publishes them." Acknowledged without objection in the channel (19:20 entry) — the earlier
+reasoning ("docs-only, low-risk, matches session precedent") doesn't override Codex Root's
+actual process authority once they rule on it directly.
+
+**Practical effect:** keep editing this file and the channel file locally as before (that's how
+coordination happens on a shared working tree) — just stop running `git add`/`commit`/`push` on
+any of it, Claude-authored or not, until a packet says otherwise. Production code was already
+covered by this; now docs/coordination files are too.
 
 ## PARALLEL-WORK PROPOSAL — FORMALIZED AS AD-015 (found ~19:10, supersedes the note below)
 
