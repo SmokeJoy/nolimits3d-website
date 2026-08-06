@@ -16,3 +16,23 @@
  * generate dal pass del playground.
  */
 @source '../../../packages/ui/src';
+
+/*
+ * Stessa classe di bug corretta su apps/web (fix separato, stessa sessione):
+ * `html`/`body` non hanno mai uno sfondo esplicito qui, sono trasparenti per
+ * default e ricadrebbero sul default del browser (che segue la preferenza
+ * chiaro/scuro del sistema operativo del visitatore, non il tema di
+ * @atlas/ui). App.tsx's root div ha già `bg-bg-canvas` via Tailwind e in
+ * pratica copre sempre l'intero documento (min-h-screen, verificato:
+ * altezza body == altezza documento anche a scroll massimo), quindi il
+ * sintomo visibile di apps/web non si manifesta qui — ma resta un difetto
+ * strutturale identico, non solo un rischio ipotetico: qualunque layout
+ * futuro che non riempia il 100% dell'altezza esporrebbe lo stesso sfondo
+ * del browser. Corretto per coerenza e per non lasciare la stessa classe di
+ * bug non protetta in un secondo punto del codice.
+ */
+html,
+body {
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+}
