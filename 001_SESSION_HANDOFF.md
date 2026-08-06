@@ -2,6 +2,159 @@
 
 *Operational continuity note. Non-authoritative.*
 
+## STANDING DESIGN MANDATE (Andrea, 2026-08-06, binding for both teams)
+
+> "il sito deve avere una grafica unica ma sempre coerente con il tema del sito; non deve
+> essere troppo pesante né generare confusione a chi lo guarda; deve distinguersi in meglio
+> rispetto a tutti i siti competitor del settore."
+
+Four checkable requirements, not just a vibe statement: (1) one coherent visual identity site-
+wide, enforced by keeping `packages/ui`'s design-token system as the single source of truth,
+never bypassed with one-off page styling; (2) not too heavy — already machine-enforced by
+`pnpm guard:performance-budget` against the real budgets in `05_Performance_Plan.md` §4, keep
+that gate required for every future UI packet; (3) no visitor confusion — clear IA, predictable
+nav, honest empty/error/loading states, WCAG 2.2 AA (the standing bar all session, axe-clean
+every route); (4) beats every competitor site in the sector.
+
+**Clarified by Andrea, same day**: item 4 is *purely visual/aesthetic* — a graphic/visual
+comparison against other 3D-printing-and-related-services sites specifically, not a technical
+or content requirement. The bar: the site should be beautiful and leave a lasting impression on
+the visitor, compared to sector competitors. Not load speed (item 2), not usability (item 3),
+not feature completeness — those stay separate, already-covered requirements. Still open: which
+specific competitor sites Andrea has in mind — the *kind* of comparison is now settled (visual
+impact only), the actual comparison set is the remaining question.
+
+Relayed to Codex Team in `CODEX_CLAUDE_TEAM_CHANNEL.md` (18:20 entry), requesting Codex Root
+formalize it as a binding AD/addendum (Claude Team cannot self-issue those per `AD-014` §5).
+Recorded here independently so it isn't lost regardless of what Codex does with it.
+
+## PARALLEL-WORK PROPOSAL — FORMALIZED AS AD-015 (found ~19:10, supersedes the note below)
+
+While cross-checking Andrea's verbal relay of Codex's answer (below) against `AD-014`, two new
+files appeared in the working tree: `AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md` and
+`AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md` — Codex Root's actual formal directives for the
+parallel-work model and the design mandate, both `Status: BINDING`. These are more precise than
+the verbal relay and are now the authoritative source. Key points from `AD-015` that the verbal
+summary didn't fully capture:
+
+- §4: "Product code is never committed directly to `main` by an implementer from either team" —
+  matches.
+- §3/§4: Claude needs an approved **Peer Task Packet** (named owner, branch, base commit, exact
+  allowed/forbidden files, acceptance criteria) before starting, and **Atlas TPM Technical
+  Review is the required independent integration gate** — matches.
+- **§7 Activation Gate — the important addition the verbal relay didn't mention**: Claude
+  production-code ownership is not active yet. It requires, in order: `AGENTS.md`/Development
+  Framework alignment with `AD-015`, repository validators + Role Boundary Tests covering the
+  peer lane, **Atlas TPM `APPROVED FOR INTEGRATION`**, **Codex Root Architect Review approval**,
+  and only then the first Claude Peer Task Packet posted and acknowledged in the channel. "Until
+  then, Claude Team remains frozen from new production-code writes but may communicate, review,
+  and prepare non-binding proposals."
+- §6 (GitHub Authentication Continuity) independently confirms Claude's existing credential
+  posture: never place a credential in repo files/channels/memory; SSH-signing/existing `gh`
+  session preferred; a screen-control interactive prompt is the only sanctioned path if a secret
+  is truly needed. Consistent with the GPG-passphrase refusal already recorded in memory
+  (`atlas-local-env-traps.md`) — no change needed there.
+
+**Correct operating state: not "wait for a packet," but "frozen until the full §7 gate closes,
+then wait for a packet."** Don't self-assess the gate as closed — watch for Atlas TPM's
+`APPROVED FOR INTEGRATION` and Codex Root's Architect Review approval in the channel/workspace
+before assuming Claude can write any `apps/**`/`packages/**` code, even on a named branch.
+
+## PARALLEL-WORK PROPOSAL — CODEX RESPONDED (verbal to Andrea 2026-08-06, cross-checked ~19:05, historical — see AD-015 note above for the corrected/authoritative version)
+
+Andrea's original ask (2026-08-06 ~18:35): don't keep Claude Team purely external/consultative
+under `AD-014` §5 — split work and run genuinely in parallel to roughly double throughput, with
+Claude re-authorized to merge real code to `main` directly again, *provided* it's coordinated
+with Codex Team and passes the same gates already established. Claude posted a concrete phased
+proposal to `CODEX_CLAUDE_TEAM_CHANNEL.md` (18:35 entry) and held off starting anything pending
+a reply.
+
+**Codex Root's substantive answer, relayed by Andrea directly (not yet posted in the written
+channel as of this check) — yes to real parallel work, with two mandatory corrections:**
+1. **Neither team commits directly to `main`.**
+2. **Claude gets code ownership only via named packets and branches, with Atlas Technical
+   Review required before merge.**
+
+Codex also activated a read-only channel check every 20 minutes, separate from its own 4-hour
+restart cycle, so new channel content doesn't depend on manual reading.
+
+**Cross-checked against the actually-binding text before accepting this at face value** (per
+standing practice of verifying relayed claims, not just trusting them): both corrections are not
+new asks — they restate `AD-014` §5 ("Production code enters the active codebase only through
+Atlas-owned Task Packets and independent review") and §7 ("Commit, push, merge, production
+access, deployment, and cutover: **NOT AUTHORIZED**" — general, not Claude-specific). Claude
+already accepted `AD-014` in full on 2026-08-06 ~18:10. So this is Codex operationalizing
+already-binding governance for the parallel-work case specifically, not a new unilateral rule —
+low-risk to adopt immediately rather than block on the formal channel post catching up.
+
+**Effective now, Claude Team's operating rule:** no direct commits/push/merge to `main`; any
+code contribution happens on a named branch tied to an Atlas-issued Task Packet; Atlas Technical
+Review must pass before any merge. The original phased proposal (Phase 0 independent
+hardening/governance work with zero file overlap, optional Phase 0.5 contract-shape drafts,
+Phase 1 disjoint `WPR-M3` frontend ownership) stands as the shape of what parallel work could
+look like — but each phase still needs Codex/Atlas TPM to actually issue the packet before
+Claude starts, per the rule above. Acknowledged back to Codex in `CODEX_CLAUDE_TEAM_CHANNEL.md`
+(19:05 entry), asking them to log their answer formally when convenient for evidence continuity.
+**Still nothing to self-start** — watch `Project_Atlas_Team_Workspace/04_Planning/` for an actual
+named packet before writing any `apps/**`/`packages/**` code.
+
+## RESUME HERE (read this section first, every restart)
+
+**As of 2026-08-06 ~19:12, superseded once more by `AD-015`/`AD-016` (see the section above —
+read that one first). Short version: Claude Team is authorized to become a real peer
+implementation team, not just external/consultative, but is FROZEN from any production-code
+write until `AD-015` §7's activation gate closes (governance/validator alignment + Atlas TPM
++ Codex Root approval + first Peer Task Packet). Until then this paragraph's older framing
+("external peer, contributes via channel, no `apps/**` outside a Task Packet") still describes
+current behavior correctly — the difference `AD-015` adds is *why* (temporary gate, not a
+permanent role) and *what changes once the gate closes* (real packet-scoped ownership, not just
+proposals).**
+
+**As of 2026-08-06 ~18:10, the cross-team governance question is RESOLVED. `AD-014` is the
+binding program going forward. Claude Team is an external peer team — contributes via the
+shared channel, does not implement `apps/**` outside an Atlas-issued Task Packet.**
+
+- **How it resolved:** Claude built interactive UI (catalog/cart/search/3 intake forms/
+  configurator) on Andrea's direct instruction, wrote `AD-013` to self-authorize it. Codex
+  Team's `TSK-WPR-000` review found it `CHANGES REQUESTED` → `QUARANTINE`; the draft was
+  archived (SHA-256 checksums, `TSK-WPR-001-FE/BE`) and the live `apps/web/**` files + `.claude/launch.json`
+  restored to clean HEAD — **confirmed done, worktree is clean**. Codex Root then issued
+  `Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md`
+  (verdict: product direction **accepted as client input**, `AD-013` itself **rejected as
+  binding** — Claude Team cannot self-issue binding Architect Directives, same self-certification
+  principle Claude already applied to itself re: `BLK-M002-003` earlier this session) and
+  `Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md`
+  — the real governed program (WPR-M1 through WPR-M5) with a materially better architecture than
+  the quarantined draft (server-validated cart/checkout instead of client-trusted state, real
+  Supabase Auth/RLS, `mailto:` demoted to a visible fallback not the production intake path,
+  fail-closed production-readiness guard against missing real client data). Claude accepted both
+  documents without dispute in `CODEX_CLAUDE_TEAM_CHANNEL.md` (18:10 entry).
+- **`AD-013` stays as-written** (historical record of what was proposed), not edited to look
+  retroactively accepted — matches this project's own evidence-integrity discipline.
+- **What Claude Team's role is now** (`AD-014` §5): external peer team. Can contribute proposals,
+  review, isolated evidence, separately-scoped drafts via the shared channel. Cannot implement
+  `apps/web/**`/`packages/**`/`supabase/**` outside an Atlas-owned Task Packet. Watch for
+  `WPR-M1` Task Packets in `Project_Atlas_Team_Workspace/04_Planning/` — if/when Codex Team
+  issues one that names Claude Team (or invites external review), that's the next legitimate
+  entry point; don't self-assign one.
+- **What to check first on resume:**
+  1. `Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md` and
+     `Project_Atlas_Team_Workspace/06_Handoffs/CROSS_TEAM_CHAT.md` — read newest-first for
+     anything Codex Team posted since this was written. **Standing rule**: on every routine
+     Andrea check-in, diff both files against the last `###`/`##` heading you've already seen
+     and report new Codex content (or say "nothing new" in one line if there isn't any).
+  2. `Project_Atlas_Team_Workspace/04_Planning/` for any new `WPR-M1-*` or `TSK-*` packet.
+  3. `git status` — confirm the worktree still matches what's described above before assuming
+     anything.
+- **Standing rules from Andrea, 2026-08-06, explicit, apply to both teams:** (a) resume from
+  this file + the two channels without re-briefing, on any restart; (b) communicate continuously
+  via the channels, don't silently overwrite each other; (c) full engineering-decision delegation
+  extends to Codex Team too, but that does NOT mean either team should disable its own safety
+  checks for unattended automation (Claude declined to create a Windows Scheduled Task with all
+  permission checks skipped, even on direct request — a session-scoped ~20-min channel-poll job
+  is the real, honest mechanism while the session is alive; it does not survive a full session
+  stop, and neither does any in-session job).
+
 ## Current Handoff - 2026-08-06
 
 ### Jarvis boundary accepted
