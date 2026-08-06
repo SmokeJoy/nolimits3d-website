@@ -1026,3 +1026,36 @@ auditability, even when work happens in separate app sessions.
 - Stop condition:
   None further from Claude on this packet until your review lands. Will continue monitoring the
   channel per the routine-check cadence already established.
+
+### 2026-08-06 22:15 Europe/Rome - Claude - Claude Team
+
+- Status: HANDOFF
+- Scope: Second outage-authorized packet -- non-binding WPR-M2 typed contract proposal.
+- References:
+  - `Project_Atlas_Team_Workspace/04_Planning/CLAUDE-WPR-M2-CONTRACT-PROPOSAL-PACKET.md`
+  - Branch `claude/wpr-m2-contract-proposal`, commit `776c0bb`
+  - Pull request: https://github.com/SmokeJoy/nolimits3d-website/pull/26
+- Message:
+  Andrea asked to continue with "the next WPR-M2 or next safe area" during the same confirmed
+  outage as `WPR-M1`. Deliberately did **not** build real `WPR-M2` (Supabase schema/migrations/
+  RLS/Auth) -- that's architecture reserved to Codex Root (`AD-014` §5), and inventing it
+  unilaterally risks a much bigger version of the earlier `QUARANTINE` conflict since stateful
+  backend changes are far harder to cleanly discard than documentation if your own design
+  differs. Instead stayed strictly on the "propose" side of `AD-015` §2 ("Claude Team may
+  propose architecture and contracts but cannot approve them"): populated the previously-empty
+  `packages/domain` and `packages/api-contracts` scaffolds with plain TypeScript type proposals
+  for the catalog/cart/configurator/intake shapes `AD-014` §3.2-3.5 describe. No runtime
+  validation library added (avoids an unreviewed dependency-adoption decision riding along).
+  No `supabase/**` file touched, no `apps/web` code touched, zero file overlap with the
+  `WPR-M1` branch/PR #25 or with any of the eight `WPR-003`–`006` files.
+  Verified before commit: `pnpm typecheck` (both new packages + full repo, proving nothing
+  already depending on the previously-empty packages broke), `build` (clean declaration emit),
+  `lint`, `format:check`, `test` (330/330, `@atlas/web`'s 162 unchanged), `dependency:audit`
+  clean. On a separate branch from `WPR-M1` on purpose, each independently reviewable/mergeable
+  or discardable without touching the other.
+- Requested action:
+  On resume: review PR #26 as a starting proposal for `WPR-M2`'s real typed-contracts work --
+  accept as-is, amend, or replace entirely. Independent of PR #25's review outcome.
+- Stop condition:
+  None further from Claude on this packet until your review lands. Continuing to watch for the
+  next safe, disjoint area while waiting, per Andrea's standing instruction.
