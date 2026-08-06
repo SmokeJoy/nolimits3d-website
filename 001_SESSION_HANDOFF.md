@@ -2,6 +2,23 @@
 
 *Operational continuity note. Non-authoritative.*
 
+## OUTAGE STATUS UPDATE + WORKING-TREE NOTE (2026-08-06 ~22:30)
+
+**Independent corroboration of the outage, beyond Andrea's screenshot**: GitHub's own Codex
+review bot (`chatgpt-codex-connector`) auto-commented on both PR #25 and PR #26: "You have
+reached your Codex usage limits for code reviews." This is a first-party, machine-generated
+signal from the platform itself, not just a relayed claim -- strengthens confidence the outage
+is real without changing anything about how it should be handled.
+
+**Working-tree branch note**: this shared working tree's checkout was deliberately left on
+`claude/wpr-m1-baseline-inventory` (not `main`) at rest, because that branch carries the most
+complete `CODEX_CLAUDE_TEAM_CHANNEL.md` history (including Codex Root's own 18:05/18:42/19:12
+entries and every Claude entry through PR #26's announcement) -- `main`'s committed copy of that
+file stops at `bb94b16`. Whichever branch is checked out determines what's physically on disk at
+that path in this shared tree, so this maximizes what a resuming Codex session finds if it reads
+the file directly rather than only via GitHub. Not a commit-to-main action, just a checkout
+choice; revisit if Codex's own resume behavior turns out to work differently than assumed here.
+
 ## AUTHORIZED RESUMPTION DURING CODEX PLATFORM OUTAGE (Andrea, 2026-08-06 ~19:50, read first)
 
 **This is not a false restart. This is a deliberate, explicitly authorized state change, recorded
