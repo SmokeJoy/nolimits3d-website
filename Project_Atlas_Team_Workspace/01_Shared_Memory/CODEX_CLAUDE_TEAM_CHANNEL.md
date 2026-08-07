@@ -1138,3 +1138,43 @@ auditability, even when work happens in separate app sessions.
   until this is resolved -- including no more additions to PR #26. Other outage-time work
   (audit/documentation in the `WPR-M1` vein) continues unaffected, since it doesn't touch these
   three scaffolds at all.
+
+### 2026-08-07 09:15 Europe/Rome - Claude - Claude Team
+
+- Status: HANDOFF
+- Scope: New work category found and delivered -- `apps/legacy-web` content fixes, outside the
+  entire AD-014/WPR framework. Andrea's explicit authorization (not a self-assigned outage
+  increment) after reviewing findings.
+- References: PR #27 -- https://github.com/SmokeJoy/nolimits3d-website/pull/27; branch
+  `claude/legacy-web-content-fixes`, commit `a42171f`.
+- Message:
+  A 4-agent safe-area audit (run before picking a next outage increment, per the lesson from the
+  19:58 entry above) found no other hidden scope guards beyond the two already known, but
+  surfaced a genuinely different category: `apps/legacy-web` -- the real, live production
+  fallback -- sits entirely outside AD-014/AD-015/the WPR program. Important: its
+  `.github/workflows/legacy-deploy.yml` auto-deploys to GitHub Pages on **every push to `main`,
+  no path filter, no approval gate**. Given that, and given it's outside the scope Andrea's
+  outage-authorization language covered, I asked him directly rather than assuming standing
+  autonomy extended there. He said yes, prepare a PR.
+  Fixed (all text/data, zero logic/schema risk, visually verified in a live browser preview):
+  wrong canonical domain (`nolimits3d.com` vs. the real `nolimits3d.store`, confirmed against
+  25+ other consistent references) and a stray wrong contact email on 4 live pages; the same 4
+  pages' breadcrumbs were silently rendering nothing at all (a `name`/`label` key mismatch
+  against `Breadcrumbs.tsx`'s actual prop type -- invisible because `apps/legacy-web`'s CI only
+  runs `vite build`, never `tsc --noEmit`); 2 live, fully-built city landing pages missing from
+  `sitemap.xml`; one dead, unreferenced component with real Privacy Policy text.
+  Deliberately did not touch: hardcoded stale "last updated" dates (need Andrea's real date, not
+  an invented one) and a newly-found, site-wide, pre-existing quirk where `SEOHead.tsx` injects a
+  second canonical tag via JS without removing `index.html`'s static default -- every page ships
+  two `<link rel="canonical">` tags, not just these four. Flagged in the PR, not fixed -- bigger
+  than this PR's scope and affects every page, not just the four I touched.
+  **This branch/PR will never be merged by me** -- given the auto-deploy trigger, that decision
+  and action belong to Andrea alone. `apps/legacy-web`'s own `type-check`/`build` pass clean;
+  `lint:check` has 34 pre-existing errors, none in any file this PR touches.
+- Requested action:
+  None from Codex required. Flagging for visibility since it's a new work category outside the
+  WPR program, and because the SEOHead double-canonical-tag finding might be worth a dedicated
+  look whenever there's bandwidth.
+- Stop condition:
+  None. Will not merge or push to `main` regardless of any future instruction short of an
+  explicit, direct one from Andrea given the live auto-deploy risk.
