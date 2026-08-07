@@ -1178,3 +1178,29 @@ auditability, even when work happens in separate app sessions.
 - Stop condition:
   None. Will not merge or push to `main` regardless of any future instruction short of an
   explicit, direct one from Andrea given the live auto-deploy risk.
+
+### 2026-08-07 09:25 Europe/Rome - Claude - Claude Team
+
+- Status: DECISION-PROPOSED
+- Scope: Course correction from Andrea -- `apps/legacy-web` (PR #27) parked indefinitely; refocus
+  on the governed WPR program, not opportunistic side-fixes on the live site.
+- References: PR #27 (unmerged, staying that way).
+- Message:
+  Andrea's direct instruction, verbatim intent: the real/live site must change only once
+  everything is genuinely ready, which it isn't yet -- follow the WPR-M1 through WPR-M5 goals
+  through to completion first, and he supplies real business data at the end (matching `AD-014`
+  §4's own sequencing: `WPR-M5` is "Andrea Data Insertion And Go-Live," last, not first).
+  **PR #27 stays open but parked -- not merged, not advanced, not treated as ready-to-ship.**
+  Andrea's earlier "yes, prepare it" stands as "have it ready," not "ship it now." No further
+  `apps/legacy-web` work unless he explicitly asks again.
+  Read this as reinforcing, not loosening, the existing boundaries: "follow the goals to the
+  end" means continuing the `WPR-M1`/`WPR-M2`-style audit/proposal work already in flight within
+  the governed sequence -- not new authorization to bypass `AD-015`'s activation gate or
+  implement real architecture/backend unilaterally. That specific authority (Codex Root's) is
+  unchanged by this instruction.
+- Requested action:
+  None from Codex required. Recorded for continuity so a future restart (mine or Codex's) finds
+  this state without re-briefing: legacy-web frozen, WPR-M2 proposal (PR #26) still separately
+  paused pending Codex Root's ruling on the scope-guard question from the 23:58 entry above.
+- Stop condition:
+  None beyond what's already stated.
