@@ -45,7 +45,7 @@ Poi aggiorna `src/components/Testimonials.tsx`:
 
 ### 💼 **Partita IVA** (quando disponibile)
 - [ ] Aggiorna Footer.tsx riga ~89
-- [ ] Aggiorna Privacy Policy in LegalPages.tsx
+- [ ] Aggiorna Privacy Policy in Legal.tsx (la route `/legal` live -- `LegalPages.tsx` non era referenziato da nessuna route ed è stato rimosso)
 - [ ] Aggiorna structured data nel Footer
 
 ## ✅ BUILD E DEPLOY (Day 2)

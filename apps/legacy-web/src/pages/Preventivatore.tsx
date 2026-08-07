@@ -7,8 +7,8 @@ import QuoteCalculator from '../components/QuoteCalculator';
 
 const Preventivatore: React.FC = () => {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
-    { name: 'Preventivatore', href: '/preventivatore' },
+    { label: 'Home', href: '/' },
+    { label: 'Preventivatore', href: '/preventivatore' },
   ];
 
   const structuredData = {
@@ -16,7 +16,7 @@ const Preventivatore: React.FC = () => {
     '@type': 'WebApplication',
     name: 'Preventivatore Stampa 3D Online | NoLimits3D',
     description: 'Calcola istantaneamente il costo del tuo progetto di stampa 3D. Preventivi online immediati e trasparenti. Tutti i materiali FDM disponibili.',
-    url: 'https://nolimits3d.com/preventivatore',
+    url: 'https://nolimits3d.store/preventivatore',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'All',
     offers: {
@@ -39,7 +39,7 @@ const Preventivatore: React.FC = () => {
       <SEOHead
         title="Preventivatore Stampa 3D Online - Calcolo Costi Istantaneo | NoLimits3D"
         description="Preventivatore stampa 3D online gratuito. Calcola subito il costo del tuo progetto: materiali, tempi, post-processing. Prezzi trasparenti come Weerg ma servizio locale."
-        canonicalUrl="https://nolimits3d.com/preventivatore"
+        canonicalUrl="https://nolimits3d.store/preventivatore"
         structuredData={structuredData}
       />
       

@@ -7,8 +7,8 @@ import MaterialSelector from '../components/MaterialSelector';
 
 const Materiali: React.FC = () => {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
-    { name: 'Materiali', href: '/materiali' },
+    { label: 'Home', href: '/' },
+    { label: 'Materiali', href: '/materiali' },
   ];
 
   const structuredData = {
@@ -16,7 +16,7 @@ const Materiali: React.FC = () => {
     '@type': 'WebPage',
     name: 'Materiali Stampa 3D - Selector Interattivo | NoLimits3D',
     description: 'Scopri tutti i materiali per stampa 3D FDM: PLA, ABS, PETG, TPU, Nylon, Carbon Fiber. Confronta proprietà, prezzi e applicazioni.',
-    url: 'https://nolimits3d.com/materiali',
+    url: 'https://nolimits3d.store/materiali',
     mainEntity: {
       '@type': 'ItemList',
       name: 'Materiali Stampa 3D',
@@ -43,7 +43,7 @@ const Materiali: React.FC = () => {
       <SEOHead
         title="Materiali Stampa 3D - Selector Interattivo | NoLimits3D Frosinone"
         description="Scopri tutti i materiali per stampa 3D FDM: PLA, ABS, PETG, TPU, Nylon, Carbon Fiber. Confronta proprietà, prezzi e applicazioni. Selector interattivo."
-        canonicalUrl="https://nolimits3d.com/materiali"
+        canonicalUrl="https://nolimits3d.store/materiali"
         structuredData={structuredData}
       />
       
@@ -107,11 +107,11 @@ const Materiali: React.FC = () => {
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Email Tecnica</h3>
               <p className="text-gray-300 mb-4">Invia file e specifiche dettagliate</p>
-              <a 
-                href="mailto:info@nolimits3d.com" 
+              <a
+                href="mailto:nolimits.3d.print@gmail.com"
                 className="text-purple-400 font-medium hover:text-purple-300"
               >
-                info@nolimits3d.com
+                nolimits.3d.print@gmail.com
               </a>
             </div>
           </div>

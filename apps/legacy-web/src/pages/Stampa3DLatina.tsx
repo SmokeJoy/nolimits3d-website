@@ -20,9 +20,9 @@ import {
 
 const Stampa3DLatina: React.FC = () => {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
-    { name: 'Servizi', href: '/servizi' },
-    { name: 'Stampa 3D Latina', href: '/stampa-3d-latina' },
+    { label: 'Home', href: '/' },
+    { label: 'Servizi', href: '/servizi' },
+    { label: 'Stampa 3D Latina', href: '/stampa-3d-latina' },
   ];
 
   const structuredData = {
@@ -76,7 +76,7 @@ const Stampa3DLatina: React.FC = () => {
       <SEOHead
         title="Stampa 3D Latina - Servizio Professionale Agro Pontino | NoLimits3D"
         description="Stampa 3D professionale per Latina e Agro Pontino. Specializzati in logistica, agroalimentare e chimico-farmaceutico. Consegna rapida in 24-48h."
-        canonicalUrl="https://nolimits3d.com/stampa-3d-latina"
+        canonicalUrl="https://nolimits3d.store/stampa-3d-latina"
         structuredData={structuredData}
       />
       
@@ -516,7 +516,7 @@ const Stampa3DLatina: React.FC = () => {
                 Consulenza Tecnica: 0775 123456
               </a>
               <a 
-                href="mailto:info@nolimits3d.com" 
+                href="mailto:nolimits.3d.print@gmail.com"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors"
               >
                 Richiedi Partnership

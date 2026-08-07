@@ -18,9 +18,9 @@ import {
 
 const Stampa3DCassino: React.FC = () => {
   const breadcrumbs = [
-    { name: 'Home', href: '/' },
-    { name: 'Servizi', href: '/servizi' },
-    { name: 'Stampa 3D Cassino', href: '/stampa-3d-cassino' },
+    { label: 'Home', href: '/' },
+    { label: 'Servizi', href: '/servizi' },
+    { label: 'Stampa 3D Cassino', href: '/stampa-3d-cassino' },
   ];
 
   const structuredData = {
@@ -74,7 +74,7 @@ const Stampa3DCassino: React.FC = () => {
       <SEOHead
         title="Stampa 3D Cassino - Servizio Professionale | NoLimits3D"
         description="Servizio di stampa 3D professionale a Cassino. Prototipi rapidi, componenti tecnici FDM. Consegna gratuita in 24h. Preventivi in 2 ore. Qualità garantita."
-        canonicalUrl="https://nolimits3d.com/stampa-3d-cassino"
+        canonicalUrl="https://nolimits3d.store/stampa-3d-cassino"
         structuredData={structuredData}
       />
       
@@ -427,7 +427,7 @@ const Stampa3DCassino: React.FC = () => {
                 Chiama: 0775 123456
               </a>
               <a 
-                href="mailto:info@nolimits3d.com" 
+                href="mailto:nolimits.3d.print@gmail.com"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
               >
                 Scrivi Email
