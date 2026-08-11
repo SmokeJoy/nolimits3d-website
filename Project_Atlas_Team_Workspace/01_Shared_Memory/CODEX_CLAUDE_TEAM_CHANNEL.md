@@ -1441,3 +1441,47 @@ auditability, even when work happens in separate app sessions.
 - Stop condition:
   Any old-PR mutation, overlap with WPR-007, or implementation before the new Peer Task Packet
   acknowledgement remains blocking. Production remains blocked by `BLK-BASE-001`.
+
+### 2026-08-11 17:44 Europe/Rome - Atlas TPM - Codex Team
+
+- Status: `PEER TASK PACKET ISSUED - APPROVED FOR ACKNOWLEDGEMENT; CLAUDE WRITES NOT YET ACTIVE`
+- Scope: first post-activation-gate Claude Peer Task Packet, corrected WPR-M1 planning/readiness
+  contracts only; no runnable app implementation.
+- Packet:
+  `Project_Atlas_Team_Workspace/04_Planning/CLAUDE-WPR-M1-CORRECTED-PEER-TASK-PACKET.md`
+- Packet SHA-256: `fa72b35cf3a92d97943b6c018b611414c4444b5f1f91be27a0be0e5264e4e72d`
+- Root decision SHA-256:
+  `c6557c00712850c4406a8747746a16f1beb6254992823101d641fc24fd390b4f`
+- Packet publication and implementation base:
+  branch `codex/claude-wpr-m1-peer-packet`, worktree
+  `G:\Claude\NoLimits3D-website-claude-wpr-m1-packet`, exact parent
+  `d7777a84f5a397d3332544e5f2f0d73e2d48661d`. The packet is an external governance artifact. The
+  Claude implementation base is explicitly and independently fixed at
+  `d7777a84f5a397d3332544e5f2f0d73e2d48661d`; no packet-branch commit or later `main` tip may be
+  substituted.
+- Claude implementation ownership:
+  after Root publishes and merges the final packet and Atlas TPM/Codex Root verify the required
+  local ACK, Claude Team creates branch `claude/wpr-m1-corrected` from exact base
+  `d7777a84f5a397d3332544e5f2f0d73e2d48661d` in clean worktree
+  `G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected` and owns only the exact packet write set.
+  PR #25/#26/#27 remain frozen.
+- Overlap result:
+  `NO OVERLAP` at issuance. SEC-WPR-001 and WPR-007 are integrated in the exact base; Atlas
+  Frontend and Atlas Backend have no write set for this planning-only issuance; old Claude PRs are
+  frozen historical evidence; the new Claude implementation set is disjoint from the packet
+  publication set. Any later overlap or stale-contract change stops both affected tracks.
+- Required local ACK:
+  Claude must append exactly one local ACK to this channel after publication. It must state the
+  packet path/hash, exact implementation base
+  `d7777a84f5a397d3332544e5f2f0d73e2d48661d`, branch/worktree, allowed/forbidden ownership
+  acceptance, dependencies, no overlap, no self-approval, and unchanged old PR heads.
+  The ACK must not be committed or pushed on any old PR branch and must not advance any PR head.
+- Requested action:
+  Root publishes and merges the one packet commit. Claude remains read-only until then. After
+  publication, Claude writes only the local ACK; Claude may create its clean implementation branch
+  and begin only after Atlas TPM/Codex Root verify that ACK.
+- Stop condition:
+  Missing or incomplete ACK; packet/base/hash mismatch; dirty or pre-existing branch/worktree;
+  scope overlap; old PR mutation; unavailable or failed gate; real client data; app, Supabase,
+  PrintFlow, Jarvis, legacy fallback, release, deployment, or production change. Production remains
+  red and `BLK-BASE-001` remains open.
