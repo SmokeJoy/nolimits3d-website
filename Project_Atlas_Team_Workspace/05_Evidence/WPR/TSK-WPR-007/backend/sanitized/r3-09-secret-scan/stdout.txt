@@ -1,0 +1,5 @@
+
+> nolimits3d-platform@0.0.0 secret:[REDACTED] G:\Claude\NoLimits3D-website-wpr-007
+> node scripts/guards/secret-scan.mjs
+
+Secret scan fallback: PASS

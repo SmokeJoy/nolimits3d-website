@@ -4,3 +4,4 @@ ROLE-CTO,Chief Architect & CTO,Codex Root,"Architecture, Blueprint, Architect Re
 ROLE-TPM,Technical Program Manager,atlas_tpm,"Planning, coordination, integration, Technical Review","No production code; no architecture or business approval; may spawn only the two implementers"
 ROLE-FE,Senior Frontend Engineer,atlas_frontend,"Frontend, UI, accessibility, Three.js, frontend tests","Implements only approved packets; no subagents; no self-approval"
 ROLE-BE,Senior Backend & Infrastructure Engineer,atlas_backend,"Backend, data, Supabase, CI/CD, infrastructure","Implements only approved packets; no subagents; no self-approval"
+TEAM-CLAUDE,Claude Team,Independent peer delivery team,"Production-code slices only through an approved Peer Task Packet after AD-015 activation","Not an Atlas role or Codex agent; no architecture, self-approval, direct-to-main, release, production, or Technical Review authority"

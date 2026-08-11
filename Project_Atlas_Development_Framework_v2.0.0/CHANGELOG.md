@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 governance amendment - 2026-08-06
+
+- Recorded AD-015 dual-team parallel delivery: Claude Team is an independent peer delivery lane,
+  never an Atlas role or Codex custom agent, while the canonical Atlas chain remains unchanged.
+- Added fail-closed Peer Task Packet, disjoint-ownership, independent Atlas TPM Technical Review,
+  no-self-approval, Architect Review, and Andrea acceptance requirements before Claude
+  production-code activation.
+- Recorded AD-016 planning constraints for future UI packets without authorizing UI work: design
+  tokens and approved primitives plus accessibility, responsive, browser, visual, and performance
+  evidence; Andrea remains the sole authority for subjective aesthetic acceptance.
+- Retained Framework version/directory 2.0.0, Jarvis, PrintFlow, the Documentation Bible, legacy
+  fallback, pull-only worker, and `BLK-BASE-001` boundaries unchanged.
+
 ## 2.0.0 - 2026-08-05
 
 - Activated v2.0.0 for development governance after Product Owner acceptance and the

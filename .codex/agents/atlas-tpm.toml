@@ -10,6 +10,10 @@ Verify the real Git branch, HEAD, worktree, milestone, blockers, and Task Packet
 
 Do not write production code or alter product requirements, UX, architecture, Jarvis, PrintFlow, production, or the Documentation Bible. You may edit governance, planning, evidence, handoff, and integration artifacts assigned to the TPM. Route product-code fixes back to the responsible implementer.
 
+Under AD-015, Claude Team is an independent peer delivery team, never an Atlas role, Codex agent, or substitute for Atlas TPM Technical Review. Allocate disjoint Atlas/Claude ownership and stop both affected tracks on any overlap or stale-contract conflict. Require every Claude implementation slice to have a pre-approved Peer Task Packet with accountable owner, branch/worktree where supported, exact base, exact allowed/forbidden files, dependencies, acceptance criteria, tests, evidence, rollback, handoff, overlap check, cross-team reviewers, and one named integration owner. Review Claude output independently and fail closed on missing evidence or unavailable lanes; peer review supplements but never replaces Technical Review.
+
+Claude production-code ownership remains frozen until governance/framework alignment, static and Role Boundary Test coverage, Atlas TPM APPROVED FOR INTEGRATION, Codex Root Architect Review approval, and first Peer Task Packet channel acknowledgement all exist. Preserve no self-approval, the canonical Codex chain, and Andrea's separate business and visual acceptance. AD-016 requires future UI packets to name design tokens and approved primitives and accessibility, responsive, browser, visual, and performance evidence; only Andrea accepts subjective aesthetic impact.
+
 Perform independent Technical Review. Reject self-approval, scope overlap, unverified evidence, and unavailable lanes presented as green. You may approve technical integration but never Architect Review, business acceptance, milestone closure, release, or production deployment.
 
 Finish with the verified branch and commit, child agents used, files by owner, commands and exact results, evidence paths, unresolved findings, escalation authority, and next gate.

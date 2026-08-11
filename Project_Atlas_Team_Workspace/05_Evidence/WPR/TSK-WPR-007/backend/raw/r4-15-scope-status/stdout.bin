@@ -1,0 +1,37 @@
+ M .codex/agents/atlas-tpm.toml
+ M AGENTS.md
+ M Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md
+ M Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv
+ M Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md
+ M Project_Atlas_Development_Framework_v2.0.0/manifest.json
+ M Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+ M Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md
+ M scripts/governance/codex_native_team_test.py
+?? Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md
+?? Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md
+?? Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md
+?? Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md
+?? Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md
+?? Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md
+?? Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md
+?? Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md
+?? Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md
+?? Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md
+?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-007-BE-DUAL-TEAM-ACTIVATION.md
+?? Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md
+?? Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md

@@ -1,0 +1,2264 @@
+{
+  "git_state": {
+    "argv": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "exit_code": 0,
+    "stdout": [
+      "?? Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-007-BE-DUAL-TEAM-ACTIVATION.md"
+    ]
+  },
+  "helper_packet_comparison": {
+    "diagnostics": [],
+    "helper_count": 45,
+    "invalid_hashes": [],
+    "packet_count": 45,
+    "pass": true
+  },
+  "inventory": {
+    ".env.example": {
+      "bytes": 319,
+      "sha256": "85cdc54d79d55a3568af758d0dcc32df6ed620471d412f0838c1ffdf9f8ed2b4"
+    },
+    ".prettierrc": {
+      "bytes": 174,
+      "sha256": "33744eac51667adb9493bff986dea2f8330a45681fc8f0c94af4fc450951a599"
+    },
+    "apps/legacy-web/.bolt/config.json": {
+      "bytes": 39,
+      "sha256": "da87f3867aa1c920ea2dc6b29775a1be2bcf844ee6caa7b947341fae1a7b1b91"
+    },
+    "apps/legacy-web/.bolt/prompt": {
+      "bytes": 401,
+      "sha256": "ff3857b90bdcdc11f48f15566a347e113e18965b3f7c17032e819b1801e14031"
+    },
+    "apps/legacy-web/.gitattributes": {
+      "bytes": 28,
+      "sha256": "d323b8612f27fa8eb49edc46b037ecf5eae06675a111a016f18a88b698c62c2f"
+    },
+    "apps/legacy-web/.gitignore": {
+      "bytes": 258,
+      "sha256": "c47099af6b8b597288cdc8b7713332361cc8825229ee3050b71f735cbd063400"
+    },
+    "apps/legacy-web/ANALYTICS-SETUP-GUIDE.md": {
+      "bytes": 3622,
+      "sha256": "e4b0002940a5c5aac2b5694e26c59e9698874597898259f75db4aa73107d0da7"
+    },
+    "apps/legacy-web/DEPLOY-CHECKLIST.md": {
+      "bytes": 4053,
+      "sha256": "f4c2bf62e8e9caf8dea9163af8177f08edfe40fc13a6faf46e49ba5253acbae5"
+    },
+    "apps/legacy-web/DFAM-ARTICLE-IMPLEMENTATION-REPORT.md": {
+      "bytes": 8734,
+      "sha256": "c711486a0ce0e9e6582e76d442036c391a27790f57947bd0df695069a5da6194"
+    },
+    "apps/legacy-web/FINAL-SEO-CHECKLIST-COMPLETE.md": {
+      "bytes": 3559,
+      "sha256": "3e28b79113fba5c0933d95484e55f58b405f033d8977811153a7bf47f4f13678"
+    },
+    "apps/legacy-web/FINAL-SEO-REPORT.md": {
+      "bytes": 5659,
+      "sha256": "538ad3d7bbb6cc498545eabdf3e7c8fd58df497388a49482cf47f85cba643d70"
+    },
+    "apps/legacy-web/FIX-REACT-THREE-ERRORS-COMPLETE.md": {
+      "bytes": 5217,
+      "sha256": "4bd41aa74d21c1795d35b7ea0a208749ee5f1e6e2dd71f0ae3d6c45f33288e5a"
+    },
+    "apps/legacy-web/GITHUB-PAGES-DEPLOY.md": {
+      "bytes": 4364,
+      "sha256": "1c58b317459f974e173a42d508619e7323e3bbaa5266dc63433ed13d31b41a3d"
+    },
+    "apps/legacy-web/GUIDA-GALLERY.md": {
+      "bytes": 4016,
+      "sha256": "a50570203f658a18a70c1e777da20656fb62abf972bc7d14c365f8cedff6f94b"
+    },
+    "apps/legacy-web/GUIDA-TIMELAPSE.md": {
+      "bytes": 8784,
+      "sha256": "ceddab2e62de5a6fd3f13f1b93a4acdcafc7845c98dc85d3e7cd59adc607a6cb"
+    },
+    "apps/legacy-web/LINK-IMPROVEMENTS.md": {
+      "bytes": 3814,
+      "sha256": "400e7cb540e87d6ae66e75cac4cb18792dce869ef6f7e95a5a2a32b511c2f67b"
+    },
+    "apps/legacy-web/LOOP-FIX-COMPLETE.md": {
+      "bytes": 3950,
+      "sha256": "08160f6489bf85a7218af21cdd63c29849d90a2c36e40d086f46486d5efe7488"
+    },
+    "apps/legacy-web/NoLimits3D _ Stampa 3D FDM Professionale - Prototipi e Componenti Tecnici.pdf": {
+      "bytes": 33907039,
+      "sha256": "f2cba00d760524b1954f12c71efaca7ff998b5e765486d415bcbeaa8fc0d198c"
+    },
+    "apps/legacy-web/PRELOAD-CACHE-FIXES.md": {
+      "bytes": 4470,
+      "sha256": "bb13a0882ec2886de9fed2d7f507e6c949f885e2c552e12a4bd5a0a45b6aa274"
+    },
+    "apps/legacy-web/PRICING-MODEL-UPGRADE.md": {
+      "bytes": 3971,
+      "sha256": "394624b92881b6d998fa3046720bd299a2ad9f1ff82b016d5fff51ee2dbf694b"
+    },
+    "apps/legacy-web/README.md": {
+      "bytes": 6598,
+      "sha256": "79cf578fde275155e7e56e2a2125acdec83691262c94020daba9851e4fbec53c"
+    },
+    "apps/legacy-web/SEO-OPTIMIZATION-COMPLETE.md": {
+      "bytes": 4299,
+      "sha256": "5b403003711aa4f7e407f8d30ccc4efb4c92d673f9322c269d82566be13c264a"
+    },
+    "apps/legacy-web/SEO-OPTIMIZATION-FINAL-REPORT.md": {
+      "bytes": 6221,
+      "sha256": "83553846f08f16bef61a205f498fa926af7c3f4268d5b0d9d6dec5e0c6424136"
+    },
+    "apps/legacy-web/SETUP-COMPLETO.md": {
+      "bytes": 2952,
+      "sha256": "27b5ae99c542295ff3fdc945aad8cfd701690581821bfc52857df6efef139011"
+    },
+    "apps/legacy-web/STRATEGIA-LOCAL-SEO-FROSINONE.md": {
+      "bytes": 6094,
+      "sha256": "e76396ed56de87075667bd95e54d34e3985543d75e195214561a8035055df359"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Articoli bozze/Come Scegliere Il Materiale Giusto Per La Tua Stampa 3D.pdf": {
+      "bytes": 555353,
+      "sha256": "fdec5fbfca219af0f13276e520f7c8be391d3005faef1d446afe713a19e95396"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Articoli bozze/Design Per La Stampa 3D Best Practices.pdf": {
+      "bytes": 468000,
+      "sha256": "7049416e11003d5f056858c6dfa9f1553fc378e5ea168f899e489d48632d9192"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Articoli bozze/Manutenzione Stampante 3D.pdf": {
+      "bytes": 114413,
+      "sha256": "2bad49055d90c08b6b8112312db5ec92e2d55d4f4d18a3b5db202abfc8ef35ef"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Articoli bozze/Post-Processing Stampa 3D.pdf": {
+      "bytes": 594919,
+      "sha256": "2cd49d1b0aa28ea9c246a2fd50b3f9f1e1d195cad6736d5e4df67a1bd4d1c2d4"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Articoli bozze/Risoluzione Problemi Comuni Nella Stampa 3D.pdf": {
+      "bytes": 652415,
+      "sha256": "c82220b85b711090bd2e066719254c7c0f8bb05d1556c73c3b65fbceabd65ea5"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Design Per La Stampa 3D Best Practices.pdf": {
+      "bytes": 473551,
+      "sha256": "c33638a9ce071716c424f5bd5c13dd9050315bae10d460da21a827122bb4ccda"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Futuristiche/Guida 3D FDM_ Roadmap Esecutiva - Documenti Google.pdf": {
+      "bytes": 417116,
+      "sha256": "02b4ad14de45b88d79a4811476878c1668e4c064cd7a70bcd17bb2130626015e"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Futuristiche/Migliorare piano scelta materiali FDM - Documenti Google.pdf": {
+      "bytes": 446866,
+      "sha256": "650dacfd9046cca2834510d829e4c0469d83afe1f37408d136002fa8da0e185a"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Guida tecnica ai materiali per la stampa 3D.pdf": {
+      "bytes": 506505,
+      "sha256": "bdf00a6afae721fd6c33c18eb683e97977d73025c46dd14c48ddae1f6ed83563"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Manutenzione Predittiva Stampanti 3D - Documenti Google.pdf": {
+      "bytes": 477483,
+      "sha256": "e108741c94aa208aadb347ce86b6b87b14cdd185f67f0c295993caa0499e0fae"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Ottimizzazione guida post-processing FDM - Documenti Google.pdf": {
+      "bytes": 543922,
+      "sha256": "62597b0dc2fc146ef6b15e7d2bae95d84d82a901dc0bc3731c3cf45f135962ae"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Deepresearch/Risoluzione Problemi Comuni Nella Stampa 3D.pdf": {
+      "bytes": 396911,
+      "sha256": "898af540e18cdf3d7cad49eca62456eff4d9d0122332803a3d8f21dfd14ef5a1"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/Come Scegliere Il Materiale Stampa 3D_ Guida Pratica 2025 _ NoLimits3D.pdf": {
+      "bytes": 2936605,
+      "sha256": "824400c41841f1d3d33574a89ad3b9402543892ec9bb93c5c07dd0c944f9e687"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/DfAM_ Progettare per la Stampa 3D \u2013 Guida Definitiva _ NoLimits3D.pdf": {
+      "bytes": 1968542,
+      "sha256": "722f340b29b4db9dda8bc20fd28dcb6edb57f275810da94f7e2ff2946b21ec07"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/Nuovo Documento di testo.txt": {
+      "bytes": 325330,
+      "sha256": "804d848f647e0ced49420159e1f9bc339af37e140f6906be727856589fabe9fb"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/Preventivatore Stampa 3D Online - Calcolo Costi Istantaneo _ NoLimits3D.pdf": {
+      "bytes": 2197247,
+      "sha256": "661ea3dbb5879aafaa2fc264bf18a18375a937e181bcd7b263e6ffa2c706fab3"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/Problemi Stampa 3D_ Guida Pratica per Risolverli Tutti [2025] _ NoLimits3D.pdf": {
+      "bytes": 1962126,
+      "sha256": "0ef7dfba74ecbdbba0e4fd74fbcb3b2a5645d47a52f16ec649ea3c3dc7924c02"
+    },
+    "apps/legacy-web/Sorgernti/Blog/Pdf pagina/Prototipazione Stampa 3D Frosinone _ Componenti Tecnici e Prototipi Professionali _ NoLimits3D.pdf": {
+      "bytes": 2220693,
+      "sha256": "bae405be94a4d8fd8f4d744ae62fb1d92b2e369217d364b8189cb14f3b04edcd"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/Aspirazione_laboratori.jpg": {
+      "bytes": 19529,
+      "sha256": "192ed7ba1c87c8cc8ad92f1e008e6d228b0adcbdaa1de2922a8dd96f81795f29"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/Pulizia_nozzle.jpg": {
+      "bytes": 15403,
+      "sha256": "c43175a7955e4c670a9da0cd41ba024511f66b90234864f3f3d7bd034788db87"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/controllo_cinghie.jpg": {
+      "bytes": 12311,
+      "sha256": "ca5923d9a3a13cb67dafd10c086b097b3b4943187ec5093da525240d2ffee170"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/copertina.png": {
+      "bytes": 1696037,
+      "sha256": "beabc4015b369955dca88a8201f9e7c77e3500935bbd51f20267b944c7f6b948"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/livellamento_piatto.jpg": {
+      "bytes": 9489,
+      "sha256": "98e0f91eda054b2867567dc921e8c56016b292dca09a5a547fbc06a9c26eea43"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/lubrificazione_assi.jpg": {
+      "bytes": 22567,
+      "sha256": "0b1f66a7540fbf5936e0559cfdfa06434880e963c457fa5485471dc6a7ec4dd2"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/Manutenzione Stampante 3D/pulizia_ventole.jpg": {
+      "bytes": 13302,
+      "sha256": "c673baab595d59395a31f0131c5e9ac171c6f4b093a7e690235268ad29dc200d"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/filamenti_3d/carbon-composite.jpg": {
+      "bytes": 12224,
+      "sha256": "4757e9312b17bea8de66a5d65a5347dac1f4e73898a69b2d2b389a236ad670c0"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/filamenti_3d/colorful-filaments-2.jpg": {
+      "bytes": 21387,
+      "sha256": "908d9e49590a4fb4281e54bcff947bedbaaa00b805eba45f15b7660d550afa4c"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/filamenti_3d/colorful-filaments.jpg": {
+      "bytes": 12843,
+      "sha256": "37c540413f41773591b0b6f88682d978cbeb49017725a6e29a85ef48a2a2bd75"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/filamenti_3d/pla-spool.jpg": {
+      "bytes": 19536,
+      "sha256": "81c028f8ddf9e02281424344e038a070530bba78f38832e080a59e092561b9b7"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (1).jpg": {
+      "bytes": 5085,
+      "sha256": "abd8e8fd0d5449bb9895b67f778d333ad24fff702cfece9fbd24ccf1e790f107"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (2).jpg": {
+      "bytes": 11500,
+      "sha256": "b4b0f0dd2f5d3123a8a7339c006fa2d19a042850aa5feceaa7df691687c427fc"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (3).jpg": {
+      "bytes": 5889,
+      "sha256": "70bace603682512657d6c3c568de275b0d443520a3e91eb8331ded163e058d56"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (4).jpg": {
+      "bytes": 25300,
+      "sha256": "0f94e4d9dafa629baddbab91d8eed03776b3c0980f522e1e41cff44ef72ee87a"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (5).jpg": {
+      "bytes": 13382,
+      "sha256": "83ed0de25ed7d960a3961660072ef552d576916820263742fdfe8c95ad3c4970"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (6).jpg": {
+      "bytes": 11932,
+      "sha256": "dd07d0c678b3980d717ffd7435228d51e79c20ee65ba0a68ef1d3418443a90c6"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th (7).jpg": {
+      "bytes": 20594,
+      "sha256": "acb45720dcacb4ff480eb1e6b552e0f3fc1442f8f34ea9effdbbdc5ff1609441"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/foto_design_stampa3d/th.jpg": {
+      "bytes": 7897,
+      "sha256": "8e641d05ae7fadb84910b177fc181a98196eef6b9adf39f695f8a7f80215eb50"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/post_processing_stampa_3d/inserto_filettato.jpg": {
+      "bytes": 18288,
+      "sha256": "389a0fe66bf17d74f15c54be71c22af7b2bf5a2184860176728983eb7e217e07"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/post_processing_stampa_3d/levigatura_superficie.jpg": {
+      "bytes": 14502,
+      "sha256": "525de1315810cba0fbc7c0f6cbf3e9c58437a8044eba350ce2153410056cbd2c"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/post_processing_stampa_3d/primer_spray.jpg": {
+      "bytes": 37941,
+      "sha256": "5da46c5a75d797cba4e7dc929db71944bd060950dbde4b8f85192daedd37698f"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/post_processing_stampa_3d/rimozione_supporti.jpg": {
+      "bytes": 16026,
+      "sha256": "fb9a36382860b06e28dd559d6e78b7228aa4830b500aa10e90376a683afb681a"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/post_processing_stampa_3d/verniciatura_elmetto.jpg": {
+      "bytes": 21900,
+      "sha256": "40727dcd796cfa5e37220f19acd18ff013157396674cebc875125d166c677964"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/blobs-zits.jpg": {
+      "bytes": 8280,
+      "sha256": "81969cfdb36badd71e82c1914303ef371910457a33631ef13931191a304984ff"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/delamination.jpg": {
+      "bytes": 17168,
+      "sha256": "47b523479406fdb23de202d40e4b0c94d60aea298e99ac3054b4ad9427a45124"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/elephant-foot.jpg": {
+      "bytes": 25802,
+      "sha256": "14c6b0287302b5d57cdf0c17cad50b4ad6d1e95524f9ae4c4da3d9e2644b1ad9"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/ghosting.jpg": {
+      "bytes": 15672,
+      "sha256": "f97d47653bff7107d413db41a3ce98ec59360295a1ef1e70b0298a6c6c803944"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/layer-shifting.jpg": {
+      "bytes": 10981,
+      "sha256": "643ca3276564c41b6f72fc7f98fd66d26048b0e6807f72f3022e7b5cd671a13f"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/stringing.jpg": {
+      "bytes": 33479,
+      "sha256": "c6b040456f0b1fd3e9c5a5796962cf42cf8a853991cabca5e1408b5810a3f234"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/under-extrusion.jpg": {
+      "bytes": 6765,
+      "sha256": "46a1fa7a376b1d38f5764fabc546b5a949da7ca9259de83769bb6d4c883b318b"
+    },
+    "apps/legacy-web/Sorgernti/Immagini blog/troubleshooting_3d_problems/warping-cracking.jpg": {
+      "bytes": 8295,
+      "sha256": "132aaf63c43c1fc304203a7d977d05b78a092f85a7c40065d317aa79d21d877b"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Adattatore folletto.mp4": {
+      "bytes": 46575395,
+      "sha256": "7ebabca6a805819d7c387c8c4dd35cedd2171c877906662ecac14772b106bf5b"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Analogici dualsense PS5.mp4": {
+      "bytes": 7833723,
+      "sha256": "2097a6ca46caf961fd23ce34c620ba7cb38ba6c052b446dfdf16d97040b22dcb"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Avvolgi bobbina 1.mp4": {
+      "bytes": 100104270,
+      "sha256": "6b5e5187a45404ff9f155813bfe1de201c10aa264952f317c26f278189bc0354"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Avvolgi bobbina 2.mp4": {
+      "bytes": 74393373,
+      "sha256": "87c59849bd9c762e422f2beb39279be9f22d91d428bffbe74693e122f07cf0f8"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Avvolgi bobbina.mp4": {
+      "bytes": 100520340,
+      "sha256": "ded6511c0b0af1ca6f24bbad67caf20de3efbb0b94c7ffa0d882488d7bafbb24"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Babbo Natale Uncinetto.mp4": {
+      "bytes": 24946030,
+      "sha256": "ae0f8a814353f64178d90bf8fe774af4bf5dcd98f27dbbf6d1583cf6ea1b539e"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Bacheca modulare-1.mp4": {
+      "bytes": 31036472,
+      "sha256": "51f66c3eb61b69bc9f047471613bf71b13ea164e7e7fb0779d685d224a14cda4"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Bacheca modulare.mp4": {
+      "bytes": 31139880,
+      "sha256": "d1ac7e57bbf60a6faaa1f3b7375bcbebb0fccb47e3d648b4a1c136d01e2778ef"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Barattolo Fungo Super Mario.mp4": {
+      "bytes": 27678477,
+      "sha256": "c4590c942d932f6e9f5641b8e35ff47426cf603c8f92b4cc87987a101249235c"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Base Soiderman.mp4": {
+      "bytes": 3077394,
+      "sha256": "270979af5712a74afce117c5c27a50bc1f168a67bb9e6ca775caae9b9b8b5ea6"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Base Venom.mp4": {
+      "bytes": 6508049,
+      "sha256": "2f5800090ac42898d0a19da72af41d8b11acedf776a7bedb54d6e941c214ef47"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Base ruota panoramica.mp4": {
+      "bytes": 15052691,
+      "sha256": "d878fe4dc52205cd733d259d292054127493f02a05200bd6365b320a101ec655"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Bicchieri simpatici .mp4": {
+      "bytes": 27001716,
+      "sha256": "b6e91ec7b3370f963dba1d592180b82bff55c184af16e8aa2f0e96390812b53f"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Carrozze ruota panoramica.mp4": {
+      "bytes": 16634024,
+      "sha256": "84dd99a83aa40b1e7717763dc389468b2c705be2c6bcb631f8fcad78b92199a8"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Casa Spongebob.mp4": {
+      "bytes": 73582722,
+      "sha256": "5f9846a94478a02f39b7521ca6011710f496fc7394c7fa3ee1a0d142f37fbc66"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Casa Squiddi Tentacolo.mp4": {
+      "bytes": 73197179,
+      "sha256": "0e39dfeea13747aac4bfc7acbd00f6bf0c67859fffeb4531a2e80eebf9079341"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Cuore.mp4": {
+      "bytes": 6213364,
+      "sha256": "56e31d48ccf1f8af8ff757eefce1897bbf4a199952f400f32ac842209c9ecdca"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Drago texturixato.mp4": {
+      "bytes": 61759877,
+      "sha256": "669825d1649a91b8e692ec4b309c00a1407adb9a884fd28c7c14c1db48e4ba27"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Elefant Love.mp4": {
+      "bytes": 6679468,
+      "sha256": "b0a1388f56b6d7f6d0bdcb72ca753f9ed1a1ae573a5dcd9638de6c93e5317e9d"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Frisbee Grande tpu.mp4": {
+      "bytes": 4540681,
+      "sha256": "57d62eb7c40915a06541949f4d548c28d5d208b8df21a48c553b1d12428d6778"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Frisbee piccolo tpu.mp4": {
+      "bytes": 4554284,
+      "sha256": "4a09585082cb603f23f861d804997a4545d670011347e72f90e1d494543d9329"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Gambe statuetta fortnite.mp4": {
+      "bytes": 20797964,
+      "sha256": "8d9e7c2abca4b8a216570244d5147a8aed12ab7977ab5ff731390dc6b6544e10"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Grout portavaso.mp4": {
+      "bytes": 65772905,
+      "sha256": "9d317053b4e56ffcb140a8796e24af6a628a9dd3ed37a9069303823d82457ae1"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Gufetti.mp4": {
+      "bytes": 1318216,
+      "sha256": "94790257c97294a4452090a8f67570457b3c5bd8d93b7e57f30363c4c5b594c2"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Ingranaggi vari.mp4": {
+      "bytes": 45561359,
+      "sha256": "cc29bb8600c189bf46ee3c65a7f6edbbdd10c6af718c7e6ec377a68c7b1a5a44"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Ingranaggi.mp4": {
+      "bytes": 10665956,
+      "sha256": "2a75fc51b6a17380d63c13941a6ddaa7088e76425ed59f9734d8f4a9a0fa1467"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Kali dragon.mp4": {
+      "bytes": 2393686,
+      "sha256": "a146f28f00bfbc58bd8bfe2fb31655576da3995f8f2fca869aff93ba2618d430"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Mandy.mp4": {
+      "bytes": 16516623,
+      "sha256": "eed9f54d20bd88a55be29349e4f62e4728855f47624cd8bbbabb6e814ebba5fb"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Maschera Alien-.mp42.mp4": {
+      "bytes": 18318232,
+      "sha256": "de975edb951c4e8c634150b42c55c62aea92f75aa5c43513baceda8266839a19"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Maschera Alien-1.mp4": {
+      "bytes": 35200099,
+      "sha256": "2053708e375e3cea008b70acdd8e0851bf4bfe41f4a2ae4624ce147c78d71e14"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Maschera Alien-2.mp4": {
+      "bytes": 45764457,
+      "sha256": "721b3473dea5b814df02c35a86519329a1ec7ceb67eb5e0c9be0b2d4bdd79506"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Maschera Alien.mp4": {
+      "bytes": 26357813,
+      "sha256": "a0687dedf46c44666935160ed646eef2d18d9e4850e3ae5db03f8b01b0fc3b2c"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Mause.mp4": {
+      "bytes": 6454512,
+      "sha256": "6fc2c9ccfabdb9d5f9a490c3597f763096687aa82f6117b8e9641a308ff770ea"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Microfoni.mp4": {
+      "bytes": 1956074,
+      "sha256": "2836c56234ebda651c4825de338e39a5295330e5515a78be41dcc4352621f1c3"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Mini torre Effeil.mp4": {
+      "bytes": 66777042,
+      "sha256": "1950ce0ea805b6dd5f0c7cd9eba59e3bd735e209175820136ca338fa34b623e8"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Perni ruota panoramica.mp4": {
+      "bytes": 50540920,
+      "sha256": "f7977524abfd4671cf92ce23aee70350b636dfa979487c4f0c659694bdee29b3"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Piedi in tpu.mp4": {
+      "bytes": 2545688,
+      "sha256": "8f1da82ddf98b0e8260daa67813d012815cab15262c244b9029e16b367a5a12d"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Pocket Melody.mp4": {
+      "bytes": 4481013,
+      "sha256": "3a245b2d4ebb749e3c2c811595b809965e14616360c76b5d2c87372fb363e448"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Puzle Ball.mp4": {
+      "bytes": 7427945,
+      "sha256": "2bee216fbe3479e5d837cc7625f650aa18d7eaf29e58c8387d18da35800714f7"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Puzle ball-2.mp4": {
+      "bytes": 7277255,
+      "sha256": "53d2623fcae21584d90b5fcc98c96d6259fb23bd9d9f7dc0fa32e3061fd75776"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Ruota panoramica.mp4": {
+      "bytes": 5884875,
+      "sha256": "ec851d0bd1b768677d23536b37a837d9e585ced243ca1f45cdb19e1a5111d375"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Sdentato.mp4": {
+      "bytes": 4339931,
+      "sha256": "317c38c0e3d7ac9ea086442974bc2d72a7d3be622c5f8fdc57c929a66accc502"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Snodo piscina.mp4": {
+      "bytes": 5601035,
+      "sha256": "1aaa7dc5c595c6acda773eaa72a0d77cb50fced4c08fbefd10d0d691a1f6dde2"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Spongebob Braccia.mp4": {
+      "bytes": 16698251,
+      "sha256": "ab6a913c786578366df168074de9839ba00573f1c103b2179575b613dc0def2f"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Spongebob Gambe.mp4": {
+      "bytes": 22345049,
+      "sha256": "dad44ff96e8c7585cdcce446bf3c9f9c8d932530dfad459c65591a4da7fbbd8f"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Spongebob Torso 2.mp4": {
+      "bytes": 21577195,
+      "sha256": "8523ee1369afa53aa58d88ccb0e772febd4d594db560f3a2ca6bdc1bb315c940"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Spongebob Torso.mp4": {
+      "bytes": 9889184,
+      "sha256": "9dac278cfcffd3d3537b8f5ec0464055cbef375051005e7263ea7802e2353f6d"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Spongebob Viso.mp4": {
+      "bytes": 10316444,
+      "sha256": "be727d88524f101a82d5dc24a17b2add8aa78fec942a63f5b03e88ff437d67f4"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Supporti-1.mp4": {
+      "bytes": 4932817,
+      "sha256": "c1d967ab4dd35c1082670ad634897550b065dfd9a67f8d7cc4d1687d6eb7f6a2"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Supporti.mp4": {
+      "bytes": 9777286,
+      "sha256": "5387ac6ae8e7c64184f5d88f27000d53020d7a1c8e64fd19ae508dbb24ec9e28"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Testa Chopper.mp4": {
+      "bytes": 17097552,
+      "sha256": "95358ea304f823e6f13ca162d93c8d136fd981957eab9eb545a76845c1a1b64d"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Torre Dadi.mp4": {
+      "bytes": 59470568,
+      "sha256": "163d13e2ade3f49c400e2367da60d7a2e1a51ba0ae9562102ad548e49aa65f78"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Torre Effeil.mp4": {
+      "bytes": 17675272,
+      "sha256": "34bcd4db48dcdcc772dd9b110f45fdbbf9976db3153a69a672ebd489b1a6cb54"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/Torre.mp4": {
+      "bytes": 5264787,
+      "sha256": "41ea2680633410a2a00a63daa1979f439e28f22c1302bc626d3988c702de62f4"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/coperchio barattolo Fungo Super Mario.mp4": {
+      "bytes": 26461790,
+      "sha256": "4f64e887890a3be833d6c7138a40fbe758619698559d6ee7b94b13e0086f7d54"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/lucina-3D-con-il-tuo-nome-personalizzato.mp4": {
+      "bytes": 12725689,
+      "sha256": "399accf0bdb5dbd84228b0e96e791963d4f67bd4de42b624bdd0a3d267af4338"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/piedi in tpu colorato.mp4": {
+      "bytes": 2695349,
+      "sha256": "f836e70808272b8bb9fd0484adbac80447e08523569891fd4d255484c9260aff"
+    },
+    "apps/legacy-web/Sorgernti/Time-laps/timelapse_testa_personaggio_pla_1giorno14ore.mp4": {
+      "bytes": 29120095,
+      "sha256": "39fb02d5f860ba23075a0d5ef600281ea07b8f2e2bf22bef6252153a58268645"
+    },
+    "apps/legacy-web/Sorgernti/immagini/3D Benchy.jpg": {
+      "bytes": 777913,
+      "sha256": "9939063bf30a101dac5e3dac2b03bea527ab001b4813eeb49bb2b7d4f1efa9f4"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Barattolo Fungo Super Mario.jpg": {
+      "bytes": 51664,
+      "sha256": "4042e001dfbfd24f108191cb18e764749c70a2b3fb38d9d9cf9a27a79371054b"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Broly Vs goku.jpg": {
+      "bytes": 113417,
+      "sha256": "2c96464f4744631e79c6b0abb26b2cb1f183dbc02bdc972d3d3923d7ed4241f6"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Casa Spongebob per pesci.jpg": {
+      "bytes": 1226345,
+      "sha256": "6efd3c8a1de1e7da85c46452bb90a88241556e4cd83283d3a8e1592cc18ded75"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Cloyster.jpg": {
+      "bytes": 730156,
+      "sha256": "35e9a2f8ce9bf6aa49cc4b5f7e3c9ff97b9793ac004d0473307e84024f3b476a"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Collage busto Spiderman.jpg": {
+      "bytes": 628031,
+      "sha256": "49f533800c4598ed2b2b409617d2703669191e1e593537755dc5ca43e017f56f"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Elefhant love.jpg": {
+      "bytes": 368943,
+      "sha256": "bc5ed0fe880df9bf03107fdaa5c2e0cdfcb56bec6c7f8996762473338ecb925a"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Gengar.jpg": {
+      "bytes": 682761,
+      "sha256": "998eb50f5d362efe9e67a90a75ae2aef36390ed088b119c092563cdff8826570"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Gufetti.jpg": {
+      "bytes": 7704,
+      "sha256": "95f01b5ae8e64b4be04465c7a6f241cb334b526e69522cebc4cbe1d4d38019b6"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Homer Simpson Budda.jpg": {
+      "bytes": 3664,
+      "sha256": "dc58ab497db01187b02b9ae15815e57308df6786fb9f974a6f627533b3c0586c"
+    },
+    "apps/legacy-web/Sorgernti/immagini/IMG-20250603-WA0027.jpg": {
+      "bytes": 167367,
+      "sha256": "9b4fa2605e2da6e94dca1a568ba3cd3b0995b16965411490eb81c60cdc3c4b57"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Il piccolo principe.jpg": {
+      "bytes": 52558,
+      "sha256": "79a2def1350f8feb290f20463e2c8e6a253652758f678c405fdc5d8f609eda39"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Maginbu.jpg": {
+      "bytes": 102413,
+      "sha256": "102bd85f3e9389a16cdb1a0b54b0afa509aa00200efb70cf611663f6a1b3d723"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Mandy.jpg": {
+      "bytes": 173715,
+      "sha256": "efe2b80446b99682f3f2ab6ae3fec2a0e75f2a77df565ee2133723a18cc30f49"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Mandy.mp4": {
+      "bytes": 720336,
+      "sha256": "a84b8bc2232f52c2a24ec2861d6e1b6da203ef453b8719dac2e7a46d463eb973"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Mew LOVE.jpg": {
+      "bytes": 3290,
+      "sha256": "ac9b25602c2c0598725d943a137f374a3e122857ffe810fdf2d7b1c2f8085b84"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Mew.jpg": {
+      "bytes": 135787,
+      "sha256": "20d7b8528ee34e1348d83fa0e986ef21704de54ba968ea01b707c23e197695fb"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Natalizio.jpg": {
+      "bytes": 843228,
+      "sha256": "db63c956d9e3d87d393c432906ac0370e5fdbeb502dcef86f63ceb79635847fb"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Nidoran.jpg": {
+      "bytes": 714006,
+      "sha256": "bea4abc3ff40e9c7813f8a67cb4426968a7cc8ae71da54534432614d18965f15"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Onix.jpg": {
+      "bytes": 145848,
+      "sha256": "fc3a1451a984c378e95d60325f1f08538db60e3472f1e17abdbc9dfbafb0b430"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Operatore microfonista.jpg": {
+      "bytes": 4397,
+      "sha256": "0e4ddf16d4bec46589590b5c4a2c21d6adc2e1babadfc6f4d2f1b88873dbeb9d"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Patric stella Natalizio.JPG": {
+      "bytes": 2349728,
+      "sha256": "7e50654260aa41822a9ad928046deb5453e411a4c37259b1edf87d342df13b83"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Picaciu.jpg": {
+      "bytes": 45949,
+      "sha256": "77b17c06c878f79a802d814d902a03b3622d1161eed495b5284a11dc7e27e78d"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Pikaciu Deadpool.jpg": {
+      "bytes": 64264,
+      "sha256": "b5efac983e7bd7d8e77ac77d1569d6289b1fc76af9231a82678a0b5a43b19e3e"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Portachiavi.jpg": {
+      "bytes": 1036260,
+      "sha256": "02b515b67f05e1d50eff1d848a5747f90429f19cd7e9dee7821431f6b1dbf287"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Portavaso Grout.JPG": {
+      "bytes": 1497451,
+      "sha256": "87cbb26e86f4386ea540c2ab9517f34f07f0bbff57032b4076c3bf2224b3ab72"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Puntale Natalizio Mew.JPG": {
+      "bytes": 248855,
+      "sha256": "27045be36f2488d06fe980d555792e78b5f18a500b53a61ed1363fc26bfbdddf"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Sirenette.webm": {
+      "bytes": 9841832,
+      "sha256": "f6329f95493da6820b37b2d734d1070a3dd26db3f7e62cf2d1f37ee3a73891f7"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Son Goku nuvola sipdi.JPG": {
+      "bytes": 203328,
+      "sha256": "d576154e27b14211323c4ad117ff516ef416856ce7f42c3505240b458fdbc5ba"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Son goku dedica a Toriyama San.jpg": {
+      "bytes": 142296,
+      "sha256": "a5fe697d37e1b788d7f4b5925a8314bce0add2f8161a6af2a63c83d2308e6f14"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Spongebob.jpg": {
+      "bytes": 4529,
+      "sha256": "999122cedbe80202b5ab4a2696382217a5f22dad5494c64b867f20600b7e0a91"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Statutta Fortenite.jpg": {
+      "bytes": 79751,
+      "sha256": "76504cecebf31a93b3656cc4d55895d1c516e1e22894cecf93bd2d3a1f30ab93"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Telespallabob Fioriera.jpg": {
+      "bytes": 5226,
+      "sha256": "dc3437fc4335f5156c0a1e432c2a5bb37069d62097eafcc4d8f4c2c568fd3c35"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Torre dadi.jpg": {
+      "bytes": 503029,
+      "sha256": "50cf5bef35eb38910d7c2d7a0ec689dabd4837c4f07cd22c0ba58075b92663d0"
+    },
+    "apps/legacy-web/Sorgernti/immagini/Venom.jpg": {
+      "bytes": 4835,
+      "sha256": "2d922b71fa4b311af57ee6067e27c7a320775c48a2ecb03d34c07420685dca70"
+    },
+    "apps/legacy-web/Sorgernti/immagini/kali Dragon.jpg": {
+      "bytes": 36278,
+      "sha256": "f6c4f214651f69de71b32ff51565c8bf0f2c041d871b4a0514288d4f92f6a70f"
+    },
+    "apps/legacy-web/Sorgernti/immagini/torre eiffel.jpg": {
+      "bytes": 105637,
+      "sha256": "f58aa5b49dd028f04854d3456503f2a627d1c15d7992140ad005c777c0e8bbb9"
+    },
+    "apps/legacy-web/Sorgernti/logo.jpg": {
+      "bytes": 10148,
+      "sha256": "6d06f933436262894440ee2ebd2db6206665ab223e9849f165e4ce56f36403d9"
+    },
+    "apps/legacy-web/Sorgernti/photo_2025-07-12_04-47-54.jpg": {
+      "bytes": 84506,
+      "sha256": "c1b9e02694ce07523b2a0860079d76b2e028f5f7161190dbb9dca8be711a6c2b"
+    },
+    "apps/legacy-web/chatflow.json": {
+      "bytes": 3439,
+      "sha256": "809c9126a115952189035ec5bcae8a6ce20b46599f23c132a6f178dd5dc83fc7"
+    },
+    "apps/legacy-web/chatflow_fixed.json": {
+      "bytes": 3169,
+      "sha256": "85c798b0646c8ae8544878c3ab0aa9d0ac8466701fb6207e687bd19258c4db08"
+    },
+    "apps/legacy-web/competitor-analysis-prompt.md": {
+      "bytes": 8659,
+      "sha256": "1a8c4ca1918c9698aa7e1a7c1de1756515bbcf414abce372fc9fad523ab375d8"
+    },
+    "apps/legacy-web/eslint.config.js": {
+      "bytes": 739,
+      "sha256": "fa3cc12579fb0ef678a3153b31ec396d81ef2fec284a1a5ecb779c0ff336cfe0"
+    },
+    "apps/legacy-web/index.html": {
+      "bytes": 14216,
+      "sha256": "1dc0db8be257ba4456b7c6b34b596cb4c4f0952c2fed351112e0fb8eb06ec8e8"
+    },
+    "apps/legacy-web/lh-mobile.html": {
+      "bytes": 796270,
+      "sha256": "f5ff0bf7ac06c55bcda520461710b430b62fcfed7333f62a3e627c9bb38125c5"
+    },
+    "apps/legacy-web/lighthouserc.js": {
+      "bytes": 2005,
+      "sha256": "18b0e8f7cc9d6a3813801467c7cd04946351a1f40f796fe213bc3629bda2d8e2"
+    },
+    "apps/legacy-web/logo_backup.jpg": {
+      "bytes": 142296,
+      "sha256": "a5fe697d37e1b788d7f4b5925a8314bce0add2f8161a6af2a63c83d2308e6f14"
+    },
+    "apps/legacy-web/n8n-chatbot-setup.md": {
+      "bytes": 2741,
+      "sha256": "4df5ab19424b7cbe1869ed59df3e1ffc18c5845fa9f6a1c6c4ac2f91cf7de48e"
+    },
+    "apps/legacy-web/package-lock.json": {
+      "bytes": 676121,
+      "sha256": "b0605377e933d53e8604024bfd4a473c186d4a1d625c17e4adc50889541b2a3a"
+    },
+    "apps/legacy-web/package.json": {
+      "bytes": 3227,
+      "sha256": "68239317551ec76f061d68000d1a1deccb873dc0901ccd47ef9bb8956c404ea5"
+    },
+    "apps/legacy-web/postcss.config.cjs": {
+      "bytes": 617,
+      "sha256": "7f828b124d69437b0fee1812ad40075e998c1a3d677127d4ca2f51c073b15608"
+    },
+    "apps/legacy-web/public/.htaccess": {
+      "bytes": 3787,
+      "sha256": "63ee2de7ca7832529ab00639abfbccdaabdb3edbaecbec3861d294ec9215b013"
+    },
+    "apps/legacy-web/public/.nojekyll": {
+      "bytes": 6,
+      "sha256": "2e08d1f6000aef541797d008c05ac36f4dbebfb36cbac5615788e6fcc5b300a7"
+    },
+    "apps/legacy-web/public/404.html": {
+      "bytes": 1806,
+      "sha256": "7afdf168d41684a3f2bae7da1074d7982395c1483171c1fef4b85db0e32fbe07"
+    },
+    "apps/legacy-web/public/CNAME": {
+      "bytes": 17,
+      "sha256": "4182ab005dfac640ace238ae992def1e0a5c0e0141f87cebfff009c5923255d1"
+    },
+    "apps/legacy-web/public/_redirects": {
+      "bytes": 839,
+      "sha256": "b15e26fc30f9693a90d244b904d13726ad6f7d920dd2f2e74a230806eb194acc"
+    },
+    "apps/legacy-web/public/images/3D Benchy.jpg": {
+      "bytes": 777913,
+      "sha256": "9939063bf30a101dac5e3dac2b03bea527ab001b4813eeb49bb2b7d4f1efa9f4"
+    },
+    "apps/legacy-web/public/images/Barattolo Fungo Super Mario.jpg": {
+      "bytes": 51664,
+      "sha256": "4042e001dfbfd24f108191cb18e764749c70a2b3fb38d9d9cf9a27a79371054b"
+    },
+    "apps/legacy-web/public/images/Broly Vs goku.jpg": {
+      "bytes": 113417,
+      "sha256": "2c96464f4744631e79c6b0abb26b2cb1f183dbc02bdc972d3d3923d7ed4241f6"
+    },
+    "apps/legacy-web/public/images/Casa Spongebob per pesci.jpg": {
+      "bytes": 1226345,
+      "sha256": "6efd3c8a1de1e7da85c46452bb90a88241556e4cd83283d3a8e1592cc18ded75"
+    },
+    "apps/legacy-web/public/images/Cloyster.jpg": {
+      "bytes": 730156,
+      "sha256": "35e9a2f8ce9bf6aa49cc4b5f7e3c9ff97b9793ac004d0473307e84024f3b476a"
+    },
+    "apps/legacy-web/public/images/Collage busto Spiderman.jpg": {
+      "bytes": 628031,
+      "sha256": "49f533800c4598ed2b2b409617d2703669191e1e593537755dc5ca43e017f56f"
+    },
+    "apps/legacy-web/public/images/Elefhant love.jpg": {
+      "bytes": 368943,
+      "sha256": "bc5ed0fe880df9bf03107fdaa5c2e0cdfcb56bec6c7f8996762473338ecb925a"
+    },
+    "apps/legacy-web/public/images/Gengar.jpg": {
+      "bytes": 682761,
+      "sha256": "998eb50f5d362efe9e67a90a75ae2aef36390ed088b119c092563cdff8826570"
+    },
+    "apps/legacy-web/public/images/Gufetti.jpg": {
+      "bytes": 7704,
+      "sha256": "95f01b5ae8e64b4be04465c7a6f241cb334b526e69522cebc4cbe1d4d38019b6"
+    },
+    "apps/legacy-web/public/images/Homer Simpson Budda.jpg": {
+      "bytes": 3664,
+      "sha256": "dc58ab497db01187b02b9ae15815e57308df6786fb9f974a6f627533b3c0586c"
+    },
+    "apps/legacy-web/public/images/IMG-20250603-WA0027.jpg": {
+      "bytes": 167367,
+      "sha256": "9b4fa2605e2da6e94dca1a568ba3cd3b0995b16965411490eb81c60cdc3c4b57"
+    },
+    "apps/legacy-web/public/images/Il piccolo principe.jpg": {
+      "bytes": 52558,
+      "sha256": "79a2def1350f8feb290f20463e2c8e6a253652758f678c405fdc5d8f609eda39"
+    },
+    "apps/legacy-web/public/images/Maginbu.jpg": {
+      "bytes": 102413,
+      "sha256": "102bd85f3e9389a16cdb1a0b54b0afa509aa00200efb70cf611663f6a1b3d723"
+    },
+    "apps/legacy-web/public/images/Mandy.jpg": {
+      "bytes": 173715,
+      "sha256": "efe2b80446b99682f3f2ab6ae3fec2a0e75f2a77df565ee2133723a18cc30f49"
+    },
+    "apps/legacy-web/public/images/Mew LOVE.jpg": {
+      "bytes": 3290,
+      "sha256": "ac9b25602c2c0598725d943a137f374a3e122857ffe810fdf2d7b1c2f8085b84"
+    },
+    "apps/legacy-web/public/images/Mew.jpg": {
+      "bytes": 135787,
+      "sha256": "20d7b8528ee34e1348d83fa0e986ef21704de54ba968ea01b707c23e197695fb"
+    },
+    "apps/legacy-web/public/images/Natalizio.jpg": {
+      "bytes": 843228,
+      "sha256": "db63c956d9e3d87d393c432906ac0370e5fdbeb502dcef86f63ceb79635847fb"
+    },
+    "apps/legacy-web/public/images/Nidoran.jpg": {
+      "bytes": 714006,
+      "sha256": "bea4abc3ff40e9c7813f8a67cb4426968a7cc8ae71da54534432614d18965f15"
+    },
+    "apps/legacy-web/public/images/Onix.jpg": {
+      "bytes": 145848,
+      "sha256": "fc3a1451a984c378e95d60325f1f08538db60e3472f1e17abdbc9dfbafb0b430"
+    },
+    "apps/legacy-web/public/images/Operatore microfonista.jpg": {
+      "bytes": 4397,
+      "sha256": "0e4ddf16d4bec46589590b5c4a2c21d6adc2e1babadfc6f4d2f1b88873dbeb9d"
+    },
+    "apps/legacy-web/public/images/Patric stella Natalizio.JPG": {
+      "bytes": 2349728,
+      "sha256": "7e50654260aa41822a9ad928046deb5453e411a4c37259b1edf87d342df13b83"
+    },
+    "apps/legacy-web/public/images/Picaciu.jpg": {
+      "bytes": 45949,
+      "sha256": "77b17c06c878f79a802d814d902a03b3622d1161eed495b5284a11dc7e27e78d"
+    },
+    "apps/legacy-web/public/images/Pikaciu Deadpool.jpg": {
+      "bytes": 64264,
+      "sha256": "b5efac983e7bd7d8e77ac77d1569d6289b1fc76af9231a82678a0b5a43b19e3e"
+    },
+    "apps/legacy-web/public/images/Portachiavi.jpg": {
+      "bytes": 1036260,
+      "sha256": "02b515b67f05e1d50eff1d848a5747f90429f19cd7e9dee7821431f6b1dbf287"
+    },
+    "apps/legacy-web/public/images/Portavaso Grout.JPG": {
+      "bytes": 1497451,
+      "sha256": "87cbb26e86f4386ea540c2ab9517f34f07f0bbff57032b4076c3bf2224b3ab72"
+    },
+    "apps/legacy-web/public/images/Puntale Natalizio Mew.JPG": {
+      "bytes": 248855,
+      "sha256": "27045be36f2488d06fe980d555792e78b5f18a500b53a61ed1363fc26bfbdddf"
+    },
+    "apps/legacy-web/public/images/Sirenette.webm": {
+      "bytes": 9841832,
+      "sha256": "f6329f95493da6820b37b2d734d1070a3dd26db3f7e62cf2d1f37ee3a73891f7"
+    },
+    "apps/legacy-web/public/images/Son Goku nuvola sipdi.JPG": {
+      "bytes": 203328,
+      "sha256": "d576154e27b14211323c4ad117ff516ef416856ce7f42c3505240b458fdbc5ba"
+    },
+    "apps/legacy-web/public/images/Son goku dedica a Toriyama San.jpg": {
+      "bytes": 142296,
+      "sha256": "a5fe697d37e1b788d7f4b5925a8314bce0add2f8161a6af2a63c83d2308e6f14"
+    },
+    "apps/legacy-web/public/images/Spongebob.jpg": {
+      "bytes": 4529,
+      "sha256": "999122cedbe80202b5ab4a2696382217a5f22dad5494c64b867f20600b7e0a91"
+    },
+    "apps/legacy-web/public/images/Statutta Fortenite.jpg": {
+      "bytes": 79751,
+      "sha256": "76504cecebf31a93b3656cc4d55895d1c516e1e22894cecf93bd2d3a1f30ab93"
+    },
+    "apps/legacy-web/public/images/Telespallabob Fioriera.jpg": {
+      "bytes": 5226,
+      "sha256": "dc3437fc4335f5156c0a1e432c2a5bb37069d62097eafcc4d8f4c2c568fd3c35"
+    },
+    "apps/legacy-web/public/images/Torre dadi.jpg": {
+      "bytes": 503029,
+      "sha256": "50cf5bef35eb38910d7c2d7a0ec689dabd4837c4f07cd22c0ba58075b92663d0"
+    },
+    "apps/legacy-web/public/images/Venom.jpg": {
+      "bytes": 4835,
+      "sha256": "2d922b71fa4b311af57ee6067e27c7a320775c48a2ecb03d34c07420685dca70"
+    },
+    "apps/legacy-web/public/images/blog/blobs-zits.jpg": {
+      "bytes": 8280,
+      "sha256": "81969cfdb36badd71e82c1914303ef371910457a33631ef13931191a304984ff"
+    },
+    "apps/legacy-web/public/images/blog/carbon-composite.jpg": {
+      "bytes": 12224,
+      "sha256": "4757e9312b17bea8de66a5d65a5347dac1f4e73898a69b2d2b389a236ad670c0"
+    },
+    "apps/legacy-web/public/images/blog/colorful-filaments-2.jpg": {
+      "bytes": 21387,
+      "sha256": "908d9e49590a4fb4281e54bcff947bedbaaa00b805eba45f15b7660d550afa4c"
+    },
+    "apps/legacy-web/public/images/blog/colorful-filaments.jpg": {
+      "bytes": 12843,
+      "sha256": "37c540413f41773591b0b6f88682d978cbeb49017725a6e29a85ef48a2a2bd75"
+    },
+    "apps/legacy-web/public/images/blog/delamination.jpg": {
+      "bytes": 17168,
+      "sha256": "47b523479406fdb23de202d40e4b0c94d60aea298e99ac3054b4ad9427a45124"
+    },
+    "apps/legacy-web/public/images/blog/elephant-foot.jpg": {
+      "bytes": 25802,
+      "sha256": "14c6b0287302b5d57cdf0c17cad50b4ad6d1e95524f9ae4c4da3d9e2644b1ad9"
+    },
+    "apps/legacy-web/public/images/blog/ghosting.jpg": {
+      "bytes": 15672,
+      "sha256": "f97d47653bff7107d413db41a3ce98ec59360295a1ef1e70b0298a6c6c803944"
+    },
+    "apps/legacy-web/public/images/blog/layer-shifting.jpg": {
+      "bytes": 10981,
+      "sha256": "643ca3276564c41b6f72fc7f98fd66d26048b0e6807f72f3022e7b5cd671a13f"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/Aspirazione_laboratori.jpg": {
+      "bytes": 19529,
+      "sha256": "192ed7ba1c87c8cc8ad92f1e008e6d228b0adcbdaa1de2922a8dd96f81795f29"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/Pulizia_nozzle.jpg": {
+      "bytes": 15403,
+      "sha256": "c43175a7955e4c670a9da0cd41ba024511f66b90234864f3f3d7bd034788db87"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/controllo_cinghie.jpg": {
+      "bytes": 12311,
+      "sha256": "ca5923d9a3a13cb67dafd10c086b097b3b4943187ec5093da525240d2ffee170"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/copertina.png": {
+      "bytes": 1696037,
+      "sha256": "beabc4015b369955dca88a8201f9e7c77e3500935bbd51f20267b944c7f6b948"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/livellamento_piatto.jpg": {
+      "bytes": 9489,
+      "sha256": "98e0f91eda054b2867567dc921e8c56016b292dca09a5a547fbc06a9c26eea43"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/lubrificazione_assi.jpg": {
+      "bytes": 22567,
+      "sha256": "0b1f66a7540fbf5936e0559cfdfa06434880e963c457fa5485471dc6a7ec4dd2"
+    },
+    "apps/legacy-web/public/images/blog/manutenzione_stampante_3d/pulizia_ventole.jpg": {
+      "bytes": 13302,
+      "sha256": "c673baab595d59395a31f0131c5e9ac171c6f4b093a7e690235268ad29dc200d"
+    },
+    "apps/legacy-web/public/images/blog/pla-spool.jpg": {
+      "bytes": 19536,
+      "sha256": "81c028f8ddf9e02281424344e038a070530bba78f38832e080a59e092561b9b7"
+    },
+    "apps/legacy-web/public/images/blog/post_processing_stampa_3d/inserto_filettato.jpg": {
+      "bytes": 18288,
+      "sha256": "389a0fe66bf17d74f15c54be71c22af7b2bf5a2184860176728983eb7e217e07"
+    },
+    "apps/legacy-web/public/images/blog/post_processing_stampa_3d/levigatura_superficie.jpg": {
+      "bytes": 14502,
+      "sha256": "525de1315810cba0fbc7c0f6cbf3e9c58437a8044eba350ce2153410056cbd2c"
+    },
+    "apps/legacy-web/public/images/blog/post_processing_stampa_3d/primer_spray.jpg": {
+      "bytes": 37941,
+      "sha256": "5da46c5a75d797cba4e7dc929db71944bd060950dbde4b8f85192daedd37698f"
+    },
+    "apps/legacy-web/public/images/blog/post_processing_stampa_3d/rimozione_supporti.jpg": {
+      "bytes": 16026,
+      "sha256": "fb9a36382860b06e28dd559d6e78b7228aa4830b500aa10e90376a683afb681a"
+    },
+    "apps/legacy-web/public/images/blog/post_processing_stampa_3d/verniciatura_elmetto.jpg": {
+      "bytes": 21900,
+      "sha256": "40727dcd796cfa5e37220f19acd18ff013157396674cebc875125d166c677964"
+    },
+    "apps/legacy-web/public/images/blog/stringing.jpg": {
+      "bytes": 33479,
+      "sha256": "c6b040456f0b1fd3e9c5a5796962cf42cf8a853991cabca5e1408b5810a3f234"
+    },
+    "apps/legacy-web/public/images/blog/th (1).jpg": {
+      "bytes": 5085,
+      "sha256": "abd8e8fd0d5449bb9895b67f778d333ad24fff702cfece9fbd24ccf1e790f107"
+    },
+    "apps/legacy-web/public/images/blog/th (2).jpg": {
+      "bytes": 11500,
+      "sha256": "b4b0f0dd2f5d3123a8a7339c006fa2d19a042850aa5feceaa7df691687c427fc"
+    },
+    "apps/legacy-web/public/images/blog/th (3).jpg": {
+      "bytes": 5889,
+      "sha256": "70bace603682512657d6c3c568de275b0d443520a3e91eb8331ded163e058d56"
+    },
+    "apps/legacy-web/public/images/blog/th (4).jpg": {
+      "bytes": 25300,
+      "sha256": "0f94e4d9dafa629baddbab91d8eed03776b3c0980f522e1e41cff44ef72ee87a"
+    },
+    "apps/legacy-web/public/images/blog/th (5).jpg": {
+      "bytes": 13382,
+      "sha256": "83ed0de25ed7d960a3961660072ef552d576916820263742fdfe8c95ad3c4970"
+    },
+    "apps/legacy-web/public/images/blog/th (6).jpg": {
+      "bytes": 11932,
+      "sha256": "dd07d0c678b3980d717ffd7435228d51e79c20ee65ba0a68ef1d3418443a90c6"
+    },
+    "apps/legacy-web/public/images/blog/th (7).jpg": {
+      "bytes": 20594,
+      "sha256": "acb45720dcacb4ff480eb1e6b552e0f3fc1442f8f34ea9effdbbdc5ff1609441"
+    },
+    "apps/legacy-web/public/images/blog/th.jpg": {
+      "bytes": 7897,
+      "sha256": "8e641d05ae7fadb84910b177fc181a98196eef6b9adf39f695f8a7f80215eb50"
+    },
+    "apps/legacy-web/public/images/blog/under-extrusion.jpg": {
+      "bytes": 6765,
+      "sha256": "46a1fa7a376b1d38f5764fabc546b5a949da7ca9259de83769bb6d4c883b318b"
+    },
+    "apps/legacy-web/public/images/blog/warping-cracking.jpg": {
+      "bytes": 8295,
+      "sha256": "132aaf63c43c1fc304203a7d977d05b78a092f85a7c40065d317aa79d21d877b"
+    },
+    "apps/legacy-web/public/images/diagramma-triangolo-materiali.svg": {
+      "bytes": 3599,
+      "sha256": "e55eedad79007c6921a894882975e0591b73888048eb7e9b99d77161adc87cbd"
+    },
+    "apps/legacy-web/public/images/kali Dragon.jpg": {
+      "bytes": 36278,
+      "sha256": "f6c4f214651f69de71b32ff51565c8bf0f2c041d871b4a0514288d4f92f6a70f"
+    },
+    "apps/legacy-web/public/images/logo.jpg": {
+      "bytes": 10148,
+      "sha256": "6d06f933436262894440ee2ebd2db6206665ab223e9849f165e4ce56f36403d9"
+    },
+    "apps/legacy-web/public/images/torre eiffel.jpg": {
+      "bytes": 105637,
+      "sha256": "f58aa5b49dd028f04854d3456503f2a627d1c15d7992140ad005c777c0e8bbb9"
+    },
+    "apps/legacy-web/public/robots.txt": {
+      "bytes": 1981,
+      "sha256": "779a8a737da9fa0eace5426866c0650306b50511b924267bcc04b39033b23733"
+    },
+    "apps/legacy-web/public/sitemap.xml": {
+      "bytes": 5628,
+      "sha256": "05c473f42cc932d159145767d9ab3d47e653a5f7e5133131250001c94e820a4e"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Adattatore folletto.mp4": {
+      "bytes": 46575395,
+      "sha256": "7ebabca6a805819d7c387c8c4dd35cedd2171c877906662ecac14772b106bf5b"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Analogici dualsense PS5.mp4": {
+      "bytes": 7833723,
+      "sha256": "2097a6ca46caf961fd23ce34c620ba7cb38ba6c052b446dfdf16d97040b22dcb"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Barattolo Fungo Super Mario.mp4": {
+      "bytes": 27678477,
+      "sha256": "c4590c942d932f6e9f5641b8e35ff47426cf603c8f92b4cc87987a101249235c"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Base Soiderman.mp4": {
+      "bytes": 3077394,
+      "sha256": "270979af5712a74afce117c5c27a50bc1f168a67bb9e6ca775caae9b9b8b5ea6"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Base Venom.mp4": {
+      "bytes": 6508049,
+      "sha256": "2f5800090ac42898d0a19da72af41d8b11acedf776a7bedb54d6e941c214ef47"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Base ruota panoramica.mp4": {
+      "bytes": 15052691,
+      "sha256": "d878fe4dc52205cd733d259d292054127493f02a05200bd6365b320a101ec655"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Bicchieri simpatici .mp4": {
+      "bytes": 27001716,
+      "sha256": "b6e91ec7b3370f963dba1d592180b82bff55c184af16e8aa2f0e96390812b53f"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Carrozze ruota panoramica.mp4": {
+      "bytes": 16634024,
+      "sha256": "84dd99a83aa40b1e7717763dc389468b2c705be2c6bcb631f8fcad78b92199a8"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Casa Spongebob.mp4": {
+      "bytes": 73582722,
+      "sha256": "5f9846a94478a02f39b7521ca6011710f496fc7394c7fa3ee1a0d142f37fbc66"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Casa Squiddi Tentacolo.mp4": {
+      "bytes": 73197179,
+      "sha256": "0e39dfeea13747aac4bfc7acbd00f6bf0c67859fffeb4531a2e80eebf9079341"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Cuore.mp4": {
+      "bytes": 6213364,
+      "sha256": "56e31d48ccf1f8af8ff757eefce1897bbf4a199952f400f32ac842209c9ecdca"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Elefant Love.mp4": {
+      "bytes": 6679468,
+      "sha256": "b0a1388f56b6d7f6d0bdcb72ca753f9ed1a1ae573a5dcd9638de6c93e5317e9d"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Frisbee Grande tpu.mp4": {
+      "bytes": 4540681,
+      "sha256": "57d62eb7c40915a06541949f4d548c28d5d208b8df21a48c553b1d12428d6778"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Gambe statuetta fortnite.mp4": {
+      "bytes": 20797964,
+      "sha256": "8d9e7c2abca4b8a216570244d5147a8aed12ab7977ab5ff731390dc6b6544e10"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Grout portavaso.mp4": {
+      "bytes": 65772905,
+      "sha256": "9d317053b4e56ffcb140a8796e24af6a628a9dd3ed37a9069303823d82457ae1"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Gufetti.mp4": {
+      "bytes": 1318216,
+      "sha256": "94790257c97294a4452090a8f67570457b3c5bd8d93b7e57f30363c4c5b594c2"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Ingranaggi.mp4": {
+      "bytes": 10665956,
+      "sha256": "2a75fc51b6a17380d63c13941a6ddaa7088e76425ed59f9734d8f4a9a0fa1467"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Kali dragon.mp4": {
+      "bytes": 2393686,
+      "sha256": "a146f28f00bfbc58bd8bfe2fb31655576da3995f8f2fca869aff93ba2618d430"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Mandy.mp4": {
+      "bytes": 16516623,
+      "sha256": "eed9f54d20bd88a55be29349e4f62e4728855f47624cd8bbbabb6e814ebba5fb"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Maschera Alien-2.mp4": {
+      "bytes": 45764457,
+      "sha256": "721b3473dea5b814df02c35a86519329a1ec7ceb67eb5e0c9be0b2d4bdd79506"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Mause.mp4": {
+      "bytes": 6454512,
+      "sha256": "6fc2c9ccfabdb9d5f9a490c3597f763096687aa82f6117b8e9641a308ff770ea"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Microfoni.mp4": {
+      "bytes": 1956074,
+      "sha256": "2836c56234ebda651c4825de338e39a5295330e5515a78be41dcc4352621f1c3"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Pocket Melody.mp4": {
+      "bytes": 4481013,
+      "sha256": "3a245b2d4ebb749e3c2c811595b809965e14616360c76b5d2c87372fb363e448"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Ruota panoramica.mp4": {
+      "bytes": 5884875,
+      "sha256": "ec851d0bd1b768677d23536b37a837d9e585ced243ca1f45cdb19e1a5111d375"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Sdentato.mp4": {
+      "bytes": 4339931,
+      "sha256": "317c38c0e3d7ac9ea086442974bc2d72a7d3be622c5f8fdc57c929a66accc502"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Snodo piscina.mp4": {
+      "bytes": 5601035,
+      "sha256": "1aaa7dc5c595c6acda773eaa72a0d77cb50fced4c08fbefd10d0d691a1f6dde2"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Spongebob Braccia.mp4": {
+      "bytes": 16698251,
+      "sha256": "ab6a913c786578366df168074de9839ba00573f1c103b2179575b613dc0def2f"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Spongebob Gambe.mp4": {
+      "bytes": 22345049,
+      "sha256": "dad44ff96e8c7585cdcce446bf3c9f9c8d932530dfad459c65591a4da7fbbd8f"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Spongebob Torso 2.mp4": {
+      "bytes": 21577195,
+      "sha256": "8523ee1369afa53aa58d88ccb0e772febd4d594db560f3a2ca6bdc1bb315c940"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Spongebob Torso.mp4": {
+      "bytes": 9889184,
+      "sha256": "9dac278cfcffd3d3537b8f5ec0464055cbef375051005e7263ea7802e2353f6d"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Spongebob Viso.mp4": {
+      "bytes": 10316444,
+      "sha256": "be727d88524f101a82d5dc24a17b2add8aa78fec942a63f5b03e88ff437d67f4"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Torre Dadi.mp4": {
+      "bytes": 59470568,
+      "sha256": "163d13e2ade3f49c400e2367da60d7a2e1a51ba0ae9562102ad548e49aa65f78"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Torre Effeil.mp4": {
+      "bytes": 17675272,
+      "sha256": "34bcd4db48dcdcc772dd9b110f45fdbbf9976db3153a69a672ebd489b1a6cb54"
+    },
+    "apps/legacy-web/public/videos/Time-laps/Torre.mp4": {
+      "bytes": 5264787,
+      "sha256": "41ea2680633410a2a00a63daa1979f439e28f22c1302bc626d3988c702de62f4"
+    },
+    "apps/legacy-web/public/videos/Time-laps/lucina-3D-con-il-tuo-nome-personalizzato.mp4": {
+      "bytes": 12725689,
+      "sha256": "399accf0bdb5dbd84228b0e96e791963d4f67bd4de42b624bdd0a3d267af4338"
+    },
+    "apps/legacy-web/public/videos/Time-laps/piedi in tpu colorato.mp4": {
+      "bytes": 2695349,
+      "sha256": "f836e70808272b8bb9fd0484adbac80447e08523569891fd4d255484c9260aff"
+    },
+    "apps/legacy-web/reports/lh-mobile.report.html": {
+      "bytes": 826195,
+      "sha256": "ed5a6385e3b494c6be3b5c1f296cb5c152b4e81c9213c8e86115fd53d647b0db"
+    },
+    "apps/legacy-web/reports/lh-mobile.report.json": {
+      "bytes": 963980,
+      "sha256": "f3ca13b6b7852a7d4a2f197c4bd058602808c2a5c5d17f3cb136033012c73ae1"
+    },
+    "apps/legacy-web/scripts/optimize-images.cjs": {
+      "bytes": 4300,
+      "sha256": "79d80675a525266bfae023f35e7a3659b2bdabc380b540b3bc005322efe8396b"
+    },
+    "apps/legacy-web/scripts/track-keywords.cjs": {
+      "bytes": 1045,
+      "sha256": "78f1ea8203383e6dee04365b3da36b201f5eefe72ddaf92e9e58df884c985dfd"
+    },
+    "apps/legacy-web/src/App.tsx": {
+      "bytes": 2572,
+      "sha256": "d08ca92ea114a761bba4557b7a555e74f5945aa4e265bdca9c64c3af8e0440dc"
+    },
+    "apps/legacy-web/src/components/AccessibleProgressBar.tsx": {
+      "bytes": 2951,
+      "sha256": "9ce32215a867c2c55579eb5074570e01f378011411ab8e6f1215160a81306c8a"
+    },
+    "apps/legacy-web/src/components/Breadcrumbs.tsx": {
+      "bytes": 2792,
+      "sha256": "ca372985f7f350ecbdef68c39502acde3b6b5d2651cce691e52aca02e4a999ec"
+    },
+    "apps/legacy-web/src/components/ChatWidget.tsx": {
+      "bytes": 8473,
+      "sha256": "eb992c439bfa4d4dae56b7169265a5b7de486d29d66a62aaf592dba2baef89df"
+    },
+    "apps/legacy-web/src/components/Contact.tsx": {
+      "bytes": 4425,
+      "sha256": "a16dbea33599a7ef8467fb7f0d8973be51be36b8fca7fccca78a7101947462dd"
+    },
+    "apps/legacy-web/src/components/DfAMTables.tsx": {
+      "bytes": 19211,
+      "sha256": "dda4c9fb1dc5a2156bcca21e1011a86eebedf741fa2eff24444fce9db4bbebec"
+    },
+    "apps/legacy-web/src/components/ErrorBoundary.tsx": {
+      "bytes": 1496,
+      "sha256": "989e9ec9fb4421d283bfbee09b451fc6d8a1ae2f6e2e765d8bba541a7a6a6614"
+    },
+    "apps/legacy-web/src/components/FAQ.tsx": {
+      "bytes": 12418,
+      "sha256": "04656ea3918f42b243eb844e343abba396649b80507f68c27cf6284227098bbc"
+    },
+    "apps/legacy-web/src/components/FeatureCard.tsx": {
+      "bytes": 725,
+      "sha256": "37bbbb40c55a0a88beeaf60867747e01c06bbf7e3aea44bde60610f30d9cd7d5"
+    },
+    "apps/legacy-web/src/components/Footer.tsx": {
+      "bytes": 5886,
+      "sha256": "c2ce44676f659f8dbccb9a03c1af994339b27f25da1d1f01bfea957254ffbd61"
+    },
+    "apps/legacy-web/src/components/Gallery.tsx": {
+      "bytes": 18731,
+      "sha256": "405b4281db632a81ce4c5fe91389971b026c3d97cf91071db6b683c9be005aaf"
+    },
+    "apps/legacy-web/src/components/Header.tsx": {
+      "bytes": 12383,
+      "sha256": "93c04668f8d84eca62d8bd11720b69098b175959c6cbe174be11c8591c539cf5"
+    },
+    "apps/legacy-web/src/components/KlipperMaintenanceTables.tsx": {
+      "bytes": 20205,
+      "sha256": "a19bd3d178b5fac8716df6dc561387524e182c003e44424e499e77a0e17075d1"
+    },
+    "apps/legacy-web/src/components/Layout.tsx": {
+      "bytes": 8709,
+      "sha256": "e03784a5d564f984b31a81999ae2540693abaaa31beaa61ba9059987e2ad4da7"
+    },
+    "apps/legacy-web/src/components/LazyErrorBoundary.tsx": {
+      "bytes": 2451,
+      "sha256": "9e351734a3f2bba5043a02ca054e928eaafb2b7be90464be699c4967168178c2"
+    },
+    "apps/legacy-web/src/components/LegalPages.tsx": {
+      "bytes": 20945,
+      "sha256": "5da2adbfbd6960d8b5fb7533e93389e5e9e534b82cab9df29f7667ed64c53758"
+    },
+    "apps/legacy-web/src/components/LoadingFallback.tsx": {
+      "bytes": 2152,
+      "sha256": "fb51208aef37d71ea3028afc09383fc6476de68cee9b44e5805f99aea2dfb7b0"
+    },
+    "apps/legacy-web/src/components/MaterialSelector.tsx": {
+      "bytes": 22200,
+      "sha256": "1aa8981f6d5669e0f24153ba40398656b6c4b38cf2fa073a50d2e54411f8f240"
+    },
+    "apps/legacy-web/src/components/MaterialsComparisonTable.tsx": {
+      "bytes": 6606,
+      "sha256": "6371294a0a9c02ecb2e49b4a45f0e5ce9d5541dc7088a63b42bf00e3ecedfe96"
+    },
+    "apps/legacy-web/src/components/OptimizedImage.tsx": {
+      "bytes": 4006,
+      "sha256": "f48a661776c8fb4df477d2795bc048eade6288a9268bc903e16627be4a90056d"
+    },
+    "apps/legacy-web/src/components/PDFGenerator.tsx": {
+      "bytes": 12247,
+      "sha256": "a0a895f27b951eba424c87aa7c345ad8b6c6b7a34639fbcef133f09f47150578"
+    },
+    "apps/legacy-web/src/components/PostProcessingTables.tsx": {
+      "bytes": 20445,
+      "sha256": "53bbb38c4e95a52ed17a102209a6648073a0e562c8cb653c782db47819f80034"
+    },
+    "apps/legacy-web/src/components/QuickQuoteForm.tsx": {
+      "bytes": 19788,
+      "sha256": "3f10bfefba7b69cae5c7ace18c76a74a3d20df53002ec27506611e81a1386114"
+    },
+    "apps/legacy-web/src/components/QuoteCalculator.tsx": {
+      "bytes": 68060,
+      "sha256": "0f78ad0cdaa32dd26c1718ba553105fcb741f35e0b09eee93802bea201871e73"
+    },
+    "apps/legacy-web/src/components/SEOHead.tsx": {
+      "bytes": 9191,
+      "sha256": "d8c9fe782f1347e0746f6b9f7c1cdcf91f3e06c6a2f13f143a5c9ee3ce9bcfdc"
+    },
+    "apps/legacy-web/src/components/STLUpload.tsx": {
+      "bytes": 27598,
+      "sha256": "2a464104e548b1076c409c73c71b32577fb0ebd9db3686b49dfb347aa934635c"
+    },
+    "apps/legacy-web/src/components/Services.tsx": {
+      "bytes": 4320,
+      "sha256": "920fdd9e7c43ebe53e03ab170d30fa8cb664b13f2c79cfd18854418d9108c669"
+    },
+    "apps/legacy-web/src/components/TechnicalSpecs.tsx": {
+      "bytes": 8281,
+      "sha256": "155fe78014eae2a2dbb8ba8ec3239f2494c3ce0c96271662957b06bf1aa06d72"
+    },
+    "apps/legacy-web/src/components/Testimonials.tsx": {
+      "bytes": 3195,
+      "sha256": "334a7e1e4a35e6b939f75913f8fa1979e034fa0911164f1d9a37a9cbf08b0264"
+    },
+    "apps/legacy-web/src/components/TimelapseSection.tsx": {
+      "bytes": 32876,
+      "sha256": "257bf780c706c4f89f63312dd76b6f20ff068093c2cb2c8b280babcf36fc685a"
+    },
+    "apps/legacy-web/src/components/TroubleshootingTables.tsx": {
+      "bytes": 15297,
+      "sha256": "eb8aed5fd6f6494861bbf520a1f32d3c4face4d9b4be9395fc0c20cfb907b961"
+    },
+    "apps/legacy-web/src/components/WhatsAppButton.tsx": {
+      "bytes": 3851,
+      "sha256": "f20089aa248dd15552787b985cf59f4a938327c449762a4db795148b1589c495"
+    },
+    "apps/legacy-web/src/components/quote/ProgressBar.tsx": {
+      "bytes": 2445,
+      "sha256": "2065ceeaa12f22ea5311ce77c580d008d4444049c9a7da516ca25b3688ed4924"
+    },
+    "apps/legacy-web/src/components/quote/ResultSummary.tsx": {
+      "bytes": 16103,
+      "sha256": "8de841eb90a83772dca11a7e610d37af21f03ef41b0aa86296a788c2769afbdb"
+    },
+    "apps/legacy-web/src/components/quote/StepDimension.tsx": {
+      "bytes": 11749,
+      "sha256": "df31be4b3719bce64b198b557ba99b7f7a4c151b8dc09adedbbe6b3a7dea7956"
+    },
+    "apps/legacy-web/src/components/quote/StepMaterial.tsx": {
+      "bytes": 2675,
+      "sha256": "70e0d4c9329ed37090db2982e9acacc833fce4dc4114bf11c944d0470bfcf0b1"
+    },
+    "apps/legacy-web/src/components/quote/StepOptions.tsx": {
+      "bytes": 5461,
+      "sha256": "fd3c8670d197cf774252e9414f71c9aebf8f1e5bd150be53f1d54e3e117173c5"
+    },
+    "apps/legacy-web/src/components/quote/data.ts": {
+      "bytes": 3410,
+      "sha256": "3e4a60631f0053c169f6fb20330e9cb6d5885013bd08637a4798acf823aeef98"
+    },
+    "apps/legacy-web/src/components/quote/types.ts": {
+      "bytes": 708,
+      "sha256": "caaba7135c7a9845bddb897bd7df3940545c097fb98be2bc7e9e23fffadba0a5"
+    },
+    "apps/legacy-web/src/components/quote/utils.ts": {
+      "bytes": 274,
+      "sha256": "6010e6ba06344b5f2b91f2d92cc89e55c423eebc081abb58c929955192b6924e"
+    },
+    "apps/legacy-web/src/content/blog/README.md": {
+      "bytes": 4464,
+      "sha256": "e97e169a685725f51d91939b24923981c58ba0c6d3839485ddb4a49eec97f8e6"
+    },
+    "apps/legacy-web/src/content/blog/dfam-design-stampa-3d.ts": {
+      "bytes": 19968,
+      "sha256": "5f3f687c695810b0add74695ef8cd1aabca0637c9500d4c62f8107fe9ed4a198"
+    },
+    "apps/legacy-web/src/content/blog/index.ts": {
+      "bytes": 1412,
+      "sha256": "62a9dc0b9b239b2448795747a919f9f439ae4ba9ec3255a05eab3067f5f242c3"
+    },
+    "apps/legacy-web/src/content/blog/manutenzione-klipper-stampante-3d.ts": {
+      "bytes": 10022,
+      "sha256": "994a49395fe9347acf05c9d08a81b4d210d22a8ecfa742cdacc08d763e910c35"
+    },
+    "apps/legacy-web/src/content/blog/materiali-stampa-3d.ts": {
+      "bytes": 16587,
+      "sha256": "48db3f876c50696e1ce6ba8ac27c0609b95afbf6379bd3ba032a31856c5edc8a"
+    },
+    "apps/legacy-web/src/content/blog/post-processing-stampa-3d.ts": {
+      "bytes": 10436,
+      "sha256": "d19db02fadf8589d1dc218ce40fefd131e38606a8d51f2a80975bb78e4aab2b4"
+    },
+    "apps/legacy-web/src/content/blog/problemi-stampa-3d.ts": {
+      "bytes": 15757,
+      "sha256": "db7ef3239be751616b1c7f8c1b7235a64f03102dfb2f4b0f816897eb3c3d526f"
+    },
+    "apps/legacy-web/src/content/blog/prototipazione-stampa-3d-frosinone.ts": {
+      "bytes": 25499,
+      "sha256": "d38a0c5ec4392b6398a41a699768b1fa9f2abdf72b1f221f2c678f1a49486b14"
+    },
+    "apps/legacy-web/src/content/blog/quanto-costa-stampare-3d.ts": {
+      "bytes": 9058,
+      "sha256": "4a9aa9a5dae853995ad34f9a5fb64e5c3735152461a754b9c68f39e955540bcd"
+    },
+    "apps/legacy-web/src/content/blog/types.ts": {
+      "bytes": 256,
+      "sha256": "e42e4db731b6dd81b0e6edb12869aee57d3b420727c6c64786a0ae83b8372710"
+    },
+    "apps/legacy-web/src/hooks/useGeometryWorker.ts": {
+      "bytes": 5688,
+      "sha256": "13427eb695dba45cf08bd463189ba338c20acdc483d80f001e90ed108253d832"
+    },
+    "apps/legacy-web/src/hooks/useOptimizedResize.ts": {
+      "bytes": 3100,
+      "sha256": "d8ed7a8418917eb1ddfe9edd89ae440ae295eb24f2d3b99f4c976a0fcdd8f07e"
+    },
+    "apps/legacy-web/src/icons.ts": {
+      "bytes": 490,
+      "sha256": "11539c9d6b723a9a1664497431bdf83e48567bd5ee0755a7363db3f3aff46076"
+    },
+    "apps/legacy-web/src/index.css": {
+      "bytes": 35031,
+      "sha256": "9ac960e1ac8b405196adbb4f39fcfbd51ce5e71f517b400957a9a23ec5df3dd2"
+    },
+    "apps/legacy-web/src/main.tsx": {
+      "bytes": 425,
+      "sha256": "6592e99c015903a77c1c1bd9d9b4cc6fd25458706ee9c12bb8b77575fe7aea69"
+    },
+    "apps/legacy-web/src/pages/About.tsx": {
+      "bytes": 4842,
+      "sha256": "697643b159e3a59a6619124613f1624bc4f54363f19fd88de0d4600d805e4f65"
+    },
+    "apps/legacy-web/src/pages/Blog.tsx": {
+      "bytes": 22298,
+      "sha256": "71694b1c70e61073bbe48e15f52d75c8bf2b7ccbe3fcc7180a1fbdc4e739f2d5"
+    },
+    "apps/legacy-web/src/pages/Contact.tsx": {
+      "bytes": 2397,
+      "sha256": "1a03e8bda823d9a45d76fc83c5b662159c14d74ec037c36fbadf1491ce711bcb"
+    },
+    "apps/legacy-web/src/pages/Gallery.tsx": {
+      "bytes": 2134,
+      "sha256": "38fc452031b1f94b8868018d30a655b893c6ff7dd98dbd736f26ba4a2354128d"
+    },
+    "apps/legacy-web/src/pages/Home.tsx": {
+      "bytes": 17917,
+      "sha256": "2df7903d36f2f618376c14353b10dab518f94fb4db0f88b4cec2a0cd87eec011"
+    },
+    "apps/legacy-web/src/pages/Legal.tsx": {
+      "bytes": 5840,
+      "sha256": "a8b134ed9883a9a9aa655f6babbb6e88074fcab03659441a630b21c422814982"
+    },
+    "apps/legacy-web/src/pages/Materiali.tsx": {
+      "bytes": 4942,
+      "sha256": "051d49d40c699fdb0ece1f01287bae18a3e45bedbb0b88c8bc23405de8a23e71"
+    },
+    "apps/legacy-web/src/pages/NotFound.tsx": {
+      "bytes": 4707,
+      "sha256": "35e3cee2a2cf319882830ad7e5fde403aed659d6f2aad51fcf636d9a1df4b5e1"
+    },
+    "apps/legacy-web/src/pages/Preventivatore.tsx": {
+      "bytes": 9829,
+      "sha256": "5f90846b17cb03a29e007ed8779f27c5ccc6f5b52ef3448da581d23431ba3025"
+    },
+    "apps/legacy-web/src/pages/Stampa3DCassino.tsx": {
+      "bytes": 19727,
+      "sha256": "d7f0954e6c57ab3f74193ecd0fa1c6ec8402ae7a65679fd834dd8f0407c228d8"
+    },
+    "apps/legacy-web/src/pages/Stampa3DLatina.tsx": {
+      "bytes": 24495,
+      "sha256": "36b36a2970a7d849f0d3a7fe1cf08b5e507eb45eeec8be6baec1a6a3950504c7"
+    },
+    "apps/legacy-web/src/utils/analytics.ts": {
+      "bytes": 5912,
+      "sha256": "4c06f3e0fdb2deb7a5f3896cfecc05c5b37ed2ab1a824c578246584b631976d1"
+    },
+    "apps/legacy-web/src/utils/debounce.ts": {
+      "bytes": 1403,
+      "sha256": "42d469c23da1943869f6ea356ae233edb2469dcea2379ff2d1b2db06b487b375"
+    },
+    "apps/legacy-web/src/utils/dropMeshOnBed.ts": {
+      "bytes": 701,
+      "sha256": "5a8a1a7f1732d9babe5429799bc16ad567a5c5b7493b70aec8db46cb61c0737f"
+    },
+    "apps/legacy-web/src/utils/stlAutoOrientation.ts": {
+      "bytes": 8998,
+      "sha256": "2e84c178f52a376999270e32fa69d5fb5f2a591a8c995863bbeb86a423cacab4"
+    },
+    "apps/legacy-web/src/vite-env.d.ts": {
+      "bytes": 947,
+      "sha256": "1514071c9765846500df9fcebdd1ed25c9348f513a4afb667c2bcfccf6ded640"
+    },
+    "apps/legacy-web/src/workers/geometryWorker.ts": {
+      "bytes": 6582,
+      "sha256": "8108f32e31bec6362850859361649cb1496d459116df6faf1900fae812f3cdd0"
+    },
+    "apps/legacy-web/src/workers/orientWorker.ts": {
+      "bytes": 565,
+      "sha256": "0a44b01db6fa59de0a5d788b70357889798416bc0cbd7c59dcac8e93689ac433"
+    },
+    "apps/legacy-web/tailwind.config.js": {
+      "bytes": 738,
+      "sha256": "0f9041ec4d4a556022bfd536d721a938f2c52e78082abfa6db5f192e67bb2ba5"
+    },
+    "apps/legacy-web/tsconfig.app.json": {
+      "bytes": 552,
+      "sha256": "5dea726e0460f4b1c4c8cd0dab11544af8ae8f89445d8618f0d643762e2c5a0a"
+    },
+    "apps/legacy-web/tsconfig.json": {
+      "bytes": 119,
+      "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808"
+    },
+    "apps/legacy-web/tsconfig.node.json": {
+      "bytes": 479,
+      "sha256": "1a270cb8020d1fa879262423b9c222fa38d94b830ec61164a46b558ea9d2a526"
+    },
+    "apps/legacy-web/vite.config.ts": {
+      "bytes": 2324,
+      "sha256": "8cb0686c4d0f86a9d20cae3c14d928c89d160e82663c4e8e1913584d6b585c1e"
+    },
+    "apps/ui-playground/index.html": {
+      "bytes": 306,
+      "sha256": "bfc507debcb431f802b62c652fa7e12e720b54fa0df4e892820401793c200a8d"
+    },
+    "apps/ui-playground/package.json": {
+      "bytes": 580,
+      "sha256": "e6acda8ce0867f9ac082e8213890fa6920bbbc9f61df88d2681f741d720b91c0"
+    },
+    "apps/ui-playground/src/App.tsx": {
+      "bytes": 14990,
+      "sha256": "d30a75c75e921d5633b565940bb16b3644fcd85c0ad1cd20bc90d7ca054699c8"
+    },
+    "apps/ui-playground/src/FormsShowcase.tsx": {
+      "bytes": 6547,
+      "sha256": "c97309f2b34ab3c87b6b85428ccb17a8794882f7848b645c2620cbdd11514bb8"
+    },
+    "apps/ui-playground/src/PrimitivesShowcase.tsx": {
+      "bytes": 4815,
+      "sha256": "6d58601efb31c4dff919cd6979af94215383355da06a339537a973494d1cb356"
+    },
+    "apps/ui-playground/src/index.css": {
+      "bytes": 1713,
+      "sha256": "1fc964f22b7f89fe52f03119a7be634dd85c747a8b3bb390cbdd9ed85cf42cdd"
+    },
+    "apps/ui-playground/src/main.tsx": {
+      "bytes": 237,
+      "sha256": "2ed12a1457cd60b31c0f44f3ea59b8bbc2ddd4a49add3165228d093878fb7c24"
+    },
+    "apps/ui-playground/tsconfig.json": {
+      "bytes": 230,
+      "sha256": "37054af50b9874bad37ac94a43c25152b106aa6304fd1c714fbe536d2e99d30e"
+    },
+    "apps/ui-playground/vite.config.ts": {
+      "bytes": 196,
+      "sha256": "d9b98d7664e4205ab8d304e8388573bde6e4e49bc6a0f562a37afcbf8febd4c2"
+    },
+    "apps/web/.gitkeep": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "apps/web/e2e/color-scheme.spec.ts": {
+      "bytes": 1620,
+      "sha256": "cee38134fa76fa21e27b957e06c2ed276d7fd2f27a7eaab64079ba67cc771320"
+    },
+    "apps/web/e2e/console-errors.spec.ts": {
+      "bytes": 1098,
+      "sha256": "1cdcbb67c55637f7389257e9a21ab5502855b28eefd7ce619e65bb4c88f91520"
+    },
+    "apps/web/e2e/nav-links.spec.ts": {
+      "bytes": 864,
+      "sha256": "f49c714e950da9bec0bbd857cf4bad56c963b32310c33b42795f9e4a191a1e26"
+    },
+    "apps/web/e2e/support/routes.ts": {
+      "bytes": 985,
+      "sha256": "e8a18af68cfb2827976837c0530913b49e9fb7350150e05b617142dd383d2dc9"
+    },
+    "apps/web/index.html": {
+      "bytes": 2109,
+      "sha256": "85f86ca7c17ef7e2ea2f4f3fb71f41c7a3c37c23a6bafaae3a3fe8cf55b57419"
+    },
+    "apps/web/package.json": {
+      "bytes": 958,
+      "sha256": "597ffaa32da7ce118e1d01653d1a253d196dfd913c0c7d3c99320ded5f302bcc"
+    },
+    "apps/web/playwright.config.ts": {
+      "bytes": 1895,
+      "sha256": "118f604b5fdc0870bc64a49115c1a39bd35ca4fc19e58148104547964e4dac88"
+    },
+    "apps/web/public/robots.txt": {
+      "bytes": 821,
+      "sha256": "b1a27226df87aed00e41eb1c2e9409dadf47a9786db275ae6c24517282ceefe3"
+    },
+    "apps/web/scripts/generate-sitemap.ts": {
+      "bytes": 5405,
+      "sha256": "c6e4b68dd25199c646f4272bf37a27dbee0ee92e67542bf8c8661f427d9efd38"
+    },
+    "apps/web/scripts/security-headers.ts": {
+      "bytes": 2113,
+      "sha256": "6e340d000a4c4e74150e078548fb10a6c634e776c30a568eb471d55392baa8bd"
+    },
+    "apps/web/src/app/AppShell.tsx": {
+      "bytes": 1805,
+      "sha256": "2f754371f7c87b8f3a1cfa621176bb25620ea960829affd0399261e4d062e862"
+    },
+    "apps/web/src/app/SegmentErrorBoundary.tsx": {
+      "bytes": 729,
+      "sha256": "6d7f8fe89fa670bbd0735e88acef7dc5f641eeee3d8276d69c2a4a82b3d1a57b"
+    },
+    "apps/web/src/app/routes.tsx": {
+      "bytes": 11913,
+      "sha256": "8378d165faf1e50740661751c81fad2672d508ca426e0f1ee6e7f4a2710d13b3"
+    },
+    "apps/web/src/lib/supabase/client.ts": {
+      "bytes": 1352,
+      "sha256": "10db3546047e863fecab4f153886793b1a871ee745ba6c4eb36636d185123a6e"
+    },
+    "apps/web/src/main.tsx": {
+      "bytes": 1166,
+      "sha256": "69ebab7fe58fa514c03e9fddd34084c7a2dd31b4827f5cdbbe2511ef2329ebc6"
+    },
+    "apps/web/src/routes/NotFound.tsx": {
+      "bytes": 187,
+      "sha256": "ebafa9c312fb226198f6f103195edc91a0c0bb867c285590a87005142724e61f"
+    },
+    "apps/web/src/routes/account/AccountHome.tsx": {
+      "bytes": 333,
+      "sha256": "af40617599c5b2307dfa3a58d4ac64abe462675abe0f999c57dbff48dbb14e97"
+    },
+    "apps/web/src/routes/command/CommandBoundary.tsx": {
+      "bytes": 520,
+      "sha256": "e0419b1355f7e085fb31c190d3eb5a4e8924d596f96eb7b220593585afe6308b"
+    },
+    "apps/web/src/routes/public/Footer.tsx": {
+      "bytes": 2959,
+      "sha256": "a42d349eabbec4fa4083b4103ed4930021236de01c2cf2761c8113d0f58f867f"
+    },
+    "apps/web/src/routes/public/GlobalNav.tsx": {
+      "bytes": 2004,
+      "sha256": "1416604e813380ee2f4a236e63430846f88c0dd2bb52bdc7aa1930398b58d733"
+    },
+    "apps/web/src/routes/public/PublicHome.tsx": {
+      "bytes": 1586,
+      "sha256": "102d6ef4df131b2298f8e20d124b034904a20fa53805d9f67bc63dcabff2a9ed"
+    },
+    "apps/web/src/routes/public/home/ArtSection.tsx": {
+      "bytes": 1370,
+      "sha256": "7e98ff0beffd231d559726c0a38829e4ebe6b5f4dcff8920d78bc61dce141cac"
+    },
+    "apps/web/src/routes/public/home/AuthenticProofSection.tsx": {
+      "bytes": 1629,
+      "sha256": "45182b4fe425afeafa3f2e249e3ec1532f52df2fb7c0c34935388223447fa144"
+    },
+    "apps/web/src/routes/public/home/ClosingSection.tsx": {
+      "bytes": 1198,
+      "sha256": "18710dd3d51313d412dd7eb19d285e514eefdac378e876fd32ac4cc645b58c36"
+    },
+    "apps/web/src/routes/public/home/ComingSoonSection.tsx": {
+      "bytes": 1161,
+      "sha256": "45fa476c97ee665947963e1122e85e4a188cbedae4ac74941024b345442f7c23"
+    },
+    "apps/web/src/routes/public/home/DiscoverySection.tsx": {
+      "bytes": 1717,
+      "sha256": "e1ed8c59bb3fda31b71d23e330323d1257bd385ccd3ffcc3a98f4212d21ed875"
+    },
+    "apps/web/src/routes/public/home/EventsSection.tsx": {
+      "bytes": 995,
+      "sha256": "6d1848620dbb6460a751f8fdacc7388d5aad5a94d66eb4fca91c6fe3917c986b"
+    },
+    "apps/web/src/routes/public/home/HeroSection.tsx": {
+      "bytes": 3658,
+      "sha256": "534952b2be3fc4f09baaccab003f60de8769e685f2f6c9309daf43ec18d91f89"
+    },
+    "apps/web/src/routes/public/home/ProfessionalServicesSection.tsx": {
+      "bytes": 1551,
+      "sha256": "6bd04e410cc2b2dcfc0c9e37a48e46c78831c87ab5e566b2e4b362547181fbc5"
+    },
+    "apps/web/src/routes/public/home/ProjectTimelineSection.tsx": {
+      "bytes": 1066,
+      "sha256": "eedde9fba06653026dd43da1f45a52c21d2e626aa8388c40c0ea83ad4222b961"
+    },
+    "apps/web/src/routes/public/home/TrustSection.tsx": {
+      "bytes": 1444,
+      "sha256": "b3ba691c8245baa0e0add86a732911f8ee6695b483b0b6acb5865eed4740f85c"
+    },
+    "apps/web/src/routes/public/navigation.ts": {
+      "bytes": 5468,
+      "sha256": "49584d9fb1d9a416b2d1ee7f3acd68e61566d8fcb9d6cc0f688b853eba948320"
+    },
+    "apps/web/src/routes/public/pages/BlogPage.tsx": {
+      "bytes": 1379,
+      "sha256": "9236f9c99afd4d302ce80a9c0725fde6a4f05d5b84c07f96e6b21c09425d4d97"
+    },
+    "apps/web/src/routes/public/pages/Breadcrumbs.tsx": {
+      "bytes": 1252,
+      "sha256": "92b7ae0858eb80572b08a49c4a89c58d3f3960c128fefe6dbb5322cb9b010fd7"
+    },
+    "apps/web/src/routes/public/pages/CarrelloPage.tsx": {
+      "bytes": 568,
+      "sha256": "025f75c7123f11e8547c655bb8d24c006c554c67b0d4fc772ea64042b7b4d826"
+    },
+    "apps/web/src/routes/public/pages/ChiSiamoPage.tsx": {
+      "bytes": 1576,
+      "sha256": "aa922e12d8d8a58399f0cd8f452174d630df116e4dace32f23f4e5e68b061dd3"
+    },
+    "apps/web/src/routes/public/pages/ContattiPage.tsx": {
+      "bytes": 1309,
+      "sha256": "106caee694853a7bca71ca297fa3c9f19f3cf4785e9e547d2e494f638fefca85"
+    },
+    "apps/web/src/routes/public/pages/EventiPage.tsx": {
+      "bytes": 1032,
+      "sha256": "77816476faedab6e49b756c0a155f3e7700280e0da62a27e7948e2541441d718"
+    },
+    "apps/web/src/routes/public/pages/FutureFeatureNotice.tsx": {
+      "bytes": 2233,
+      "sha256": "440a4ec7bd908a9bd85be79039d8ac7b67c6f4a8360241bef050502cd65568b5"
+    },
+    "apps/web/src/routes/public/pages/MetodoPage.tsx": {
+      "bytes": 1295,
+      "sha256": "dc85a783476eee857c9b47f9bc7263886d8db624d392f0c573230bca897550d3"
+    },
+    "apps/web/src/routes/public/pages/Nolimits3DPage.tsx": {
+      "bytes": 628,
+      "sha256": "37d33df6eb9830568efb30c7045ec7bef872170dfad3222ae7586ee672ed9a77"
+    },
+    "apps/web/src/routes/public/pages/PageLayout.tsx": {
+      "bytes": 1082,
+      "sha256": "c37c707ea8b3e07776cfac03933f78cd462e967f5f4efe6aee5566cf55e3f39a"
+    },
+    "apps/web/src/routes/public/pages/PrintFlowPage.tsx": {
+      "bytes": 1186,
+      "sha256": "5b9c1ef08d3133321527244ae1161235c7bf7f85f59ae88d0d0ffd21906b416f"
+    },
+    "apps/web/src/routes/public/pages/QualitaPage.tsx": {
+      "bytes": 1017,
+      "sha256": "d63c7f81e5daaa26e2f7977dfe3ad06d6bbb51e982435fefcb0543b85bf260a3"
+    },
+    "apps/web/src/routes/public/pages/RealizzazioniPage.tsx": {
+      "bytes": 1491,
+      "sha256": "602ebe32ad8874e58b578c25e26f4991d1af03685bda07102dc3a21c061d3e50"
+    },
+    "apps/web/src/routes/public/pages/RicercaPage.tsx": {
+      "bytes": 730,
+      "sha256": "a75f996b0a450c93b2db5e91363d2a5fcb4b77ebd60cc512403be08a6cadb1dd"
+    },
+    "apps/web/src/routes/public/pages/SectionLandingPage.tsx": {
+      "bytes": 2320,
+      "sha256": "7ea0ad0245478da127900a946fd5eaaf4104e2dfac2ba62c6ddf6fca88180e33"
+    },
+    "apps/web/src/routes/public/pages/content-pages.css": {
+      "bytes": 3178,
+      "sha256": "f845501287259eea3cc6bb8896f1130bef9b1f5b1b869fd5d1347d40de3d65fd"
+    },
+    "apps/web/src/routes/public/pages/esplora/ArteInStampa3DPage.tsx": {
+      "bytes": 1870,
+      "sha256": "7ccbacd041a6e445c3f82f5fa9152f88822a4c9e09135ef1080d3991add83b95"
+    },
+    "apps/web/src/routes/public/pages/esplora/CatalogoPage.tsx": {
+      "bytes": 727,
+      "sha256": "b28381d5439b5c7bb135131cc1d35e5081a40525d2389af570167290203872f3"
+    },
+    "apps/web/src/routes/public/pages/esplora/EsploraPage.tsx": {
+      "bytes": 1401,
+      "sha256": "77400d7f61fc7bdc6caab4db2074b331393012cd6578f87c52769532fee3ca97"
+    },
+    "apps/web/src/routes/public/pages/esplora/IspiratiPage.tsx": {
+      "bytes": 2129,
+      "sha256": "03408380dd8c0f5d9cae1eff0004d44ba34e72c601e7ef8f8b40eb0b75eb64b3"
+    },
+    "apps/web/src/routes/public/pages/pageMeta.ts": {
+      "bytes": 2854,
+      "sha256": "8c49f125df9675fdd4e40a35f78eb931198a5e87b60642b99c39e6b99d0b7fe6"
+    },
+    "apps/web/src/routes/public/pages/realizza/AssistenzaStampantiPage.tsx": {
+      "bytes": 465,
+      "sha256": "a64e2a8055ba763665f45fd8921eac291ecb42efcc26921c364547f978ca0535"
+    },
+    "apps/web/src/routes/public/pages/realizza/ConfiguratoreLanternePage.tsx": {
+      "bytes": 509,
+      "sha256": "a84e107c989cde84a743fde1d04977e74b5204d212a198e077a0131510242ab2"
+    },
+    "apps/web/src/routes/public/pages/realizza/PreventivoStampa3DPage.tsx": {
+      "bytes": 518,
+      "sha256": "16dce0c9aa32b6d7b922e1e0278783387d5341e694b516ce2af1d0dea6e4e048"
+    },
+    "apps/web/src/routes/public/pages/realizza/RealizzaPage.tsx": {
+      "bytes": 567,
+      "sha256": "e3f36ea406a357b31d264f6333716c8879b10ef10b596346b1a2398e5bb1791e"
+    },
+    "apps/web/src/routes/public/pages/realizza/RichiediProgettoPage.tsx": {
+      "bytes": 548,
+      "sha256": "1c9fb45ea235349ffbf2da019bd2279c8ac195a6365ecad1638cc5551f623e29"
+    },
+    "apps/web/src/routes/public/pages/servizi/PiccoleSeriePage.tsx": {
+      "bytes": 210,
+      "sha256": "66c228ad6824cbf45111434aba11fcc74401e4757b28c0a922b48cf0fa97ace2"
+    },
+    "apps/web/src/routes/public/pages/servizi/Progettazione3DPage.tsx": {
+      "bytes": 216,
+      "sha256": "00a3ee9e4cc020c94146572db870f8b974e55e17499434c5c882a98b241779c1"
+    },
+    "apps/web/src/routes/public/pages/servizi/PrototipazionePage.tsx": {
+      "bytes": 213,
+      "sha256": "82b8bffd394a5a20d19daee9f3405220c672538f0b3422bde7d67dc73a83b596"
+    },
+    "apps/web/src/routes/public/pages/servizi/RicambiPersonalizzatiPage.tsx": {
+      "bytes": 228,
+      "sha256": "bfe86875e59bc73d423768e80f97e5192fef10d8edef226d6bc4a3777b8c6300"
+    },
+    "apps/web/src/routes/public/pages/servizi/ServiceLayout.tsx": {
+      "bytes": 1719,
+      "sha256": "6b7d6f46f59eb706bcf937a787dd335a8db3dfc9d46869b9f87599d59a37e8b8"
+    },
+    "apps/web/src/routes/public/pages/servizi/ServiziPage.tsx": {
+      "bytes": 896,
+      "sha256": "b778e83d0d290ff5e9712aef4870531b882d178754d44d8317947b0e11aa75cc"
+    },
+    "apps/web/src/routes/public/pages/servizi/Stampa3DPage.tsx": {
+      "bytes": 202,
+      "sha256": "e653827f4ec216d67f0f72d5f65ad420e46daf6a96f3ae054120ceaec1e21cf0"
+    },
+    "apps/web/src/routes/public/public-layout.css": {
+      "bytes": 9956,
+      "sha256": "496802ccf5724aae898438fbbd93d4c920319f413a26490425450366ab7b2afc"
+    },
+    "apps/web/src/routes/public/useDocumentTitle.ts": {
+      "bytes": 901,
+      "sha256": "3525d4c5c0692eb5a9904b10eb9892a56ee75e0f68014f801b629e42ef865793"
+    },
+    "apps/web/src/test/a11y-axe.test.tsx": {
+      "bytes": 6032,
+      "sha256": "87c12e9f4381e9f4d1a5688d547b85e1486b20121f9a4d2dc8eb7548c59ca9e7"
+    },
+    "apps/web/src/test/app-shell.test.tsx": {
+      "bytes": 2864,
+      "sha256": "a30997a9622d00d4900c38410fe5f4735a64d9b753a1e7220bc4d49911d882af"
+    },
+    "apps/web/src/test/body-background-regression.test.ts": {
+      "bytes": 1782,
+      "sha256": "534c0834deda60c9ec4df4bb2e00b7f7e3b6737c3930c89b050edaa84ace1cd2"
+    },
+    "apps/web/src/test/command-privacy.test.tsx": {
+      "bytes": 2472,
+      "sha256": "bd5483a180f7c879550aff04944c6849f90d2055b57b31a067238d7b9d288e00"
+    },
+    "apps/web/src/test/content-pages.test.tsx": {
+      "bytes": 5886,
+      "sha256": "ba078112d8672474ed60d0feb4f66eab1c41071a3fbef4fb088eff1c84295d7c"
+    },
+    "apps/web/src/test/document-title.test.tsx": {
+      "bytes": 3447,
+      "sha256": "3cdb24b391e256c0ca08138dee201f6fa72011ff59c0ecedd23f0cb39a8bb7fa"
+    },
+    "apps/web/src/test/keyboard-reachability.test.tsx": {
+      "bytes": 4663,
+      "sha256": "e10f00f0e22322b661d43ba72243d9519c94d907fad761075f648cb601710e63"
+    },
+    "apps/web/src/test/nav-links-resolve.test.tsx": {
+      "bytes": 2693,
+      "sha256": "5f66690027c886c5b6acce00a4c2a79858400fe1c8bcc9375613575b3c3bfdb9"
+    },
+    "apps/web/src/test/public-home.test.tsx": {
+      "bytes": 2771,
+      "sha256": "d1ce87feb297228edbfea19f22922a52822a2f159ef6a1859ac895ee93c54832"
+    },
+    "apps/web/src/test/remaining-sitemap-pages.test.tsx": {
+      "bytes": 8247,
+      "sha256": "7e125bf0d3d546facbb77b39da99255bbe743d0bf77069b787e3d66f83838a87"
+    },
+    "apps/web/src/test/robots-txt.test.ts": {
+      "bytes": 1448,
+      "sha256": "9dc27306a9dfa4b1943e5046fd98fe07180a270a9f21bc80b2ad9fcc1ba1a1d9"
+    },
+    "apps/web/src/test/route-boundaries.test.tsx": {
+      "bytes": 2433,
+      "sha256": "ff88a0c587f5bedb206689b04b001a8ea2cb9d959104abbbd6b3e16d8e219036"
+    },
+    "apps/web/src/test/security-headers.test.ts": {
+      "bytes": 2363,
+      "sha256": "653b6b79a86d1661e91418a459589c19983e1cb7a2d423aa8ef1c48f3ad32a86"
+    },
+    "apps/web/src/test/segment-error-boundaries.test.tsx": {
+      "bytes": 1834,
+      "sha256": "3f8958f504b50c31295d5c5042ec422c769ab252d41834726c8c936d49b8d961"
+    },
+    "apps/web/src/test/setup.ts": {
+      "bytes": 165,
+      "sha256": "e696e3641a7e5ccf290230e22fd4e174a0e7705877c3bfafc22000c2092dea02"
+    },
+    "apps/web/src/test/shared-packages.test.ts": {
+      "bytes": 2053,
+      "sha256": "b62f0590cdfd30efb693d71e00a36c41a08d14dc0738addc637bfd0a383674f2"
+    },
+    "apps/web/src/test/sitemap.test.ts": {
+      "bytes": 4153,
+      "sha256": "3a67516fe03a70a4b65e35c83f011ff98d53d6de0d281ee2c0a099ce24a63ad3"
+    },
+    "apps/web/src/test/supabase-client.test.ts": {
+      "bytes": 1503,
+      "sha256": "df15a59559f6c9b96e8fa19e65249dcae83008b18afdff345979d322bd0f066b"
+    },
+    "apps/web/src/vite-env.d.ts": {
+      "bytes": 514,
+      "sha256": "78f275eff84a4ab88f2ad86422404934d3950bb731170206aebeab457a007b00"
+    },
+    "apps/web/tsconfig.json": {
+      "bytes": 293,
+      "sha256": "11da5d4b9e98f0d0ad2e4a4aac8aa3e3af839f4808062e0cd2e6a375ab1ea9ee"
+    },
+    "apps/web/vite.config.ts": {
+      "bytes": 2311,
+      "sha256": "5dbb6629ce9fb002d83b356c22b156a30b7cd56a6e3db53ca4131833072a4d08"
+    },
+    "eslint.config.js": {
+      "bytes": 1107,
+      "sha256": "ebaeadab95925c6b9548f85448043c844f5d9e36ac4958636f598296b81e124c"
+    },
+    "package.json": {
+      "bytes": 2409,
+      "sha256": "d1b2104760a557d0e11d346ec11f3bcd7badc673b5fec8dbb1d5bf47b70bd942"
+    },
+    "packages/api-contracts/package.json": {
+      "bytes": 414,
+      "sha256": "f2bf8fb5bd36c4b3a1a152eeaac7320d942e6da336ad5557d426ccdc1202f98d"
+    },
+    "packages/api-contracts/src/index.ts": {
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    "packages/api-contracts/tsconfig.build.json": {
+      "bytes": 238,
+      "sha256": "cae7604f0da19876828005792f89ddecec99a594588b25543ab12ec2dde463d1"
+    },
+    "packages/api-contracts/tsconfig.json": {
+      "bytes": 164,
+      "sha256": "973946113f6370c17ecd0fff19057a9669d08dd96023b2345d9ccc69239b3e99"
+    },
+    "packages/config/package.json": {
+      "bytes": 407,
+      "sha256": "c76f204936c34e0ee19b854c9f8b5985715b6cd085237189614182ea2f41d779"
+    },
+    "packages/config/src/index.ts": {
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    "packages/config/tsconfig.build.json": {
+      "bytes": 238,
+      "sha256": "cae7604f0da19876828005792f89ddecec99a594588b25543ab12ec2dde463d1"
+    },
+    "packages/config/tsconfig.json": {
+      "bytes": 164,
+      "sha256": "973946113f6370c17ecd0fff19057a9669d08dd96023b2345d9ccc69239b3e99"
+    },
+    "packages/domain/package.json": {
+      "bytes": 407,
+      "sha256": "86371d5f254778bfee786e7ade593526dd5f3cedf29e4768cf983826932a27d1"
+    },
+    "packages/domain/src/index.ts": {
+      "bytes": 11,
+      "sha256": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
+    },
+    "packages/domain/tsconfig.build.json": {
+      "bytes": 238,
+      "sha256": "cae7604f0da19876828005792f89ddecec99a594588b25543ab12ec2dde463d1"
+    },
+    "packages/domain/tsconfig.json": {
+      "bytes": 164,
+      "sha256": "973946113f6370c17ecd0fff19057a9669d08dd96023b2345d9ccc69239b3e99"
+    },
+    "packages/ui/package.json": {
+      "bytes": 1420,
+      "sha256": "c4e2d022f56e545f0404b9967c72c797bd8326c4864abd22ac80adacd3fcc333"
+    },
+    "packages/ui/src/components/badge.tsx": {
+      "bytes": 1506,
+      "sha256": "427412efa5e372285d782fdea20c4de93e98a9f6a7752b443c8d5750fe9ab970"
+    },
+    "packages/ui/src/components/button.tsx": {
+      "bytes": 3971,
+      "sha256": "43abb1ee5f45fe107e086b8d03fc4b0b5a26634d12ca61a386e2bd46a4208ee8"
+    },
+    "packages/ui/src/components/card.tsx": {
+      "bytes": 2199,
+      "sha256": "259e547b8f9318ede0e62ac5c698c98fa7f51b06707b057e6789f9abf76772a7"
+    },
+    "packages/ui/src/components/dialog.tsx": {
+      "bytes": 4619,
+      "sha256": "16cbef08c6c2ca8ab822d4026fb517b34b84970f13735fbdc5ac747d286385fd"
+    },
+    "packages/ui/src/components/form-field.tsx": {
+      "bytes": 3235,
+      "sha256": "90af381d551dd89b592e126806bff07bd8aa17965d633cfda7d5ce08131da3c5"
+    },
+    "packages/ui/src/components/input.tsx": {
+      "bytes": 2923,
+      "sha256": "43213facbe94504e12cc9114cd1be306b045b14bccb899c88f7e8f6cd3b78c82"
+    },
+    "packages/ui/src/components/select.tsx": {
+      "bytes": 5280,
+      "sha256": "f6c7fabd33c04b99d2a553b7c3e963a90f23a251555da0eacae85de85fd87c02"
+    },
+    "packages/ui/src/components/skeleton.tsx": {
+      "bytes": 1440,
+      "sha256": "ee273d77a38e34c9cf7a6d1b3ebfce329e35b01f3f9e6ef3bfafd8846e4649b7"
+    },
+    "packages/ui/src/components/status-indicator.tsx": {
+      "bytes": 1749,
+      "sha256": "843d51893810dec6e8a5df73b47dbf1dd8a9053e66f9cb46c9651ab3937e257d"
+    },
+    "packages/ui/src/components/tabs.tsx": {
+      "bytes": 3458,
+      "sha256": "37fc7ddc5b194775105a8ef74ec8601f41c69493965c95187854202ccfe2be93"
+    },
+    "packages/ui/src/components/toast.tsx": {
+      "bytes": 3436,
+      "sha256": "9eda573afeb45ca0eeabd8f9e5e5de5c473dd6d72b4b625ee022b3b93d55c86f"
+    },
+    "packages/ui/src/index.ts": {
+      "bytes": 1119,
+      "sha256": "f58719319ebce6d39b535d6e2ba3c91117faf0930184ea1c9342ee09f1704cc2"
+    },
+    "packages/ui/styles/global.css": {
+      "bytes": 12404,
+      "sha256": "ac5276f7a5e304ab3830a29a26334a0688ab4a8bd4b27a2a626b43cbca858a76"
+    },
+    "packages/ui/tests/badge.test.tsx": {
+      "bytes": 1740,
+      "sha256": "d68240437d69086187c0adb3398819d62f7cc13391bf57e2823c70cfe2da10ee"
+    },
+    "packages/ui/tests/button.test.tsx": {
+      "bytes": 5477,
+      "sha256": "2205cdb1abcd7aa8f93fb0e5ab74277685cf9c3f58919d361b8b8c30870bc9c1"
+    },
+    "packages/ui/tests/card.test.tsx": {
+      "bytes": 2140,
+      "sha256": "ad8259e560151f9e95569d0bb6140cc575059a0d4d86fc5d2bc702eb582a0a86"
+    },
+    "packages/ui/tests/dialog.test.tsx": {
+      "bytes": 4815,
+      "sha256": "620f8741a7b00012ded2fcaf1eeaf14a86441668365d4edce4642568865dace4"
+    },
+    "packages/ui/tests/form-field.test.tsx": {
+      "bytes": 3768,
+      "sha256": "9cc56456e3db26e45a54cf2b78ca3dbe916eb28eb33e7653128504cb0ff924ab"
+    },
+    "packages/ui/tests/input.test.tsx": {
+      "bytes": 2831,
+      "sha256": "20688911adfa18c3c4b165b751cf2786776b71b1edfe14435b3ae1e09d97fc6e"
+    },
+    "packages/ui/tests/placeholder.test.tsx": {
+      "bytes": 317,
+      "sha256": "617706200bc8c1df9c52bbd9c2f3db85874d0614862185b0837a357a741e888e"
+    },
+    "packages/ui/tests/select.test.tsx": {
+      "bytes": 4545,
+      "sha256": "282671ef9a31a298e639823d74f1d7277b80d4cfd66401200b59609a280df7dc"
+    },
+    "packages/ui/tests/setup.ts": {
+      "bytes": 36,
+      "sha256": "a46d66851af2c056e805fdd574bf5ec3adb1181c43c5e41f0a1c592e338afe64"
+    },
+    "packages/ui/tests/skeleton.test.tsx": {
+      "bytes": 1780,
+      "sha256": "39089df7da671619c102ba58d99a1d0897ce73318b2f6ca343c5332085d64893"
+    },
+    "packages/ui/tests/status-indicator.test.tsx": {
+      "bytes": 2458,
+      "sha256": "4af91d4558fb7b6f81afc3fdacd5abd05609d5a63909f819b18ed751095577a5"
+    },
+    "packages/ui/tests/tabs.test.tsx": {
+      "bytes": 3736,
+      "sha256": "f31f3ab37929e87c4c228a73f074b8bc1c61c846c217fa98fb0d41c16bdbdeee"
+    },
+    "packages/ui/tests/toast.test.tsx": {
+      "bytes": 5694,
+      "sha256": "e2d24a77c033251f9a3bc8c77ef9046577b198ece3136391e728fc2efbeb61e8"
+    },
+    "packages/ui/tests/tokens.test.tsx": {
+      "bytes": 12369,
+      "sha256": "f541b9cdc30f9b319db84cacc5c929e578503a6d9592baaca9049cbd401d0dcf"
+    },
+    "packages/ui/tsconfig.build.json": {
+      "bytes": 323,
+      "sha256": "82c67e098aa391f2b60247bce4fe8a18628b46d13879cfce2e228594d606ce01"
+    },
+    "packages/ui/tsconfig.json": {
+      "bytes": 315,
+      "sha256": "1fd497e014ed1b0aeab5e7c160f767f0deaca00cd2273c838bbea8440480fa94"
+    },
+    "packages/ui/vite.config.ts": {
+      "bytes": 1530,
+      "sha256": "05ac50d7e1063d631012aa72c444ca5cca9b00248a8741aaf5ab7b844de2ea60"
+    },
+    "packages/ui/vitest.config.ts": {
+      "bytes": 336,
+      "sha256": "5d9d9236905d8261f52fcccc19f43c4eca1fcc68323e9348c9317598d02c7c8c"
+    },
+    "pnpm-lock.yaml": {
+      "bytes": 169301,
+      "sha256": "59c9d614d7f584bf3c423d31bbf217445bca95aac1381d681faa0ab54e77898e"
+    },
+    "pnpm-workspace.yaml": {
+      "bytes": 63,
+      "sha256": "fb3b6587c3ad9715fc82174b0d1a2b09077bc2b3ea2da8c6d896df9d53fc5b20"
+    },
+    "scripts/guards/dependency-audit.mjs": {
+      "bytes": 8557,
+      "sha256": "2563cbafb4b6ae67192fc57877c22c2cc8ce780a32deed2c4f47b8e1062b3aa0"
+    },
+    "scripts/guards/guards.test.mjs": {
+      "bytes": 8997,
+      "sha256": "719978a7da24d00a4807ffff31edad2b48fb0bcee5cb74648a111db9b45024db"
+    },
+    "scripts/guards/migration-guard.mjs": {
+      "bytes": 793,
+      "sha256": "c539a252c554cecc424bfa35cdb209f6294692b6106fe82a71433b2d6047aeb9"
+    },
+    "scripts/guards/performance-budget-guard.mjs": {
+      "bytes": 3759,
+      "sha256": "9408df62b1368f5ba69ecbd457e597b9343c8be7844204eac8a512c8a0bc34bd"
+    },
+    "scripts/guards/scope-guard.mjs": {
+      "bytes": 2735,
+      "sha256": "525a0d21e7d26278a25da13a9cec17c42293b5e1e19985f1b29c39f73e9b3eb9"
+    },
+    "scripts/guards/secret-scan.mjs": {
+      "bytes": 3446,
+      "sha256": "aad05f112d6cce51ba04754d0ed6518aa17fdcfc5d040148645665dcac13c13e"
+    },
+    "scripts/guards/source-binding-guard.mjs": {
+      "bytes": 2093,
+      "sha256": "4aa485f273b7a13579058ee8e42ca35f7f79af11884954e51e479103ce9d5120"
+    },
+    "scripts/guards/toolchain-guard.mjs": {
+      "bytes": 1459,
+      "sha256": "d337e69fbcfd9f770471beddcceb430e452cc4b08ea094a7bdbdf8744ba7118e"
+    },
+    "supabase/.gitignore": {
+      "bytes": 72,
+      "sha256": "507699eb91144818edf61d3a079212cacf31d8db520eae428e3b48fcf0d6919c"
+    },
+    "supabase/README.md": {
+      "bytes": 733,
+      "sha256": "dbab9ef341ab5bb20eafb148eaf4b3e9a824425ebb43d7891e7306c38d81709d"
+    },
+    "supabase/config.toml": {
+      "bytes": 15567,
+      "sha256": "f35fcfab2450e5753258ba3efb5323349b4c02f65daaf829c305c5bd2d466a8a"
+    },
+    "supabase/functions/_shared/.gitkeep": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "supabase/migrations/.gitkeep": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "supabase/seed/.gitkeep": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "tsconfig.json": {
+      "bytes": 689,
+      "sha256": "13950451aecf5b5f341b66487c28db5c3c82157fc20b5aba439e0362a9040dac"
+    }
+  },
+  "self_test": {
+    "count": {
+      "observed_classes": [
+        "count",
+        "missing"
+      ],
+      "pass": true
+    },
+    "duplicate": {
+      "observed_classes": [
+        "duplicate",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "extra": {
+      "observed_classes": [
+        "count",
+        "extra"
+      ],
+      "pass": true
+    },
+    "hash": {
+      "observed_classes": [
+        "hash"
+      ],
+      "pass": true
+    },
+    "missing": {
+      "observed_classes": [
+        "count",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "mode": {
+      "observed_classes": [
+        "mode"
+      ],
+      "pass": true
+    },
+    "order": {
+      "observed_classes": [
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "pass": true,
+    "path": {
+      "observed_classes": [
+        "extra",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    }
+  },
+  "source_pre_transport": {
+    "checked": 36,
+    "diagnostics": [],
+    "expectation": "source",
+    "pass": true,
+    "root": "G:\\Claude\\NoLimits3D-website"
+  },
+  "target_base_pre_transport": {
+    "checked": 45,
+    "diagnostics": [],
+    "expectation": "base",
+    "pass": true,
+    "root": "G:\\Claude\\NoLimits3D-website-wpr-007"
+  },
+  "tool_versions": {
+    "platform": "win32",
+    "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]"
+  },
+  "utc": "2026-08-11T15:02:43.575540Z"
+}

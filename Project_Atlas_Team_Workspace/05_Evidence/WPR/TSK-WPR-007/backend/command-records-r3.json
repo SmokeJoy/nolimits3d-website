@@ -1,0 +1,356 @@
+[
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:06:47.464512Z",
+    "exit_code": 0,
+    "id": "r3-01-frozen-install",
+    "raw": {
+      "stderr": {
+        "bytes": 301,
+        "path": "raw/r3-01-frozen-install/stderr.bin",
+        "sha256": "3b9e95ab0d6b3f4cf4b4e5747f168059a045ab1425e8a69b84934b29e4bd5fe1"
+      },
+      "stdout": {
+        "bytes": 276,
+        "path": "raw/r3-01-frozen-install/stdout.bin",
+        "sha256": "72767a408c4d6e70df291d0b3a748e7ab26077821c27ad11476f9ac93b3a0108"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-01-frozen-install/stderr.txt",
+      "stdout": "sanitized/r3-01-frozen-install/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:06:45.731569Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\Python310\\python.exe",
+      "-m",
+      "py_compile",
+      "scripts/governance/codex_native_team_test.py"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:06:50.290397Z",
+    "exit_code": 0,
+    "id": "r3-02-py-compile",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-02-py-compile/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 0,
+        "path": "raw/r3-02-py-compile/stdout.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-02-py-compile/stderr.txt",
+      "stdout": "sanitized/r3-02-py-compile/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:06:50.003504Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "governance:codex-native"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:06:53.741066Z",
+    "exit_code": 0,
+    "id": "r3-03-governance-codex-native",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-03-governance-codex-native/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 13342,
+        "path": "raw/r3-03-governance-codex-native/stdout.bin",
+        "sha256": "ddcb926ae46c887aa7204ee65e8ee6126e8f51a97bc3dcf42633db297122eb15"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-03-governance-codex-native/stderr.txt",
+      "stdout": "sanitized/r3-03-governance-codex-native/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:06:52.842006Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "build"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:07:02.392281Z",
+    "exit_code": 0,
+    "id": "r3-04-build",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-04-build/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 5462,
+        "path": "raw/r3-04-build/stdout.bin",
+        "sha256": "a25218baa36f4b595819b702deea7d2de15df30205c6bd57d9e9a624b2c404ae"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-04-build/stderr.txt",
+      "stdout": "sanitized/r3-04-build/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:06:56.261300Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "lint"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:07:22.347039Z",
+    "exit_code": 0,
+    "id": "r3-05-lint",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-05-lint/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 100,
+        "path": "raw/r3-05-lint/stdout.bin",
+        "sha256": "4196fb76c0fca1d88a01a7683e2dfac3dce755b5cfd18b834da18c51a936623c"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-05-lint/stderr.txt",
+      "stdout": "sanitized/r3-05-lint/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:07:04.916899Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "format:check"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:07:27.849380Z",
+    "exit_code": 0,
+    "id": "r3-06-format-check",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-06-format-check/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 400,
+        "path": "raw/r3-06-format-check/stdout.bin",
+        "sha256": "12da06b905c3f256cde4aa78a5c263777606f2c3911d49bf31115145844cf577"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-06-format-check/stderr.txt",
+      "stdout": "sanitized/r3-06-format-check/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:07:24.961557Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "typecheck"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:07:40.727307Z",
+    "exit_code": 0,
+    "id": "r3-07-typecheck",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-07-typecheck/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 630,
+        "path": "raw/r3-07-typecheck/stdout.bin",
+        "sha256": "ab4eef9faaaa17124d9f491caec41deb9702c803ddddc21c51e726cb7b34a9bb"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-07-typecheck/stderr.txt",
+      "stdout": "sanitized/r3-07-typecheck/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:07:30.472587Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "test"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:08:44.489151Z",
+    "exit_code": 0,
+    "id": "r3-08-test",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-08-test/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 2780,
+        "path": "raw/r3-08-test/stdout.bin",
+        "sha256": "cd86fe6528d13db4efbbfdcbbc39ff1ee4ffcdc8e7921466457966025c7e8a47"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-08-test/stderr.txt",
+      "stdout": "sanitized/r3-08-test/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:07:43.544036Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "secret:scan"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:08:49.036959Z",
+    "exit_code": 0,
+    "id": "r3-09-secret-scan",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-09-secret-scan/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 144,
+        "path": "raw/r3-09-secret-scan/stdout.bin",
+        "sha256": "87d1bae41a21ba722739ba518b87c453d4d8be33612c43ed1616cdaec28e3b4e"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-09-secret-scan/stderr.txt",
+      "stdout": "sanitized/r3-09-secret-scan/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:08:47.103977Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "dependency:audit"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:08:54.601760Z",
+    "exit_code": 0,
+    "id": "r3-10-dependency-audit",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-10-dependency-audit/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 456,
+        "path": "raw/r3-10-dependency-audit/stdout.bin",
+        "sha256": "5960b2fe9ecc706f3448773c41dce0594906cd6af3a5af2a9744496ce17751d2"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-10-dependency-audit/stderr.txt",
+      "stdout": "sanitized/r3-10-dependency-audit/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:08:52.202241Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "guard:scope"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:08:59.980549Z",
+    "exit_code": 0,
+    "id": "r3-11-guard-scope",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-11-guard-scope/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 153,
+        "path": "raw/r3-11-guard-scope/stdout.bin",
+        "sha256": "eb4d0dc1584f7feb8889120e0669be2111244bea39233110fcd10434e92dfc71"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-11-guard-scope/stderr.txt",
+      "stdout": "sanitized/r3-11-guard-scope/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:08:58.428454Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "guard:migrations"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:09:03.624792Z",
+    "exit_code": 0,
+    "id": "r3-12-guard-migrations",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-12-guard-migrations/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 185,
+        "path": "raw/r3-12-guard-migrations/stdout.bin",
+        "sha256": "9601c23ab7c6e4df09b416fb7c18fd009c4e988294cf826bb659b812f801039b"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-12-guard-migrations/stderr.txt",
+      "stdout": "sanitized/r3-12-guard-migrations/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:09:03.075440Z"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "guard:source-bindings"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:09:06.752063Z",
+    "exit_code": 0,
+    "id": "r3-13-guard-source-bindings",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r3-13-guard-source-bindings/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 177,
+        "path": "raw/r3-13-guard-source-bindings/stdout.bin",
+        "sha256": "379236a887aa6da7a795900ea5928bff8bd2ce4c1556e182a1421ad94b058c0c"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r3-13-guard-source-bindings/stderr.txt",
+      "stdout": "sanitized/r3-13-guard-source-bindings/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:09:06.194161Z"
+  }
+]

@@ -1,0 +1,1199 @@
+{
+  "comparison": {
+    "diagnostics": [
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": ".codex/agents/atlas-tpm.toml"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": ".prettierrc"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "AGENTS.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Development_Framework_v2.0.0/manifest.json"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "eslint.config.js"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "package.json"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "pnpm-lock.yaml"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "pnpm-workspace.yaml"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "scripts/governance/codex_native_team_test.py"
+      },
+      {
+        "actual": "ABSENT",
+        "class": "missing",
+        "expected": "present",
+        "path": "tsconfig.json"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`.codex/agents/atlas-tpm.toml`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`.prettierrc`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`AGENTS.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Development_Framework_v2.0.0/manifest.json`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`eslint.config.js`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`package.json`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`pnpm-lock.yaml`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`pnpm-workspace.yaml`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`scripts/governance/codex_native_team_test.py`"
+      },
+      {
+        "actual": "present",
+        "class": "extra",
+        "expected": "ABSENT",
+        "path": "`tsconfig.json`"
+      },
+      {
+        "actual": "`.codex/agents/atlas-tpm.toml`",
+        "class": "order",
+        "expected": ".codex/agents/atlas-tpm.toml",
+        "path": "row 1"
+      },
+      {
+        "actual": "`.codex/agents/atlas-tpm.toml`",
+        "class": "path",
+        "expected": ".codex/agents/atlas-tpm.toml",
+        "path": "row 1"
+      },
+      {
+        "actual": "`AGENTS.md`",
+        "class": "order",
+        "expected": "AGENTS.md",
+        "path": "row 2"
+      },
+      {
+        "actual": "`AGENTS.md`",
+        "class": "path",
+        "expected": "AGENTS.md",
+        "path": "row 2"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+        "path": "row 3"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+        "path": "row 3"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv",
+        "path": "row 4"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv",
+        "path": "row 4"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md",
+        "path": "row 5"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md",
+        "path": "row 5"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/manifest.json`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/manifest.json",
+        "path": "row 6"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Framework_v2.0.0/manifest.json`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Framework_v2.0.0/manifest.json",
+        "path": "row 6"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md",
+        "path": "row 7"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md",
+        "path": "row 7"
+      },
+      {
+        "actual": "`scripts/governance/codex_native_team_test.py`",
+        "class": "order",
+        "expected": "scripts/governance/codex_native_team_test.py",
+        "path": "row 8"
+      },
+      {
+        "actual": "`scripts/governance/codex_native_team_test.py`",
+        "class": "path",
+        "expected": "scripts/governance/codex_native_team_test.py",
+        "path": "row 8"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md",
+        "path": "row 9"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md",
+        "path": "row 9"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md",
+        "path": "row 10"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md",
+        "path": "row 10"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md",
+        "path": "row 11"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md",
+        "path": "row 11"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md",
+        "path": "row 12"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md",
+        "path": "row 12"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md",
+        "path": "row 13"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md",
+        "path": "row 13"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md",
+        "path": "row 14"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md",
+        "path": "row 14"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md",
+        "path": "row 15"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md",
+        "path": "row 15"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md",
+        "path": "row 16"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md",
+        "path": "row 16"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md",
+        "path": "row 17"
+      },
+      {
+        "actual": "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md",
+        "path": "row 17"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md",
+        "path": "row 18"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md",
+        "path": "row 18"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md",
+        "path": "row 19"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md",
+        "path": "row 19"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md",
+        "path": "row 20"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md",
+        "path": "row 20"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md",
+        "path": "row 21"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md",
+        "path": "row 21"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md",
+        "path": "row 22"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md",
+        "path": "row 22"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md",
+        "path": "row 23"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md",
+        "path": "row 23"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md",
+        "path": "row 24"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md",
+        "path": "row 24"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md",
+        "path": "row 25"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md",
+        "path": "row 25"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md",
+        "path": "row 26"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md",
+        "path": "row 26"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md",
+        "path": "row 27"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md",
+        "path": "row 27"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md",
+        "path": "row 28"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md",
+        "path": "row 28"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md",
+        "path": "row 29"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md",
+        "path": "row 29"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md",
+        "path": "row 30"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md",
+        "path": "row 30"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md",
+        "path": "row 31"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md",
+        "path": "row 31"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md",
+        "path": "row 32"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md",
+        "path": "row 32"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md",
+        "path": "row 33"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md",
+        "path": "row 33"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md",
+        "path": "row 34"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md",
+        "path": "row 34"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md",
+        "path": "row 35"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md",
+        "path": "row 35"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md",
+        "path": "row 36"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md",
+        "path": "row 36"
+      },
+      {
+        "actual": "`package.json`",
+        "class": "order",
+        "expected": "package.json",
+        "path": "row 37"
+      },
+      {
+        "actual": "`package.json`",
+        "class": "path",
+        "expected": "package.json",
+        "path": "row 37"
+      },
+      {
+        "actual": "`pnpm-lock.yaml`",
+        "class": "order",
+        "expected": "pnpm-lock.yaml",
+        "path": "row 38"
+      },
+      {
+        "actual": "`pnpm-lock.yaml`",
+        "class": "path",
+        "expected": "pnpm-lock.yaml",
+        "path": "row 38"
+      },
+      {
+        "actual": "`pnpm-workspace.yaml`",
+        "class": "order",
+        "expected": "pnpm-workspace.yaml",
+        "path": "row 39"
+      },
+      {
+        "actual": "`pnpm-workspace.yaml`",
+        "class": "path",
+        "expected": "pnpm-workspace.yaml",
+        "path": "row 39"
+      },
+      {
+        "actual": "`tsconfig.json`",
+        "class": "order",
+        "expected": "tsconfig.json",
+        "path": "row 40"
+      },
+      {
+        "actual": "`tsconfig.json`",
+        "class": "path",
+        "expected": "tsconfig.json",
+        "path": "row 40"
+      },
+      {
+        "actual": "`eslint.config.js`",
+        "class": "order",
+        "expected": "eslint.config.js",
+        "path": "row 41"
+      },
+      {
+        "actual": "`eslint.config.js`",
+        "class": "path",
+        "expected": "eslint.config.js",
+        "path": "row 41"
+      },
+      {
+        "actual": "`.prettierrc`",
+        "class": "order",
+        "expected": ".prettierrc",
+        "path": "row 42"
+      },
+      {
+        "actual": "`.prettierrc`",
+        "class": "path",
+        "expected": ".prettierrc",
+        "path": "row 42"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+        "path": "row 43"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md",
+        "path": "row 43"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md",
+        "path": "row 44"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md",
+        "path": "row 44"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md`",
+        "class": "order",
+        "expected": "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+        "path": "row 45"
+      },
+      {
+        "actual": "`Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md`",
+        "class": "path",
+        "expected": "Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md",
+        "path": "row 45"
+      }
+    ],
+    "helper_count": 45,
+    "invalid_hashes": [
+      "`.codex/agents/atlas-tpm.toml`",
+      "`AGENTS.md`",
+      "`Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md`",
+      "`Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv`",
+      "`Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md`",
+      "`Project_Atlas_Development_Framework_v2.0.0/manifest.json`",
+      "`Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md`",
+      "`scripts/governance/codex_native_team_test.py`",
+      "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md`",
+      "`Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md`",
+      "`Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md`",
+      "`package.json`",
+      "`pnpm-lock.yaml`",
+      "`pnpm-workspace.yaml`",
+      "`tsconfig.json`",
+      "`eslint.config.js`",
+      "`.prettierrc`",
+      "`Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md`",
+      "`Project_Atlas_Team_Workspace/04_Planning/BLOCKER_REGISTER.md`",
+      "`Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md`"
+    ],
+    "packet_count": 45,
+    "pass": false
+  },
+  "self_test": {
+    "count": {
+      "observed_classes": [
+        "count",
+        "missing"
+      ],
+      "pass": true
+    },
+    "duplicate": {
+      "observed_classes": [
+        "duplicate",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "extra": {
+      "observed_classes": [
+        "count",
+        "extra"
+      ],
+      "pass": true
+    },
+    "hash": {
+      "observed_classes": [
+        "hash"
+      ],
+      "pass": true
+    },
+    "missing": {
+      "observed_classes": [
+        "count",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "mode": {
+      "observed_classes": [
+        "mode"
+      ],
+      "pass": true
+    },
+    "order": {
+      "observed_classes": [
+        "order",
+        "path"
+      ],
+      "pass": true
+    },
+    "pass": true,
+    "path": {
+      "observed_classes": [
+        "extra",
+        "missing",
+        "order",
+        "path"
+      ],
+      "pass": true
+    }
+  }
+}
