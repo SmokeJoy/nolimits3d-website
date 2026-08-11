@@ -1,0 +1,19 @@
+sequence\tcommand\tstarted_at\texit_code\tlog\tresult
+pre-01\tpnpm dependency:audit\t2026-08-11T16:21:09.4191177+02:00\t1\t01-advisories-before.log\tEXPECTED_PRECHANGE_FINDINGS
+pre-02\tpnpm list --recursive --depth Infinity js-yaml nanoid\t2026-08-11T16:21:09.4191177+02:00\t0\t02-dependency-paths-before.log\tPASS
+01\tpnpm install --frozen-lockfile\t2026-08-11T16:22:00+02:00\t0\t03-frozen-install-after.log\tPASS
+02\tpnpm build\t2026-08-11T14:23:10.150Z\t0\t04-build.log\tPASS
+03\tpnpm lint\t2026-08-11T14:23:55.700Z\t0\t05-lint.log\tPASS
+04\tpnpm format:check\t2026-08-11T14:23:59.900Z\t0\t06-format-check.log\tPASS
+05\tpnpm typecheck\t2026-08-11T14:24:16.304Z\t0\t07-typecheck.log\tPASS
+06\tpnpm test\t2026-08-11T14:25:58.193Z\t0\t08-test.log\tPASS
+07\tpnpm secret:scan\t2026-08-11T14:26:12.032Z\t0\t09-secret-scan.log\tPASS
+08\tpnpm dependency:audit\t2026-08-11T14:26:15.160Z\t0\t10-dependency-audit.log\tPASS
+09\tpnpm guard:scope\t2026-08-11T14:26:27.034Z\t0\t11-guard-scope.log\tPASS
+10\tpnpm guard:migrations\t2026-08-11T14:26:28.912Z\t0\t12-guard-migrations.log\tPASS
+11\tpnpm guard:source-bindings\t2026-08-11T14:26:30.879Z\t0\t13-guard-source-bindings.log\tPASS
+12\tpnpm governance:codex-native\t2026-08-11T14:26:58.786Z\t0\t14-governance-static-validator.log\tPASS
+13\tpnpm list --recursive --depth Infinity js-yaml nanoid\t2026-08-11T14:27:21.102Z\t0\t15-final-status.log\tPASS
+14\tgit diff --check\t2026-08-11T14:27:29.253Z\t0\tscope-verification.log\tPASS
+15\texact scope verification against base\t2026-08-11T14:27:45.417Z\t0\tscope-verification.log\tPASS
+16\texact Bible-tree verification\t2026-08-11T14:27:56.112Z\t0\tbible-integrity.log\tPASS

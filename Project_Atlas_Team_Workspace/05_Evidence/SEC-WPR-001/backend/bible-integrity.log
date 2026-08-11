@@ -1,0 +1,14 @@
+Timestamp: 2026-08-11T14:27:56.112Z
+Command: exact Bible-tree verification
+Recorded exit code: 0
+
+Exit code: 0
+Wall time: 1.2 seconds
+Output:
+Expected Bible tree:
+60e1b11dafeb58ab4e4377210820934b0f0b8f13
+Base Bible tree:
+60e1b11dafeb58ab4e4377210820934b0f0b8f13
+HEAD Bible tree:
+60e1b11dafeb58ab4e4377210820934b0f0b8f13
+Bible working-tree diff from base: none

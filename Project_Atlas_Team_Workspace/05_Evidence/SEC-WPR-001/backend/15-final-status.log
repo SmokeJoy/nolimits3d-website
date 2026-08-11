@@ -1,0 +1,76 @@
+Timestamp: 2026-08-11T14:27:21.102Z
+Command: pnpm list --recursive --depth Infinity js-yaml nanoid
+Recorded exit code: 0
+
+Exit code: 0
+Wall time: 3.7 seconds
+Output:
+Legend: production dependency, optional only, dev only
+
+@atlas/ui-playground@0.0.0 G:\Claude\NoLimits3D-website-sec-wpr-001\apps\ui-playground (PRIVATE)
+
+devDependencies:
+@tailwindcss/vite 4.3.2
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+@vitejs/plugin-react 6.0.3
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+vite 8.1.4
+└─┬ postcss 8.5.25
+  └── nanoid 3.3.18
+
+@atlas/web@0.0.0 G:\Claude\NoLimits3D-website-sec-wpr-001\apps\web (PRIVATE)
+
+devDependencies:
+@vitejs/plugin-react 6.0.3
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+vite 8.1.4
+└─┬ postcss 8.5.25
+  └── nanoid 3.3.18
+vitest 4.1.10
+├─┬ @vitest/mocker 4.1.10
+│ └─┬ vite 8.1.4 peer
+│   └─┬ postcss 8.5.25
+│     └── nanoid 3.3.18
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+
+@atlas/ui@0.0.0 G:\Claude\NoLimits3D-website-sec-wpr-001\packages\ui (PRIVATE)
+
+devDependencies:
+@tailwindcss/vite 4.3.2
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+@vitejs/plugin-react 6.0.3
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+shadcn 4.13.0
+├─┬ cosmiconfig 9.0.2
+│ └── js-yaml 4.3.1
+└─┬ postcss 8.5.25
+  └── nanoid 3.3.18
+vite 8.1.4
+└─┬ postcss 8.5.25
+  └── nanoid 3.3.18
+vitest 4.1.10
+├─┬ @vitest/mocker 4.1.10
+│ └─┬ vite 8.1.4 peer
+│   └─┬ postcss 8.5.25
+│     └── nanoid 3.3.18
+└─┬ vite 8.1.4 peer
+  └─┬ postcss 8.5.25
+    └── nanoid 3.3.18
+(node:35244) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Final implementation status: READY FOR TPM TECHNICAL REVIEW (not an approval).
+Resolved versions verified: js-yaml 4.3.1 and nanoid 3.3.18. No vulnerable js-yaml below 4.3.1 or nanoid below 3.3.17 remains in the listed workspace graph.
+Dependency audit result: critical=0, high=0, moderate=0, low=0, info=0, unknown=0. The unchanged React Router waiver remains visible until 2026-11-04.

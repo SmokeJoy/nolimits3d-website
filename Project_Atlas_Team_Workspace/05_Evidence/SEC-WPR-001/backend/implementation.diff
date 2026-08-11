@@ -1,0 +1,38 @@
+diff --git a/package.json b/package.json
+index f41fdaf..e2ecc56 100644
+--- a/package.json
++++ b/package.json
+@@ -42 +42,3 @@
+-      "hono@<4.12.34": ">=4.12.34"
++      "hono@<4.12.34": ">=4.12.34",
++      "js-yaml": "4.3.1",
++      "nanoid": "3.3.18"
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 8ff570b..b0eb782 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -16,0 +17,2 @@ overrides:
++  js-yaml: 4.3.1
++  nanoid: 3.3.18
+@@ -1802,2 +1804,2 @@ packages:
+-  js-yaml@4.3.0:
+-    resolution: {integrity: sha512-1td788aAnnZ5qs7V2QIRl1owjtYpbKt749Y3xauqQgwIIGF/xXWz1wMTEBx5O3LK3lXLVuqXPdPxj2BoFHaW9Q==}
++  js-yaml@4.3.1:
++    resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
+@@ -2028,2 +2030,2 @@ packages:
+-  nanoid@3.3.16:
+-    resolution: {integrity: sha512-bzlKTyNJ7+LdGIIwy8ijFpIqEQIvafahV7eYykJ8Cvh42EdJeODoJ6gUJXpQJvej1BddH8OqTXZNE/KfbWAu8Q==}
++  nanoid@3.3.18:
++    resolution: {integrity: sha512-DTg4MJbGMWkfi6VZFdNt2/caMbQy4Ou+Op/hJQvGEWcnVfoA1QA+xzRKAzw9jD6+GVOOeYr/mIcuDSdug6F6+w==}
+@@ -3774 +3776 @@ snapshots:
+-      js-yaml: 4.3.0
++      js-yaml: 4.3.1
+@@ -4292 +4294 @@ snapshots:
+-  js-yaml@4.3.0:
++  js-yaml@4.3.1:
+@@ -4479 +4481 @@ snapshots:
+-  nanoid@3.3.16: {}
++  nanoid@3.3.18: {}
+@@ -4634 +4636 @@ snapshots:
+-      nanoid: 3.3.16
++      nanoid: 3.3.18
