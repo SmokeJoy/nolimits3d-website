@@ -18,6 +18,7 @@
     "guard:scope": "node scripts/guards/scope-guard.mjs",
     "guard:source-bindings": "node scripts/guards/source-binding-guard.mjs",
     "guard:performance-budget": "node scripts/guards/performance-budget-guard.mjs",
+    "guard:production-readiness": "node scripts/guards/production-readiness-guard.mjs",
     "lint": "eslint . --max-warnings=0",
     "secret:scan": "node scripts/guards/secret-scan.mjs",
     "supabase:config:check": "supabase services --output json",

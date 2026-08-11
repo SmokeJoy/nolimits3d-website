@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import test from 'node:test';
+import { fileURLToPath } from 'node:url';
 import {
   applyWaivers,
   buildListCommand,
@@ -17,12 +18,20 @@ import {
   measureInitialPayload,
   parseInitialAssets,
 } from './performance-budget-guard.mjs';
+import { checkManifest, loadManifest, READY_STATUS } from './production-readiness-guard.mjs';
 import { isTechnicalPath, scanText } from './secret-scan.mjs';
 import { scanScope } from './scope-guard.mjs';
 import { validateBindings } from './source-binding-guard.mjs';
 
 function fixture() {
   return mkdtempSync(join(tmpdir(), 'atlas-guard-'));
+}
+
+function resolveRealManifestPath() {
+  return resolve(
+    dirname(fileURLToPath(import.meta.url)),
+    '../../Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json',
+  );
 }
 
 test('scope guard accepts an empty web scaffold', () => {
@@ -254,6 +263,108 @@ test('performance budget guard fails clearly when dist/index.html is missing', (
   const root = fixture();
   try {
     assert.throws(() => measureInitialPayload(root), /run the build first/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('production readiness guard passes when every required field is approved', () => {
+  const manifest = {
+    categories: [
+      {
+        id: 'business-identity',
+        fields: [
+          { id: 'legalName', label: 'Legal name', required: true, status: READY_STATUS },
+          { id: 'seo', label: 'SEO copy', required: false, status: 'missing' },
+        ],
+      },
+    ],
+  };
+  const { ready, violations } = checkManifest(manifest);
+  assert.equal(ready, true);
+  assert.deepEqual(violations, []);
+});
+
+test('production readiness guard fails closed on a missing required field', () => {
+  const manifest = {
+    categories: [
+      {
+        id: 'legal-commercial-copy',
+        fields: [
+          { id: 'privacyPolicy', label: 'Privacy policy', required: true, status: 'missing' },
+        ],
+      },
+    ],
+  };
+  const { ready, violations } = checkManifest(manifest);
+  assert.equal(ready, false);
+  assert.equal(violations.length, 1);
+  assert.match(violations[0], /legal-commercial-copy\.privacyPolicy/);
+});
+
+test('production readiness guard fails closed on a placeholder or pending-approval field, not just missing', () => {
+  const manifest = {
+    categories: [
+      {
+        id: 'commerce-catalog',
+        fields: [
+          { id: 'products', label: 'Products', required: true, status: 'placeholder' },
+          {
+            id: 'prices',
+            label: 'Prices',
+            required: true,
+            status: 'provided_pending_approval',
+          },
+        ],
+      },
+    ],
+  };
+  const { ready, violations } = checkManifest(manifest);
+  assert.equal(ready, false);
+  assert.equal(violations.length, 2);
+});
+
+test('production readiness guard ignores optional fields that are not approved', () => {
+  const manifest = {
+    categories: [
+      {
+        id: 'testimonials-claims',
+        fields: [{ id: 'entries', label: 'Testimonials', required: false, status: 'missing' }],
+      },
+    ],
+  };
+  const { ready } = checkManifest(manifest);
+  assert.equal(ready, true);
+});
+
+test('production readiness guard loads and validates the real committed manifest', () => {
+  const manifestPath = resolveRealManifestPath();
+  const manifest = loadManifest(manifestPath);
+  assert.ok(Array.isArray(manifest.categories) && manifest.categories.length > 0);
+  // The real manifest is expected to be all-missing today -- this only proves the file
+  // parses and every field has the shape checkManifest() expects, not that it's launch-ready.
+  const { violations } = checkManifest(manifest);
+  assert.ok(violations.length > 0, 'expected the real manifest to still have unmet fields');
+});
+
+test('production readiness guard fails loudly when the manifest file is missing', () => {
+  const root = fixture();
+  try {
+    assert.throws(
+      () => loadManifest(join(root, 'does-not-exist.json')),
+      /No client-data manifest at/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('production readiness guard fails loudly on a malformed manifest', () => {
+  const root = fixture();
+  try {
+    const manifestPath = join(root, 'malformed.json');
+    writeFileSync(manifestPath, JSON.stringify({ notCategories: [] }));
+    assert.throws(() => loadManifest(manifestPath), /missing "categories" array/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

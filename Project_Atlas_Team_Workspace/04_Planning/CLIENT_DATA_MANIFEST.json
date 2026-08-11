@@ -1,0 +1,236 @@
+{
+  "$schemaVersion": "1.0",
+  "purpose": "WPR-M1 client-data manifest (AD-014 section 3.2). Tracks every category of real business data Andrea must supply before launch. Read by scripts/guards/production-readiness-guard.mjs.",
+  "generatedBy": "Claude Team, WPR-M1 baseline inventory, authorized resumption during Codex platform outage (2026-08-06, see 001_SESSION_HANDOFF.md)",
+  "statusValues": ["missing", "placeholder", "provided_pending_approval", "approved"],
+  "categories": [
+    {
+      "id": "business-identity",
+      "label": "Business identity, contacts, hours, service area, active contact channels",
+      "sourceRef": "AD-014 section 3.2, bullet 1",
+      "relatedRoutes": ["/", "/nolimits3d/contatti"],
+      "fields": [
+        {
+          "id": "business.legalName",
+          "label": "Legal/trading name",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "business.address",
+          "label": "Physical address / service area",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "business.hours",
+          "label": "Business hours",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "business.contactChannels",
+          "label": "Active contact channels (phone/email/social)",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "business.vatId",
+          "label": "VAT / tax identification number",
+          "required": true,
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "id": "commerce-catalog",
+      "label": "Products, variants, materials, prices, taxes, availability, commercial mode, fulfillment",
+      "sourceRef": "AD-014 section 3.2, bullet 2; section 3.3 (Unified Commerce Catalog)",
+      "relatedRoutes": ["/esplora/catalogo", "/carrello", "/realizza/preventivo-stampa-3d"],
+      "fields": [
+        {
+          "id": "catalog.products",
+          "label": "Product/service/configurable/event/quote-only entries",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "catalog.prices",
+          "label": "Prices and tax rules",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "catalog.availability",
+          "label": "Availability and fulfillment rules",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "catalog.commercialModes",
+          "label": "Commercial mode per item (instant checkout / admin-confirmed / quote-only)",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "catalog.paymentMethods",
+          "label": "Real payment method configuration (card/wallet activation)",
+          "required": false,
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "id": "content-media",
+      "label": "Catalog, configurator, portfolio, event, blog, SEO, media, alt text, and rights/provenance",
+      "sourceRef": "AD-014 section 3.2, bullet 3; section 3.5 (Configurator)",
+      "relatedRoutes": [
+        "/esplora/catalogo",
+        "/realizza/configuratore-lanterne",
+        "/realizzazioni",
+        "/eventi",
+        "/blog"
+      ],
+      "fields": [
+        {
+          "id": "media.configuratorModels",
+          "label": "Real lantern configurator models/materials/dimensions/electrical specs",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "media.portfolioAssets",
+          "label": "Portfolio project photos/media",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "media.eventData",
+          "label": "Real event listings",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "media.rightsProvenance",
+          "label": "Rights/provenance approval per media asset",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "media.altText",
+          "label": "Accessible alt text per media asset",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "media.seo",
+          "label": "Per-page SEO metadata (real business framing)",
+          "required": false,
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "id": "testimonials-claims",
+      "label": "Testimonials and claims with approval evidence",
+      "sourceRef": "AD-014 section 3.2, bullet 4",
+      "relatedRoutes": ["/"],
+      "fields": [
+        {
+          "id": "testimonials.entries",
+          "label": "Real customer testimonials",
+          "required": false,
+          "status": "missing"
+        },
+        {
+          "id": "testimonials.approvalEvidence",
+          "label": "Documented consent/approval per testimonial",
+          "required": true,
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "id": "legal-commercial-copy",
+      "label": "Payment, delivery, returns, warranty, privacy, cookies, terms, retention, and consent copy",
+      "sourceRef": "AD-014 section 3.2, bullet 5; section 2 (legal routes, currently missing entirely -- see WPR-M1-GAP-REGISTER.md)",
+      "relatedRoutes": [],
+      "fields": [
+        {
+          "id": "legal.privacyPolicy",
+          "label": "Privacy policy copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.cookiePolicy",
+          "label": "Cookie policy copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.termsAndConditions",
+          "label": "Terms and conditions copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.returnsWarranty",
+          "label": "Returns/warranty policy copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.deliveryPolicy",
+          "label": "Delivery policy copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.dataRetention",
+          "label": "Data retention policy copy",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "legal.consentCopy",
+          "label": "Consent capture copy (forms, cookie banner)",
+          "required": true,
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "id": "provider-credentials",
+      "label": "Provider/project identifiers and production credentials supplied through approved secret paths",
+      "sourceRef": "AD-014 section 3.2, bullet 6; section 3.1 (deployment/runtime)",
+      "relatedRoutes": [],
+      "fields": [
+        {
+          "id": "provider.vercelProject",
+          "label": "Production Vercel project link",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "provider.supabaseProject",
+          "label": "Production Supabase project identifiers",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "provider.domain",
+          "label": "nolimits3d.store domain configuration",
+          "required": true,
+          "status": "missing"
+        },
+        {
+          "id": "provider.secrets",
+          "label": "Production secrets via approved secret paths (never in repo files/channels)",
+          "required": true,
+          "status": "missing"
+        }
+      ]
+    }
+  ]
+}
