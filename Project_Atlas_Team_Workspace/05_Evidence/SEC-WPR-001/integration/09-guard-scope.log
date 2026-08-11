@@ -1,0 +1,9 @@
+Timestamp: 2026-08-11T16:36:41.2242311+02:00
+Command: pnpm guard:scope
+Recorded exit code: 0
+
+
+> nolimits3d-platform@0.0.0 guard:scope G:\Claude\NoLimits3D-website-sec-wpr-001
+> node scripts/guards/scope-guard.mjs
+
+Scope and private-route guard: PASS

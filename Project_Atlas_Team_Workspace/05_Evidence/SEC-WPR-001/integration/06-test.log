@@ -1,0 +1,65 @@
+Timestamp: 2026-08-11T16:35:40.2011515+02:00
+Command: pnpm test
+Recorded exit code: 0
+
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website-sec-wpr-001
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+✔ scope guard accepts an empty web scaffold (5.1184ms)
+✔ scope guard rejects public command exposure, Jarvis and operational PrintFlow (10.4143ms)
+✔ scope guard allows PrintFlow only as Coming Soon (5.9231ms)
+✔ secret scan rejects real-looking credentials and allows placeholders (1.0675ms)
+✔ secret scan includes Codex-native governance surfaces (0.2371ms)
+✔ dependency audit collector includes registry packages only (0.6196ms)
+✔ dependency audit summary normalizes severity (0.219ms)
+✔ dependency audit blocks an advisory with no waiver (0.4756ms)
+✔ dependency audit tolerates an advisory under an unexpired waiver (0.2605ms)
+✔ dependency audit blocks once a waiver has expired (0.2449ms)
+✔ dependency audit does not let a waiver cover a different package (0.156ms)
+✔ dependency audit reports a waiver that matches nothing as stale (0.1073ms)
+✔ dependency audit always lists the whole workspace (0.3445ms)
+✔ a critical advisory cannot be waived even with a matching waiver (0.1271ms)
+✔ a waiver claiming critical severity is rejected outright (0.4641ms)
+✔ a waiver cannot run past the maximum horizon (0.1781ms)
+✔ a waiver must carry every governance field (0.1449ms)
+✔ the shipped waiver file satisfies the schema (1.1789ms)
+✔ current source bindings are valid (3.4211ms)
+✔ performance budget guard parses the initial module script and stylesheet, ignoring ld+json (0.377ms)
+✔ performance budget guard passes comfortably under DOC-SEC-005 §4 budget (0.146ms)
+✔ performance budget guard fails closed when the initial payload exceeds DOC-SEC-005 §4 budget (0.1055ms)
+✔ performance budget guard measures real gzip size of the built initial payload (19.0752ms)
+✔ performance budget guard fails clearly when dist/index.html is missing (1.1151ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 156.7242
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website-sec-wpr-001\packages\ui
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website-sec-wpr-001/packages/ui
+
+
+ Test Files  13 passed (13)
+      Tests  137 passed (137)
+   Start at  16:35:41
+   Duration  7.55s (transform 912ms, setup 4.98s, import 13.96s, tests 7.87s, environment 34.25s)
+
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website-sec-wpr-001\apps\web
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website-sec-wpr-001/apps/web
+
+
+ Test Files  17 passed (17)
+      Tests  162 passed (162)
+   Start at  16:35:50
+   Duration  42.89s (transform 933ms, setup 5.35s, import 3.50s, tests 11.27s, environment 18.99s)

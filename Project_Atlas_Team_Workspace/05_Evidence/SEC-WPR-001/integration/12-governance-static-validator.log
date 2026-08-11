@@ -1,0 +1,162 @@
+Timestamp: 2026-08-11T16:37:17.8742933+02:00
+Command: pnpm governance:codex-native
+Recorded exit code: 0
+
+
+> nolimits3d-platform@0.0.0 governance:codex-native G:\Claude\NoLimits3D-website-sec-wpr-001
+> python scripts/governance/codex_native_team_test.py --repo .
+
+PASS: AGENTS.md exists
+PASS: AGENTS.md governance references
+PASS: project Codex config parses
+PASS: project agent settings
+PASS: exact custom-agent file set
+PASS: atlas-tpm.toml parses
+PASS: atlas-tpm.toml required fields
+PASS: atlas-tpm.toml product and approval boundaries
+PASS: atlas-tpm.toml exact runtime settings
+PASS: atlas-frontend.toml parses
+PASS: atlas-frontend.toml required fields
+PASS: atlas-frontend.toml product and approval boundaries
+PASS: atlas-frontend.toml delegation disabled
+PASS: atlas-frontend.toml exact runtime settings
+PASS: atlas-backend.toml parses
+PASS: atlas-backend.toml required fields
+PASS: atlas-backend.toml product and approval boundaries
+PASS: atlas-backend.toml delegation disabled
+PASS: atlas-backend.toml exact runtime settings
+PASS: exact repository skill set
+PASS: atlas-backend-delivery skill frontmatter
+PASS: atlas-frontend-delivery skill frontmatter
+PASS: atlas-role-boundary-test skill frontmatter
+PASS: atlas-task-packet-planning skill frontmatter
+PASS: atlas-technical-review-integration skill frontmatter
+PASS: Framework v2 directory exists
+PASS: Framework v2 VERSION
+PASS: Framework v2 manifest parses
+PASS: Framework v2 manifest version
+PASS: Framework v2 manifest file entries
+PASS: Framework v2 manifest exact file set
+PASS: Framework v2 manifest file_count
+PASS: Framework v2 manifest sizes and SHA-256
+PASS: canonical Codex-native architecture document exists
+PASS: canonical architecture markers
+PASS: M0R Product Owner acceptance artifact exists
+PASS: M0R Product Owner acceptance artifact integrity
+PASS: current-state record exists: 000_PROJECT_STATE.md
+PASS: historical M0 marker: 000_PROJECT_STATE.md
+PASS: current-state record exists: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: historical M0 marker: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: current-state record exists: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: historical M0 marker: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: post-acceptance state record exists: AGENTS.md
+PASS: exact final M0R state: AGENTS.md
+PASS: no stale M0R state: AGENTS.md
+PASS: post-acceptance state record exists: 000_PROJECT_STATE.md
+PASS: exact final M0R state: 000_PROJECT_STATE.md
+PASS: no stale M0R state: 000_PROJECT_STATE.md
+PASS: post-acceptance state record exists: 001_SESSION_HANDOFF.md
+PASS: exact final M0R state: 001_SESSION_HANDOFF.md
+PASS: no stale M0R state: 001_SESSION_HANDOFF.md
+PASS: post-acceptance state record exists: Project_Atlas_Development_Framework_v2.0.0/README.md
+PASS: exact final M0R state: Project_Atlas_Development_Framework_v2.0.0/README.md
+PASS: no stale M0R state: Project_Atlas_Development_Framework_v2.0.0/README.md
+PASS: post-acceptance state record exists: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: exact final M0R state: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: no stale M0R state: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: post-acceptance state record exists: Project_Atlas_Team_Workspace/README.md
+PASS: exact final M0R state: Project_Atlas_Team_Workspace/README.md
+PASS: no stale M0R state: Project_Atlas_Team_Workspace/README.md
+PASS: post-acceptance state record exists: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: exact final M0R state: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: no stale M0R state: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: post-acceptance state record exists: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: exact final M0R state: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: no stale M0R state: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: post-acceptance state record exists: Project_Atlas_Team_Workspace/04_Planning/SPRINT_REGISTER.md
+PASS: exact final M0R state: Project_Atlas_Team_Workspace/04_Planning/SPRINT_REGISTER.md
+PASS: no stale M0R state: Project_Atlas_Team_Workspace/04_Planning/SPRINT_REGISTER.md
+PASS: repository root allowlist exists
+PASS: M0R audit profile marker
+PASS: Framework v2 development-governance status exists
+PASS: Framework v2 active for development, blocked for production
+PASS: production baseline binding record exists
+PASS: production baseline remains blocked
+PASS: blocker register exists for production gate
+PASS: BLK-BASE-001 remains open as production-only blocker
+PASS: Blueprint planning record exists: AGENTS.md
+PASS: Blueprint 00 / M1 is planning-only: AGENTS.md
+PASS: Blueprint planning record exists: 000_PROJECT_STATE.md
+PASS: Blueprint 00 / M1 is planning-only: 000_PROJECT_STATE.md
+PASS: Blueprint planning record exists: 001_SESSION_HANDOFF.md
+PASS: Blueprint 00 / M1 is planning-only: 001_SESSION_HANDOFF.md
+PASS: Blueprint planning record exists: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: Blueprint 00 / M1 is planning-only: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: Blueprint planning record exists: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: Blueprint 00 / M1 is planning-only: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: Blueprint planning record exists: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: Blueprint 00 / M1 is planning-only: Project_Atlas_Team_Workspace/04_Planning/MILESTONE_REGISTER.md
+PASS: Blueprint gate grants no implementation or production authority
+PASS: product-boundary record exists: AGENTS.md
+PASS: product boundaries preserved: AGENTS.md
+PASS: product-boundary record exists: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: product boundaries preserved: Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md
+PASS: product-boundary record exists: 000_PROJECT_STATE.md
+PASS: product boundaries preserved: 000_PROJECT_STATE.md
+PASS: Jarvis canonical record exists: AGENTS.md
+PASS: Jarvis canonical phrase: AGENTS.md
+PASS: Jarvis canonical record exists: CLAUDE.md
+PASS: Jarvis canonical phrase: CLAUDE.md
+PASS: Jarvis canonical record exists: .codex/agents/atlas-tpm.toml
+PASS: Jarvis canonical phrase: .codex/agents/atlas-tpm.toml
+PASS: Jarvis canonical record exists: .codex/agents/atlas-frontend.toml
+PASS: Jarvis canonical phrase: .codex/agents/atlas-frontend.toml
+PASS: Jarvis canonical record exists: .codex/agents/atlas-backend.toml
+PASS: Jarvis canonical phrase: .codex/agents/atlas-backend.toml
+PASS: Jarvis canonical record exists: 002_PROJECT_DNA.md
+PASS: Jarvis canonical phrase: 002_PROJECT_DNA.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/README.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/README.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/000_PROJECT_CHARTER.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/000_PROJECT_CHARTER.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/00_Foundation/00_Project_Constitution.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/00_Foundation/00_Project_Constitution.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/01_Product/01_PRD.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/01_Product/01_PRD.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/07_AI/01_AI_Overview.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/07_AI/01_AI_Overview.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/07_AI/02_Jarvis_Admin.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/07_AI/02_Jarvis_Admin.md
+PASS: Jarvis canonical record exists: NoLimits3D_Documentation_v0.96/10_Security_Performance/04_AI_Security.md
+PASS: Jarvis canonical phrase: NoLimits3D_Documentation_v0.96/10_Security_Performance/04_AI_Security.md
+PASS: Jarvis canonical record exists: Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md
+PASS: Jarvis canonical phrase: Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md
+PASS: Jarvis canonical record exists: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: Jarvis canonical phrase: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: Jarvis governance record exists: NoLimits3D_Documentation_v0.96/12_Planning/Change_Requests/CR-0007_Jarvis_Authoritative_Boundary.md
+PASS: Jarvis governance markers: NoLimits3D_Documentation_v0.96/12_Planning/Change_Requests/CR-0007_Jarvis_Authoritative_Boundary.md
+PASS: Jarvis governance record exists: NoLimits3D_Documentation_v0.96/12_Planning/05_Traceability_Matrix.md
+PASS: Jarvis governance markers: NoLimits3D_Documentation_v0.96/12_Planning/05_Traceability_Matrix.md
+PASS: Jarvis governance record exists: Project_Atlas_Development_Blueprint_v0.1/00_BLUEPRINT_REPOSITORY_FOUNDATION.md
+PASS: Jarvis governance markers: Project_Atlas_Development_Blueprint_v0.1/00_BLUEPRINT_REPOSITORY_FOUNDATION.md
+PASS: Jarvis governance record exists: Project_Atlas_Team_Workspace/01_Shared_Memory/DECISION_LEDGER.md
+PASS: Jarvis governance markers: Project_Atlas_Team_Workspace/01_Shared_Memory/DECISION_LEDGER.md
+PASS: Jarvis governance record exists: Project_Atlas_Team_Workspace/04_Planning/JARVIS-ROLE-BOUNDARY-TESTS.md
+PASS: Jarvis governance markers: Project_Atlas_Team_Workspace/04_Planning/JARVIS-ROLE-BOUNDARY-TESTS.md
+PASS: Jarvis governance record exists: .agents/skills/atlas-role-boundary-test/SKILL.md
+PASS: Jarvis governance markers: .agents/skills/atlas-role-boundary-test/SKILL.md
+PASS: exact INV-JARVIS-001 statement: NoLimits3D_Documentation_v0.96/00_Foundation/00_Project_Constitution.md
+PASS: exact INV-JARVIS-001 statement: Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md
+PASS: exact INV-JARVIS-001 statement: Project_Atlas_Team_Workspace/01_Shared_Memory/CURRENT_PROJECT_STATE.md
+PASS: no public, customer, or Edge Function Jarvis implementation
+PASS: no active legacy agents
+PASS: Documentation Bible manifest parses
+PASS: Documentation Bible manifest entries
+PASS: Documentation Bible manifest exact file set
+PASS: Documentation Bible manifest sizes and SHA-256
+PASS: Documentation Bible manifest count
+PASS: Documentation Bible manifest release
+PASS: Documentation Bible VERSION release
+PASS: Documentation Bible committed tree
+PASS: Documentation Bible worktree unchanged
+Codex-native governance: 153 passed, 0 failed
