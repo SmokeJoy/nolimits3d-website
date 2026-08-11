@@ -1,0 +1,15 @@
+sequence	command	recorded_exit_code	result	log
+01	pnpm install --frozen-lockfile	0	PASS	01-frozen-install.log
+02	pnpm build	0	PASS	02-build.log
+03	pnpm lint	0	PASS	03-lint.log
+04	pnpm format:check	0	PASS	04-format-check.log
+05	pnpm typecheck	0	PASS	05-typecheck.log
+06	pnpm test	0	PASS	06-test.log
+07	pnpm secret:scan	0	PASS	07-secret-scan.log
+08	pnpm dependency:audit	0	PASS	08-dependency-audit.log
+09	pnpm guard:scope	0	PASS	09-guard-scope.log
+10	pnpm guard:migrations	0	PASS_NOT_APPLICABLE_NO_MIGRATION_SQL	10-guard-migrations.log
+11	pnpm guard:source-bindings	0	PASS	11-guard-source-bindings.log
+12	pnpm governance:codex-native	0	PASS_153_OF_153	12-governance-static-validator.log
+13	pnpm list --recursive --depth Infinity js-yaml nanoid	0	PASS_PATCHED_GRAPH	13-final-dependency-graph.log
+14	git diff --check bb94b169811c69a0487657c38dfb9a0b6d50d64d..HEAD	0	PASS	14-diff-check.log

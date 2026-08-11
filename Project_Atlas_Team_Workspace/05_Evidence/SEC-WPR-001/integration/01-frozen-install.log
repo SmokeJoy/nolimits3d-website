@@ -1,0 +1,14 @@
+Timestamp: 2026-08-11T16:35:03.5952894+02:00
+Command: pnpm install --frozen-lockfile
+Recorded exit code: 0
+
+Scope: all 7 workspace projects
+(node:25332) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Packages: -49
+-------------------------------------------------
+Progress: resolved 0, reused 49, downloaded 0, added 0, done
+
+Done in 1.4s
