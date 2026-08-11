@@ -1,0 +1,62 @@
+
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website-wpr-007
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+✔ scope guard accepts an empty web scaffold (5.9413ms)
+✔ scope guard rejects public command exposure, Jarvis and operational PrintFlow (11.7234ms)
+✔ scope guard allows PrintFlow only as Coming Soon (7.242ms)
+✔ secret scan rejects real-looking credentials and allows placeholders (1.6066ms)
+✔ secret scan includes Codex-native governance surfaces (0.3112ms)
+✔ dependency audit collector includes registry packages only (0.4295ms)
+✔ dependency audit summary normalizes severity (0.2045ms)
+✔ dependency audit blocks an advisory with no waiver (0.4076ms)
+✔ dependency audit tolerates an advisory under an unexpired waiver (0.2654ms)
+✔ dependency audit blocks once a waiver has expired (0.2469ms)
+✔ dependency audit does not let a waiver cover a different package (0.1411ms)
+✔ dependency audit reports a waiver that matches nothing as stale (0.1556ms)
+✔ dependency audit always lists the whole workspace (0.3489ms)
+✔ a critical advisory cannot be waived even with a matching waiver (0.1303ms)
+✔ a waiver claiming critical severity is rejected outright (0.4546ms)
+✔ a waiver cannot run past the maximum horizon (0.2888ms)
+✔ a waiver must carry every governance field (0.2158ms)
+✔ the shipped waiver file satisfies the schema (1.7636ms)
+✔ current source bindings are valid (4.0487ms)
+✔ performance budget guard parses the initial module script and stylesheet, ignoring ld+json (0.6859ms)
+✔ performance budget guard passes comfortably under DOC-SEC-005 §4 budget (0.186ms)
+✔ performance budget guard fails closed when the initial payload exceeds DOC-SEC-005 §4 budget (0.1431ms)
+✔ performance budget guard measures real gzip size of the built initial payload (22.2588ms)
+✔ performance budget guard fails clearly when dist/index.html is missing (1.2557ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 184.0012
+
+> @atlas/ui@0.0.0 test G:\Claude\NoLimits3D-website-wpr-007\packages\ui
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website-wpr-007/packages/ui
+
+
+ Test Files  13 passed (13)
+      Tests  137 passed (137)
+   Start at  17:07:45
+   Duration  9.38s (transform 1.15s, setup 6.24s, import 17.46s, tests 9.20s, environment 42.99s)
+
+
+> @atlas/web@0.0.0 test G:\Claude\NoLimits3D-website-wpr-007\apps\web
+> vitest run
+
+
+ RUN  v4.1.10 G:/Claude/NoLimits3D-website-wpr-007/apps/web
+
+
+ Test Files  17 passed (17)
+      Tests  162 passed (162)
+   Start at  17:07:55
+   Duration  48.51s (transform 1.18s, setup 5.84s, import 3.93s, tests 14.08s, environment 20.34s)
+

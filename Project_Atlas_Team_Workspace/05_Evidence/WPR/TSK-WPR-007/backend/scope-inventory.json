@@ -1,0 +1,249 @@
+{
+  "changes": [
+    {
+      "owner": "Backend transport/candidate",
+      "path": ".codex/agents/atlas-tpm.toml",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "AGENTS.md",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Framework_v2.0.0/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Framework_v2.0.0/03_Registries/ROLE_AUTHORITY_MATRIX.csv",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Framework_v2.0.0/CHANGELOG.md",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Framework_v2.0.0/manifest.json",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/00_Governance/CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "scripts/governance/codex_native_team_test.py",
+      "porcelain": " M"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/AD-013_RESPONSE_ARCHITECT_REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-003_REMEDIATION_DECISION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-004_REMEDIATION_DECISION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-005_REMEDIATION_DECISION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/02_Architect_Reviews/TSK-WPR-006_REMEDIATION_DECISION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-013_INTERACTIVE_PLACEHOLDER_UI_AUTHORIZATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/CLIENT_GOAL_WEB_APP_PRODUCTION_READY_2026-08-06.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-000-WORKTREE-DISPOSITION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-BE-TOOLING-QUARANTINE-RESTORE.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-001-FE-QUARANTINE-RESTORE.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-BE-TOOLING-RECOVERY.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-002-FE-CLOSURE-VERIFICATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-003-BE-DUAL-TEAM-GOVERNANCE.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-004-BE-DUAL-TEAM-GOVERNANCE-REMEDIATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-005-BE-DUAL-TEAM-GOVERNANCE-VERIFICATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-006-BE-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "TPM packet (preserved unstaged)",
+      "path": "Project_Atlas_Team_Workspace/04_Planning/TSK-WPR-007-BE-DUAL-TEAM-ACTIVATION.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-000-WORKTREE-DISPOSITION-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-001-QUARANTINE-RESTORE-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-002-CLOSURE-RECOVERY-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-003-DUAL-TEAM-GOVERNANCE-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-004-DUAL-TEAM-GOVERNANCE-REMEDIATION-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-005-DUAL-TEAM-GOVERNANCE-VERIFICATION-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    },
+    {
+      "owner": "Backend transport/candidate",
+      "path": "Project_Atlas_Team_Workspace/07_Reports/TSK-WPR-006-DUAL-TEAM-GOVERNANCE-FULL-VERIFICATION-TECHNICAL-REVIEW.md",
+      "porcelain": "??"
+    }
+  ],
+  "pass": true,
+  "patch_record": {
+    "argv": [
+      "git",
+      "diff",
+      "--binary",
+      "--"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:11:58.676246Z",
+    "exit_code": 0,
+    "id": "r4-16-final-tracked-patch",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r4-16-final-tracked-patch/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 67787,
+        "path": "raw/r4-16-final-tracked-patch/stdout.bin",
+        "sha256": "8503d82f6bbc938f07ae7d42fe0e2c4d7ad384952c7dcf4dea624e47524bea6b"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r4-16-final-tracked-patch/stderr.txt",
+      "stdout": "sanitized/r4-16-final-tracked-patch/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:11:58.610199Z"
+  },
+  "status_record": {
+    "argv": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "-uall"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:11:58.594686Z",
+    "exit_code": 0,
+    "id": "r4-15-scope-status",
+    "raw": {
+      "stderr": {
+        "bytes": 0,
+        "path": "raw/r4-15-scope-status/stderr.bin",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 3272,
+        "path": "raw/r4-15-scope-status/stdout.bin",
+        "sha256": "e43561707c222aeb8880012ec590602ab9b3b0a543d700528f1ba2511fa6a0cf"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/r4-15-scope-status/stderr.txt",
+      "stdout": "sanitized/r4-15-scope-status/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:11:58.530121Z"
+  },
+  "unowned": []
+}

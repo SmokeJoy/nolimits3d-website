@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import re
@@ -98,6 +99,20 @@ ARCHITECTURE_DOC = (
     "Project_Atlas_Team_Workspace/00_Governance/"
     "CODEX_NATIVE_TEAM_ARCHITECTURE_v2.0.0.md"
 )
+AD_015_PATH = (
+    "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/"
+    "AD-015_DUAL_TEAM_PARALLEL_DELIVERY.md"
+)
+AD_016_PATH = (
+    "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/"
+    "AD-016_VISUAL_IDENTITY_CLARITY_AND_IMPACT.md"
+)
+DUAL_TEAM_GOVERNANCE_RECORDS = (
+    "AGENTS.md",
+    ".codex/agents/atlas-tpm.toml",
+    f"{FRAMEWORK_PATH}/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+    ARCHITECTURE_DOC,
+)
 ACCEPTANCE_ARTIFACT = (
     "Project_Atlas_Team_Workspace/08_Approvals/"
     "M0R_PRODUCT_OWNER_ACCEPTANCE_2026-08-05.md"
@@ -141,6 +156,15 @@ STALE_CURRENT_MARKERS = (
 class Result:
     name: str
     error: str | None = None
+
+
+def normalized_text(value: str) -> str:
+    """Compare governance markers without making line wrapping semantically significant."""
+    return " ".join(value.split()).casefold()
+
+
+def contains_normalized(content: str, marker: str) -> bool:
+    return normalized_text(marker) in normalized_text(content)
 
 
 class Validator:
@@ -247,7 +271,7 @@ class Validator:
         )
         expected_files = set(EXPECTED_AGENT_FILES)
         self.check(
-            "exact custom-agent file set",
+            "AD-015 exact Codex agent set",
             actual_files == expected_files,
             f"expected {sorted(expected_files)!r}, found {sorted(actual_files)!r}",
         )
@@ -397,7 +421,7 @@ class Validator:
                     f"found {entry.get('sha256')!r}"
                 )
         self.check(
-            "Framework v2 manifest sizes and SHA-256",
+            "AD-015 Framework manifest integrity",
             not metadata_errors,
             "; ".join(metadata_errors) or "metadata verification failed",
         )
@@ -432,6 +456,258 @@ class Validator:
             not missing,
             f"missing marker(s): {', '.join(missing)}",
         )
+
+    def validate_dual_team_governance(self) -> None:
+        directive_requirements = {
+            AD_015_PATH: (
+                "Status:** BINDING FOR GOVERNANCE IMPLEMENTATION AND TASK-PACKET PLANNING",
+                "independent peer delivery team",
+                "Peer Task Packet",
+                "Atlas TPM performs Technical Review",
+                "Claude production-code ownership becomes active only after",
+            ),
+            AD_016_PATH: (
+                "Status:** BINDING FOR WPR PLANNING AND UI TASK PACKETS",
+                "design tokens and approved primitives",
+                "accessibility",
+                "Andrea retains final visual acceptance",
+            ),
+        }
+        for relative_path, markers in directive_requirements.items():
+            content = self.read_text(relative_path)
+            self.check(
+                f"AD-015/AD-016 binding directive exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+            if content is not None:
+                missing = [marker for marker in markers if not contains_normalized(content, marker)]
+                self.check(
+                    f"AD-015/AD-016 binding directive integrity: {relative_path}",
+                    not missing,
+                    f"missing marker(s): {', '.join(missing)}",
+                )
+
+        records = {
+            relative_path: self.read_text(relative_path)
+            for relative_path in DUAL_TEAM_GOVERNANCE_RECORDS
+        }
+        for relative_path, content in records.items():
+            self.check(
+                f"AD-015 governance record exists: {relative_path}",
+                content is not None,
+                f"{relative_path} is missing",
+            )
+
+        shared_markers = (
+            "independent peer delivery team",
+            "Peer Task Packet",
+            "disjoint Atlas/Claude ownership",
+            "Atlas TPM Technical Review",
+            "self-approv",
+            "fail closed",
+        )
+        missing = {
+            relative_path: [
+                marker
+                for marker in shared_markers
+                if not contains_normalized(content or "", marker)
+            ]
+            for relative_path, content in records.items()
+        }
+        missing = {relative_path: markers for relative_path, markers in missing.items() if markers}
+        self.check(
+            "AD-015 governance records preserve the peer lane and no self-approval",
+            not missing,
+            f"missing peer-lane marker(s): {missing!r}",
+        )
+
+        atlas_chain = "Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend"
+        chain_records = (
+            "AGENTS.md",
+            f"{FRAMEWORK_PATH}/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
+            ARCHITECTURE_DOC,
+        )
+        missing_chain = [
+            relative_path
+            for relative_path in chain_records
+            if not contains_normalized(records.get(relative_path) or "", atlas_chain)
+        ]
+        self.check(
+            "AD-015 canonical Atlas chain remains exclusive",
+            not missing_chain,
+            f"canonical chain missing from {missing_chain!r}",
+        )
+
+        matrix_path = f"{FRAMEWORK_PATH}/03_Registries/ROLE_AUTHORITY_MATRIX.csv"
+        matrix = self.read_text(matrix_path)
+        self.check(
+            "AD-015 both-team authority mapping exists",
+            matrix is not None,
+            f"{matrix_path} is missing",
+        )
+        if matrix is not None:
+            rows = list(csv.DictReader(matrix.splitlines()))
+            claude_row = next((row for row in rows if row.get("role_id") == "TEAM-CLAUDE"), None)
+            self.check(
+                "AD-015 both-team mapping keeps Claude independent",
+                claude_row is not None
+                and claude_row.get("role") == "Claude Team"
+                and "Independent peer delivery team" in str(claude_row.get("assignee"))
+                and "Not an Atlas role or Codex agent" in str(claude_row.get("hard_limit")),
+                "ROLE_AUTHORITY_MATRIX.csv must define TEAM-CLAUDE as an independent peer lane",
+            )
+
+        playbook_path = f"{FRAMEWORK_PATH}/000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md"
+        playbook = records.get(playbook_path) or ""
+        packet_markers = (
+            "accountable Claude owner",
+            "dedicated branch/worktree where supported",
+            "exact base",
+            "exact allowed and forbidden files",
+            "dependencies",
+            "acceptance criteria",
+            "tests",
+            "evidence",
+            "rollback",
+            "handoff",
+            "overlap check",
+            "cross-team reviewers",
+            "one named integration owner",
+        )
+        missing_packet = [marker for marker in packet_markers if not contains_normalized(playbook, marker)]
+        self.check(
+            "AD-015 Peer Task Packet minimum contract",
+            not missing_packet,
+            f"missing Peer Task Packet marker(s): {', '.join(missing_packet)}",
+        )
+
+        tpm = records.get(".codex/agents/atlas-tpm.toml") or ""
+        review_markers = (
+            "stop both affected tracks",
+            "independently",
+            "fail closed",
+            "never replaces Technical Review",
+        )
+        missing_review = [marker for marker in review_markers if not contains_normalized(tpm, marker)]
+        self.check(
+            "AD-015 Atlas TPM independent Technical Review",
+            not missing_review,
+            f"missing Technical Review marker(s): {', '.join(missing_review)}",
+        )
+
+        ui_markers = (
+            "design tokens and approved primitives",
+            "accessibility, responsive, browser, visual, and performance evidence",
+            "Andrea",
+            "subjective aesthetic impact",
+        )
+        missing_ui = {
+            relative_path: [
+                marker
+                for marker in ui_markers
+                if not contains_normalized(content or "", marker)
+            ]
+            for relative_path, content in records.items()
+        }
+        missing_ui = {relative_path: markers for relative_path, markers in missing_ui.items() if markers}
+        self.check(
+            "AD-016 governance records preserve UI packet and Andrea acceptance boundaries",
+            not missing_ui,
+            f"missing AD-016 marker(s): {missing_ui!r}",
+        )
+
+        activation_markers = (
+            "Claude production-code ownership remains frozen",
+            "governance/framework alignment",
+            "Role Boundary Test coverage",
+            "Atlas TPM `APPROVED FOR INTEGRATION`",
+            "Codex Root Architect Review approval",
+            "first Peer Task Packet channel acknowledgement",
+        )
+        missing_activation = [
+            marker for marker in activation_markers if not contains_normalized(playbook, marker)
+        ]
+        self.check(
+            "AD-015 fail-closed Claude production-code activation",
+            not missing_activation,
+            f"missing activation marker(s): {', '.join(missing_activation)}",
+        )
+
+        agents = records.get("AGENTS.md") or ""
+        architecture = records.get(ARCHITECTURE_DOC) or ""
+        boundary_markers = (
+            "INV-JARVIS-001",
+            "PrintFlow remains `Coming Soon`",
+            "BLK-BASE-001",
+        )
+        missing_boundaries = [
+            marker
+            for marker in boundary_markers
+            if not contains_normalized(agents, marker)
+            or not contains_normalized(architecture, marker)
+        ]
+        self.check(
+            "AD-015 Jarvis, PrintFlow, Bible and production boundaries",
+            not missing_boundaries
+            and contains_normalized(architecture, "NoLimits3D_Documentation_v0.96/**"),
+            f"missing boundary marker(s): {', '.join(missing_boundaries)}",
+        )
+
+        positive_probes = (
+            (
+                "AD-015 normalized imperative probe accepts wrapped and case-varied marker",
+                "ATLAS TPM MUST STOP\nBOTH\tAFFECTED TRACKS",
+                "stop both affected tracks",
+            ),
+            (
+                "AD-016 normalized terminology probe accepts wrapped and case-varied marker",
+                "DESIGN TOKENS\nAND\tAPPROVED PRIMITIVES",
+                "design tokens and approved primitives",
+            ),
+            (
+                "Bible normalized canonical-path probe accepts wrapped and case-varied marker",
+                "NOLIMITS3D_DOCUMENTATION_V0.96/**",
+                "NoLimits3D_Documentation_v0.96/**",
+            ),
+        )
+        for name, probe, marker in positive_probes:
+            self.check(name, contains_normalized(probe, marker), f"probe did not match {marker!r}")
+
+        negative_probes = (
+            (
+                "AD-015 negative probe rejects weakened overlap imperative",
+                "Atlas TPM stops both affected tracks.",
+                "stop both affected tracks",
+            ),
+            (
+                "AD-015 negative probe rejects removed Peer Task Packet contract",
+                "Atlas TPM allocates disjoint ownership.",
+                "Peer Task Packet",
+            ),
+            (
+                "AD-015 negative probe rejects removed independent peer lane",
+                "Claude Team is a delivery team.",
+                "independent peer delivery team",
+            ),
+            (
+                "AD-015 negative probe rejects removed activation gate",
+                "Claude production-code ownership is active.",
+                "Claude production-code ownership remains frozen",
+            ),
+            (
+                "AD-016 negative probe rejects obsolete tokens/components terminology",
+                "approved tokens and components",
+                "design tokens and approved primitives",
+            ),
+            (
+                "Bible negative probe rejects redundant prose in place of canonical path",
+                "Documentation Bible is immutable during M0R.",
+                "NoLimits3D_Documentation_v0.96/**",
+            ),
+        )
+        for name, probe, marker in negative_probes:
+            self.check(name, not contains_normalized(probe, marker), f"weakened probe matched {marker!r}")
 
     def validate_acceptance_artifact(self) -> None:
         content = self.read_text(ACCEPTANCE_ARTIFACT)
@@ -901,6 +1177,7 @@ class Validator:
         self.validate_skills()
         self.validate_framework()
         self.validate_architecture_doc()
+        self.validate_dual_team_governance()
         self.validate_acceptance_artifact()
         self.validate_state_markers()
         self.validate_framework_activation()

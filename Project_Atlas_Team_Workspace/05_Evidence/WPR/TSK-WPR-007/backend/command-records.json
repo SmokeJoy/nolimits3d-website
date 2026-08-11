@@ -1,0 +1,30 @@
+[
+  {
+    "argv": [
+      "C:\\Program Files\\nodejs\\pnpm.CMD",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "cwd": "G:\\Claude\\NoLimits3D-website-wpr-007",
+    "end_utc": "2026-08-11T15:04:34.160923Z",
+    "exit_code": 0,
+    "id": "01-frozen-install",
+    "raw": {
+      "stderr": {
+        "bytes": 301,
+        "path": "raw/01-frozen-install/stderr.bin",
+        "sha256": "6191f0e1e74acac9850f7b6f03d93a3cb82a78c77afe6c6fce2c42f211d806f7"
+      },
+      "stdout": {
+        "bytes": 600,
+        "path": "raw/01-frozen-install/stdout.bin",
+        "sha256": "75cb00c4bceffb715f5881420d185d838e8d62ea4aca59cf3b4c7d17586982d5"
+      }
+    },
+    "sanitized": {
+      "stderr": "sanitized/01-frozen-install/stderr.txt",
+      "stdout": "sanitized/01-frozen-install/stdout.txt"
+    },
+    "start_utc": "2026-08-11T15:04:26.712558Z"
+  }
+]

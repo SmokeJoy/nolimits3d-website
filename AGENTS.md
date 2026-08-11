@@ -39,6 +39,29 @@ worker solely to transport the already-approved TPM Task Packet. Task authority,
 ownership, TPM independence, and the canonical delegation chain were unchanged. This is
 not general authority for direct Root-to-implementer work.
 
+## Peer Delivery Lane
+
+AD-015 establishes Claude Team as an independent peer delivery team, not an Atlas role, Codex
+agent, public service, or replacement for any Atlas authority. The only internal Codex
+implementation chain remains `Codex Root -> Atlas TPM -> Atlas Frontend / Atlas Backend`; Claude
+or its workers must never be added to Codex custom-agent configuration or that chain.
+
+Every Claude implementation slice requires an approved Peer Task Packet with an accountable
+owner, dedicated branch/worktree where supported, exact base, allowed and forbidden files,
+dependencies, acceptance criteria, tests, evidence, rollback, handoff, overlap check,
+cross-team reviewers, and one named integration owner. Atlas TPM allocates disjoint Atlas/Claude
+ownership, must stop both affected tracks on overlap or stale-contract conflict, independently
+reviews Claude output, and must fail closed on missing evidence or unavailable lanes. Claude peer
+review supplements but never replaces Atlas TPM Technical Review. Neither team self-approves;
+Codex Root Architect Review and Andrea business/visual acceptance remain separate later gates.
+
+Claude production-code ownership is frozen until governance/framework alignment, static and Role
+Boundary Test coverage, Atlas TPM `APPROVED FOR INTEGRATION`, Codex Root Architect Review approval,
+and first Peer Task Packet channel acknowledgement all exist. AD-016 governs future UI packets:
+they require design tokens and approved primitives plus accessibility, responsive, browser, visual, and
+performance evidence; only Andrea accepts subjective aesthetic impact. This governance amendment
+does not authorize UI implementation.
+
 ## M0R Gate
 
 - Historical M0 is `DONE / SUPERSEDED`.

@@ -1,0 +1,76 @@
+
+> nolimits3d-platform@0.0.0 build G:\Claude\NoLimits3D-website-wpr-007
+> pnpm --recursive --if-present build
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts build$ tsc -p tsconfig.build.json
+packages/domain build$ tsc -p tsconfig.build.json
+packages/config build$ tsc -p tsconfig.build.json
+packages/ui build$ vite build && tsc -p tsconfig.build.json --emitDeclarationOnly
+packages/ui build: �[36mvite v8.1.4 �[32mbuilding client environment for production...�[36m�[39m
+packages/ui build: �[2K
+packages/domain build: Done
+packages/config build: Done
+packages/api-contracts build: Done
+packages/ui build: transforming...✓ 2000 modules transformed.
+packages/ui build: rendering chunks...
+packages/ui build: computing gzip size...
+packages/ui build: dist/styles.css   24.08 kB │ gzip:  5.51 kB
+packages/ui build: dist/index.js    267.51 kB │ gzip: 75.50 kB
+packages/ui build: �[32m✓ built in 757ms�[39m
+packages/ui build: Done
+apps/web build$ vite build
+apps/ui-playground build$ vite build
+apps/web build: �[36mvite v8.1.4 �[32mbuilding client environment for production...�[36m�[39m
+apps/web build: �[2K
+apps/web build: transforming...✓ 79 modules transformed.
+apps/web build: rendering chunks...
+apps/ui-playground build: �[36mvite v8.1.4 �[32mbuilding client environment for production...�[36m�[39m
+apps/ui-playground build: �[2K
+apps/web build: computing gzip size...
+apps/web build: dist/index.html                                      2.51 kB │ gzip:   1.23 kB
+apps/web build: dist/assets/PageLayout-DLklRaTv.css                  1.87 kB │ gzip:   0.60 kB
+apps/web build: dist/assets/index-BxgoEnkt.css                      30.18 kB │ gzip:   6.54 kB
+apps/web build: dist/assets/Stampa3DPage-CUhthGeY.js                 0.15 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/PiccoleSeriePage-DkMbLyts.js             0.15 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/PrototipazionePage-DkhdJrFE.js           0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/Progettazione3DPage-CvMw0Mcg.js          0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/RicambiPersonalizzatiPage-DSBCDGrs.js    0.16 kB │ gzip:   0.15 kB
+apps/web build: dist/assets/RicercaPage-D7IHNqQk.js                  0.18 kB │ gzip:   0.16 kB
+apps/web build: dist/assets/CarrelloPage-BZ106PAA.js                 0.18 kB │ gzip:   0.16 kB
+apps/web build: dist/assets/AssistenzaStampantiPage-Ds7nTMjL.js      0.21 kB │ gzip:   0.18 kB
+apps/web build: dist/assets/RichiediProgettoPage-BYso6pRW.js         0.22 kB │ gzip:   0.18 kB
+apps/web build: dist/assets/CatalogoPage-5nJq4GVx.js                 0.23 kB │ gzip:   0.21 kB
+apps/web build: dist/assets/CommandBoundary-CMCZGToE.js              0.26 kB │ gzip:   0.20 kB
+apps/web build: dist/assets/AccountHome-COa4UCwK.js                  0.26 kB │ gzip:   0.20 kB
+apps/web build: dist/assets/ConfiguratoreLanternePage-BxzXRJ7B.js    0.26 kB │ gzip:   0.21 kB
+apps/web build: dist/assets/PreventivoStampa3DPage-CDtn_skk.js       0.26 kB │ gzip:   0.22 kB
+apps/web build: dist/assets/Nolimits3DPage-ObbKdisE.js               0.32 kB │ gzip:   0.25 kB
+apps/web build: dist/assets/ServiziPage-D6CzmHJ9.js                  0.33 kB │ gzip:   0.24 kB
+apps/web build: dist/assets/PrintFlowPage-1pjaOnaD.js                0.34 kB │ gzip:   0.25 kB
+apps/web build: dist/assets/RealizzaPage-DN0AMEau.js                 0.35 kB │ gzip:   0.25 kB
+apps/web build: dist/assets/EventiPage-5Rexkwcq.js                   0.52 kB │ gzip:   0.37 kB
+apps/web build: dist/assets/FutureFeatureNotice-ByUzJlqg.js          0.56 kB │ gzip:   0.35 kB
+apps/web build: dist/assets/SectionLandingPage-Btsi611R.js           0.60 kB │ gzip:   0.35 kB
+apps/web build: dist/assets/ServiceLayout-5bCgRJ4t.js                0.62 kB │ gzip:   0.39 kB
+apps/web build: dist/assets/QualitaPage-BZCATP3c.js                  0.68 kB │ gzip:   0.37 kB
+apps/web build: dist/assets/EsploraPage-D_IyhGLv.js                  0.68 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/ContattiPage-J8IIK46w.js                 0.69 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/MetodoPage-CCJFatvk.js                   0.73 kB │ gzip:   0.42 kB
+apps/web build: dist/assets/BlogPage-D00Vxr7l.js                     0.76 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/RealizzazioniPage-Cl2SW730.js            0.81 kB │ gzip:   0.45 kB
+apps/web build: dist/assets/PageLayout-sL6fpjG4.js                   0.82 kB │ gzip:   0.41 kB
+apps/web build: dist/assets/IspiratiPage-BHBy61eD.js                 0.85 kB │ gzip:   0.47 kB
+apps/web build: dist/assets/ArteInStampa3DPage-CZhSAj-U.js           0.91 kB │ gzip:   0.47 kB
+apps/web build: dist/assets/ChiSiamoPage-CJbN_Wjd.js                 1.01 kB │ gzip:   0.46 kB
+apps/web build: dist/assets/index-DCat002-.js                      346.64 kB │ gzip: 106.67 kB
+apps/web build: �[32m✓ built in 413ms�[39m
+apps/ui-playground build: transforming...✓ 19 modules transformed.
+apps/ui-playground build: rendering chunks...
+apps/web build: Done
+apps/ui-playground build: computing gzip size...
+apps/ui-playground build: dist/index.html                   0.40 kB │ gzip:   0.27 kB
+apps/ui-playground build: dist/assets/index-zJ1GbXee.css   28.47 kB │ gzip:   6.20 kB
+apps/ui-playground build: dist/assets/index-B9MkHtMH.js   397.97 kB │ gzip: 124.85 kB
+apps/ui-playground build: �[32m✓ built in 319ms�[39m
+apps/ui-playground build: Done

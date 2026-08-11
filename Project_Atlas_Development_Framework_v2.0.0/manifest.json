@@ -9,8 +9,8 @@
   "files": [
     {
       "path": "000_PROJECT_ATLAS_DEVELOPMENT_PLAYBOOK_v2.0.0.md",
-      "size": 63549,
-      "sha256": "aff722c1c96bf3b40890e65d70cdf4bf7fc3c9d0ef1ed3103e91695ce623f6b8"
+      "size": 65301,
+      "sha256": "84a9c8ad550f1ff036eebcdea22acc5d367debc4415df28351810981b79695f8"
     },
     {
       "path": "01_Templates/ADR_INTAKE_TEMPLATE.md",
@@ -124,8 +124,8 @@
     },
     {
       "path": "03_Registries/ROLE_AUTHORITY_MATRIX.csv",
-      "size": 886,
-      "sha256": "0846a0afa436a167c8b194572d13420302e119725855443ded5950b25eab3e15"
+      "size": 1167,
+      "sha256": "b327fd3114346cd0aeb39e110772889363ea5bdb323ef3c11f7a16b2ca9fa41c"
     },
     {
       "path": "03_Registries/WORKFLOW_TRANSITIONS.csv",
@@ -164,8 +164,8 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size": 2720,
-      "sha256": "70d201481958d352c6eb7fb48b7049706c3297d194bde49c1310528c5686a99d"
+      "size": 3619,
+      "sha256": "bcda7109435725811799ecd7f4cec0bcf4e23b0474e604e5aaeb28f46ab18c2e"
     },
     {
       "path": "README.md",

@@ -1,0 +1,6 @@
+
+> nolimits3d-platform@0.0.0 format:check G:\Claude\NoLimits3D-website-wpr-007
+> prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*
+
+Checking formatting...
+All matched files use Prettier code style!

@@ -138,6 +138,30 @@ La sola catena di delegazione autorizzata è `Codex Root -> Atlas TPM -> Atlas F
 
 La separazione non è simbolica. Ogni ruolo dispone di facoltà precise e di limiti espliciti. Nessun ruolo deve mai sovrapporsi. Nessun agente accumula contemporaneamente autorità di prodotto, architettura, coordinamento e implementazione.
 
+### 01.1.1 AD-015 peer delivery lane
+
+AD-015 establishes Claude Team as an independent peer delivery team. Claude Team is not an Atlas
+role, Codex custom agent, public service, architecture authority, or replacement for Atlas TPM
+Technical Review. The only internal Codex implementation chain remains `Codex Root -> Atlas TPM
+-> Atlas Frontend / Atlas Backend`; Claude and its workers must never be added to that chain or
+to Codex custom-agent configuration.
+
+Atlas TPM allocates explicit, disjoint Atlas/Claude ownership and must stop both affected tracks on
+any file overlap or stale-contract conflict. Every Claude implementation slice requires a
+pre-approved Peer Task Packet with accountable Claude owner, dedicated branch/worktree where
+supported, exact base, exact allowed and forbidden files, dependencies, acceptance criteria,
+tests, evidence, rollback, handoff, overlap check, cross-team reviewers, and one named
+integration owner. Claude peer review supplements but never replaces independent Atlas TPM
+Technical Review. No implementer or team self-approves; Codex Root Architect Review and Andrea
+business/visual acceptance remain separate gates.
+
+Claude production-code ownership remains frozen until governance/framework alignment, static and
+Role Boundary Test coverage, Atlas TPM `APPROVED FOR INTEGRATION`, Codex Root Architect Review
+approval, and first Peer Task Packet channel acknowledgement all exist. Missing evidence or an
+unavailable lane must fail closed. AD-016 applies to future UI packets only: they must name design
+tokens and approved primitives and accessibility, responsive, browser, visual, and performance evidence; only
+Andrea can accept subjective aesthetic impact. This amendment authorizes no UI implementation.
+
 ## 01.2 Product Owner — Andrea
 
 ### Mandato

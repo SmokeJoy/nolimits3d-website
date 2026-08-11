@@ -1,0 +1,5 @@
+
+> nolimits3d-platform@0.0.0 guard:scope G:\Claude\NoLimits3D-website-wpr-007
+> node scripts/guards/scope-guard.mjs
+
+Scope and private-route guard: PASS
