@@ -1,0 +1,333 @@
+{
+  "$schemaVersion": "1.0",
+  "purpose": "Maps every CLIENT_DATA_MANIFEST.json field to its intended application/configuration consumer, per packet CLAUDE-WPR-M1-CORRECTED section 8.4. Current app source is read-only for this packet, so every binding below reflects the real, already-existing state -- it does not create new bindings.",
+  "statusValues": {
+    "unbound": "No consumer exists anywhere in the current source.",
+    "hardcoded-unbound": "A consumer exists, but the value is a literal hardcoded constant, not sourced from an approved manifest binding.",
+    "bound-unverified": "A consumer exists and reads from a manifest-shaped source, but the guard has not yet verified live consumption (not applicable pre-WPR-M2)."
+  },
+  "fieldNotes": {
+    "bindingVerifiedAt": "ISO 8601 timestamp of when the binding itself (not the manifest field) was last independently verified as live and correct, or null if never verified. Required to be non-null and no older than the field's own lastVerified for an approved field to pass the guard's staleness rule (packet section 8.4/8.5)."
+  },
+  "bindings": [
+    {
+      "id": "binding-business.legalName",
+      "manifestFieldId": "business.legalName",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "grep for a legal/trading name distinct from the brand string 'NoLimits3D' anywhere in apps/web/src -- none found",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-business.address",
+      "manifestFieldId": "business.address",
+      "targetFile": "apps/web/src/routes/public/navigation.ts",
+      "bindingIdentifier": "siteContact.addressLines",
+      "consumptionMechanism": "hardcoded-constant",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "grep 'addressLines' in navigation.ts, consumed by ContattiPage.tsx and Footer.tsx",
+      "status": "hardcoded-unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-business.hours",
+      "manifestFieldId": "business.hours",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "grep for business-hours copy anywhere in apps/web/src -- none found (siteContact has no hours field)",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-business.contactChannels",
+      "manifestFieldId": "business.contactChannels",
+      "targetFile": "apps/web/src/routes/public/navigation.ts",
+      "bindingIdentifier": "siteContact.email, siteContact.phone, siteContact.phoneHref",
+      "consumptionMechanism": "hardcoded-constant",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "grep 'siteContact' in navigation.ts, consumed by ContattiPage.tsx and Footer.tsx",
+      "status": "hardcoded-unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-business.vatId",
+      "manifestFieldId": "business.vatId",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "grep for 'P.IVA'/'VAT'/vatId anywhere in apps/web/src -- none found",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-catalog.products",
+      "manifestFieldId": "catalog.products",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 Supabase schema (not yet implemented)",
+      "verificationRule": "CatalogoPage.tsx renders FutureFeatureNotice only, no product data consumption",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-catalog.prices",
+      "manifestFieldId": "catalog.prices",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 Supabase schema (not yet implemented)",
+      "verificationRule": "no pricing computation exists in apps/web/src",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-catalog.availability",
+      "manifestFieldId": "catalog.availability",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 Supabase schema (not yet implemented)",
+      "verificationRule": "no availability logic exists in apps/web/src",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-catalog.commercialModes",
+      "manifestFieldId": "catalog.commercialModes",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 Supabase schema (not yet implemented)",
+      "verificationRule": "no commercial-mode logic exists in apps/web/src",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-catalog.paymentMethods",
+      "manifestFieldId": "catalog.paymentMethods",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 payment provider config (not yet implemented)",
+      "verificationRule": "no payment configuration exists anywhere in the repo",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.configuratorModels",
+      "manifestFieldId": "media.configuratorModels",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "WPR-M2 Supabase schema (not yet implemented)",
+      "verificationRule": "ConfiguratoreLanternePage.tsx renders FutureFeatureNotice only",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.portfolioAssets",
+      "manifestFieldId": "media.portfolioAssets",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "RealizzazioniPage.tsx has no real media consumption yet",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.eventData",
+      "manifestFieldId": "media.eventData",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "EventiPage.tsx has no real event-data consumption yet",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.rightsProvenance",
+      "manifestFieldId": "media.rightsProvenance",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no rights/provenance metadata field exists anywhere in apps/web/src",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.altText",
+      "manifestFieldId": "media.altText",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no dynamic alt-text source exists; current shipped images use static, hand-authored alt text unrelated to this manifest field",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-media.seo",
+      "manifestFieldId": "media.seo",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "per-page <title>/meta description exist (pageMeta.ts) but are static approved copy, not sourced from this manifest field",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-testimonials.entries",
+      "manifestFieldId": "testimonials.entries",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "AuthenticProofSection.tsx (homepage) exists as a section shell but does not consume real testimonial data",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-testimonials.approvalEvidence",
+      "manifestFieldId": "testimonials.approvalEvidence",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no approval-evidence tracking exists anywhere in the repo",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.privacyPolicy",
+      "manifestFieldId": "legal.privacyPolicy",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no /privacy-equivalent route exists in apps/web/src/app/routes.tsx (see WPR-M1-GAP-REGISTER.md GAP-LEGAL-01)",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.cookiePolicy",
+      "manifestFieldId": "legal.cookiePolicy",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no /cookie-equivalent route exists",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.termsAndConditions",
+      "manifestFieldId": "legal.termsAndConditions",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no /termini-equivalent route exists",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.returnsWarranty",
+      "manifestFieldId": "legal.returnsWarranty",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no returns/warranty route or section exists",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.deliveryPolicy",
+      "manifestFieldId": "legal.deliveryPolicy",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no delivery-policy route or section exists",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.dataRetention",
+      "manifestFieldId": "legal.dataRetention",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no data-retention copy exists in apps/web/src",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-legal.consentCopy",
+      "manifestFieldId": "legal.consentCopy",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": null,
+      "verificationRule": "no consent-capture UI (forms, cookie banner) exists in apps/web -- apps/legacy-web has its own separate cookie banner in index.html, out of this packet's scope (read-only)",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-provider.vercelProject",
+      "manifestFieldId": "provider.vercelProject",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "no Vercel project is linked (BLK-BASE-001 open)",
+      "verificationRule": "no vercel.json or deployment config referencing a live project exists",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-provider.supabaseProject",
+      "manifestFieldId": "provider.supabaseProject",
+      "targetFile": "apps/web/src/lib/supabase/client.ts",
+      "bindingIdentifier": "VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY",
+      "consumptionMechanism": "env-var (unset in production)",
+      "deploymentEnvironmentContract": "no production Supabase project is linked (BLK-BASE-001 open); local-only .env.example placeholders exist",
+      "verificationRule": "getSupabaseClient() reads these two env vars and throws a clear error if unset; verified working against a local stack per AD-011, never against a production project",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-provider.domain",
+      "manifestFieldId": "provider.domain",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "nolimits3d.store is the accepted target domain (ADR-0013) but not yet configured for this app's deployment",
+      "verificationRule": "no DNS/domain configuration for apps/web exists in this repo",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    },
+    {
+      "id": "binding-provider.secrets",
+      "manifestFieldId": "provider.secrets",
+      "targetFile": null,
+      "bindingIdentifier": null,
+      "consumptionMechanism": "not-consumed",
+      "deploymentEnvironmentContract": "no production secret path exists yet",
+      "verificationRule": "secret:scan guard confirms no secret value is present anywhere in the repo",
+      "status": "unbound",
+      "bindingVerifiedAt": null
+    }
+  ]
+}

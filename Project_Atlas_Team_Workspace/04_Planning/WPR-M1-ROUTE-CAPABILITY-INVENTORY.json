@@ -1,0 +1,623 @@
+{
+  "$schemaVersion": "1.0",
+  "packet": "CLAUDE-WPR-M1-CORRECTED",
+  "generatedBy": "Claude Team, WPR-M1 corrective implementation",
+  "sourceBase": "d7777a84f5a397d3332544e5f2f0d73e2d48661d",
+  "primarySources": [
+    "apps/web/src/app/routes.tsx",
+    "apps/web/src/routes/public/navigation.ts",
+    "NoLimits3D_Documentation_v0.96/04_Experience/01_Information_Architecture.md (DOC-UX-001)",
+    "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-014_WEB_APP_PRODUCTION_READINESS_PROGRAM.md",
+    "Project_Atlas_Development_Blueprint_v0.1/03_Architect_Directives/AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md",
+    "Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-PR25-TECHNICAL-REVIEW.md"
+  ],
+  "classificationTaxonomy": {
+    "implemented_test_backed": "Real, complete functionality backed by dedicated test evidence.",
+    "implemented_placeholder_honest_boundary": "Route exists, renders real content that honestly states the feature is not yet available, with no fake interactive/transactional UI.",
+    "coming_soon": "Route exists, intentional non-operational product boundary (PrintFlow only).",
+    "fallback_only": "Capability is served by apps/legacy-web, not by this app's own router.",
+    "private_admin_only": "Route exists, unlinked from any public navigation surface, reserved for future admin/private use.",
+    "forbidden_not_authorized": "Implementation is explicitly forbidden by governance (Jarvis) regardless of demand.",
+    "missing_blocking": "No route or capability exists yet; blocks WPR-M2/M3 or launch readiness."
+  },
+  "entries": [
+    {
+      "id": "route-home",
+      "path": "/",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/public-home.test.tsx", "covers": "section content and structure" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility (testId route-boundary-public)" },
+        { "file": "apps/web/e2e/nav-links.spec.ts", "covers": "real-browser 200 + console-error check (derives from navigation.ts)" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:46-49", "apps/web/src/routes/public/PublicHome.tsx"],
+      "launchBlockingState": { "blocking": false, "reason": "Shipped, tested. Sub-sections (AuthenticProofSection, EventsSection) reference testimonials/events that are separately tracked as client-data gaps, not a route gap." }
+    },
+    {
+      "id": "route-nolimits3d",
+      "path": "/nolimits3d",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [{ "file": "apps/web/src/test/nav-links-resolve.test.tsx", "covers": "resolves, no 404" }],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:51-57"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-nolimits3d-chi-siamo",
+      "path": "/nolimits3d/chi-siamo",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb (testId content-page-nolimits3d-chi-siamo)" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:59-65"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-nolimits3d-metodo",
+      "path": "/nolimits3d/metodo",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:67-73"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-nolimits3d-qualita",
+      "path": "/nolimits3d/qualita",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:75-81"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-nolimits3d-contatti",
+      "path": "/nolimits3d/contatti",
+      "capabilityCategory": "business-identity",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "requires-client-data-manifest",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:83-89", "apps/web/src/routes/public/navigation.ts:136-147 (siteContact, reused from apps/legacy-web)"],
+      "launchBlockingState": { "blocking": true, "reason": "Route and page are shipped and tested, but the contact facts displayed (address/hours/phone/email) are reused verbatim from apps/legacy-web, not sourced from an Andrea-approved client-data manifest entry for this app. This is the PR #25 'business-identity' finding: the route is real, but the underlying business-identity data has no enforceable, versioned, Andrea-approved source binding yet -- see WPR-M1-GAP-REGISTER.md GAP-BIZ-01 and CLIENT_DATA_MANIFEST.json category business-identity." }
+    },
+    {
+      "id": "route-servizi",
+      "path": "/servizi",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [{ "file": "apps/web/src/test/nav-links-resolve.test.tsx", "covers": "resolves, no 404" }],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:90-97"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-servizi-stampa-3d",
+      "path": "/servizi/stampa-3d",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:99-105"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-servizi-progettazione-3d",
+      "path": "/servizi/progettazione-3d",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:106-114"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-servizi-prototipazione",
+      "path": "/servizi/prototipazione",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:116-123"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-servizi-ricambi-personalizzati",
+      "path": "/servizi/ricambi-personalizzati",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:125-132"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-servizi-piccole-serie",
+      "path": "/servizi/piccole-serie",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:134-141"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-realizzazioni",
+      "path": "/realizzazioni",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "requires-client-data-manifest",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:143-149"],
+      "launchBlockingState": { "blocking": true, "reason": "Route and shell are shipped, but real portfolio media/project descriptions require the content-media client-data manifest category (media.portfolioAssets) -- see GAP-MEDIA-01." }
+    },
+    {
+      "id": "route-eventi",
+      "path": "/eventi",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "requires-client-data-manifest",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/content-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:151-157"],
+      "launchBlockingState": { "blocking": true, "reason": "Route and shell are shipped, but real event listings require the content-media client-data manifest category (media.eventData) -- see GAP-MEDIA-02." }
+    },
+    {
+      "id": "route-esplora",
+      "path": "/esplora",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:159-165"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-esplora-catalogo",
+      "path": "/esplora/catalogo",
+      "capabilityCategory": "public-catalog",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + honesty policy (no form/input/price)" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:167-173", "apps/web/src/routes/public/pages/esplora/CatalogoPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "No real catalog exists. Blocked on WPR-M2 typed contracts/Supabase schema (architecture, Codex Root's call) AND the commerce-catalog client-data manifest category. This is the packet's 'omitted capability' finding: PR #25 undercounted this as a simple placeholder without naming the WPR-M2 architecture dependency explicitly." }
+    },
+    {
+      "id": "route-esplora-ispirati",
+      "path": "/esplora/ispirati",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:174-181"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-esplora-arte-in-stampa-3d",
+      "path": "/esplora/arte-in-stampa-3d",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:182-190"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-esplora-hueforge",
+      "path": "/esplora/hueforge",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "not-applicable",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [{ "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "redirect lands on an axe-clean page" }],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:191-205 (React Router <Navigate> redirect, not an independent page, per DOC-UX-001 taxonomic distinction)"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-realizza",
+      "path": "/realizza",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:206-213"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "route-realizza-richiedi-progetto",
+      "path": "/realizza/richiedi-progetto",
+      "capabilityCategory": "request-intake",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + honesty policy" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:214-222", "apps/web/src/routes/public/pages/realizza/RichiediProgettoPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "No server-validated intake/upload backend exists (AD-014 section 3.4, WPR-M2 scope). Also depends on the uploads capability, itself missing -- see GAP-UPLOAD-01." }
+    },
+    {
+      "id": "route-realizza-preventivo-stampa-3d",
+      "path": "/realizza/preventivo-stampa-3d",
+      "capabilityCategory": "request-intake",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + honesty policy" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:223-231", "apps/web/src/routes/public/pages/realizza/PreventivoStampa3DPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "No pricing engine/commerce-catalog data and no automated-STL-quote workflow (AD-014 section 2 explicitly excludes automatic final pricing without Andrea's human review)." }
+    },
+    {
+      "id": "route-realizza-configuratore-lanterne",
+      "path": "/realizza/configuratore-lanterne",
+      "capabilityCategory": "configurator",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + honesty policy" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:232-240", "apps/web/src/routes/public/pages/realizza/ConfiguratoreLanternePage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "No data-driven configurator model/options exist (AD-014 section 3.5) and no static/2D fallback is implemented yet -- both are required before this can be anything but a placeholder." }
+    },
+    {
+      "id": "route-realizza-assistenza-stampanti-3d",
+      "path": "/realizza/assistenza-stampanti-3d",
+      "capabilityCategory": "request-intake",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + honesty policy" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:241-249", "apps/web/src/routes/public/pages/realizza/AssistenzaStampantiPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "Same server-validated intake dependency as richiedi-progetto." }
+    },
+    {
+      "id": "route-blog",
+      "path": "/blog",
+      "capabilityCategory": "content",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "static-approved-copy",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:250-257"],
+      "launchBlockingState": { "blocking": false, "reason": "Ongoing editorial content, not launch-blocking by itself." }
+    },
+    {
+      "id": "route-printflow",
+      "path": "/printflow",
+      "capabilityCategory": "printflow",
+      "routeExists": true,
+      "primaryClassification": "coming_soon",
+      "contentReadiness": "real-content",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/remaining-sitemap-pages.test.tsx", "covers": "heading + breadcrumb + Coming Soon assertion" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility + explicit Coming Soon regex check" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:258-266", "AGENTS.md Product Boundaries: 'PrintFlow remains Coming Soon; no operational worker, endpoint, download, or client path is authorized.'"],
+      "launchBlockingState": { "blocking": false, "reason": "Intentional, binding product boundary -- not a gap." }
+    },
+    {
+      "id": "route-carrello",
+      "path": "/carrello",
+      "capabilityCategory": "cart",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/nav-links-resolve.test.tsx", "covers": "resolves, no 404" },
+        { "file": "apps/web/src/test/sitemap.test.ts", "covers": "present in build-time sitemap.xml" },
+        { "file": "apps/web/e2e/nav-links.spec.ts", "covers": "real-browser 200 + console-error check (via alwaysAccessibleLinks)" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:267-274", "apps/web/src/routes/public/pages/CarrelloPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "PR #25 'placeholder-route' finding: this route has zero Vitest-level content/heading/breadcrumb assertion (absent from content-pages.test.tsx and remaining-sitemap-pages.test.tsx's expectedPages) and zero dedicated axe-accessibility assertion (absent from a11y-axe.test.tsx's publicRoutes array) -- coverage exists only at nav-link-resolution and E2E level, not at the same granularity as the 22 other content-classified pages. Also blocked on AD-014 section 3.3 server-validated cart (WPR-M2 architecture, not this packet's scope)." }
+    },
+    {
+      "id": "route-ricerca",
+      "path": "/ricerca",
+      "capabilityCategory": "search",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "honest-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [
+        { "file": "apps/web/src/test/nav-links-resolve.test.tsx", "covers": "resolves, no 404" },
+        { "file": "apps/web/e2e/nav-links.spec.ts", "covers": "real-browser 200 + console-error check (via alwaysAccessibleLinks)" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:275-282", "apps/web/src/routes/public/pages/RicercaPage.tsx (FutureFeatureNotice)"],
+      "launchBlockingState": { "blocking": true, "reason": "Same Vitest-level coverage gap as /carrello (also absent from sitemap.test.ts's explicit path list, unlike /carrello). Functionally depends on the catalog existing first (nothing to search yet)." }
+    },
+    {
+      "id": "route-account",
+      "path": "/account",
+      "capabilityCategory": "account-auth",
+      "routeExists": true,
+      "primaryClassification": "implemented_placeholder_honest_boundary",
+      "contentReadiness": "minimal-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "future-customer-auth",
+      "testEvidence": [
+        { "file": "apps/web/src/test/route-boundaries.test.tsx", "covers": "renders route boundary" },
+        { "file": "apps/web/src/test/segment-error-boundaries.test.tsx", "covers": "segment error boundary wiring" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility (dedicated account+command test)" },
+        { "file": "apps/web/src/test/sitemap.test.ts", "covers": "explicitly excluded from build-time sitemap.xml" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:283-290", "apps/web/src/routes/account/AccountHome.tsx"],
+      "launchBlockingState": { "blocking": true, "reason": "PR #25 '/account' finding, resolved here with exact evidence: AccountHome.tsx is a bespoke static placeholder ('Area clienti' / 'Sezione in preparazione'), NOT the shared FutureFeatureNotice component every other placeholder route uses -- it has no fallback contact CTA and no honest-boundary affordance consistent with the rest of the site. It is correctly classified implemented_placeholder_honest_boundary (it does not fake functionality), but contentReadiness is minimal-placeholder, distinct from the other honest-placeholder routes, and this divergence is itself GAP-ACCOUNT-01. No real Supabase Auth/passwordless flow exists yet (AD-014 section 3.3, WPR-M2 architecture scope)." }
+    },
+    {
+      "id": "route-command",
+      "path": "/command",
+      "capabilityCategory": "admin-content-management",
+      "routeExists": true,
+      "primaryClassification": "private_admin_only",
+      "contentReadiness": "minimal-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "private-unlinked",
+      "testEvidence": [
+        { "file": "apps/web/src/test/route-boundaries.test.tsx", "covers": "renders route boundary" },
+        { "file": "apps/web/src/test/command-privacy.test.tsx", "covers": "confirms unlinked from any nav/sitemap surface" },
+        { "file": "apps/web/src/test/segment-error-boundaries.test.tsx", "covers": "segment error boundary wiring" },
+        { "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility" },
+        { "file": "scripts/guards/scope-guard.mjs", "covers": "fails any public/account/nav-surface file that references /command" }
+      ],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:291-298", "apps/web/src/routes/command/CommandBoundary.tsx", "ADR-0020 (Jarvis explicitly NOT part of this boundary)"],
+      "launchBlockingState": { "blocking": true, "reason": "This is the entire current 'minimum admin/content management' capability AD-014 section 2 requires -- currently zero function, zero data access, private-unlinked only. Real admin/content-management implementation is unscoped future work, not this packet's job to build; recorded as GAP-ADMIN-01." }
+    },
+    {
+      "id": "route-not-found",
+      "path": "*",
+      "capabilityCategory": "system",
+      "routeExists": true,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "real-content",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [{ "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility on not-found boundary" }],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:299-301", "apps/web/src/routes/NotFound.tsx"],
+      "launchBlockingState": { "blocking": false, "reason": null }
+    },
+    {
+      "id": "capability-product-detail",
+      "path": null,
+      "capabilityCategory": "product-detail",
+      "routeExists": false,
+      "primaryClassification": "missing_blocking",
+      "contentReadiness": "not-implemented",
+      "dataProvenance": "requires-client-data-manifest",
+      "authExposure": "not-applicable",
+      "testEvidence": [],
+      "sourceCitations": ["AD-014 section 2: 'catalog, product detail, cart, and controlled checkout'"],
+      "launchBlockingState": { "blocking": true, "reason": "PR #25 'omitted-capability' finding: no product-detail route or route pattern exists anywhere in apps/web/src/app/routes.tsx, and PR #25's inventory never named this as a distinct required capability. Recorded as GAP-CATALOG-02, downstream of WPR-M2's typed contracts (Codex Root architecture scope)." }
+    },
+    {
+      "id": "capability-uploads",
+      "path": null,
+      "capabilityCategory": "uploads",
+      "routeExists": false,
+      "primaryClassification": "missing_blocking",
+      "contentReadiness": "not-implemented",
+      "dataProvenance": "not-applicable",
+      "authExposure": "not-applicable",
+      "testEvidence": [],
+      "sourceCitations": ["AD-014 section 2: 'controlled uploads'; section 3.4: 'controlled upload, retention, abuse protection'"],
+      "launchBlockingState": { "blocking": true, "reason": "Another omitted-capability: the intake pages (richiedi-progetto, assistenza-stampanti-3d) reference file/STL submission conceptually, but no upload mechanism, Storage binding, or controlled-upload policy exists anywhere in the current router or source. Recorded as GAP-UPLOAD-01, downstream of WPR-M2 Supabase Storage architecture." }
+    },
+    {
+      "id": "capability-policy-legal-in-app",
+      "path": null,
+      "capabilityCategory": "policy-legal",
+      "routeExists": false,
+      "primaryClassification": "missing_blocking",
+      "contentReadiness": "not-implemented",
+      "dataProvenance": "requires-client-data-manifest",
+      "authExposure": "not-applicable",
+      "testEvidence": [],
+      "sourceCitations": ["AD-014 section 2: '...legal routes...'; apps/web/src/routes/public/navigation.ts:141-147 (siteContact.legalHref points cross-app to apps/legacy-web's /legal, not a route this router owns)"],
+      "launchBlockingState": { "blocking": true, "reason": "This app has zero in-app legal/policy route (privacy, cookies, terms, returns, delivery) despite AD-014 section 2 explicitly listing legal routes in scope. The current experience is entirely fallback_only via a plain cross-app <a> link to apps/legacy-web/legal (see capability-policy-legal-fallback below). Recorded as GAP-LEGAL-01 -- the packet's 'legal-fallback' finding is resolved by separating these two distinct facts rather than conflating them." }
+    },
+    {
+      "id": "capability-policy-legal-fallback",
+      "path": "/legal",
+      "capabilityCategory": "policy-legal",
+      "routeExists": true,
+      "primaryClassification": "fallback_only",
+      "contentReadiness": "real-content",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [{ "file": "apps/web/src/test/nav-links-resolve.test.tsx", "covers": "explicitly excluded from this router's own resolve-check as a documented cross-app link, not a bug" }],
+      "sourceCitations": ["apps/legacy-web/src/pages/Legal.tsx", "apps/web/src/routes/public/navigation.ts:146 (legalHref)", "apps/web/src/routes/public/Footer.tsx"],
+      "launchBlockingState": { "blocking": false, "reason": "apps/legacy-web remains the public fallback per AD-014 section 3.1 and AGENTS.md; this cross-app link is the correct, honest, currently-shipped mechanism for legal content, not itself a gap. The gap is capability-policy-legal-in-app above (this app owning its own legal routes eventually)." }
+    },
+    {
+      "id": "capability-observability-readiness",
+      "path": null,
+      "capabilityCategory": "observability-readiness",
+      "routeExists": false,
+      "primaryClassification": "implemented_test_backed",
+      "contentReadiness": "not-applicable",
+      "dataProvenance": "not-applicable",
+      "authExposure": "not-applicable",
+      "testEvidence": [
+        { "file": "scripts/guards/production-readiness-guard.mjs", "covers": "this packet's own new fail-closed readiness guard" },
+        { "file": "scripts/guards/production-readiness-guard.test.mjs", "covers": "dedicated positive + adversarial tests" }
+      ],
+      "sourceCitations": ["AD-014 section 2: 'observability, backup, rollback, and release evidence'; CLAUDE-WPR-M1-CORRECTED-PEER-TASK-PACKET.md section 8.5"],
+      "launchBlockingState": { "blocking": true, "reason": "This packet delivers the readiness-guard mechanism itself (not a route), but it deterministically reports the committed manifest as not ready -- real observability/backup/alerting infrastructure is separate future work gated on a real Vercel/Supabase project (BLK-BASE-001), recorded as GAP-OBS-01." }
+    },
+    {
+      "id": "capability-admin-content-management",
+      "path": "/command",
+      "capabilityCategory": "admin-content-management",
+      "routeExists": true,
+      "primaryClassification": "private_admin_only",
+      "contentReadiness": "minimal-placeholder",
+      "dataProvenance": "not-applicable",
+      "authExposure": "private-unlinked",
+      "testEvidence": [{ "file": "apps/web/src/test/command-privacy.test.tsx", "covers": "confirms zero public linkage" }],
+      "sourceCitations": ["AD-014 section 2: 'admin-managed catalog/content/media/configuration needed for Andrea's final data insertion'"],
+      "launchBlockingState": { "blocking": true, "reason": "Same underlying route as route-command above; listed again under its own capability category per packet section 8.1's requirement to cover 'minimum admin/content management' explicitly, not just as a route entry. See GAP-ADMIN-01." }
+    },
+    {
+      "id": "capability-legacy-fallback",
+      "path": null,
+      "capabilityCategory": "legacy-fallback",
+      "routeExists": true,
+      "primaryClassification": "fallback_only",
+      "contentReadiness": "real-content",
+      "dataProvenance": "not-applicable",
+      "authExposure": "public",
+      "testEvidence": [],
+      "sourceCitations": ["apps/legacy-web/** (entire separate app)", "AD-014 section 3.1: 'apps/legacy-web remains the public fallback until an approved cutover and rollback test.'"],
+      "launchBlockingState": { "blocking": false, "reason": "Real, live, currently-serving app, read-only for this packet per section 4. Not a gap; it is the reason none of apps/web's placeholders are dishonest -- the real fallback already exists." }
+    },
+    {
+      "id": "capability-jarvis",
+      "path": null,
+      "capabilityCategory": "jarvis",
+      "routeExists": false,
+      "primaryClassification": "forbidden_not_authorized",
+      "contentReadiness": "not-applicable",
+      "dataProvenance": "not-applicable",
+      "authExposure": "not-applicable",
+      "testEvidence": [{ "file": "scripts/guards/scope-guard.mjs", "covers": "fails any file under apps/ containing the literal substring 'jarvis'" }],
+      "sourceCitations": ["AD-012_JARVIS_AUTHORITATIVE_BOUNDARY.md", "AGENTS.md Product Boundaries: 'Jarvis implementation is not authorized.'", "INV-JARVIS-001"],
+      "launchBlockingState": { "blocking": false, "reason": "Intentional, binding, non-negotiable boundary -- not a gap to close, ever, without a dedicated future Blueprint and Andrea/Architect approval this packet does not grant." }
+    }
+  ]
+}
