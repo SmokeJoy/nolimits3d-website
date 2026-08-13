@@ -8,22 +8,27 @@
 - **Exact implementation base:** `d7777a84f5a397d3332544e5f2f0d73e2d48661d`
 - **Branch:** `claude/wpr-m1-corrected`
 - **Worktree:** `G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected`
-- **Status of this handoff:** this is the round-3 correction. Round 2 (commit
-  `b3d3206b81d4047ef299615391ebf8132c7d6da6`) responded to Atlas TPM's `2026-08-13 15:53 Europe/Rome`
-  Technical Review (`CHANGES REQUESTED`, head `1cf9a1a`) and Codex Root's `16:26` ruling. The
-  distinct `Claude Team Reviewer - WPR-M1 Independent Peer Review` requested in round 2 has since
-  run against that exact head and returned its own `CHANGES REQUIRED` (channel,
-  `2026-08-13 17:10 Europe/Rome`): one real, independently-reproduced finding -- round 2's own
-  deviation-log item 6 falsely claimed the round-2 commit was unsigned when it was in fact
-  SSH-signed -- plus a disclosed, explicitly non-blocking observation about `FORMAT_VALIDATORS`
-  coverage breadth (self-reported-evidence truthfulness, out of the packet's structural-validation
-  scope, does not affect the real manifest). This document fixes the one blocking finding (section
-  8 item 6, corrected) and records the peer reviewer's full result in section 9. This document
-  continues to comply with Root's **finite handoff rule** (section 2): it does not, and structurally
-  cannot, state the Git object ID of the commit that contains it.
-- **Requesting:** a fresh independent Atlas TPM Technical Review of the round-3 corrected head
-  (resolve its exact identity per section 2). Not requesting integration, merge, release,
-  deployment, or production authority -- none of those are in scope for this packet.
+- **Status of this handoff:** this document corrects **the current, latest containing correction
+  commit** on `claude/wpr-m1-corrected` -- described only generically here and in section 2, never
+  self-declared by its own hash (finite handoff rule). It does not, and structurally cannot, state
+  the Git object ID of the commit that contains it; see section 2 for the full predecessor chain
+  and how to resolve the current hash externally. Summary of what led here (full detail, section 2
+  and 9): round 2 (`b3d3206`) closed Atlas TPM's first Technical Review (`CHANGES REQUESTED`,
+  `15:53`, reviewed head `1cf9a1a`); round 3 (`a310585`) closed the distinct
+  `Claude Team Reviewer - WPR-M1 Independent Peer Review`'s one finding against round 2's head
+  (channel, `17:10`); a further correction (`3783d47`) then fixed section 2's own staleness that
+  Atlas TPM's `17:27` preliminary review had found. **Completed since, recorded here as historical
+  fact:** the genuinely distinct `Claude Team Reviewer - WPR-M1 Round-4 Section-2 Recheck`
+  independently reviewed exact head `3783d471c0e1bafae5d8083a4226698ceefd12e0` and returned
+  `PASS` (channel, `18:05`). **Atlas TPM's own Final Technical Review of that same head** then
+  returned `CHANGES REQUESTED` (channel, "PR #31 Final Technical Review At `3783d47`"): section 2
+  itself was confirmed correct, but this status block, section 10, and section 12 still described
+  themselves as the "round-3 correction," requested review of an already-superseded head, and did
+  not record that the Round-4 peer `PASS` had already happened. This document fixes exactly that.
+- **Requesting:** after this correction is pushed with green CI, a genuinely distinct same-head
+  peer recheck is required, followed by a fresh independent Atlas TPM Technical Review of that same
+  head. Not requesting integration, merge, release, deployment, or production authority -- none of
+  those are in scope for this packet.
 
 ## 1. Local ACK and activation reference
 
@@ -92,17 +97,35 @@ predecessor list here is exactly the failure mode that recurred.
    preflight (channel, `2026-08-13 17:27`) inspected and found one new blocking finding against:
    this very section (2) had not been updated to reflect that the document-containing commit was no
    longer the round-2 commit -- it still named `1cf9a1a` as the containing commit's parent instead
-   of the true, then-current parent `b3d3206`.** This entry, and the maintenance rule above, are
-   this round's fix for that finding.
+   of the true, then-current parent `b3d3206`.** This entry, and the maintenance rule above, were
+   that round's fix for that finding.
+6. `3783d471c0e1bafae5d8083a4226698ceefd12e0` -- the section-2 staleness fix itself (predecessor 5's
+   own correction). Parent: exactly `a3105858d4bf71b84afd164c871cafa0073dfd80`. **SSH-signed**,
+   same method as commits 4-5, confirmed via the same `gpgsig` check (`git cat-file -p
+   3783d471c0e1bafae5d8083a4226698ceefd12e0` shows exactly one complete SSH signature block).
+   **This is the exact commit two independent reviews have since examined:** the genuinely distinct
+   `Claude Team Reviewer - WPR-M1 Round-4 Section-2 Recheck` (channel, `2026-08-13 18:05`)
+   independently re-derived the full six-commit parent chain, the diff scope, the signature, and
+   section 2's content, and returned `PASS` -- no defect found. Atlas TPM's own Final Technical
+   Review of the same head (channel, "PR #31 Final Technical Review At `3783d47`") then returned
+   **`CHANGES REQUESTED`**: it confirmed section 2 itself was correct (agreeing with the peer
+   `PASS` on that specific point), but found that the peer review's "no stale claims elsewhere"
+   conclusion did not survive its own direct line-by-line check -- this status block, section 10,
+   and section 12 (the ones this current round fixes) still described themselves as the "round-3
+   correction" and requested review of an already-superseded head, without recording that the
+   Round-4 peer `PASS` had already happened. Both independent review results (peer `PASS` on
+   section 2; Atlas TPM `CHANGES REQUESTED` on the rest of the document) are recorded here as
+   historical fact, not superseded or overwritten by either later action.
 
 ### This document's own containing commit -- generic, resolved externally, never self-declared
 
-The commit that contains this exact file is, by construction, **the current reviewed branch head
-containing this handoff**. Its parent is exactly `a3105858d4bf71b84afd164c871cafa0073dfd80`
-(predecessor 5 above -- the current, correct parent as of this round; see the maintenance rule
-above for why this line, specifically, is the one that must be updated every round). Its own hash
-cannot be written here without circularity (the hash depends on this file's content, which would
-then need to describe its own hash). Resolve its exact identity, at review time, via all four of:
+The commit that contains this exact file is, by construction, **the current, latest containing
+correction commit on this branch**. Its parent is exactly
+`3783d471c0e1bafae5d8083a4226698ceefd12e0` (predecessor 6 above -- the current, correct parent as
+of this round; see the maintenance rule above for why this line, specifically, is the one that
+must be updated every round). Its own hash cannot be written here without circularity (the hash
+depends on this file's content, which would then need to describe its own hash). Resolve its exact
+identity, at review time, via all four of:
 
 - local: `git rev-parse HEAD` on branch `claude/wpr-m1-corrected` in this worktree;
 - remote: `git ls-remote origin refs/heads/claude/wpr-m1-corrected`;
@@ -113,7 +136,9 @@ All four must agree exactly. Any mismatch between them is itself a finding, not 
 handoff can pre-empt. The channel entry announcing this correction (posted after commit and push,
 per the standing communication rule) records that exact resolved hash -- this document deliberately
 does not, so that it is never stale the way the round-1 handoff's "two commits" claim, and this
-same section's round-2/round-3 staleness, both went stale before.
+same section's later staleness (twice, now fixed both times by moving the resolved predecessor into
+this numbered list rather than leaving it as free-standing prose elsewhere in the document), both
+went stale before.
 
 ### Working-tree state
 
@@ -326,9 +351,14 @@ found one real, previously-undisclosed defect:
 - `FORMAT_VALIDATORS`' 5-format coverage does not catch every conceivable fabricated value under an
   unregistered format string -- disclosed, non-blocking, out of structural-validation scope (section
   9, round 3).
-- A fresh Atlas TPM Technical Review of this round-3 head is still pending as of this document's
-  authoring (section 12). The distinct Claude peer review itself is no longer pending -- it has run
-  (section 9, round 3) and its one blocking finding is fixed in this same commit.
+- Two gates are now pending against the current, latest containing correction commit (resolve its
+  exact hash per section 2; do not rely on any hash this document might otherwise have stated): a
+  genuinely distinct same-head peer recheck, and a fresh independent Atlas TPM Technical Review
+  (section 12). Both prior review passes on the immediately preceding head
+  (`3783d471c0e1bafae5d8083a4226698ceefd12e0`) are already complete and recorded as historical fact
+  in section 2, predecessor 6: the distinct `Claude Team Reviewer - WPR-M1 Round-4 Section-2
+  Recheck` returned `PASS`, and Atlas TPM's own Final Technical Review of that same head then
+  returned `CHANGES REQUESTED` for the staleness this current commit fixes.
 
 ## 11. Rollback instructions
 
@@ -343,13 +373,17 @@ matching this packet's own `17fa6db`/PR #30 precedent (round-1 disposition, unch
 
 ## 12. Explicit request
 
-Requesting a fresh independent Atlas TPM Technical Review of this round-3 corrected head (resolve
-its exact hash per section 2 -- do not rely on any hash this document might otherwise have stated).
-The distinct named Claude peer review packet section 15 gate 1 requires has already run against
-round 2's head and its one blocking finding is fixed here (section 9); Atlas TPM should judge for
-itself whether that satisfies the gate, including whether a further peer-review pass against this
-exact round-3 head is warranted given the fix was narrow (one deviation-log sentence corrected, no
-guard/test/schema logic touched).
+After this correction is pushed and CI is green on its exact head, two gates are required, in this
+order, against that same head (resolve its exact hash per section 2 -- do not rely on any hash this
+document might otherwise have stated): first, a genuinely distinct same-head peer recheck (packet
+section 15 gate 1); then, a fresh independent Atlas TPM Technical Review. Both are required, not
+optional, and neither is being asked as an open question this time -- the prior round's hedged
+framing ("should Atlas TPM judge for itself whether a further peer-review pass is warranted") is
+exactly the kind of ambiguity Atlas TPM's Final Technical Review on `3783d47` flagged as
+insufficient, and is not repeated here. The Round-4 peer `PASS` and Atlas TPM's `CHANGES REQUESTED`
+that already happened, both against the immediately preceding head, are recorded as completed
+historical fact in section 2 (predecessor 6) and are not a substitute for the two fresh gates
+requested here against the new head.
 
 This handoff does not request, and this packet does not grant, milestone closure, merge, release,
 deployment, production access, or `BLK-BASE-001` closure. PrintFlow remains non-operational and
