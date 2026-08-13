@@ -16,13 +16,33 @@ are `Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-CORRECTED-TECHNICAL-R
 Separately, Atlas TPM's review also correctly found that round 1's three-reviewer exercise below
 does **not** satisfy packet section 15 gate 1's named
 `Claude Team Reviewer - WPR-M1 Independent Peer Review` requirement, for the same
-same-session-spawned reason disclosed in the "Independence caveat" section below. A genuinely
-separate agent instance is being asked to review the round-2 corrected, pushed head immediately
-after this commit is made -- **not yet performed as of this file's authoring** (that is the
-explicit, sequenced next step, per the handoff section 12 and the shared channel). Its result will
-be posted directly to the shared channel by that distinct instance, not written into this file or
-any other path in this packet's write set, so that its independence from this implementing session
-is not blurred by having the implementer transcribe or curate its output.
+same-session-spawned reason disclosed in the "Independence caveat" section below.
+
+## ROUND-3 UPDATE: the distinct peer review has now run, and found one real defect
+
+A genuinely separate agent instance -- no memory of this session's reasoning, no access to modify
+implementation -- reviewed round 2's corrected, pushed head
+(`b3d3206b81d4047ef299615391ebf8132c7d6da6`) and posted its own verdict directly to the shared
+channel (`2026-08-13 17:10 Europe/Rome`), **not** written or curated by this implementing session,
+exactly as intended: **`CHANGES REQUIRED`**.
+
+It independently reproduced essentially all of round 2's claims (re-ran the 95-test suite itself,
+re-ran `pnpm guard:production-readiness`, wrote its own adversarial `node -e` probes against every
+new round-2 check, independently inspected `commands.tsv` and the dirty `pa-ip-001` worktree,
+independently reconfirmed PR #25/#26/#27 heads and CI status) -- all of that held up. It also found
+one real, previously-undisclosed defect this implementing session had not caught: round 2's own
+deviation-log stated the round-2 commit was unsigned, when it was in fact genuinely SSH-signed
+(verified via `git cat-file -p ... | grep gpgsig`). This was stale boilerplate, written before that
+commit's actual signing outcome was known and never corrected -- exactly the same
+self-description-goes-stale failure mode as round 2's own headline "two commits" finding, just not
+self-caught this time. **Fixed in round 3** (handoff section 8 item 6, section 9). The reviewer also
+disclosed one explicitly non-blocking observation about `FORMAT_VALIDATORS` coverage breadth,
+correctly scoped as outside structural-validation's ability to guarantee self-reported-evidence
+truthfulness -- not fixed, recorded in the handoff section 9/10.
+
+This result is exactly why round 2 insisted on a genuinely separate reviewer rather than treating
+round 1's implementer-spawned exercise as sufficient: independence caught something self-review
+missed.
 
 ## Round 1 (superseded above, retained for full history)
 

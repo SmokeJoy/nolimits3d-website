@@ -8,16 +8,21 @@
 - **Exact implementation base:** `d7777a84f5a397d3332544e5f2f0d73e2d48661d`
 - **Branch:** `claude/wpr-m1-corrected`
 - **Worktree:** `G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected`
-- **Status of this handoff:** this is the round-2 correction, responding to Atlas TPM's
-  `2026-08-13 15:53 Europe/Rome` independent Technical Review, verdict `CHANGES REQUESTED` at head
-  `1cf9a1a94e07e9efc388b85bc9842a9ba84923df`, and Codex Root's `16:26` "PR31 Corrective Ownership
-  And Handoff Ruling." Every blocking finding from that review is addressed below and in
-  `peer-review.md`. This document is written to comply with Root's **finite handoff rule** (section
-  2): it does not, and structurally cannot, state the Git object ID of the commit that contains it.
-- **Requesting:** a fresh independent Atlas TPM Technical Review of the corrected head (resolve its
-  exact identity per section 2), and, separately, a genuinely distinct named
-  `Claude Team Reviewer - WPR-M1 Independent Peer Review` pass (requested but not yet performed as
-  of this document's authoring -- see section 9). Not requesting integration, merge, release,
+- **Status of this handoff:** this is the round-3 correction. Round 2 (commit
+  `b3d3206b81d4047ef299615391ebf8132c7d6da6`) responded to Atlas TPM's `2026-08-13 15:53 Europe/Rome`
+  Technical Review (`CHANGES REQUESTED`, head `1cf9a1a`) and Codex Root's `16:26` ruling. The
+  distinct `Claude Team Reviewer - WPR-M1 Independent Peer Review` requested in round 2 has since
+  run against that exact head and returned its own `CHANGES REQUIRED` (channel,
+  `2026-08-13 17:10 Europe/Rome`): one real, independently-reproduced finding -- round 2's own
+  deviation-log item 6 falsely claimed the round-2 commit was unsigned when it was in fact
+  SSH-signed -- plus a disclosed, explicitly non-blocking observation about `FORMAT_VALIDATORS`
+  coverage breadth (self-reported-evidence truthfulness, out of the packet's structural-validation
+  scope, does not affect the real manifest). This document fixes the one blocking finding (section
+  8 item 6, corrected) and records the peer reviewer's full result in section 9. This document
+  continues to comply with Root's **finite handoff rule** (section 2): it does not, and structurally
+  cannot, state the Git object ID of the commit that contains it.
+- **Requesting:** a fresh independent Atlas TPM Technical Review of the round-3 corrected head
+  (resolve its exact identity per section 2). Not requesting integration, merge, release,
   deployment, or production authority -- none of those are in scope for this packet.
 
 ## 1. Local ACK and activation reference
@@ -190,12 +195,19 @@ still contains zero non-null values across all 29 fields. See `integrity.txt` an
    `17fa6db`/PR #30 precedent.
 5. **Round-1 remediation commits (`bdf5fb2`, `1cf9a1a`) are unsigned** under two separate explicit
    one-time Andrea authorizations, documented in section 2 above.
-6. **Round-2 correction commit is also unsigned**, under a third separate explicit one-time
-   authorization, for the same root cause (see section 2). The durable fix for this recurring
-   friction -- per-command SSH signing
-   (`git -c gpg.format=ssh -c user.signingkey=$HOME/.ssh/id_rsa.pub commit -S`), tested and
-   confirmed working, never persisted into git config -- is recorded in the shared channel and in
-   Claude's own cross-session memory, and is used for this round-2 commit itself where possible.
+6. **Correction, made in round 3 of this section:** a prior version of this item incorrectly stated
+   the round-2 correction commit (`b3d3206b81d4047ef299615391ebf8132c7d6da6`) was unsigned. It is
+   not -- it carries a real SSH signature (`git cat-file -p b3d3206b81d4047ef299615391ebf8132c7d6da6
+   | grep gpgsig` shows a full `SSH SIGNATURE` block), confirmed independently by the distinct
+   peer reviewer in round 3. The durable fix for the interactive-GPG-signing friction that affected
+   commits 2 and 3 above -- per-command SSH signing
+   (`git -c gpg.format=ssh -c user.signingkey=$HOME/.ssh/id_rsa.pub commit -S`), never persisted
+   into git config -- worked cleanly for commit `b3d3206...` with **zero** pinentry prompt and
+   **no** `--no-gpg-sign` needed. The stale claim in the prior version of this item was boilerplate
+   written before that commit's outcome was known and never corrected before committing -- exactly
+   the same class of self-description-goes-stale defect as item 7 below, now caught by a genuinely
+   independent reviewer rather than self-caught, which is itself worth disclosing plainly rather
+   than quietly fixing.
 7. **Round-1's handoff went stale the moment the third commit (`1cf9a1a`) was added**, still
    claiming "two commits." Atlas TPM correctly caught this. Section 2 of this document is
    rewritten specifically so this class of staleness cannot recur -- see the finite handoff rule.
@@ -241,6 +253,34 @@ self-reported evidence timestamps, validated for well-formedness and internal or
 against a wall-clock (the guard must stay deterministic) -- their truth still depends on a human
 actually checking the `evidenceRef` they point to.
 
+### Round 3: the distinct independent Claude peer review (the gate round 2 requested)
+
+**`2026-08-13 17:10 Europe/Rome`, channel entry, reviewing head `b3d3206b81d4047ef299615391ebf8132c7d6da6`,
+verdict `CHANGES REQUIRED`.** A genuinely separate agent instance -- no access to modify
+implementation, no memory of this session's reasoning -- independently reproduced essentially
+everything from round 2 (re-ran the 95-test suite itself, re-ran `pnpm guard:production-readiness`,
+wrote its own adversarial `node -e` probes against every new round-2 check and confirmed each one
+correctly fails closed, independently confirmed `commands.tsv`'s timestamps and evidence-file
+references, independently inspected the dirty `pa-ip-001` worktree itself, independently
+reconfirmed PR #25/#26/#27 heads, and confirmed CI had completed `success` for this exact head).
+None of that reproduction found a problem -- but the reviewer did not stop at reproduction. It
+found one real, previously-undisclosed defect:
+
+- **Blocking:** round 2's deviation-log item 6 stated the round-2 commit was unsigned. It is not --
+  `git cat-file -p b3d3206... | grep gpgsig` shows a genuine SSH signature block. The claim was
+  boilerplate written before that commit's actual signing outcome was known, and was never
+  corrected before the commit was made -- the same class of self-description-goes-stale defect as
+  round 2's own headline finding (the "two commits" claim), just not caught by the implementer this
+  time. **Fixed** in this round-3 commit: item 6 corrected (section 8 above), with the reviewer's
+  own finding and verification method recorded rather than silently smoothed over.
+- **Disclosed, explicitly non-blocking:** `FORMAT_VALIDATORS` only recognizes 5 format strings; the
+  reviewer constructed a synthetic manifest using an unregistered format plus a fabricated value
+  that reached `ready:true` in isolation. Correctly scoped by the reviewer as outside this packet's
+  structural-validation contract (truthfulness of self-reported evidence is not something any
+  closed-world validator can fully guarantee, as already disclosed in section 9's "what remains
+  genuinely unresolved" above) and confirmed not to affect the real `guard:production-readiness`
+  path, since the real manifest uses no `format` field at all. Not fixed; recorded for completeness.
+
 ## 10. Unresolved findings and risks
 
 - `business.address`/`business.contactChannels` remain hard-coded in
@@ -250,8 +290,12 @@ actually checking the `evidenceRef` they point to.
 - The AD-016 reference set has no filled slots and is not yet accepted by Andrea.
 - The binding contract's completeness (every real hardcoded value disclosed?) remains a
   human-review responsibility the guard cannot fully verify -- see section 9.
-- A fresh Atlas TPM Technical Review and a genuinely distinct Claude peer review are both still
-  pending as of this document's authoring (section 12).
+- `FORMAT_VALIDATORS`' 5-format coverage does not catch every conceivable fabricated value under an
+  unregistered format string -- disclosed, non-blocking, out of structural-validation scope (section
+  9, round 3).
+- A fresh Atlas TPM Technical Review of this round-3 head is still pending as of this document's
+  authoring (section 12). The distinct Claude peer review itself is no longer pending -- it has run
+  (section 9, round 3) and its one blocking finding is fixed in this same commit.
 
 ## 11. Rollback instructions
 
@@ -266,13 +310,13 @@ matching this packet's own `17fa6db`/PR #30 precedent (round-1 disposition, unch
 
 ## 12. Explicit request
 
-Requesting, in order:
-
-1. A fresh independent Atlas TPM Technical Review of the corrected head (resolve its exact hash
-   per section 2 -- do not rely on any hash this document might otherwise have stated).
-2. A genuinely distinct `Claude Team Reviewer - WPR-M1 Independent Peer Review` pass against that
-   same corrected, pushed head -- a separate agent instance from this implementing session, with no
-   access to modify implementation, publishing its result directly to the shared channel.
+Requesting a fresh independent Atlas TPM Technical Review of this round-3 corrected head (resolve
+its exact hash per section 2 -- do not rely on any hash this document might otherwise have stated).
+The distinct named Claude peer review packet section 15 gate 1 requires has already run against
+round 2's head and its one blocking finding is fixed here (section 9); Atlas TPM should judge for
+itself whether that satisfies the gate, including whether a further peer-review pass against this
+exact round-3 head is warranted given the fix was narrow (one deviation-log sentence corrected, no
+guard/test/schema logic touched).
 
 This handoff does not request, and this packet does not grant, milestone closure, merge, release,
 deployment, production access, or `BLK-BASE-001` closure. PrintFlow remains non-operational and
