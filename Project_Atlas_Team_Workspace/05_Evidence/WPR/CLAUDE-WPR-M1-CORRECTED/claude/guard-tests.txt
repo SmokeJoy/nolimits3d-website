@@ -1,0 +1,136 @@
+CLAUDE-WPR-M1-CORRECTED -- packet-specific gate evidence (packet section 10.1)
+POST-REMEDIATION run, after an independent adversarial review found and this session fixed a
+guard bypass (see peer-review.md). Suite grew from 37 to 76 tests.
+
+===============================================================================
+Command 1: node --test scripts/guards/production-readiness-guard.test.mjs
+Exit code: 0
+===============================================================================
+FIXTURE-ONLY RESULT -- synthetic test fixture, not a production readiness determination, not real client-approved data.
+Production readiness guard: PASS (fixture-only)
+Production readiness guard: FAIL -- 2 violation(s), 26 required field(s) not approved.
+✔ 1. empty categories array fails closed (1.9559ms)
+✔ 2a. category object missing the fields property fails closed (0.2432ms)
+✔ 2b. category with an empty fields array fails closed (0.1701ms)
+✔ 3a. unknown extra property at root level fails closed (0.7343ms)
+✔ 3b. unknown extra property at category level fails closed (0.3661ms)
+✔ 3c. unknown extra property at field level fails closed (0.2157ms)
+✔ 3d. unknown extra property inside approvalEvidence fails closed (0.2344ms)
+✔ 3e. missing required property at field level fails closed (0.1556ms)
+✔ 4a. duplicate category ids fail closed (0.1735ms)
+✔ 4b. duplicate field ids across different categories fail closed (0.2439ms)
+✔ 5a. invalid valueType fails closed (0.1625ms)
+✔ 5b. invalid lifecycleStatus fails closed (0.1199ms)
+✔ 6. required blocking field in "missing" status is unready (0.2053ms)
+✔ 6. required blocking field in "draft" status is unready (0.061ms)
+✔ 6. required blocking field in "rejected" status is unready (0.0494ms)
+✔ 6. required blocking field in "expired" status is unready (0.0522ms)
+✔ 6. approved field without evidence is not readiness-blocked by computeReadiness alone but fails overall via violations (0.2254ms)
+✔ 7a. approved field missing provenance fails closed (0.7936ms)
+✔ 7b. approved field requiring rights/consent but missing evidence fails closed (0.1514ms)
+✔ 7c. approved field missing business approval fails closed (0.131ms)
+✔ 7d. approved field requiring legal approval but missing evidence fails closed (0.1466ms)
+✔ 7e. approved field missing source binding fails closed (0.1399ms)
+✔ 8a. placeholder-looking value on an approved field fails closed (0.3203ms)
+✔ 8b. placeholder-looking provenance on an approved field fails closed (0.1168ms)
+✔ 9a. approved field whose binding has no target file fails closed (0.285ms)
+✔ 9b. approved field whose binding verification is stale (missing bindingVerifiedAt) fails closed (0.1109ms)
+✔ 9b2. approved field whose binding verification predates the field lastVerified fails closed (0.1066ms)
+✔ 9c. approved field whose binding is not consumed fails closed (approved-but-unused) (0.2955ms)
+✔ 9d. approved field whose binding is unbound fails closed (0.1917ms)
+✔ 9e. hard-coded production value without an approved manifest binding fails closed (0.2455ms)
+✔ 10. a complete structurally valid fixture with no approvals is ready:false with zero violations (0.7743ms)
+✔ 11. a complete valid synthetic production-shaped fixture is ready:true with zero violations (1.2237ms)
+✔ 11. CLI: dedicated positive synthetic-fixture invocation exits 0 with ready:true and is labelled fixture-only (91.9423ms)
+✔ 12. the real committed CLIENT_DATA_MANIFEST.json remains ready:false against the real binding contract (0.9548ms)
+✔ 12. CLI: real committed manifest run exits non-zero and is not fixtureOnly (81.9488ms)
+✔ 13. ROOT_NOT_OBJECT fails closed on a non-object manifest (0.4373ms)
+✔ 13. SCHEMA_VERSION_MISMATCH fails closed (0.232ms)
+✔ 13. CATEGORY_NOT_OBJECT fails closed (0.1049ms)
+✔ 13. CATEGORY_UNKNOWN_ID fails closed (0.1613ms)
+✔ 13. CATEGORY_MISSING_LABEL fails closed (0.1327ms)
+✔ 13. CATEGORY_MISSING_SOURCE_REF fails closed (0.1039ms)
+✔ 13. FIELD_NOT_OBJECT fails closed (0.1522ms)
+✔ 13. FIELD_INVALID_ID fails closed on a malformed (non-dotted) id (0.1137ms)
+✔ 13. FIELD_MISSING_LABEL fails closed (0.1067ms)
+✔ 13. FIELD_INVALID_REQUIRED fails closed (0.8157ms)
+✔ 13. FIELD_INVALID_RIGHTS_CONSENT_REQUIRED fails closed (0.0977ms)
+✔ 13. FIELD_INVALID_LEGAL_APPROVAL_REQUIRED fails closed (0.0982ms)
+✔ 13. FIELD_INVALID_BLOCKING_SEVERITY fails closed (0.0972ms)
+✔ 13. FIELD_INVALID_APPROVAL_SHAPE fails closed (0.0948ms)
+✔ 13. FIELD_APPROVAL_MISSING_PROPERTY fails closed (0.0981ms)
+✔ 13. FIELD_INVALID_FORMAT fails closed (0.1001ms)
+✔ 13. APPROVED_WITHOUT_VALUE fires on both null and blank-string values (0.1498ms)
+✔ 13. APPROVED_WITHOUT_LAST_VERIFIED fails closed (0.0876ms)
+✔ 13. APPROVED_PLACEHOLDER_BUSINESS_APPROVAL fails closed (0.0882ms)
+✔ 13. APPROVED_PLACEHOLDER_RIGHTS_CONSENT fails closed (0.0862ms)
+✔ 13. APPROVED_PLACEHOLDER_LEGAL_APPROVAL fails closed (0.086ms)
+✔ 13. APPROVED_FIELD_MISSING_BINDING fails closed when the field has a sourceBinding but no matching contract entry (0.1053ms)
+✔ 13. BINDING_ROOT_NOT_OBJECT fails closed (0.0721ms)
+✔ 13. BINDING_ROOT_UNKNOWN_PROPERTY fails closed (0.2466ms)
+✔ 13. BINDING_EMPTY_BINDINGS fails closed (0.1134ms)
+✔ 13. BINDING_NOT_OBJECT fails closed (0.0826ms)
+✔ 13. BINDING_UNKNOWN_PROPERTY fails closed (0.1511ms)
+✔ 13. BINDING_MISSING_PROPERTY fails closed (0.1546ms)
+✔ 13. BINDING_INVALID_ID fails closed (0.2036ms)
+✔ 13. BINDING_DUPLICATE_ID fails closed (0.1901ms)
+✔ 13. BINDING_INVALID_MANIFEST_FIELD_ID fails closed (0.1954ms)
+✔ 13. BINDING_DUPLICATE_MANIFEST_FIELD_ID fails closed (0.1642ms)
+✔ 13. BINDING_INVALID_STATUS fails closed on a typo/garbage status (0.1015ms)
+✔ 13. BINDING_INVALID_CONSUMPTION_MECHANISM fails closed on a fabricated mechanism string (0.2022ms)
+✔ 13. BINDING_MISSING_VERIFICATION_RULE fails closed (0.116ms)
+✔ 13. BINDING_INVALID_TARGET_FILE fails closed (0.1059ms)
+✔ 13. BINDING_INVALID_VERIFIED_AT fails closed on a non-ISO-8601 string (0.1331ms)
+✔ 13. every adversarially-tested fake value is now caught (regression guard for the CRITICAL finding) (0.1964ms)
+✔ 13. end-to-end regression: the exact fabricated manifest from the adversarial review is rejected (0.2776ms)
+✔ parseCliArgs reads --manifest and --binding overrides (0.1138ms)
+✔ parseCliArgs defaults to null when no overrides are given (0.0697ms)
+ℹ tests 76
+ℹ suites 0
+ℹ pass 76
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 328.4718
+EXIT=0
+
+Coverage mapping to packet section 8.5's 12 required categories (unchanged from the initial run,
+still fully covered): see the "tests 1-9" series above, mapping identically to categories 1-9;
+"10"/"11"/"12" map to categories 10/11/12 respectively.
+
+Coverage added in remediation (test series "13."), closing the two gaps an independent adversarial
+review found: (a) ~20 previously-implemented-but-untested violation codes now each have a
+dedicated test; (b) the exact fabricated-data reproduction that previously returned
+`ready:true, violationCount:0` is now a permanent regression test asserting `ready:false`, and
+every one of the reviewer's 14 individually-tested fake values has its own regression test.
+
+===============================================================================
+Command 2: pnpm guard:production-readiness (against the real committed manifest)
+Exit code: 1 (EXPECTED -- required red production-readiness result, unchanged by remediation since
+none of the fixes touch the real manifest/binding-contract data, only the guard's own logic)
+===============================================================================
+{
+  "ready": false,
+  "violations": [
+    { "code": "HARDCODED_VALUE_WITHOUT_APPROVAL", "fieldId": "business.address", ... },
+    { "code": "HARDCODED_VALUE_WITHOUT_APPROVAL", "fieldId": "business.contactChannels", ... }
+  ],
+  "unreadyRequiredFields": [ ...26 entries, unchanged... ],
+  "summary": { "categories": 6, "fields": 29, "violationCount": 2 },
+  "fixtureOnly": false
+}
+Production readiness guard: FAIL -- 2 violation(s), 26 required field(s) not approved.
+EXIT=1
+
+Full, un-truncated JSON in production-readiness-summary.json.
+
+===============================================================================
+Command 3: dedicated positive synthetic-fixture invocation (packet section 10.1 item 3)
+===============================================================================
+Satisfied by test 11's embedded CLI subtest (PASS above), unchanged in mechanism from the initial
+run; the fixture builder's field text was revised during remediation (from phrasing containing the
+word "test" to "Northwind Fixture Co."-style phrasing) specifically so it no longer trips the
+guard's own now-broadened placeholder detection -- itself a small, correct side effect of the
+CRITICAL fix: the guard is now strict enough that even a careless test fixture author has to avoid
+placeholder-shaped language.

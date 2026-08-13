@@ -7,11 +7,13 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
   ALLOWED_CATEGORY_IDS,
+  ALLOWED_CONSUMPTION_MECHANISMS,
   checkManifestReadiness,
   computeReadiness,
   loadJson,
   parseCliArgs,
   SCHEMA_VERSION,
+  validateBindingContractStructure,
   validateBindings,
   validateFieldEvidence,
   validateStructure,
@@ -20,10 +22,14 @@ import {
 /*
  * Dedicated tests for scripts/guards/production-readiness-guard.mjs, per
  * packet CLAUDE-WPR-M1-CORRECTED section 8.5. Every synthetic fixture below
- * is built in-memory or in a test-owned temp directory, is clearly fake
- * (e.g. "Synthetic Test Co."), and is never represented as Andrea-approved
- * production data. This file is intentionally separate from
- * scripts/guards/guards.test.mjs (packet section 5 item 9).
+ * is built in-memory or in a test-owned temp directory, is clearly
+ * non-production (e.g. "Northwind Fixture Co."), and is never represented as
+ * Andrea-approved production data. Deliberately avoids the words the guard's
+ * own PLACEHOLDER_PATTERNS now flag (test/example/sample/fake/dummy/etc.) so
+ * the "valid synthetic production-shaped fixture" tests exercise the happy
+ * path rather than the placeholder-rejection path. This file is
+ * intentionally separate from scripts/guards/guards.test.mjs (packet
+ * section 5 item 9).
  */
 
 const GUARD_PATH = fileURLToPath(new URL('./production-readiness-guard.mjs', import.meta.url));
@@ -66,13 +72,13 @@ function baseField(overrides = {}) {
 function approvedField(overrides = {}) {
   return baseField({
     lifecycleStatus: 'approved',
-    value: 'Synthetic Test Co. fixture value',
+    value: 'Northwind Fixture Co. value',
     provenance:
-      'synthetic-test-fixture: fabricated for guard testing, not real client-approved data',
+      'synthetic-fixture-record: fabricated for guard verification, not real client-approved data',
     businessApproval: {
-      approvedBy: 'Synthetic Test Approver',
+      approvedBy: 'Northwind Fixture Approver',
       approvedAt: '2026-01-01T00:00:00Z',
-      evidenceRef: 'synthetic-test-evidence-ref',
+      evidenceRef: 'synthetic-fixture-evidence-ref',
     },
     sourceBinding: 'binding-category.field',
     lastVerified: '2026-01-01T00:00:00Z',
@@ -94,7 +100,7 @@ function bindingFor(field, overrides = {}) {
     manifestFieldId: field.id,
     targetFile: 'apps/web/src/fixture-consumer.ts',
     bindingIdentifier: 'fixtureConsumer.value',
-    consumptionMechanism: 'verified-consumed',
+    consumptionMechanism: 'live-consumed',
     deploymentEnvironmentContract: null,
     verificationRule: 'fixture-only verification rule',
     status: 'bound-unverified',
@@ -353,7 +359,17 @@ test('10. a complete structurally valid fixture with no approvals is ready:false
   const manifest = manifestWith(
     ALLOWED_CATEGORY_IDS.map((catId, i) => category(catId, [fields[i]])),
   );
-  const result = checkManifestReadiness(manifest, bindingsDoc([]));
+  const bindings = bindingsDoc(
+    fields.map((f) =>
+      bindingFor(f, {
+        status: 'unbound',
+        consumptionMechanism: 'not-consumed',
+        targetFile: null,
+        bindingVerifiedAt: null,
+      }),
+    ),
+  );
+  const result = checkManifestReadiness(manifest, bindings);
   assert.equal(result.violations.length, 0);
   assert.equal(result.ready, false);
   assert.equal(result.unreadyRequiredFields.length, ALLOWED_CATEGORY_IDS.length);
@@ -368,15 +384,15 @@ function buildSyntheticProductionFixture() {
       rightsConsentRequired: catId === 'content-media' || catId === 'testimonials-claims',
       rightsConsentEvidence:
         catId === 'content-media' || catId === 'testimonials-claims'
-          ? 'synthetic-test-fixture: fake rights-consent record, not a real client approval'
+          ? 'synthetic-fixture-record: fabricated rights-consent record, not a real client approval'
           : null,
       legalApprovalRequired: catId === 'legal-commercial-copy',
       legalApproval:
         catId === 'legal-commercial-copy'
           ? {
-              approvedBy: 'Synthetic Test Legal Reviewer',
+              approvedBy: 'Northwind Fixture Legal Reviewer',
               approvedAt: '2026-01-01T00:00:00Z',
-              evidenceRef: 'synthetic-test-legal-evidence-ref',
+              evidenceRef: 'synthetic-fixture-legal-evidence-ref',
             }
           : null,
     }),
@@ -451,6 +467,407 @@ test('12. CLI: real committed manifest run exits non-zero and is not fixtureOnly
       return true;
     },
   );
+});
+
+// --- 13. Full violation-code coverage sweep -------------------------------
+//
+// Added after an independent adversarial peer review found: (a) a guard
+// bypass letting fabricated placeholder data pass as ready:true, closed by
+// broadening PLACEHOLDER_PATTERNS, catching blank values, and adding
+// validateBindingContractStructure; and (b) roughly 20 implemented violation
+// codes with zero test assertions. This section closes both gaps: one
+// targeted test per previously-uncovered code, plus permanent regression
+// coverage for the exact fabricated-data reproduction the reviewer used.
+
+function singleFieldManifest(fieldOverrides = {}, categoryOverrides = {}) {
+  return manifestWith([
+    category(
+      'business-identity',
+      [baseField({ id: 'business.x', ...fieldOverrides })],
+      categoryOverrides,
+    ),
+  ]);
+}
+
+test('13. ROOT_NOT_OBJECT fails closed on a non-object manifest', () => {
+  assert.deepEqual(validateStructure('not-an-object'), [
+    { code: 'ROOT_NOT_OBJECT', message: 'Manifest root must be an object.' },
+  ]);
+  assert.deepEqual(validateStructure(null)[0].code, 'ROOT_NOT_OBJECT');
+});
+
+test('13. SCHEMA_VERSION_MISMATCH fails closed', () => {
+  const manifest = singleFieldManifest();
+  manifest.schemaVersion = '1.0.0';
+  assert.ok(validateStructure(manifest).some((v) => v.code === 'SCHEMA_VERSION_MISMATCH'));
+});
+
+test('13. CATEGORY_NOT_OBJECT fails closed', () => {
+  const violations = validateStructure(manifestWith(['not-an-object']));
+  assert.ok(violations.some((v) => v.code === 'CATEGORY_NOT_OBJECT'));
+});
+
+test('13. CATEGORY_UNKNOWN_ID fails closed', () => {
+  const violations = validateStructure(
+    manifestWith([category('not-a-real-category', [baseField({ id: 'x.y' })])]),
+  );
+  assert.ok(violations.some((v) => v.code === 'CATEGORY_UNKNOWN_ID'));
+});
+
+test('13. CATEGORY_MISSING_LABEL fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({}, { label: '' }));
+  assert.ok(violations.some((v) => v.code === 'CATEGORY_MISSING_LABEL'));
+});
+
+test('13. CATEGORY_MISSING_SOURCE_REF fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({}, { sourceRef: '' }));
+  assert.ok(violations.some((v) => v.code === 'CATEGORY_MISSING_SOURCE_REF'));
+});
+
+test('13. FIELD_NOT_OBJECT fails closed', () => {
+  const violations = validateStructure(
+    manifestWith([category('business-identity', ['not-an-object'])]),
+  );
+  assert.ok(violations.some((v) => v.code === 'FIELD_NOT_OBJECT'));
+});
+
+test('13. FIELD_INVALID_ID fails closed on a malformed (non-dotted) id', () => {
+  const violations = validateStructure(singleFieldManifest({ id: 'not-dotted' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_ID'));
+});
+
+test('13. FIELD_MISSING_LABEL fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ label: '' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_MISSING_LABEL'));
+});
+
+test('13. FIELD_INVALID_REQUIRED fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ required: 'yes' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_REQUIRED'));
+});
+
+test('13. FIELD_INVALID_RIGHTS_CONSENT_REQUIRED fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ rightsConsentRequired: 'true' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_RIGHTS_CONSENT_REQUIRED'));
+});
+
+test('13. FIELD_INVALID_LEGAL_APPROVAL_REQUIRED fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ legalApprovalRequired: 1 }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_LEGAL_APPROVAL_REQUIRED'));
+});
+
+test('13. FIELD_INVALID_BLOCKING_SEVERITY fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ blockingSeverity: 'urgent' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_BLOCKING_SEVERITY'));
+});
+
+test('13. FIELD_INVALID_APPROVAL_SHAPE fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ businessApproval: 'not-an-object' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_APPROVAL_SHAPE'));
+});
+
+test('13. FIELD_APPROVAL_MISSING_PROPERTY fails closed', () => {
+  const violations = validateStructure(
+    singleFieldManifest({ businessApproval: { approvedBy: 'x', evidenceRef: 'y' } }),
+  );
+  assert.ok(violations.some((v) => v.code === 'FIELD_APPROVAL_MISSING_PROPERTY'));
+});
+
+test('13. FIELD_INVALID_FORMAT fails closed', () => {
+  const violations = validateStructure(singleFieldManifest({ format: { nested: 'object' } }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_FORMAT'));
+});
+
+test('13. APPROVED_WITHOUT_VALUE fires on both null and blank-string values', () => {
+  const nullViolations = validateFieldEvidence(
+    approvedField({ id: 'business.x', value: null }),
+    'business-identity',
+  );
+  assert.ok(nullViolations.some((v) => v.code === 'APPROVED_WITHOUT_VALUE'));
+  const blankViolations = validateFieldEvidence(
+    approvedField({ id: 'business.x', value: '   ' }),
+    'business-identity',
+  );
+  assert.ok(blankViolations.some((v) => v.code === 'APPROVED_WITHOUT_VALUE'));
+});
+
+test('13. APPROVED_WITHOUT_LAST_VERIFIED fails closed', () => {
+  const violations = validateFieldEvidence(
+    approvedField({ id: 'business.x', lastVerified: null }),
+    'business-identity',
+  );
+  assert.ok(violations.some((v) => v.code === 'APPROVED_WITHOUT_LAST_VERIFIED'));
+});
+
+test('13. APPROVED_PLACEHOLDER_BUSINESS_APPROVAL fails closed', () => {
+  const field = approvedField({
+    id: 'business.x',
+    businessApproval: { approvedBy: 'x', approvedAt: '2026-01-01T00:00:00Z', evidenceRef: 'TODO' },
+  });
+  const violations = validateFieldEvidence(field, 'business-identity');
+  assert.ok(violations.some((v) => v.code === 'APPROVED_PLACEHOLDER_BUSINESS_APPROVAL'));
+});
+
+test('13. APPROVED_PLACEHOLDER_RIGHTS_CONSENT fails closed', () => {
+  const field = approvedField({
+    id: 'media.x',
+    rightsConsentRequired: true,
+    rightsConsentEvidence: 'TBD',
+  });
+  const violations = validateFieldEvidence(field, 'content-media');
+  assert.ok(violations.some((v) => v.code === 'APPROVED_PLACEHOLDER_RIGHTS_CONSENT'));
+});
+
+test('13. APPROVED_PLACEHOLDER_LEGAL_APPROVAL fails closed', () => {
+  const field = approvedField({
+    id: 'legal.x',
+    legalApprovalRequired: true,
+    legalApproval: {
+      approvedBy: 'x',
+      approvedAt: '2026-01-01T00:00:00Z',
+      evidenceRef: 'placeholder',
+    },
+  });
+  const violations = validateFieldEvidence(field, 'legal-commercial-copy');
+  assert.ok(violations.some((v) => v.code === 'APPROVED_PLACEHOLDER_LEGAL_APPROVAL'));
+});
+
+test('13. APPROVED_FIELD_MISSING_BINDING fails closed when the field has a sourceBinding but no matching contract entry', () => {
+  const field = approvedField({ id: 'business.x', sourceBinding: 'binding-business.x' });
+  const manifest = manifestWith([category('business-identity', [field])]);
+  const violations = validateBindings(manifest, bindingsDoc([]));
+  assert.ok(violations.some((v) => v.code === 'APPROVED_FIELD_MISSING_BINDING'));
+});
+
+// --- 13. Binding contract structural validation (new in this remediation) ---
+
+test('13. BINDING_ROOT_NOT_OBJECT fails closed', () => {
+  assert.equal(
+    validateBindingContractStructure('not-an-object')[0].code,
+    'BINDING_ROOT_NOT_OBJECT',
+  );
+});
+
+test('13. BINDING_ROOT_UNKNOWN_PROPERTY fails closed', () => {
+  const doc = bindingsDoc([bindingFor({ id: 'business.x' })]);
+  doc.unexpectedRootKey = true;
+  assert.ok(
+    validateBindingContractStructure(doc).some((v) => v.code === 'BINDING_ROOT_UNKNOWN_PROPERTY'),
+  );
+});
+
+test('13. BINDING_EMPTY_BINDINGS fails closed', () => {
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([])).some(
+      (v) => v.code === 'BINDING_EMPTY_BINDINGS',
+    ),
+  );
+});
+
+test('13. BINDING_NOT_OBJECT fails closed', () => {
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc(['not-an-object'])).some(
+      (v) => v.code === 'BINDING_NOT_OBJECT',
+    ),
+  );
+});
+
+test('13. BINDING_UNKNOWN_PROPERTY fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' });
+  binding.unexpectedBindingKey = true;
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_UNKNOWN_PROPERTY',
+    ),
+  );
+});
+
+test('13. BINDING_MISSING_PROPERTY fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' });
+  delete binding.verificationRule;
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_MISSING_PROPERTY',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_ID fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' }, { id: '' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_ID',
+    ),
+  );
+});
+
+test('13. BINDING_DUPLICATE_ID fails closed', () => {
+  const a = bindingFor(
+    { id: 'business.x' },
+    { id: 'binding-shared', manifestFieldId: 'business.x' },
+  );
+  const b = bindingFor(
+    { id: 'business.y' },
+    { id: 'binding-shared', manifestFieldId: 'business.y' },
+  );
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([a, b])).some(
+      (v) => v.code === 'BINDING_DUPLICATE_ID',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_MANIFEST_FIELD_ID fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' }, { manifestFieldId: '' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_MANIFEST_FIELD_ID',
+    ),
+  );
+});
+
+test('13. BINDING_DUPLICATE_MANIFEST_FIELD_ID fails closed', () => {
+  const a = bindingFor({ id: 'business.x' }, { id: 'binding-a' });
+  const b = bindingFor({ id: 'business.x' }, { id: 'binding-b' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([a, b])).some(
+      (v) => v.code === 'BINDING_DUPLICATE_MANIFEST_FIELD_ID',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_STATUS fails closed on a typo/garbage status', () => {
+  const binding = bindingFor({ id: 'business.x' }, { status: 'bound-verified-TYPO' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_STATUS',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_CONSUMPTION_MECHANISM fails closed on a fabricated mechanism string', () => {
+  const binding = bindingFor(
+    { id: 'business.x' },
+    { consumptionMechanism: 'totally-fabricated-nonsense-value' },
+  );
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_CONSUMPTION_MECHANISM',
+    ),
+  );
+  // every currently-allowed mechanism must itself be accepted without this code
+  for (const mechanism of ALLOWED_CONSUMPTION_MECHANISMS) {
+    const ok = bindingFor({ id: 'business.x' }, { consumptionMechanism: mechanism });
+    assert.ok(
+      !validateBindingContractStructure(bindingsDoc([ok])).some(
+        (v) => v.code === 'BINDING_INVALID_CONSUMPTION_MECHANISM',
+      ),
+      `expected ${mechanism} to be accepted`,
+    );
+  }
+});
+
+test('13. BINDING_MISSING_VERIFICATION_RULE fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' }, { verificationRule: '' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_MISSING_VERIFICATION_RULE',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_TARGET_FILE fails closed', () => {
+  const binding = bindingFor({ id: 'business.x' }, { targetFile: 42 });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_TARGET_FILE',
+    ),
+  );
+});
+
+test('13. BINDING_INVALID_VERIFIED_AT fails closed on a non-ISO-8601 string', () => {
+  const binding = bindingFor({ id: 'business.x' }, { bindingVerifiedAt: 'not-a-date' });
+  assert.ok(
+    validateBindingContractStructure(bindingsDoc([binding])).some(
+      (v) => v.code === 'BINDING_INVALID_VERIFIED_AT',
+    ),
+  );
+  const nullOk = bindingFor({ id: 'business.x' }, { bindingVerifiedAt: null });
+  assert.ok(
+    !validateBindingContractStructure(bindingsDoc([nullOk])).some(
+      (v) => v.code === 'BINDING_INVALID_VERIFIED_AT',
+    ),
+  );
+});
+
+// --- 13. Placeholder-pattern regression coverage (the adversarial finding) --
+
+test('13. every adversarially-tested fake value is now caught (regression guard for the CRITICAL finding)', () => {
+  const fakeValues = [
+    'REPLACE ME',
+    'FIXME',
+    '<insert here>',
+    'TEST VALUE',
+    'test',
+    'XXX Corp Ltd',
+    'Company: N/A pending',
+    'sample data',
+    'dummy value',
+    'changeme',
+    'your company name here',
+    'COMING SOON',
+    'INSERT VALUE HERE',
+    'fake business name',
+  ];
+  for (const value of fakeValues) {
+    const field = approvedField({ id: 'business.x', value });
+    const violations = validateFieldEvidence(field, 'business-identity');
+    assert.ok(
+      violations.some((v) => v.code === 'APPROVED_PLACEHOLDER_VALUE'),
+      `expected "${value}" to be caught as a placeholder`,
+    );
+  }
+});
+
+test('13. end-to-end regression: the exact fabricated manifest from the adversarial review is rejected', () => {
+  function fakeField(id) {
+    return {
+      id,
+      label: 'x',
+      required: true,
+      valueType: 'string',
+      lifecycleStatus: 'approved',
+      value: 'REPLACE ME',
+      provenance: 'FIXME',
+      rightsConsentRequired: false,
+      rightsConsentEvidence: null,
+      businessApproval: {
+        approvedBy: 'FIXME',
+        approvedAt: '2026-01-01T00:00:00Z',
+        evidenceRef: 'FIXME',
+      },
+      legalApprovalRequired: false,
+      legalApproval: null,
+      sourceBinding: `binding-${id}`,
+      blockingSeverity: 'blocking',
+      lastVerified: '2026-01-01T00:00:00Z',
+    };
+  }
+  const categories = ALLOWED_CATEGORY_IDS.map((catId, i) =>
+    category(catId, [fakeField(`${CATEGORY_FIELD_PREFIX[catId]}.fake${i}`)]),
+  );
+  const manifest = manifestWith(categories);
+  const bindings = bindingsDoc(
+    categories.map((c) =>
+      bindingFor(c.fields[0], {
+        consumptionMechanism: 'totally-fabricated-nonsense-value',
+        bindingVerifiedAt: '2099-01-01T00:00:00Z',
+      }),
+    ),
+  );
+  const result = checkManifestReadiness(manifest, bindings);
+  assert.equal(result.ready, false, 'fabricated placeholder data must never be ready:true');
+  assert.ok(result.violations.length > 0, 'fabricated placeholder data must produce violations');
 });
 
 // --- CLI argument parsing (unit-level, supports the section 10.1 item 3 gate) ---

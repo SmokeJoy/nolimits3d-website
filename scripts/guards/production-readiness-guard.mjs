@@ -32,6 +32,24 @@ export const ALLOWED_LIFECYCLE_STATUSES = [
 ];
 export const ALLOWED_BLOCKING_SEVERITIES = ['blocking', 'non-blocking'];
 export const ALLOWED_BINDING_STATUSES = ['unbound', 'hardcoded-unbound', 'bound-unverified'];
+/**
+ * The exact consumptionMechanism values in current use in
+ * WPR-M1-SOURCE-BINDING-CONTRACT.json. Closed-world by design, same rationale
+ * as ALLOWED_CATEGORY_IDS: a curated, small, reviewable set. Extend this list
+ * deliberately (with a matching binding-contract doc update) when a new real
+ * consumption mechanism is introduced -- never widen it to accept arbitrary
+ * strings, or the binding contract's own claims become unverifiable.
+ */
+export const ALLOWED_CONSUMPTION_MECHANISMS = [
+  'not-consumed',
+  'hardcoded-constant',
+  'env-var (unset in production)',
+  // Not yet used by any real binding as of this packet (nothing is wired to
+  // an approved data source pre-WPR-M2) -- reserved for the first real
+  // binding that is actually live-consumed from an approved manifest field.
+  'live-consumed',
+];
+const ISO_DATE_TIME_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
 
 const CATEGORY_KEYS = new Set(['id', 'label', 'sourceRef', 'fields']);
 const FIELD_KEYS = new Set([
@@ -72,15 +90,70 @@ const FIELD_REQUIRED_KEYS = [
 const APPROVAL_KEYS = new Set(['approvedBy', 'approvedAt', 'evidenceRef']);
 const FIELD_ID_PATTERN = /^[a-z][a-zA-Z0-9]*(\.[a-z][a-zA-Z0-9]*)+$/;
 
+const BINDING_CONTRACT_ROOT_KEYS = new Set([
+  '$schemaVersion',
+  'purpose',
+  'statusValues',
+  'fieldNotes',
+  'bindings',
+]);
+const BINDING_KEYS = new Set([
+  'id',
+  'manifestFieldId',
+  'targetFile',
+  'bindingIdentifier',
+  'consumptionMechanism',
+  'deploymentEnvironmentContract',
+  'verificationRule',
+  'status',
+  'bindingVerifiedAt',
+]);
+const BINDING_REQUIRED_KEYS = [
+  'id',
+  'manifestFieldId',
+  'targetFile',
+  'bindingIdentifier',
+  'consumptionMechanism',
+  'deploymentEnvironmentContract',
+  'verificationRule',
+  'status',
+  'bindingVerifiedAt',
+];
+
+/**
+ * Deliberately broad, since packet section 8.3 requires that
+ * "Placeholder/test/example values can never satisfy production readiness"
+ * with no carve-out -- a false positive here only means a real value gets
+ * flagged for human review, which is the correct fail-closed direction; a
+ * false negative lets fabricated data ship as approved, which is not
+ * acceptable. Every pattern is word/token-boundary anchored to limit false
+ * positives on legitimate prose that happens to share a substring.
+ */
 const PLACEHOLDER_PATTERNS = [
   /\btodo\b/i,
   /\bplaceholder\b/i,
   /\btbd\b/i,
+  /\btba\b/i,
   /\bexample\b/i,
   /\besempio\b/i,
   /\blorem ipsum\b/i,
-  /^n\/a$/i,
-  /^xxx+$/i,
+  /\bn\/a\b/i,
+  /\bx{3,}\b/i,
+  /\bfixme\b/i,
+  /\breplace\b/i,
+  /\binsert\b/i,
+  /<[^<>]*>/,
+  /\byour\s+(company|business)\b/i,
+  /\bchange\s*me\b/i,
+  /\bdummy\b/i,
+  /\bsample\b/i,
+  /\bfake\b/i,
+  /\btest\b/i,
+  /\bcoming\s+soon\b/i,
+  /\bpending\b/i,
+  /\bto\s+be\s+(determined|confirmed|filled|decided)\b/i,
+  /\bredacted\b/i,
+  /\bunknown\b/i,
 ];
 
 function isPlainObject(value) {
@@ -90,6 +163,18 @@ function isPlainObject(value) {
 function looksLikePlaceholder(value) {
   if (typeof value !== 'string') return false;
   return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(value));
+}
+
+function isBlankString(value) {
+  return typeof value === 'string' && value.trim().length === 0;
+}
+
+function isValidIsoDateTime(value) {
+  return (
+    typeof value === 'string' &&
+    ISO_DATE_TIME_PATTERN.test(value) &&
+    !Number.isNaN(Date.parse(value))
+  );
 }
 
 function violation(code, message, extra = {}) {
@@ -284,6 +369,14 @@ function validateFieldStructure(field, categoryId, seenFieldIds) {
       ),
     );
   }
+  if ('format' in field && typeof field.format !== 'string') {
+    violations.push(
+      violation('FIELD_INVALID_FORMAT', `Field "${fieldId}" property "format" must be a string.`, {
+        categoryId,
+        fieldId,
+      }),
+    );
+  }
   if (!ALLOWED_LIFECYCLE_STATUSES.includes(field.lifecycleStatus)) {
     violations.push(
       violation(
@@ -378,12 +471,16 @@ export function validateFieldEvidence(field, categoryId) {
   }
   const fieldId = field.id;
 
-  if (field.value === null || field.value === undefined) {
+  if (field.value === null || field.value === undefined || isBlankString(field.value)) {
     violations.push(
-      violation('APPROVED_WITHOUT_VALUE', `Field "${fieldId}" is approved but has no value.`, {
-        categoryId,
-        fieldId,
-      }),
+      violation(
+        'APPROVED_WITHOUT_VALUE',
+        `Field "${fieldId}" is approved but has no value (null, undefined, or blank).`,
+        {
+          categoryId,
+          fieldId,
+        },
+      ),
     );
   } else if (looksLikePlaceholder(field.value)) {
     violations.push(
@@ -504,10 +601,180 @@ export function validateFieldEvidence(field, categoryId) {
 }
 
 /**
+ * Closed-world structural validation of the binding contract itself, mirroring
+ * validateStructure's treatment of the manifest. Without this, a binding
+ * entry with a garbage/typo'd `status` or `consumptionMechanism` (e.g.
+ * "bound-verified-TYPO") passed the exact-literal checks in validateBindings
+ * silently, since those checks only test equality against one specific
+ * "bad" value ('unbound' / 'not-consumed') rather than membership in the
+ * allowed set. This closes that hole by validating every binding entry
+ * against the same closed-world discipline as the manifest.
+ */
+export function validateBindingContractStructure(bindingContract) {
+  const violations = [];
+
+  if (!isPlainObject(bindingContract)) {
+    return [violation('BINDING_ROOT_NOT_OBJECT', 'Binding contract root must be an object.')];
+  }
+  for (const key of Object.keys(bindingContract)) {
+    if (!BINDING_CONTRACT_ROOT_KEYS.has(key)) {
+      violations.push(
+        violation(
+          'BINDING_ROOT_UNKNOWN_PROPERTY',
+          `Unknown binding contract root property "${key}".`,
+        ),
+      );
+    }
+  }
+  if (!Array.isArray(bindingContract.bindings) || bindingContract.bindings.length === 0) {
+    violations.push(violation('BINDING_EMPTY_BINDINGS', 'bindings must be a non-empty array.'));
+    return violations;
+  }
+
+  const seenBindingIds = new Set();
+  const seenManifestFieldIds = new Set();
+
+  for (const binding of bindingContract.bindings) {
+    if (!isPlainObject(binding)) {
+      violations.push(violation('BINDING_NOT_OBJECT', 'Each binding entry must be an object.'));
+      continue;
+    }
+    const bindingId = typeof binding.id === 'string' ? binding.id : '(missing id)';
+
+    for (const key of Object.keys(binding)) {
+      if (!BINDING_KEYS.has(key)) {
+        violations.push(
+          violation(
+            'BINDING_UNKNOWN_PROPERTY',
+            `Unknown property "${key}" on binding "${bindingId}".`,
+            {
+              bindingId,
+            },
+          ),
+        );
+      }
+    }
+    for (const key of BINDING_REQUIRED_KEYS) {
+      if (!(key in binding)) {
+        violations.push(
+          violation(
+            'BINDING_MISSING_PROPERTY',
+            `Binding "${bindingId}" is missing required property "${key}".`,
+            { bindingId },
+          ),
+        );
+      }
+    }
+
+    if (typeof binding.id !== 'string' || binding.id.length === 0) {
+      violations.push(
+        violation(
+          'BINDING_INVALID_ID',
+          `Binding id ${JSON.stringify(binding.id)} is missing or empty.`,
+        ),
+      );
+    } else if (seenBindingIds.has(binding.id)) {
+      violations.push(
+        violation('BINDING_DUPLICATE_ID', `Duplicate binding id "${binding.id}".`, { bindingId }),
+      );
+    } else {
+      seenBindingIds.add(binding.id);
+    }
+
+    if (typeof binding.manifestFieldId !== 'string' || binding.manifestFieldId.length === 0) {
+      violations.push(
+        violation(
+          'BINDING_INVALID_MANIFEST_FIELD_ID',
+          `Binding "${bindingId}" has a missing or empty manifestFieldId.`,
+          {
+            bindingId,
+          },
+        ),
+      );
+    } else if (seenManifestFieldIds.has(binding.manifestFieldId)) {
+      violations.push(
+        violation(
+          'BINDING_DUPLICATE_MANIFEST_FIELD_ID',
+          `Duplicate binding for manifestFieldId "${binding.manifestFieldId}".`,
+          { bindingId, manifestFieldId: binding.manifestFieldId },
+        ),
+      );
+    } else {
+      seenManifestFieldIds.add(binding.manifestFieldId);
+    }
+
+    if (!ALLOWED_BINDING_STATUSES.includes(binding.status)) {
+      violations.push(
+        violation(
+          'BINDING_INVALID_STATUS',
+          `Binding "${bindingId}" has invalid status ${JSON.stringify(binding.status)}.`,
+          { bindingId },
+        ),
+      );
+    }
+    if (!ALLOWED_CONSUMPTION_MECHANISMS.includes(binding.consumptionMechanism)) {
+      violations.push(
+        violation(
+          'BINDING_INVALID_CONSUMPTION_MECHANISM',
+          `Binding "${bindingId}" has invalid consumptionMechanism ${JSON.stringify(binding.consumptionMechanism)}.`,
+          { bindingId },
+        ),
+      );
+    }
+    if (typeof binding.verificationRule !== 'string' || binding.verificationRule.length === 0) {
+      violations.push(
+        violation(
+          'BINDING_MISSING_VERIFICATION_RULE',
+          `Binding "${bindingId}" has no verificationRule.`,
+          {
+            bindingId,
+          },
+        ),
+      );
+    }
+    if (binding.targetFile !== null && typeof binding.targetFile !== 'string') {
+      violations.push(
+        violation(
+          'BINDING_INVALID_TARGET_FILE',
+          `Binding "${bindingId}" targetFile must be null or a string.`,
+          {
+            bindingId,
+          },
+        ),
+      );
+    }
+    if (binding.bindingVerifiedAt !== null && !isValidIsoDateTime(binding.bindingVerifiedAt)) {
+      violations.push(
+        violation(
+          'BINDING_INVALID_VERIFIED_AT',
+          `Binding "${bindingId}" bindingVerifiedAt must be null or a valid ISO-8601 date-time.`,
+          { bindingId },
+        ),
+      );
+    }
+  }
+
+  return violations;
+}
+
+/**
  * Cross-checks every field against the source-binding contract: missing
  * target, missing/unused binding, approved-but-unconsumed, stale binding
  * verification, and hard-coded production values without an approved
  * manifest binding are all blocking, per packet section 8.4/8.5.
+ *
+ * Note on inherent limits: this function (and validateBindingContractStructure
+ * above) can only judge the binding contract's internal shape and consistency
+ * with the manifest -- it has no static-analysis access to apps/** (read-only
+ * for this packet by design), so it cannot independently discover a hardcoded
+ * production value that was never disclosed as a binding entry in the first
+ * place. That gap is a human-review responsibility (does the binding contract
+ * actually enumerate every real consumer?), not something a JSON validator
+ * can close. Likewise, `bindingVerifiedAt`/`lastVerified` are self-reported
+ * evidence timestamps, validated here only for well-formedness and internal
+ * ordering, not against a wall-clock (the guard must stay deterministic) --
+ * their truth still depends on `businessApproval`/`legalApproval`
+ * `evidenceRef` pointing to something a human actually checked.
  */
 export function validateBindings(manifest, bindingContract) {
   const violations = [];
@@ -621,13 +888,14 @@ export function computeReadiness(manifest) {
 /** Full check: structure + per-field evidence + bindings + readiness, in one deterministic pass. */
 export function checkManifestReadiness(manifest, bindingContract) {
   const structural = validateStructure(manifest);
+  const bindingStructural = validateBindingContractStructure(bindingContract);
   const evidence = (manifest.categories ?? []).flatMap((category) =>
     (category.fields ?? []).flatMap((field) => validateFieldEvidence(field, category.id)),
   );
   const bindings = validateBindings(manifest, bindingContract);
   const readiness = computeReadiness(manifest);
 
-  const violations = [...structural, ...evidence, ...bindings];
+  const violations = [...structural, ...bindingStructural, ...evidence, ...bindings];
   const ready = readiness.ready && violations.length === 0;
 
   return {

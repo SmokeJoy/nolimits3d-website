@@ -509,7 +509,7 @@
       "dataProvenance": "not-applicable",
       "authExposure": "public",
       "testEvidence": [{ "file": "apps/web/src/test/a11y-axe.test.tsx", "covers": "axe accessibility on not-found boundary" }],
-      "sourceCitations": ["apps/web/src/app/routes.tsx:299-301", "apps/web/src/routes/NotFound.tsx"],
+      "sourceCitations": ["apps/web/src/app/routes.tsx:299-302", "apps/web/src/routes/NotFound.tsx"],
       "launchBlockingState": { "blocking": false, "reason": null }
     },
     {

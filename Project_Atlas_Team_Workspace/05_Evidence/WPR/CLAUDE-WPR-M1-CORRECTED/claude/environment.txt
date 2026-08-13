@@ -1,0 +1,22 @@
+CLAUDE-WPR-M1-CORRECTED -- toolchain and environment evidence
+Captured: 2026-08-12T11:17:12+02:00 (Europe/Rome), from within the clean implementation worktree.
+
+node: v24.18.0
+pnpm: 9.15.0
+npm: 11.16.0
+python: Python 3.10.0
+git: git version 2.47.1.windows.2
+OS: MINGW64_NT-10.0-26200 smokejoy 3.5.4-395fda67.x86_64 2024-11-25 09:49 UTC x86_64 Msys
+pwd: /g/Claude/NoLimits3D-website-claude-wpr-m1-corrected
+date-utc-at-capture: 2026-08-12 09:17:12 UTC
+
+Toolchain conformance:
+- node 24.18.0 matches the repository-pinned engines.node ("24.18.0") exactly.
+- pnpm 9.15.0 matches the repository-pinned packageManager/engines.pnpm ("pnpm@9.15.0") exactly.
+- No toolchain override, nvmrc deviation, or alternate package manager was used.
+
+Dependency install method:
+`pnpm install --frozen-lockfile` was run once at the start of this session in this worktree
+(node_modules did not yet exist for this fresh worktree). Frozen-lockfile install guarantees no
+lockfile mutation; see git-and-scope.txt and 13-lockfile-integrity.txt for the resulting
+byte-identity confirmation of pnpm-lock.yaml against the implementation base.

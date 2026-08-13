@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-08-12T09:15:30Z",
+  "reconfirmedAfterRemediationAt": "2026-08-12T10:05:00Z",
+  "remediationNote": "Re-run against the same real committed manifest/binding-contract after the guard's placeholder-detection, empty-string, and binding-contract-structural-validation fixes (packet independent review, see peer-review.md). Result is byte-identical to the pre-remediation capture: none of the fixes change behavior against this real, all-missing manifest, only against approved/fabricated data, which this manifest has none of.",
+  "command": "pnpm guard:production-readiness",
+  "exitCode": 1,
+  "manifestPath": "Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json",
+  "bindingContractPath": "Project_Atlas_Team_Workspace/04_Planning/WPR-M1-SOURCE-BINDING-CONTRACT.json",
+  "result": {
+    "ready": false,
+    "violations": [
+      {
+        "code": "HARDCODED_VALUE_WITHOUT_APPROVAL",
+        "message": "Field \"business.address\" has a hard-coded production value in source (apps/web/src/routes/public/navigation.ts) without an approved manifest binding.",
+        "categoryId": "business-identity",
+        "fieldId": "business.address",
+        "targetFile": "apps/web/src/routes/public/navigation.ts"
+      },
+      {
+        "code": "HARDCODED_VALUE_WITHOUT_APPROVAL",
+        "message": "Field \"business.contactChannels\" has a hard-coded production value in source (apps/web/src/routes/public/navigation.ts) without an approved manifest binding.",
+        "categoryId": "business-identity",
+        "fieldId": "business.contactChannels",
+        "targetFile": "apps/web/src/routes/public/navigation.ts"
+      }
+    ],
+    "unreadyRequiredFields": [
+      { "categoryId": "business-identity", "fieldId": "business.legalName", "status": "missing" },
+      { "categoryId": "business-identity", "fieldId": "business.address", "status": "missing" },
+      { "categoryId": "business-identity", "fieldId": "business.hours", "status": "missing" },
+      { "categoryId": "business-identity", "fieldId": "business.contactChannels", "status": "missing" },
+      { "categoryId": "business-identity", "fieldId": "business.vatId", "status": "missing" },
+      { "categoryId": "commerce-catalog", "fieldId": "catalog.products", "status": "missing" },
+      { "categoryId": "commerce-catalog", "fieldId": "catalog.prices", "status": "missing" },
+      { "categoryId": "commerce-catalog", "fieldId": "catalog.availability", "status": "missing" },
+      { "categoryId": "commerce-catalog", "fieldId": "catalog.commercialModes", "status": "missing" },
+      { "categoryId": "content-media", "fieldId": "media.configuratorModels", "status": "missing" },
+      { "categoryId": "content-media", "fieldId": "media.portfolioAssets", "status": "missing" },
+      { "categoryId": "content-media", "fieldId": "media.eventData", "status": "missing" },
+      { "categoryId": "content-media", "fieldId": "media.rightsProvenance", "status": "missing" },
+      { "categoryId": "content-media", "fieldId": "media.altText", "status": "missing" },
+      { "categoryId": "testimonials-claims", "fieldId": "testimonials.approvalEvidence", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.privacyPolicy", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.cookiePolicy", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.termsAndConditions", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.returnsWarranty", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.deliveryPolicy", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.dataRetention", "status": "missing" },
+      { "categoryId": "legal-commercial-copy", "fieldId": "legal.consentCopy", "status": "missing" },
+      { "categoryId": "provider-credentials", "fieldId": "provider.vercelProject", "status": "missing" },
+      { "categoryId": "provider-credentials", "fieldId": "provider.supabaseProject", "status": "missing" },
+      { "categoryId": "provider-credentials", "fieldId": "provider.domain", "status": "missing" },
+      { "categoryId": "provider-credentials", "fieldId": "provider.secrets", "status": "missing" }
+    ],
+    "summary": { "categories": 6, "fields": 29, "violationCount": 2 },
+    "fixtureOnly": false
+  },
+  "interpretation": {
+    "isThisProductionGreen": false,
+    "note": "ready:false is the REQUIRED and EXPECTED result for this packet (packet section 10.1 item 2, acceptance criterion 8). It is reported here as a behavioral PASS of the guard's own correctness, never as production readiness. The two HARDCODED_VALUE_WITHOUT_APPROVAL findings are real, honest findings: apps/web/src/routes/public/navigation.ts's siteContact object ships a real address and real contact channels today without ever having gone through an approved, versioned client-data binding for this app -- this is exactly PR #25's 'business-identity' finding, now machine-enforced. The remaining 26 unreadyRequiredFields are simply every other required field still at lifecycleStatus 'missing', which is correct: no real Andrea data has been supplied for this packet, by design."
+  }
+}
