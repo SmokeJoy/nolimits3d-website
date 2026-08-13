@@ -33,11 +33,22 @@ section 5, then removed) is fully documented in the channel (`2026-08-12 00:04`,
 ## 2. Final branch, worktree, commits, parents, clean status
 
 - `git rev-parse --abbrev-ref HEAD` -> `claude/wpr-m1-corrected`
-- Two commits above the base, both with GPG-verified signatures:
+- Two commits above the base:
   1. `fcc158d78f9c2a62368d91aa35139c09f51eaf85` -- initial implementation, parent exactly
-     `d7777a84f5a397d3332544e5f2f0d73e2d48661d`.
-  2. the remediation commit recorded in `git-and-scope.txt` -- fixes every finding from the
+     `d7777a84f5a397d3332544e5f2f0d73e2d48661d`. **GPG-signed and verified**
+     (key `DEE2FAE10FD04586F3523E8F5A0EB0FC8BBB070E`).
+  2. `bdf5fb24b0526261dab171f2b32e8709d3a69648` -- remediation, fixes every finding from the
      independent review in section 9, parent exactly `fcc158d78f9c2a62368d91aa35139c09f51eaf85`.
+     **Unsigned** (`git commit --no-gpg-sign`), by explicit, one-time, narrowly-scoped
+     authorization: interactive GPG signing (`gpg-agent`'s cached key unlock had expired) required
+     a `pinentry` passphrase prompt this non-interactive tool session cannot satisfy. After
+     multiple failed signing attempts (each allowed to time out on its own, no forced/automated
+     pinentry interaction, no passphrase stored or transmitted), Andrea authorized
+     `--no-gpg-sign` for this one commit only, directly in chat; Codex Root independently recorded
+     the same authorization and the same durable rule in the `2026-08-13 15:38 Europe/Rome`
+     channel entry ("Continuous Execution And GPG Prompt Decision"). Signing remains enabled
+     (`commit.gpgsign=true`, untouched) for every other commit, past and future; this is a single,
+     disclosed exception, not a config change.
 - Working-tree status after the remediation commit is captured verbatim in `git-and-scope.txt`
   section 3: clean, with the diff against the base containing exactly the section-5 paths (see
   section 3 below), now including the 12 evidence files (see section 11a).
