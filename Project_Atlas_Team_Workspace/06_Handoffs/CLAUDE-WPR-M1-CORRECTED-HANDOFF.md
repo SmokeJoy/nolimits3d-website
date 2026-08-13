@@ -45,6 +45,18 @@ object ID of the commit that contains that same handoff."* This section complies
 **predecessor** commit exactly (they already exist; their hashes are fixed and knowable) and
 describing the commit that will **contain this document** only generically, resolved externally.
 
+**Maintenance rule for every future correction round (read this before editing this section):**
+Atlas TPM's `2026-08-13 17:27` preliminary review found this exact section stale twice in
+succession -- once by still naming `1cf9a1a` as the reviewed head after `b3d3206` superseded it,
+and that staleness was only caught, not prevented, by the round-3 fix that corrected sections 8/9
+but left *this* section untouched. **Every time this document is corrected, whoever edits it MUST:
+(a) move the current "this document's own containing commit" entry into the numbered predecessor
+list below, now that its hash is known and fixed, with its own review history recorded inline; and
+(b) update the "containing commit" subsection's stated parent to that same hash.** Do not treat
+section 8's deviation log as sufficient -- this section is the one Atlas TPM actually checks for
+staleness, and updating a bullet on the historical record without touching the current-state
+predecessor list here is exactly the failure mode that recurred.
+
 ### Predecessor commits (exact, fixed, independently verifiable)
 
 1. `fcc158d78f9c2a62368d91aa35139c09f51eaf85` -- initial implementation. Parent: exactly
@@ -58,29 +70,50 @@ describing the commit that will **contain this document** only generically, reso
 3. `1cf9a1a94e07e9efc388b85bc9842a9ba84923df` -- corrected this handoff's then-stale
    commit-signature claim. Parent: exactly `bdf5fb24b0526261dab171f2b32e8709d3a69648`.
    **Unsigned** (`--no-gpg-sign`), under a second, separate explicit one-time authorization from
-   Andrea, for the same underlying reason.
-
-This is the exact commit Atlas TPM's Technical Review reviewed and returned `CHANGES REQUESTED`
-against.
+   Andrea, for the same underlying reason. **This is the exact commit Atlas TPM's first full
+   Technical Review (`2026-08-13 15:53`) reviewed and returned `CHANGES REQUESTED` against.**
+4. `b3d3206b81d4047ef299615391ebf8132c7d6da6` -- round-2 correction, closing every finding from
+   that Technical Review (guard fail-closed contract completeness -- category presence, value
+   type/format, date-time validity, real-file binding-consumption proof; stale-handoff rewrite
+   under the finite handoff rule; `commands.tsv` rebuilt with real timestamps; `pa-ip-001`/
+   `package.json` overlap dispositioned per Codex Root's `16:26` ruling). Parent: exactly
+   `1cf9a1a94e07e9efc388b85bc9842a9ba84923df`. **SSH-signed**
+   (`git -c gpg.format=ssh -c user.signingkey=$HOME/.ssh/id_rsa.pub commit -S`, zero pinentry
+   prompt, no `--no-gpg-sign`) -- confirmed by a real `gpgsig -----BEGIN SSH SIGNATURE-----` block
+   in the raw commit object. **This is the exact commit the genuinely distinct
+   `Claude Team Reviewer - WPR-M1 Independent Peer Review` (channel, `2026-08-13 17:10`) reviewed
+   and returned `CHANGES REQUIRED` against**: one real finding (this handoff's own deviation log,
+   at that time, falsely claimed this commit was unsigned) plus one disclosed non-blocking
+   observation (`FORMAT_VALIDATORS` coverage breadth, out of structural-validation's scope).
+5. `a3105858d4bf71b84afd164c871cafa0073dfd80` -- round-3 correction, fixing the peer reviewer's one
+   finding (the stale signature claim) and recording its full result in sections 9/10/12. Parent:
+   exactly `b3d3206b81d4047ef299615391ebf8132c7d6da6`. **SSH-signed**, same method as commit 4,
+   confirmed via the same `gpgsig` check. **This is the exact commit Atlas TPM's preliminary review
+   preflight (channel, `2026-08-13 17:27`) inspected and found one new blocking finding against:
+   this very section (2) had not been updated to reflect that the document-containing commit was no
+   longer the round-2 commit -- it still named `1cf9a1a` as the containing commit's parent instead
+   of the true, then-current parent `b3d3206`.** This entry, and the maintenance rule above, are
+   this round's fix for that finding.
 
 ### This document's own containing commit -- generic, resolved externally, never self-declared
 
-The commit that contains this exact file (the round-2 correction commit) is, by construction,
-**the current reviewed branch head containing this handoff**. Its parent is exactly
-`1cf9a1a94e07e9efc388b85bc9842a9ba84923df` (the last predecessor above). Its own hash cannot be
-written here without circularity (the hash depends on this file's content, which would then need
-to describe its own hash). Resolve its exact identity, at review time, via all four of:
+The commit that contains this exact file is, by construction, **the current reviewed branch head
+containing this handoff**. Its parent is exactly `a3105858d4bf71b84afd164c871cafa0073dfd80`
+(predecessor 5 above -- the current, correct parent as of this round; see the maintenance rule
+above for why this line, specifically, is the one that must be updated every round). Its own hash
+cannot be written here without circularity (the hash depends on this file's content, which would
+then need to describe its own hash). Resolve its exact identity, at review time, via all four of:
 
 - local: `git rev-parse HEAD` on branch `claude/wpr-m1-corrected` in this worktree;
 - remote: `git ls-remote origin refs/heads/claude/wpr-m1-corrected`;
 - PR: `gh pr view 31 --json headRefOid`;
-- CI: the commit GitHub Actions' `M-001 verification` ran against for PR #31.
+- CI: the commit GitHub Actions' `CI` workflow ran against for PR #31.
 
 All four must agree exactly. Any mismatch between them is itself a finding, not something this
 handoff can pre-empt. The channel entry announcing this correction (posted after commit and push,
 per the standing communication rule) records that exact resolved hash -- this document deliberately
-does not, so that it is never stale the way the round-1 handoff's "two commits" claim went stale
-the moment the third commit was added.
+does not, so that it is never stale the way the round-1 handoff's "two commits" claim, and this
+same section's round-2/round-3 staleness, both went stale before.
 
 ### Working-tree state
 
