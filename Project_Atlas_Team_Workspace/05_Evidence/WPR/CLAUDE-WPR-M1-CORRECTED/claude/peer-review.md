@@ -1,6 +1,32 @@
 # CLAUDE-WPR-M1-CORRECTED -- Peer Review Evidence
 
-## Status: independent review performed; CHANGES REQUIRED findings remediated
+## ROUND-2 UPDATE: Atlas TPM's official Technical Review superseded the round-1 self-organized review
+
+Everything below this notice describes **round 1**: three agent instances spawned by the
+implementing session itself, genuinely blind but not a separate accountable identity (see the
+"Independence caveat" section below, unchanged). Atlas TPM's own **official, independent**
+Technical Review has since happened -- `2026-08-13 15:53 Europe/Rome`, verdict `CHANGES REQUESTED`
+at head `1cf9a1a94e07e9efc388b85bc9842a9ba84923df` -- and is the review that actually matters for
+packet section 15 gate 2. Its findings and this round's fixes are summarized in the handoff
+section 9 (not duplicated here to avoid the two documents drifting out of sync); the full reports
+are `Project_Atlas_Team_Workspace/07_Reports/CLAUDE-WPR-M1-CORRECTED-TECHNICAL-REVIEW.md` and
+`Project_Atlas_Team_Workspace/05_Evidence/WPR/CLAUDE-WPR-M1-CORRECTED/integration/technical-review-evidence.md`
+(both Atlas TPM-owned, read-only for Claude, outside this packet's section 5 write set).
+
+Separately, Atlas TPM's review also correctly found that round 1's three-reviewer exercise below
+does **not** satisfy packet section 15 gate 1's named
+`Claude Team Reviewer - WPR-M1 Independent Peer Review` requirement, for the same
+same-session-spawned reason disclosed in the "Independence caveat" section below. A genuinely
+separate agent instance is being asked to review the round-2 corrected, pushed head immediately
+after this commit is made -- **not yet performed as of this file's authoring** (that is the
+explicit, sequenced next step, per the handoff section 12 and the shared channel). Its result will
+be posted directly to the shared channel by that distinct instance, not written into this file or
+any other path in this packet's write set, so that its independence from this implementing session
+is not blurred by having the implementer transcribe or curate its output.
+
+## Round 1 (superseded above, retained for full history)
+
+### Status: independent review performed; CHANGES REQUIRED findings remediated
 
 A prior version of this file stated the independent Claude peer review (packet section 15 gate 1)
 had not yet been performed, since the implementation owner cannot also be their own reviewer

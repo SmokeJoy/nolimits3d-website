@@ -31,24 +31,25 @@ match proves byte-for-byte identity of every file and the full directory structu
 comparison). This is corroborated by `pnpm governance:codex-native`'s own independent Bible
 manifest/size/SHA-256/worktree checks, all of which reported PASS (see governance-validator.txt).
 
-3. Claude-owned deliverable file hashes (working-tree content, this packet, POST-REMEDIATION)
+3. Claude-owned deliverable file hashes (working-tree content, this packet, POST-ROUND-2)
 ---------------------------------------------------------------------------------------------
-2dee5d4b6cb8b4a10d047dd5a05ff2d65ae9c875760e9ee54746d43eecc51f4c  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-ROUTE-CAPABILITY-INVENTORY.json  (CHANGED: citation off-by-one fixed)
+2dee5d4b6cb8b4a10d047dd5a05ff2d65ae9c875760e9ee54746d43eecc51f4c  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-ROUTE-CAPABILITY-INVENTORY.json  (unchanged since round 1)
 aaafa5bf32c4e277ee14a7006604faaf224e049946d46bb7658abeacb3436825  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-ROUTE-CAPABILITY-INVENTORY.md  (unchanged)
 7687334f6096374aae4924c63daaca408f7556354e5342067c70d26e113448d7  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-GAP-REGISTER.md  (unchanged)
 1afe4d77728826a13eede5a19fa3cfbac730bbdf5b5b67153dcaeb6bae0c937f  Project_Atlas_Team_Workspace/04_Planning/CLIENT-DATA.schema.json  (unchanged)
 8389b9169a4cb9cafecf351e438e6ad33aef126f5e59eb046a8949d897be159e  Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json  (unchanged)
 f4a84aaf34c08552fb7ebea97fdf35b6a6e673777120643bb77148887882cf81  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-SOURCE-BINDING-CONTRACT.json  (unchanged)
 7496bee73d6df7093bf767bdf46485b2f06075f728cc6b5294604149c0b53271  Project_Atlas_Team_Workspace/04_Planning/WPR-M1-AD016-REFERENCE-SET-AND-RUBRIC.md  (unchanged)
-208ec09b144d8fa2b26344d8be611047e182011714d465fa9660b85b60a85911  scripts/guards/production-readiness-guard.mjs  (CHANGED: see peer-review.md for the full remediation list)
-602dae28d58770c981b5b1a3efaf3c528227e209ae4d38f99d2f24f5cb2fe1e4  scripts/guards/production-readiness-guard.test.mjs  (CHANGED: 37 -> 76 tests)
+ce1e86cc5ac5e089cf24ca1114290c98ebd1ede42fc325ed3a02031e8d2dc2ad  scripts/guards/production-readiness-guard.mjs  (CHANGED round 2: fail-closed contract completeness -- category presence, value type/format, date-time validity, real-file consumption proof; see peer-review.md)
+9a21e7248ceb6839e215d417f4781c3041b28737fc8df5911119bf66ef9f4e71  scripts/guards/production-readiness-guard.test.mjs  (CHANGED round 2: 76 -> 95 tests)
 71e09dd9b9f481394584a141e817f2f9f5390f9a850d95a094557efba32aef90  package.json  (unchanged)
 
 These hashes are the authoritative reference for Atlas TPM's independent reproduction (packet
 acceptance criterion 15). Any content drift before Technical Review will change the corresponding
-hash and must be re-verified before the handoff is treated as current. Prior-to-remediation hashes
-for the three CHANGED files are preserved in this packet's first commit
-(`fcc158d78f9c2a62368d91aa35139c09f51eaf85`) for diffing if needed.
+hash and must be re-verified before the handoff is treated as current. Round-1 hashes for the two
+CHANGED files (`208ec09b...`, `602dae28...`) are preserved in commit `1cf9a1a94e07e9efc388b85bc9842a9ba84923df`
+for diffing if needed; original round-0 hashes (`f8c8bb00...`, `04aa37b4...`) in commit
+`fcc158d78f9c2a62368d91aa35139c09f51eaf85`.
 
 4. package.json semantic/byte-scope integrity
 --------------------------------------------------

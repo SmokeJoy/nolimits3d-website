@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import test from 'node:test';
@@ -13,6 +13,7 @@ import {
   loadJson,
   parseCliArgs,
   SCHEMA_VERSION,
+  validateBindingConsumption,
   validateBindingContractStructure,
   validateBindings,
   validateFieldEvidence,
@@ -868,6 +869,242 @@ test('13. end-to-end regression: the exact fabricated manifest from the adversar
   const result = checkManifestReadiness(manifest, bindings);
   assert.equal(result.ready, false, 'fabricated placeholder data must never be ready:true');
   assert.ok(result.violations.length > 0, 'fabricated placeholder data must produce violations');
+});
+
+// --- 14. Second Technical Review round: fail-closed contract completeness --
+//
+// Atlas TPM's 2026-08-13 Technical Review (CHANGES REQUESTED, head 1cf9a1a) found the guard did
+// not completely enforce required-category presence, declared value type/format, manifest
+// date-time validity, target-file existence, or actual binding consumption. This section adds
+// dedicated coverage for every one of those gaps.
+
+test('14. MISSING_REQUIRED_CATEGORY fails closed when a required category is entirely absent', () => {
+  const onlyFive = ALLOWED_CATEGORY_IDS.slice(1).map((catId, i) =>
+    category(catId, [baseField({ id: `${CATEGORY_FIELD_PREFIX[catId]}.x${i}` })]),
+  );
+  const violations = validateStructure(manifestWith(onlyFive));
+  const missing = violations.find((v) => v.code === 'MISSING_REQUIRED_CATEGORY');
+  assert.ok(missing, 'expected MISSING_REQUIRED_CATEGORY');
+  assert.equal(missing.categoryId, ALLOWED_CATEGORY_IDS[0]);
+});
+
+test('14. MISSING_REQUIRED_CATEGORY does not fire when all six categories are present', () => {
+  const all = ALLOWED_CATEGORY_IDS.map((catId, i) =>
+    category(catId, [baseField({ id: `${CATEGORY_FIELD_PREFIX[catId]}.x${i}` })]),
+  );
+  const violations = validateStructure(manifestWith(all));
+  assert.ok(!violations.some((v) => v.code === 'MISSING_REQUIRED_CATEGORY'));
+});
+
+test('14. FIELD_VALUE_TYPE_MISMATCH fails closed when the value does not match the declared valueType', () => {
+  const violations = validateStructure(
+    singleFieldManifest({ valueType: 'boolean', value: 'not-a-boolean' }),
+  );
+  assert.ok(violations.some((v) => v.code === 'FIELD_VALUE_TYPE_MISMATCH'));
+});
+
+test('14. FIELD_VALUE_TYPE_MISMATCH does not fire when the value genuinely matches valueType', () => {
+  for (const [valueType, value] of [
+    ['string', 'a real string'],
+    ['number', 42],
+    ['boolean', true],
+    ['array', ['a', 'b']],
+    ['object', { k: 'v' }],
+  ]) {
+    const violations = validateStructure(singleFieldManifest({ valueType, value }));
+    assert.ok(
+      !violations.some((v) => v.code === 'FIELD_VALUE_TYPE_MISMATCH'),
+      `expected valueType "${valueType}" with a matching value to pass`,
+    );
+  }
+});
+
+test('14. FIELD_VALUE_TYPE_MISMATCH does not fire when value is null (not-yet-provided is valid)', () => {
+  const violations = validateStructure(singleFieldManifest({ valueType: 'boolean', value: null }));
+  assert.ok(!violations.some((v) => v.code === 'FIELD_VALUE_TYPE_MISMATCH'));
+});
+
+test('14. FIELD_VALUE_FORMAT_MISMATCH fails closed when value does not match a recognized declared format', () => {
+  const violations = validateStructure(
+    singleFieldManifest({ valueType: 'string', format: 'email', value: 'not-an-email' }),
+  );
+  assert.ok(violations.some((v) => v.code === 'FIELD_VALUE_FORMAT_MISMATCH'));
+});
+
+test('14. FIELD_VALUE_FORMAT_MISMATCH does not fire when value genuinely matches a recognized format', () => {
+  for (const [format, value] of [
+    ['email', 'contact@example.com'],
+    ['date', '2026-01-01'],
+    ['date-time', '2026-01-01T00:00:00Z'],
+    ['url', 'https://example.com/path'],
+    ['uuid', '123e4567-e89b-12d3-a456-426614174000'],
+  ]) {
+    const violations = validateStructure(
+      singleFieldManifest({ valueType: 'string', format, value }),
+    );
+    assert.ok(
+      !violations.some((v) => v.code === 'FIELD_VALUE_FORMAT_MISMATCH'),
+      `expected format "${format}" with a matching value to pass`,
+    );
+  }
+});
+
+test('14. an unrecognized format string is not itself a defect (no validator registered, no false positive)', () => {
+  const violations = validateStructure(
+    singleFieldManifest({
+      valueType: 'string',
+      format: 'not-a-registered-format',
+      value: 'anything',
+    }),
+  );
+  assert.ok(!violations.some((v) => v.code === 'FIELD_VALUE_FORMAT_MISMATCH'));
+});
+
+test('14. FIELD_INVALID_LAST_VERIFIED_FORMAT fails closed on a non-ISO-8601 lastVerified, structurally (any status)', () => {
+  const violations = validateStructure(singleFieldManifest({ lastVerified: 'not-a-date' }));
+  assert.ok(violations.some((v) => v.code === 'FIELD_INVALID_LAST_VERIFIED_FORMAT'));
+});
+
+test('14. FIELD_INVALID_LAST_VERIFIED_FORMAT does not fire when lastVerified is null or a valid date-time', () => {
+  assert.ok(
+    !validateStructure(singleFieldManifest({ lastVerified: null })).some(
+      (v) => v.code === 'FIELD_INVALID_LAST_VERIFIED_FORMAT',
+    ),
+  );
+  assert.ok(
+    !validateStructure(singleFieldManifest({ lastVerified: '2026-01-01T00:00:00Z' })).some(
+      (v) => v.code === 'FIELD_INVALID_LAST_VERIFIED_FORMAT',
+    ),
+  );
+});
+
+test('14. FIELD_APPROVAL_INVALID_APPROVED_AT fails closed on a non-ISO-8601 businessApproval.approvedAt', () => {
+  const field = approvedField({
+    id: 'business.x',
+    businessApproval: { approvedBy: 'x', approvedAt: 'not-a-date', evidenceRef: 'y' },
+  });
+  const violations = validateStructure(manifestWith([category('business-identity', [field])]));
+  assert.ok(violations.some((v) => v.code === 'FIELD_APPROVAL_INVALID_APPROVED_AT'));
+});
+
+test('14. FIELD_APPROVAL_INVALID_APPROVED_AT fails closed on a non-ISO-8601 legalApproval.approvedAt', () => {
+  const field = approvedField({
+    id: 'legal.x',
+    legalApprovalRequired: true,
+    legalApproval: { approvedBy: 'x', approvedAt: 'garbage', evidenceRef: 'y' },
+  });
+  const violations = validateStructure(manifestWith([category('legal-commercial-copy', [field])]));
+  assert.ok(violations.some((v) => v.code === 'FIELD_APPROVAL_INVALID_APPROVED_AT'));
+});
+
+// --- 14. Binding consumption proof (validateBindingConsumption, real file reads) ---
+
+test('14. BINDING_TARGET_FILE_NOT_FOUND fails closed when targetFile does not exist on disk', () => {
+  const dir = tempDir();
+  try {
+    const binding = bindingFor({ id: 'business.x' }, { targetFile: 'does-not-exist.ts' });
+    const violations = validateBindingConsumption(bindingsDoc([binding]), dir);
+    assert.ok(violations.some((v) => v.code === 'BINDING_TARGET_FILE_NOT_FOUND'));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('14. BINDING_IDENTIFIER_NOT_CONSUMED fails closed when the target file exists but does not contain the identifier', () => {
+  const dir = tempDir();
+  try {
+    writeFileSync(join(dir, 'consumer.ts'), 'export const somethingElse = 1;\n');
+    const binding = bindingFor(
+      { id: 'business.x' },
+      { targetFile: 'consumer.ts', bindingIdentifier: 'totallyUnrelated.token' },
+    );
+    const violations = validateBindingConsumption(bindingsDoc([binding]), dir);
+    const found = violations.find((v) => v.code === 'BINDING_IDENTIFIER_NOT_CONSUMED');
+    assert.ok(found);
+    assert.match(found.message, /totallyUnrelated/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('14. validateBindingConsumption passes when the target file genuinely contains every identifier token', () => {
+  const dir = tempDir();
+  try {
+    writeFileSync(
+      join(dir, 'consumer.ts'),
+      "export const siteContact = { email: 'x@example.com', phone: '+1' };\n",
+    );
+    const binding = bindingFor(
+      { id: 'business.x' },
+      { targetFile: 'consumer.ts', bindingIdentifier: 'siteContact.email, siteContact.phone' },
+    );
+    const violations = validateBindingConsumption(bindingsDoc([binding]), dir);
+    assert.deepEqual(violations, []);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('14. validateBindingConsumption skips consumption checking when targetFile is null (honestly unbound)', () => {
+  const binding = bindingFor({ id: 'business.x' }, { targetFile: null, status: 'unbound' });
+  const violations = validateBindingConsumption(bindingsDoc([binding]), tempDir());
+  assert.deepEqual(violations, []);
+});
+
+test('14. validateBindingConsumption independently proves the real committed bindings are truthful', () => {
+  const bindingPath = resolve(
+    REPO_ROOT,
+    'Project_Atlas_Team_Workspace/04_Planning/WPR-M1-SOURCE-BINDING-CONTRACT.json',
+  );
+  const bindingContract = loadJson(bindingPath, 'source-binding contract');
+  const violations = validateBindingConsumption(bindingContract, REPO_ROOT);
+  assert.deepEqual(
+    violations,
+    [],
+    'every real binding that declares a targetFile must genuinely be found there',
+  );
+  const populated = bindingContract.bindings.filter((b) => b.targetFile);
+  assert.equal(populated.length, 3, 'expected exactly the 3 currently-populated real bindings');
+});
+
+test('14. checkManifestReadiness wires consumption proof in when repoRoot is supplied, and the real manifest is unaffected', () => {
+  const manifestPath = resolve(
+    REPO_ROOT,
+    'Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json',
+  );
+  const bindingPath = resolve(
+    REPO_ROOT,
+    'Project_Atlas_Team_Workspace/04_Planning/WPR-M1-SOURCE-BINDING-CONTRACT.json',
+  );
+  const manifest = loadJson(manifestPath, 'client-data manifest');
+  const bindingContract = loadJson(bindingPath, 'source-binding contract');
+  const withRoot = checkManifestReadiness(manifest, bindingContract, REPO_ROOT);
+  const withoutRoot = checkManifestReadiness(manifest, bindingContract);
+  assert.deepEqual(
+    withRoot.violations.map((v) => v.code).sort(),
+    withoutRoot.violations.map((v) => v.code).sort(),
+    'the real manifest has no consumption-proof findings either way (only the 2 known hardcoded-unapproved violations)',
+  );
+  assert.equal(withRoot.ready, false);
+  assert.equal(withRoot.summary.violationCount, 2);
+});
+
+test('14. end-to-end regression: a fabricated binding claiming consumption of a file that does not say so is rejected', () => {
+  const dir = tempDir();
+  try {
+    mkdirSync(join(dir, 'apps', 'web', 'src'), { recursive: true });
+    writeFileSync(join(dir, 'apps', 'web', 'src', 'real.ts'), 'export const realExport = 1;\n');
+
+    const field = approvedField({ id: 'business.x', sourceBinding: 'binding-business.x' });
+    const binding = bindingFor(field, {
+      targetFile: 'apps/web/src/real.ts',
+      bindingIdentifier: 'fabricatedIdentifierNeverActuallyThere',
+    });
+    const violations = validateBindingConsumption(bindingsDoc([binding]), dir);
+    assert.ok(violations.some((v) => v.code === 'BINDING_IDENTIFIER_NOT_CONSUMED'));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 // --- CLI argument parsing (unit-level, supports the section 10.1 item 3 gate) ---

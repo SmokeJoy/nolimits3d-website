@@ -41,16 +41,29 @@ already exercised once, successfully, on the six stray `*.tmp.log` files).
 
 ## Case B: after push (current state)
 
-This branch (`claude/wpr-m1-corrected`) has been pushed to `origin`, with two commits above the
-base: the initial implementation (`fcc158d78f9c2a62368d91aa35139c09f51eaf85`) and a follow-up
-remediation commit (see `git-and-scope.txt` for its exact hash) fixing every finding from the
-independent review in `peer-review.md`. A draft PR (#31) targets `main`. If a rollback is needed:
+This branch (`claude/wpr-m1-corrected`) has been pushed to `origin`. Per the finite handoff rule
+(Codex Root, `2026-08-13 16:26`), this plan enumerates every predecessor commit by exact hash and
+describes the newest (round-2 correction) commit generically -- see the handoff section 2 for how
+to resolve its exact hash:
+
+1. `fcc158d78f9c2a62368d91aa35139c09f51eaf85` -- initial implementation.
+2. `bdf5fb24b0526261dab171f2b32e8709d3a69648` -- round-1 remediation (fixes the CRITICAL
+   placeholder-detection bypass and other independent-review findings; reverting this commit alone
+   would restore that known bypass and is not recommended).
+3. `1cf9a1a94e07e9efc388b85bc9842a9ba84923df` -- handoff signature-claim correction.
+4. The round-2 correction commit containing the current handoff -- resolve via `git rev-parse HEAD`
+   / remote / PR / CI head, per the handoff section 2 (fixes Atlas TPM's `CHANGES REQUESTED`
+   findings: guard fail-closed contract completeness, stale handoff, incomplete command evidence,
+   the `pa-ip-001` overlap disposition).
+
+A draft PR (#31) targets `main`. If a rollback is needed:
 
 1. Do not rewrite history and do not force-push. Use a normal `git revert` limited to whichever of
-   this packet's commit(s) on `claude/wpr-m1-corrected` need reverting -- the two commits are
-   independently revertible (e.g. reverting only the remediation commit would restore the
-   pre-remediation guard, which is not recommended given its known CRITICAL bypass, but is
-   mechanically possible without touching the initial commit).
+   this packet's commits on `claude/wpr-m1-corrected` need reverting -- each is independently
+   revertible in reverse order. Reverting commit 2 alone would restore the pre-remediation guard's
+   known CRITICAL bypass and is not recommended; reverting commit 4 alone would restore the
+   round-2 fail-closed-contract gaps Atlas TPM found and is likewise not recommended without a
+   replacement fix.
 2. The revert must be performed only under Atlas TPM direction, per packet section 13.
 3. Because no app, database, deployment, or production state changed, the revert needs no
    accompanying data/runtime migration and no coordination with any other track.
