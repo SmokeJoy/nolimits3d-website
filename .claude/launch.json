@@ -14,6 +14,13 @@
       "runtimeArgs": ["--filter", "@atlas/web", "preview"],
       "port": 4173,
       "autoPort": true
+    },
+    {
+      "name": "legacy-web-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "apps/legacy-web", "run", "preview", "--", "--port", "4199", "--strictPort"],
+      "port": 4199,
+      "autoPort": false
     }
   ]
 }
