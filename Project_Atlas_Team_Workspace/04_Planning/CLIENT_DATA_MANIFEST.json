@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "2.0.0",
+  "categories": [
+    {
+      "id": "business-identity",
+      "label": "Business identity, contacts, hours, service area, active contact channels",
+      "sourceRef": "AD-014 section 3.2, bullet 1",
+      "fields": [
+        { "id": "business.legalName", "label": "Legal/trading name", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "business.address", "label": "Physical address / service area", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "business.hours", "label": "Business hours", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "business.contactChannels", "label": "Active contact channels (phone/email/social)", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "business.vatId", "label": "VAT / tax identification number", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null }
+      ]
+    },
+    {
+      "id": "commerce-catalog",
+      "label": "Products, variants, materials, prices, taxes, availability, commercial mode, fulfillment",
+      "sourceRef": "AD-014 section 3.2 bullet 2; section 3.3 (Unified Commerce Catalog)",
+      "fields": [
+        { "id": "catalog.products", "label": "Product/service/configurable/event/quote-only entries", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "catalog.prices", "label": "Prices and tax rules", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "catalog.availability", "label": "Availability and fulfillment rules", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "catalog.commercialModes", "label": "Commercial mode per item (instant-checkout / admin-confirmed / quote-only)", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "catalog.paymentMethods", "label": "Real payment method configuration (card/wallet activation)", "required": false, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "non-blocking", "lastVerified": null }
+      ]
+    },
+    {
+      "id": "content-media",
+      "label": "Catalog, configurator, portfolio, event, blog, SEO, media, alt text, and rights/provenance",
+      "sourceRef": "AD-014 section 3.2 bullet 3; section 3.5 (Configurator)",
+      "fields": [
+        { "id": "media.configuratorModels", "label": "Real lantern configurator models/materials/dimensions/electrical specs", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": true, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "media.portfolioAssets", "label": "Portfolio project photos/media", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": true, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "media.eventData", "label": "Real event listings", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "media.rightsProvenance", "label": "Rights/provenance approval per media asset", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": true, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "media.altText", "label": "Accessible alt text per media asset", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "media.seo", "label": "Per-page SEO metadata (real business framing)", "required": false, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "non-blocking", "lastVerified": null }
+      ]
+    },
+    {
+      "id": "testimonials-claims",
+      "label": "Testimonials and claims with approval evidence",
+      "sourceRef": "AD-014 section 3.2 bullet 4",
+      "fields": [
+        { "id": "testimonials.entries", "label": "Real customer testimonials", "required": false, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": true, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "non-blocking", "lastVerified": null },
+        { "id": "testimonials.approvalEvidence", "label": "Documented consent/approval per testimonial", "required": true, "valueType": "array", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": true, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null }
+      ]
+    },
+    {
+      "id": "legal-commercial-copy",
+      "label": "Payment, delivery, returns, warranty, privacy, cookies, terms, retention, and consent copy",
+      "sourceRef": "AD-014 section 3.2 bullet 5; section 2 (legal routes -- see WPR-M1-GAP-REGISTER.md GAP-LEGAL-01)",
+      "fields": [
+        { "id": "legal.privacyPolicy", "label": "Privacy policy copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.cookiePolicy", "label": "Cookie policy copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.termsAndConditions", "label": "Terms and conditions copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.returnsWarranty", "label": "Returns/warranty policy copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.deliveryPolicy", "label": "Delivery policy copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.dataRetention", "label": "Data retention policy copy", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "legal.consentCopy", "label": "Consent capture copy (forms, cookie banner)", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": true, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null }
+      ]
+    },
+    {
+      "id": "provider-credentials",
+      "label": "Provider/project identifiers and production credentials supplied through approved secret paths",
+      "sourceRef": "AD-014 section 3.2 bullet 6; section 3.1 (deployment/runtime)",
+      "fields": [
+        { "id": "provider.vercelProject", "label": "Production Vercel project link", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "provider.supabaseProject", "label": "Production Supabase project identifiers", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "provider.domain", "label": "nolimits3d.store domain configuration", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null },
+        { "id": "provider.secrets", "label": "Production secrets via approved secret paths (never in repo files/channels)", "required": true, "valueType": "string", "lifecycleStatus": "missing", "value": null, "provenance": null, "rightsConsentRequired": false, "rightsConsentEvidence": null, "businessApproval": null, "legalApprovalRequired": false, "legalApproval": null, "sourceBinding": null, "blockingSeverity": "blocking", "lastVerified": null }
+      ]
+    }
+  ]
+}

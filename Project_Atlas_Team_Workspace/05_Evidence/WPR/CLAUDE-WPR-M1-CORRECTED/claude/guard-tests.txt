@@ -1,0 +1,154 @@
+CLAUDE-WPR-M1-CORRECTED -- packet-specific gate evidence (packet section 10.1)
+ROUND-2 run, responding to Atlas TPM's 2026-08-13 15:53 CHANGES REQUESTED Technical Review
+(reviewed head 1cf9a1a). Suite grew from 76 to 95 tests (new section "14." closes the CRITICAL
+finding: required-category completeness, value type/format validation, date-time validity, and
+real-file-backed proof of target existence/binding consumption).
+
+===============================================================================
+Command 1: node --test scripts/guards/production-readiness-guard.test.mjs
+Start: 2026-08-13T14:32:53Z  End: 2026-08-13T14:32:54Z  Exit code: 0
+===============================================================================
+FIXTURE-ONLY RESULT -- synthetic test fixture, not a production readiness determination, not real client-approved data.
+Production readiness guard: PASS (fixture-only)
+Production readiness guard: FAIL -- 2 violation(s), 26 required field(s) not approved.
+✔ 1. empty categories array fails closed (3.0602ms)
+✔ 2a. category object missing the fields property fails closed (0.3249ms)
+✔ 2b. category with an empty fields array fails closed (0.2514ms)
+✔ 3a. unknown extra property at root level fails closed (0.483ms)
+✔ 3b. unknown extra property at category level fails closed (0.2424ms)
+✔ 3c. unknown extra property at field level fails closed (0.1973ms)
+✔ 3d. unknown extra property inside approvalEvidence fails closed (0.3471ms)
+✔ 3e. missing required property at field level fails closed (0.1519ms)
+✔ 4a. duplicate category ids fail closed (0.1627ms)
+✔ 4b. duplicate field ids across different categories fail closed (0.2342ms)
+✔ 5a. invalid valueType fails closed (0.1575ms)
+✔ 5b. invalid lifecycleStatus fails closed (0.1301ms)
+✔ 6. required blocking field in "missing" status is unready (0.2105ms)
+✔ 6. required blocking field in "draft" status is unready (0.0651ms)
+✔ 6. required blocking field in "rejected" status is unready (0.0524ms)
+✔ 6. required blocking field in "expired" status is unready (0.0534ms)
+✔ 6. approved field without evidence is not readiness-blocked by computeReadiness alone but fails overall via violations (0.26ms)
+✔ 7a. approved field missing provenance fails closed (1.7063ms)
+✔ 7b. approved field requiring rights/consent but missing evidence fails closed (0.35ms)
+✔ 7c. approved field missing business approval fails closed (0.19ms)
+✔ 7d. approved field requiring legal approval but missing evidence fails closed (0.1532ms)
+✔ 7e. approved field missing source binding fails closed (0.1201ms)
+✔ 8a. placeholder-looking value on an approved field fails closed (0.26ms)
+✔ 8b. placeholder-looking provenance on an approved field fails closed (0.1373ms)
+✔ 9a. approved field whose binding has no target file fails closed (0.2999ms)
+✔ 9b. approved field whose binding verification is stale (missing bindingVerifiedAt) fails closed (0.1152ms)
+✔ 9b2. approved field whose binding verification predates the field lastVerified fails closed (0.1056ms)
+✔ 9c. approved field whose binding is not consumed fails closed (approved-but-unused) (0.1298ms)
+✔ 9d. approved field whose binding is unbound fails closed (0.1327ms)
+✔ 9e. hard-coded production value without an approved manifest binding fails closed (0.1087ms)
+✔ 10. a complete structurally valid fixture with no approvals is ready:false with zero violations (0.5169ms)
+✔ 11. a complete valid synthetic production-shaped fixture is ready:true with zero violations (0.9757ms)
+✔ 11. CLI: dedicated positive synthetic-fixture invocation exits 0 with ready:true and is labelled fixture-only (109.6255ms)
+✔ 12. the real committed CLIENT_DATA_MANIFEST.json remains ready:false against the real binding contract (2.1337ms)
+✔ 12. CLI: real committed manifest run exits non-zero and is not fixtureOnly (97.1645ms)
+✔ 13. ROOT_NOT_OBJECT fails closed on a non-object manifest (0.4057ms)
+✔ 13. SCHEMA_VERSION_MISMATCH fails closed (0.2662ms)
+✔ 13. CATEGORY_NOT_OBJECT fails closed (0.1371ms)
+✔ 13. CATEGORY_UNKNOWN_ID fails closed (0.1374ms)
+✔ 13. CATEGORY_MISSING_LABEL fails closed (0.1126ms)
+✔ 13. CATEGORY_MISSING_SOURCE_REF fails closed (0.1096ms)
+✔ 13. FIELD_NOT_OBJECT fails closed (0.0893ms)
+✔ 13. FIELD_INVALID_ID fails closed on a malformed (non-dotted) id (0.0945ms)
+✔ 13. FIELD_MISSING_LABEL fails closed (0.0983ms)
+✔ 13. FIELD_INVALID_REQUIRED fails closed (0.091ms)
+✔ 13. FIELD_INVALID_RIGHTS_CONSENT_REQUIRED fails closed (0.0924ms)
+✔ 13. FIELD_INVALID_LEGAL_APPROVAL_REQUIRED fails closed (0.0893ms)
+✔ 13. FIELD_INVALID_BLOCKING_SEVERITY fails closed (0.0937ms)
+✔ 13. FIELD_INVALID_APPROVAL_SHAPE fails closed (0.0936ms)
+✔ 13. FIELD_APPROVAL_MISSING_PROPERTY fails closed (0.0954ms)
+✔ 13. FIELD_INVALID_FORMAT fails closed (0.0994ms)
+✔ 13. APPROVED_WITHOUT_VALUE fires on both null and blank-string values (0.1113ms)
+✔ 13. APPROVED_WITHOUT_LAST_VERIFIED fails closed (0.0852ms)
+✔ 13. APPROVED_PLACEHOLDER_BUSINESS_APPROVAL fails closed (0.0902ms)
+✔ 13. APPROVED_PLACEHOLDER_RIGHTS_CONSENT fails closed (0.0899ms)
+✔ 13. APPROVED_PLACEHOLDER_LEGAL_APPROVAL fails closed (0.0928ms)
+✔ 13. APPROVED_FIELD_MISSING_BINDING fails closed when the field has a sourceBinding but no matching contract entry (0.1114ms)
+✔ 13. BINDING_ROOT_NOT_OBJECT fails closed (0.224ms)
+✔ 13. BINDING_ROOT_UNKNOWN_PROPERTY fails closed (0.1945ms)
+✔ 13. BINDING_EMPTY_BINDINGS fails closed (0.2254ms)
+✔ 13. BINDING_NOT_OBJECT fails closed (0.2388ms)
+✔ 13. BINDING_UNKNOWN_PROPERTY fails closed (0.2481ms)
+✔ 13. BINDING_MISSING_PROPERTY fails closed (0.158ms)
+✔ 13. BINDING_INVALID_ID fails closed (0.2024ms)
+✔ 13. BINDING_DUPLICATE_ID fails closed (0.2012ms)
+✔ 13. BINDING_INVALID_MANIFEST_FIELD_ID fails closed (0.2447ms)
+✔ 13. BINDING_DUPLICATE_MANIFEST_FIELD_ID fails closed (0.2262ms)
+✔ 13. BINDING_INVALID_STATUS fails closed on a typo/garbage status (0.1822ms)
+✔ 13. BINDING_INVALID_CONSUMPTION_MECHANISM fails closed on a fabricated mechanism string (0.2278ms)
+✔ 13. BINDING_MISSING_VERIFICATION_RULE fails closed (0.124ms)
+✔ 13. BINDING_INVALID_TARGET_FILE fails closed (0.0937ms)
+✔ 13. BINDING_INVALID_VERIFIED_AT fails closed on a non-ISO-8601 string (0.1063ms)
+✔ 13. every adversarially-tested fake value is now caught (regression guard for the CRITICAL finding) (0.2111ms)
+✔ 13. end-to-end regression: the exact fabricated manifest from the adversarial review is rejected (0.3548ms)
+✔ 14. MISSING_REQUIRED_CATEGORY fails closed when a required category is entirely absent (0.1554ms)
+✔ 14. MISSING_REQUIRED_CATEGORY does not fire when all six categories are present (0.1343ms)
+✔ 14. FIELD_VALUE_TYPE_MISMATCH fails closed when the value does not match the declared valueType (0.0979ms)
+✔ 14. FIELD_VALUE_TYPE_MISMATCH does not fire when the value genuinely matches valueType (0.1766ms)
+✔ 14. FIELD_VALUE_TYPE_MISMATCH does not fire when value is null (not-yet-provided is valid) (0.0914ms)
+✔ 14. FIELD_VALUE_FORMAT_MISMATCH fails closed when value does not match a recognized declared format (0.157ms)
+✔ 14. FIELD_VALUE_FORMAT_MISMATCH does not fire when value genuinely matches a recognized format (0.3445ms)
+✔ 14. an unrecognized format string is not itself a defect (no validator registered, no false positive) (0.1035ms)
+✔ 14. FIELD_INVALID_LAST_VERIFIED_FORMAT fails closed on a non-ISO-8601 lastVerified, structurally (any status) (0.101ms)
+✔ 14. FIELD_INVALID_LAST_VERIFIED_FORMAT does not fire when lastVerified is null or a valid date-time (0.1146ms)
+✔ 14. FIELD_APPROVAL_INVALID_APPROVED_AT fails closed on a non-ISO-8601 businessApproval.approvedAt (0.1142ms)
+✔ 14. FIELD_APPROVAL_INVALID_APPROVED_AT fails closed on a non-ISO-8601 legalApproval.approvedAt (0.1242ms)
+✔ 14. BINDING_TARGET_FILE_NOT_FOUND fails closed when targetFile does not exist on disk (2.0882ms)
+✔ 14. BINDING_IDENTIFIER_NOT_CONSUMED fails closed when the target file exists but does not contain the identifier (4.0212ms)
+✔ 14. validateBindingConsumption passes when the target file genuinely contains every identifier token (4.758ms)
+✔ 14. validateBindingConsumption skips consumption checking when targetFile is null (honestly unbound) (0.6328ms)
+✔ 14. validateBindingConsumption independently proves the real committed bindings are truthful (2.0411ms)
+✔ 14. checkManifestReadiness wires consumption proof in when repoRoot is supplied, and the real manifest is unaffected (2.9613ms)
+✔ 14. end-to-end regression: a fabricated binding claiming consumption of a file that does not say so is rejected (11.4818ms)
+✔ parseCliArgs reads --manifest and --binding overrides (0.2044ms)
+✔ parseCliArgs defaults to null when no overrides are given (0.0881ms)
+ℹ tests 95
+ℹ suites 0
+ℹ pass 95
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 433.9455
+
+Section "14." coverage mapping to Atlas TPM's CRITICAL finding (2026-08-13 15:53 review):
+  "it validates category IDs that are present but never rejects an omitted required category"
+    -> tests "14. MISSING_REQUIRED_CATEGORY..." (x2)
+  "it checks that format is a string but does not validate a field value against its declared
+   valueType or format"
+    -> tests "14. FIELD_VALUE_TYPE_MISMATCH..." (x3), "14. FIELD_VALUE_FORMAT_MISMATCH..." (x3)
+  "it does not validate manifest lastVerified and approval timestamps as date-times"
+    -> tests "14. FIELD_INVALID_LAST_VERIFIED_FORMAT..." (x2), "14. FIELD_APPROVAL_INVALID_APPROVED_AT..." (x2)
+  "it checks that targetFile is a string/non-null for approved values but does not prove the file
+   exists or that bindingIdentifier is actually consumed by that target"
+    -> tests "14. BINDING_TARGET_FILE_NOT_FOUND...", "14. BINDING_IDENTIFIER_NOT_CONSUMED...",
+       "14. validateBindingConsumption passes...", "14. validateBindingConsumption skips...",
+       "14. validateBindingConsumption independently proves the real committed bindings are
+       truthful" (real-file integration test against apps/web/src/routes/public/navigation.ts and
+       apps/web/src/lib/supabase/client.ts), "14. checkManifestReadiness wires consumption proof
+       in...", "14. end-to-end regression: a fabricated binding..."
+
+===============================================================================
+Command 2: pnpm guard:production-readiness (against the real committed manifest)
+Start: 2026-08-13T14:32:54Z  End: 2026-08-13T14:32:55Z  Exit code: 1 (EXPECTED -- required red
+production-readiness result, unchanged from round 1: none of the round-2 guard fixes alter
+behavior against the real, all-"missing" manifest)
+===============================================================================
+{
+  "ready": false,
+  "violations": [
+    { "code": "HARDCODED_VALUE_WITHOUT_APPROVAL", "fieldId": "business.address", ... },
+    { "code": "HARDCODED_VALUE_WITHOUT_APPROVAL", "fieldId": "business.contactChannels", ... }
+  ],
+  "unreadyRequiredFields": [ ...26 entries, unchanged... ],
+  "summary": { "categories": 6, "fields": 29, "violationCount": 2 },
+  "fixtureOnly": false
+}
+Production readiness guard: FAIL -- 2 violation(s), 26 required field(s) not approved.
+EXIT=1
+
+Full, un-truncated JSON in production-readiness-summary.json.

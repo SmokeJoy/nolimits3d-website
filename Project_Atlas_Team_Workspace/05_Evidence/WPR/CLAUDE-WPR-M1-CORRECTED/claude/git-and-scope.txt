@@ -1,0 +1,159 @@
+CLAUDE-WPR-M1-CORRECTED -- git identity, cleanliness, and exact-diff scope evidence
+
+POST-REMEDIATION NOTE: this file's body below (sections 1-6) was captured for, and describes, the
+FIRST commit (`fcc158d78f9c2a62368d91aa35139c09f51eaf85`), taken just before that commit was made
+-- the same "capture just before commit" pattern used throughout this packet, since a commit's own
+evidence cannot reference its own not-yet-computed hash without circularity. A SECOND, remediation
+commit followed (see peer-review.md and the handoff's section 9), fixing every finding an
+independent review raised. That second commit's exact hash, parent, and post-commit re-checks are
+recorded in `Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md` (the
+`2026-08-12` remediation checkpoint entry) rather than rewritten into this file, for the same
+non-circularity reason; `git log --oneline claude/wpr-m1-corrected` against the pushed branch is
+the authoritative, independently-checkable source for both commit hashes at any time.
+
+1. Branch and exact base (as of the first commit)
+----------------------------------------------------
+git rev-parse --abbrev-ref HEAD  -> claude/wpr-m1-corrected
+git rev-parse HEAD               -> d7777a84f5a397d3332544e5f2f0d73e2d48661d (pre-commit; became
+                                     fcc158d78f9c2a62368d91aa35139c09f51eaf85 immediately after)
+Required exact base (packet section 3.2) -> d7777a84f5a397d3332544e5f2f0d73e2d48661d
+Match: EXACT. HEAD^ of the first commit is exactly the required base (independently re-verified
+post-commit, see the initial channel checkpoint).
+
+2. Worktree
+-----------
+Required worktree (packet section 3.2): G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+Actual worktree used for every command in this evidence set: same path. Confirmed via
+`git worktree list` (see section 5 below) and via `pwd` at the top of environment.txt.
+
+3. Working-tree status (git status --short --branch), final state before evidence/handoff writes
+---------------------------------------------------------------------------------------------
+## claude/wpr-m1-corrected
+ M package.json
+?? Project_Atlas_Team_Workspace/04_Planning/CLIENT-DATA.schema.json
+?? Project_Atlas_Team_Workspace/04_Planning/CLIENT_DATA_MANIFEST.json
+?? Project_Atlas_Team_Workspace/04_Planning/WPR-M1-AD016-REFERENCE-SET-AND-RUBRIC.md
+?? Project_Atlas_Team_Workspace/04_Planning/WPR-M1-GAP-REGISTER.md
+?? Project_Atlas_Team_Workspace/04_Planning/WPR-M1-ROUTE-CAPABILITY-INVENTORY.json
+?? Project_Atlas_Team_Workspace/04_Planning/WPR-M1-ROUTE-CAPABILITY-INVENTORY.md
+?? Project_Atlas_Team_Workspace/04_Planning/WPR-M1-SOURCE-BINDING-CONTRACT.json
+?? scripts/guards/production-readiness-guard.mjs
+?? scripts/guards/production-readiness-guard.test.mjs
+
+Every path above is enumerated in packet section 5 (items 1, 4, 5, 6, 7, 8, 9; item 2 and 3 are
+also present as .json/.md pairs). No path outside section 5 is present. (This evidence directory
+and the handoff file, section-5 items 11 and 12, are being written after this snapshot was taken;
+they are the only additions still to come, both at their exact allowed paths.)
+
+Known process deviation, disclosed for completeness (see peer-review.txt for full detail): earlier
+in this session, six ad hoc `*.tmp.log` files were briefly written to this worktree's root by
+gate-output shell redirects. Atlas TPM/Codex Root correctly flagged this as an out-of-section-5
+write and issued a scope stop. All six were identified, path-validated as strictly inside this
+worktree, and removed; no other file was touched; no reset/clean/stash was used. The worktree has
+been clean (matching the block above) for the entire remainder of this session, including every
+command re-run afterward. Codex Root's own stop-condition entries and Claude's corrective entries
+are preserved verbatim in `Project_Atlas_Team_Workspace/01_Shared_Memory/CODEX_CLAUDE_TEAM_CHANNEL.md`
+(local-only, uncommitted, in the separate shared coordination checkout) as the authoritative record.
+
+4. Exact diff against the base (tracked files only)
+-----------------------------------------------------
+$ git diff --stat d7777a84f5a397d3332544e5f2f0d73e2d48661d
+ package.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+$ git diff d7777a84f5a397d3332544e5f2f0d73e2d48661d -- package.json
+diff --git a/package.json b/package.json
+index e2ecc56..c9239c3 100644
+--- a/package.json
++++ b/package.json
+@@ -18,6 +18,7 @@
+     "guard:scope": "node scripts/guards/scope-guard.mjs",
+     "guard:source-bindings": "node scripts/guards/source-binding-guard.mjs",
+     "guard:performance-budget": "node scripts/guards/performance-budget-guard.mjs",
++    "guard:production-readiness": "node scripts/guards/production-readiness-guard.mjs",
+     "lint": "eslint . --max-warnings=0",
+     "secret:scan": "node scripts/guards/secret-scan.mjs",
+     "supabase:config:check": "supabase services --output json",
+
+Semantic/byte-scope result: package.json changed by exactly one added line, the exact script
+required by packet section 5 item 10, with no other byte-level change. No dependency, devDependency,
+pnpm.overrides, engines, or packageManager field was touched. No other existing script was touched.
+
+5. Worktree topology (git worktree list), re-checked after the scope-stop cleanup and after the
+   full gate battery
+-------------------------------------------------------------------------------------------------
+G:/Claude/NoLimits3D-website                                a1840d1 [claude/wpr-m1-baseline-inventory]
+G:/Claude/NoLimits3D-website-blk-base-001-binding-evidence  b96cd17 [codex/blk-base-001-binding-evidence]
+G:/Claude/NoLimits3D-website-blk-base-001-evidence-packet   b96cd17 [codex/blk-base-001-evidence-packet]
+G:/Claude/NoLimits3D-website-claude-wpr-m1-corrected        d7777a8 [claude/wpr-m1-corrected]
+G:/Claude/NoLimits3D-website-claude-wpr-m1-packet           17fa6db [codex/claude-wpr-m1-peer-packet]
+G:/Claude/NoLimits3D-website-pa-ip-001                      02b4878 [codex/pa-ip-001]
+G:/Claude/NoLimits3D-website-sec-wpr-001                    d82e53e [codex/sec-wpr-001]
+G:/Claude/NoLimits3D-website-wpr-007                        aed3e5c [codex/wpr-007-dual-team-activation]
+
+Only `G:/Claude/NoLimits3D-website-claude-wpr-m1-corrected` was written to by Claude. The two
+`blk-base-001-*` worktrees are Atlas Backend's own disjoint track (see overlap-check.md);
+`pa-ip-001` remains historical/dirty/quarantined/HOLD and was not touched; `sec-wpr-001` and
+`wpr-007` are Codex tracks and were not touched; the shared checkout at
+`G:/Claude/NoLimits3D-website` (PR #25's branch) was only read (`git status`, channel file
+append), never had product-code paths touched.
+
+6. PR #25/#26/#27 head verification (independent, via two separate mechanisms)
+--------------------------------------------------------------------------------
+git ls-remote origin (relevant refs):
+  a1840d10c5f95903c3e43be6029fc37c0b7a73c5   refs/heads/claude/wpr-m1-baseline-inventory
+  a1840d10c5f95903c3e43be6029fc37c0b7a73c5   refs/pull/25/head
+  f3f542004e8ff9b81f93332969275bb5d8d4c42f   refs/pull/26/head
+  a42171fc8ea72d5d1754b9551d61ea5e446258e0   refs/pull/27/head
+
+gh pr view --json headRefOid,state:
+  #25 {"headRefOid":"a1840d10c5f95903c3e43be6029fc37c0b7a73c5","state":"OPEN"}
+  #26 {"headRefOid":"f3f542004e8ff9b81f93332969275bb5d8d4c42f","state":"OPEN"}
+  #27 {"headRefOid":"a42171fc8ea72d5d1754b9551d61ea5e446258e0","state":"OPEN"}
+
+Both mechanisms agree and both match packet section 9 acceptance criterion 14 exactly. PR
+#25/#26/#27 are unchanged and remain OPEN, untouched by this packet.
+
+7. ROUND 2 (response to Atlas TPM's 2026-08-13 15:53 CHANGES REQUESTED review, reviewed head
+   `1cf9a1a94e07e9efc388b85bc9842a9ba84923df`): pre-commit-3 snapshot
+--------------------------------------------------------------------------------------------------
+Captured 2026-08-13T14:35:58Z-14:35:59Z, just before the round-2 correction commit -- same
+non-circularity discipline as section 1-6 above; per Codex Root's finite handoff rule (16:26
+entry), this file does not state that commit's own hash. See the handoff section 2 for how to
+resolve it externally.
+
+$ git diff --stat d7777a84f5a397d3332544e5f2f0d73e2d48661d
+(23 files already committed across the first two commits -- the 9 planning/schema deliverables, 12
+evidence files, package.json, and this evidence directory's own files -- unchanged in this diff
+target since HEAD is still `1cf9a1a` at capture time)
+
+$ git status --short
+ M scripts/guards/production-readiness-guard.mjs
+ M scripts/guards/production-readiness-guard.test.mjs
+
+Only the two guard files carry round-2 changes, exactly matching section-5 items 8 and 9. No other
+path is touched.
+
+Worktree topology, re-checked (2026-08-13T14:36:23Z-14:36:29Z):
+G:/Claude/NoLimits3D-website                                   a1840d1 [claude/wpr-m1-baseline-inventory]
+G:/Claude/NoLimits3D-website-blk-base-001-binding-evidence     b96cd17 [codex/blk-base-001-binding-evidence]
+G:/Claude/NoLimits3D-website-blk-base-001-binding-evidence-v2  b96cd17 [codex/blk-base-001-binding-evidence-v2]
+G:/Claude/NoLimits3D-website-blk-base-001-binding-evidence-v3  b96cd17 [codex/blk-base-001-binding-evidence-v3]
+G:/Claude/NoLimits3D-website-blk-base-001-evidence-packet      b96cd17 [codex/blk-base-001-evidence-packet]
+G:/Claude/NoLimits3D-website-claude-wpr-m1-corrected           1cf9a1a [claude/wpr-m1-corrected]
+G:/Claude/NoLimits3D-website-claude-wpr-m1-packet              17fa6db [codex/claude-wpr-m1-peer-packet]
+G:/Claude/NoLimits3D-website-pa-ip-001                         02b4878 [codex/pa-ip-001]
+G:/Claude/NoLimits3D-website-sec-wpr-001                       d82e53e [codex/sec-wpr-001]
+G:/Claude/NoLimits3D-website-wpr-007                           aed3e5c [codex/wpr-007-dual-team-activation]
+
+Two new Atlas Backend worktrees appeared since round 1 (`-v2`, `-v3`); both read-only-inspected,
+both disjoint from this packet's section 5 (see `overlap-check.md`). `pa-ip-001` is dirty
+(uncommitted, pre-existing changes including `package.json`), explicitly dispositioned by Codex
+Root's `16:26` ruling as owning no active write set -- see `overlap-check.md` for the full
+disposition, not repeated here.
+
+PR #25/#26/#27 heads reconfirmed unchanged, again via `git ls-remote origin`:
+  a1840d10c5f95903c3e43be6029fc37c0b7a73c5   refs/pull/25/head
+  f3f542004e8ff9b81f93332969275bb5d8d4c42f   refs/pull/26/head
+  a42171fc8ea72d5d1754b9551d61ea5e446258e0   refs/pull/27/head
+Identical to sections 1-6 above and to Atlas TPM's own independent check.

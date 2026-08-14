@@ -1,0 +1,162 @@
+CLAUDE-WPR-M1-CORRECTED -- canonical AGENTS.md gate order evidence (packet section 10.2)
+Captured 2026-08-12, from the clean implementation worktree, in exact sequence.
+
+POST-REMEDIATION RECONFIRMATION (2026-08-12, same day): after an independent review found and this
+session fixed a guard bypass (see peer-review.md), all 10 canonical commands below were re-run in
+full against the remediated code. Every result below is unchanged (same exit codes, same counts) --
+none of the packet-specific guard fixes touch build/lint/typecheck/test/secret-scan/dependency
+behavior, only scripts/guards/production-readiness-guard.mjs's own logic (see guard-tests.txt for
+the packet-specific gates, which DID change: suite grew 37 -> 76 tests). The one exception is
+format:check, which required a second `prettier --write` pass on the two guard files after their
+remediation edits, exactly as it did once after the initial authoring -- both times immediately
+re-verified clean and with the dedicated test suite re-run to confirm the reformat changed no
+behavior.
+
+ROUND-2 RECONFIRMATION (2026-08-13, start 14:32:53Z end 14:35:46Z, real UTC timestamps -- see
+commands.tsv for the per-command breakdown Atlas TPM's Technical Review required): after Atlas
+TPM's CHANGES REQUESTED verdict and this session's fail-closed-contract-completeness fixes (guard
+suite grew 76 -> 95 tests), all 10 canonical commands below were re-run again in full. Every result
+is again unchanged in exit code and count -- the round-2 guard fixes (category completeness, value
+type/format, date-time validity, real-file consumption proof) are entirely internal to
+production-readiness-guard.mjs and its own test suite, and do not touch build/lint/typecheck/
+test/secret-scan/dependency-audit behavior. format:check again required one `prettier --write` pass
+on the two edited guard files, immediately re-verified clean.
+
+===============================================================================
+1/10: pnpm build -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 build G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> pnpm --recursive --if-present build
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts build: Done
+packages/domain build: Done
+packages/config build: Done
+packages/ui build: vite build -- transforming...2000 modules transformed; dist/styles.css 24.08 kB (gzip 5.51 kB); dist/index.js 267.51 kB (gzip 75.50 kB); built in 1.12s; Done
+apps/ui-playground build: vite build -- 19 modules transformed; dist/index.html 0.40 kB, dist/assets/index-zJ1GbXee.css 28.47 kB, dist/assets/index-B9MkHtMH.js 397.97 kB; built in 312ms; Done
+apps/web build: vite build -- 79 modules transformed; 30 chunked route assets emitted (largest: dist/assets/index-DCat002-.js 346.64 kB / gzip 106.67 kB); built in 751ms; Done
+EXIT=0
+
+===============================================================================
+2/10: pnpm lint -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 lint G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> eslint . --max-warnings=0
+
+(no output -- zero errors, zero warnings, across the full repo including both new guard files)
+EXIT=0
+
+===============================================================================
+3/10: pnpm format:check -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 format:check G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> prettier --check --ignore-unknown --no-error-on-unmatched-pattern package.json pnpm-workspace.yaml tsconfig.json eslint.config.js .prettierrc .env.example .github/**/* apps/**/* docs/source-bindings/**/* packages/**/* scripts/guards/**/* supabase/**/*
+
+Checking formatting...
+All matched files use Prettier code style!
+EXIT=0
+
+Deviation disclosed: on first run, Prettier flagged `scripts/guards/production-readiness-guard.mjs`
+and `scripts/guards/production-readiness-guard.test.mjs` (both freshly authored, not yet
+Prettier-formatted). Ran `pnpm exec prettier --write` on exactly those two files, re-ran the
+dedicated test suite (still 37/37 pass, confirming the reformat changed no behavior), then re-ran
+this check to the clean result above. See peer-review.txt for the full deviation record.
+
+===============================================================================
+4/10: pnpm typecheck -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 typecheck G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> pnpm --recursive --if-present typecheck
+
+Scope: 6 of 7 workspace projects
+packages/api-contracts typecheck: tsc -p tsconfig.json -- Done
+packages/config typecheck: tsc -p tsconfig.json -- Done
+packages/domain typecheck: tsc -p tsconfig.json -- Done
+packages/ui typecheck: tsc -p tsconfig.json -- Done
+apps/ui-playground typecheck: tsc -p tsconfig.json -- Done
+apps/web typecheck: tsc -p tsconfig.json -- Done
+EXIT=0
+
+===============================================================================
+5/10: pnpm test -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 test G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node --test scripts/guards/guards.test.mjs && pnpm --filter @atlas/ui --if-present test && pnpm --filter @atlas/web --if-present test
+
+node --test scripts/guards/guards.test.mjs: 24 tests, 24 pass, 0 fail (this is the existing,
+untouched guards.test.mjs -- packet section 5 item 9 explicitly forbids broadening it; it was not
+modified, only re-run)
+
+@atlas/ui test (vitest run): Test Files 13 passed (13); Tests 137 passed (137); Duration 45.46s
+
+@atlas/web test (vitest run): Test Files 17 passed (17); Tests 162 passed (162); Duration 48.41s
+
+EXIT=0
+Grand total: 24 + 137 + 162 = 323 tests, 323 pass, 0 fail (not counting the 37 dedicated
+production-readiness-guard tests, which are packet-specific evidence, see guard-tests.txt).
+
+===============================================================================
+6/10: pnpm secret:scan -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 secret:scan G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node scripts/guards/secret-scan.mjs
+
+Secret scan fallback: PASS
+EXIT=0
+(See secret-and-client-data-scan.txt for the additional targeted scan specifically covering this
+packet's 9 new deliverable files.)
+
+===============================================================================
+7/10: pnpm dependency:audit -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 dependency:audit G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node scripts/guards/dependency-audit.mjs
+
+Dependency audit scope: 528 registry packages across the workspace
+Dependency audit counts: {"critical":0,"high":0,"moderate":0,"low":0,"info":0,"unknown":0}
+[waived until 2026-11-04] react-router: React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response (https://github.com/advisories/GHSA-qwww-vcr4-c8h2)
+EXIT=0
+
+Zero unwaived Critical/High findings. The one listed advisory is a pre-existing, already-waived
+entry (expires 2026-11-04) that predates this packet; this packet introduced no new dependency,
+override, or waiver.
+
+===============================================================================
+8/10: pnpm guard:scope -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 guard:scope G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node scripts/guards/scope-guard.mjs
+
+Scope and private-route guard: PASS
+EXIT=0
+
+===============================================================================
+9/10: pnpm guard:migrations -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 guard:migrations G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node scripts/guards/migration-guard.mjs
+
+Migration dry-run: NOT_APPLICABLE (no migration SQL files)
+EXIT=0
+(This packet authors no migrations; supabase/** is outside section 5 and was not touched.)
+
+===============================================================================
+10/10: pnpm guard:source-bindings -- EXIT 0
+===============================================================================
+> nolimits3d-platform@0.0.0 guard:source-bindings G:\Claude\NoLimits3D-website-claude-wpr-m1-corrected
+> node scripts/guards/source-binding-guard.mjs
+
+Documentation source-binding guard: PASS
+EXIT=0
+(This is the pre-existing `docs/source-bindings/project-sources.json` Bible-binding guard, distinct
+from this packet's new `WPR-M1-SOURCE-BINDING-CONTRACT.json`; `docs/source-bindings/` was read-only
+for this packet and was not modified.)
+
+===============================================================================
+pnpm test:e2e -- NOT_APPLICABLE, not run, not claimed green
+===============================================================================
+Per packet section 10.3: "`pnpm test:e2e` is `NOT_APPLICABLE` only because `apps/**` and runnable
+app behavior are forbidden [to this packet]." This packet is a planning/contract/guard-only slice
+with zero `apps/**` writes; there is no runnable app-behavior change to exercise end-to-end.
+Accessibility, responsive, browser, visual, and performance UI evidence are likewise
+NOT_APPLICABLE to this slice, not passed, for the same reason. None of this is reported as green.

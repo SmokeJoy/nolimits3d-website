@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nolimits3d.internal/schema/client-data-manifest/2.0.0",
+  "title": "NoLimits3D Client Data Manifest Schema",
+  "description": "Closed-world, versioned contract for CLIENT_DATA_MANIFEST.json (AD-014 section 3.2). Enforced imperatively by scripts/guards/production-readiness-guard.mjs (no schema-validation library is added; the guard hand-implements every rule below, per packet CLAUDE-WPR-M1-CORRECTED section 4's no-new-dependency constraint).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "categories"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/category" }
+    }
+  },
+  "$defs": {
+    "category": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "sourceRef", "fields"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "business-identity",
+            "commerce-catalog",
+            "content-media",
+            "testimonials-claims",
+            "legal-commercial-copy",
+            "provider-credentials"
+          ]
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "sourceRef": { "type": "string", "minLength": 1 },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/field" }
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "required",
+        "valueType",
+        "lifecycleStatus",
+        "value",
+        "provenance",
+        "rightsConsentRequired",
+        "rightsConsentEvidence",
+        "businessApproval",
+        "legalApprovalRequired",
+        "legalApproval",
+        "sourceBinding",
+        "blockingSeverity",
+        "lastVerified"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-zA-Z0-9]*(\\.[a-z][a-zA-Z0-9]*)+$",
+          "description": "Stable, unique across the whole document (checked by the guard, not expressible in per-array JSON Schema alone)."
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" },
+        "valueType": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "array", "object"]
+        },
+        "format": { "type": "string" },
+        "lifecycleStatus": {
+          "type": "string",
+          "enum": ["missing", "draft", "provided_pending_approval", "rejected", "expired", "approved"]
+        },
+        "value": {
+          "description": "Typed value matching valueType/format, or null for explicit absence. Never a placeholder/example/test marker outside a test fixture."
+        },
+        "provenance": {
+          "type": ["string", "null"],
+          "description": "Where the value came from. Required non-null when lifecycleStatus is approved."
+        },
+        "rightsConsentRequired": {
+          "type": "boolean",
+          "description": "True for media/testimonial-class fields per AD-014 section 3.2."
+        },
+        "rightsConsentEvidence": {
+          "type": ["string", "null"],
+          "description": "Required non-null when rightsConsentRequired is true and lifecycleStatus is approved."
+        },
+        "businessApproval": {
+          "anyOf": [{ "$ref": "#/$defs/approvalEvidence" }, { "type": "null" }],
+          "description": "Required non-null when lifecycleStatus is approved."
+        },
+        "legalApprovalRequired": {
+          "type": "boolean",
+          "description": "True for legal-commercial-copy category fields and any field with legal/privacy implications."
+        },
+        "legalApproval": {
+          "anyOf": [{ "$ref": "#/$defs/approvalEvidence" }, { "type": "null" }],
+          "description": "Required non-null when legalApprovalRequired is true and lifecycleStatus is approved."
+        },
+        "sourceBinding": {
+          "type": ["string", "null"],
+          "description": "Binding id referencing an entry in WPR-M1-SOURCE-BINDING-CONTRACT.json. Required non-null when lifecycleStatus is approved."
+        },
+        "blockingSeverity": {
+          "type": "string",
+          "enum": ["blocking", "non-blocking"]
+        },
+        "lastVerified": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Required non-null when lifecycleStatus is approved."
+        }
+      },
+      "if": {
+        "properties": { "lifecycleStatus": { "const": "approved" } }
+      },
+      "then": {
+        "properties": {
+          "value": { "not": { "type": "null" } },
+          "provenance": { "type": "string", "minLength": 1 },
+          "businessApproval": { "type": "object" },
+          "sourceBinding": { "type": "string", "minLength": 1 },
+          "lastVerified": { "type": "string" }
+        }
+      }
+    },
+    "approvalEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["approvedBy", "approvedAt", "evidenceRef"],
+      "properties": {
+        "approvedBy": { "type": "string", "minLength": 1 },
+        "approvedAt": { "type": "string", "format": "date-time" },
+        "evidenceRef": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
