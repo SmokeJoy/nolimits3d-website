@@ -1,0 +1,25 @@
+{
+  "$schemaVersion": "1.0.0",
+  "purpose": "NON-PRODUCTION EXAMPLE ONLY. Demonstrates env-validation-guard.mjs's schema format. Does not declare any real NoLimits3D secret path -- which variables a real deployment requires is an infrastructure decision not yet made (BLK-BASE-001 open, no Architect Review of the real secret list has occurred). Do not treat any name below as a real requirement.",
+  "variables": [
+    {
+      "name": "EXAMPLE_FIXTURE_API_BASE_URL",
+      "required": true,
+      "type": "url",
+      "description": "Example only -- a required URL-shaped variable."
+    },
+    {
+      "name": "EXAMPLE_FIXTURE_FEATURE_FLAG",
+      "required": false,
+      "type": "boolean",
+      "description": "Example only -- an optional boolean-shaped variable."
+    },
+    {
+      "name": "EXAMPLE_FIXTURE_RETRY_COUNT",
+      "required": true,
+      "type": "number",
+      "pattern": "^[0-9]+$",
+      "description": "Example only -- a required numeric variable additionally constrained to digits-only via pattern."
+    }
+  ]
+}
